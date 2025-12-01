@@ -1,10 +1,33 @@
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin,
-      CleanPlugin = require('clean-webpack-plugin'),
-      LodashPlugin = require('lodash-webpack-plugin'),
-      path = require('path'),
-      webpack = require('webpack');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const CleanPlugin = require('clean-webpack-plugin');
+const LodashPlugin = require('lodash-webpack-plugin');
+const path = require('path');
+const webpack = require('webpack');
 
-// Common configuration, with extensions in webpack.dev.js and webpack.prod.js.
+const isAnalyze = process.env.ANALYZE === 'true';
+
+const plugins = [
+    new CleanPlugin(['assets/dist'], {   // 👈 this WAS working before
+        verbose: true,
+        watch: false,                    // 👈 key change: don’t clean on every rebuild
+    }),
+    new LodashPlugin(),
+    new webpack.ProvidePlugin({
+        $: 'jquery',
+        jQuery: 'jquery',
+        'window.jQuery': 'jquery',
+    }),
+];
+
+if (isAnalyze) {
+    plugins.push(
+        new BundleAnalyzerPlugin({
+            analyzerMode: 'static',
+            openAnalyzer: false,
+        })
+    );
+}
+
 module.exports = {
     bail: true,
     context: __dirname,
@@ -20,14 +43,14 @@ module.exports = {
                     loader: 'babel-loader',
                     options: {
                         plugins: [
-                            '@babel/plugin-syntax-dynamic-import', // add support for dynamic imports (used in app.js)
-                            'lodash', // Tree-shake lodash
+                            '@babel/plugin-syntax-dynamic-import',
+                            'lodash',
                         ],
                         presets: [
                             ['@babel/preset-env', {
-                                loose: true, // Enable "loose" transformations for any plugins in this preset that allow them
-                                modules: false, // Don't transform modules; needed for tree-shaking
-                                useBuiltIns: 'usage', // Tree-shake babel-polyfill
+                                loose: true,
+                                modules: false,
+                                useBuiltIns: 'usage',
                                 targets: '> 1%, last 2 versions, Firefox ESR',
                             }],
                         ],
@@ -46,22 +69,7 @@ module.exports = {
         maxAssetSize: 1024 * 300,
         maxEntrypointSize: 1024 * 300,
     },
-    plugins: [
-        new CleanPlugin(['assets/dist'], {
-            verbose: true,
-            watch: true,
-        }),
-        new LodashPlugin, // Complements babel-plugin-lodash by shrinking its cherry-picked builds further.
-        new webpack.ProvidePlugin({ // Provide jquery automatically without explicit import
-            $: 'jquery',
-            jQuery: 'jquery',
-            'window.jQuery': 'jquery',
-        }),
-        new BundleAnalyzerPlugin({
-            analyzerMode: 'static',
-            openAnalyzer: false,
-        }),
-    ],
+    plugins,
     resolve: {
         alias: {
             jquery: path.resolve(__dirname, 'node_modules/jquery/dist/jquery.min.js'),
@@ -73,9 +81,9 @@ module.exports = {
             'svg-injector': path.resolve(__dirname, 'node_modules/svg-injector/dist/svg-injector.min.js'),
             sweetalert2: path.resolve(__dirname, 'node_modules/sweetalert2/dist/sweetalert2.min.js'),
             'jquery-zoom': path.resolve(__dirname, 'node_modules/jquery-zoom/jquery.zoom.min.js'),
-            'fancybox': path.resolve(__dirname, 'node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.js'),
-            'mCustomScrollbar': path.resolve(__dirname, 'node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.js'),
-            'jquery-mousewheel': path.resolve(__dirname, 'node_modules/jquery-mousewheel/jquery.mousewheel.js')
+            fancybox: path.resolve(__dirname, 'node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.js'),
+            mCustomScrollbar: path.resolve(__dirname, 'node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.js'),
+            'jquery-mousewheel': path.resolve(__dirname, 'node_modules/jquery-mousewheel/jquery.mousewheel.js'),
         },
     },
 };

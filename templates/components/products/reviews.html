@@ -1,0 +1,402 @@
+<div class="toggle productReviews" id="product-reviews" data-product-reviews>
+    <div class="toggle-title">
+        <h4 class="page-heading">{{lang 'products.reviews.title'}}</h4>
+        {{#if product.num_reviews '>' 0}}<span class="number-review">{{lang 'products.reviews.header' total=reviews.total}}</span>{{/if}}
+        <a class="write-review" href="{{product.url}}{{#if is_ajax}}#write_review{{/if}}"
+           {{#unless is_ajax }}data-reveal-id="modal-review-form"{{/unless}}>
+           {{lang 'products.reviews.write_a_review'}}
+        </a>
+        <a class="toggleLink is-open" data-collapsible href="#productReviews-content" aria-expanded="true">
+            <svg class="icon"><use xlink:href="#icon-slick-next"/></svg>
+            <span class="toggleLink-text toggleLink-text--on">
+                {{lang 'products.reviews.hide'}}
+            </span>
+            <span class="toggleLink-text toggleLink-text--off">
+                {{lang 'products.reviews.show'}}
+            </span>
+        </a>
+
+        {{#if product.num_reviews '<=' 0}}
+        <p style="margin-top: 5px;">
+            We're currently working to get more reviews for this product. In the meantime, please take a look at our reviews from other platforms.
+        </p>
+        {{/if}}
+    </div>
+
+    
+    <!-- Start Experimental Reviews Section -->
+    {{#if product.num_reviews '<=' 0}}
+    <div class="toggle-content is-open" id="productReviews-content" aria-hidden="true">
+        <ul class="productReviews-list" id="productReviews-list">
+            <li class="productReview">
+                <article itemprop="review" itemscope itemtype="http://schema.org/Review">
+                    <header>
+                        <h5 itemprop="name" class="productReview-title" id="name0"></h5>
+                        <span class="productReview-rating rating--small" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+                            {{> components/products/ratings rating=5}}
+                        </span>
+                            <meta itemprop="author" content="{{name}}">
+                            <p class="productReview-author" id="source0">
+                              
+                            </p>
+                    </header>
+                    <p itemprop="reviewBody" class="productReview-body" id="message0"></p>
+                </article>
+            </li>
+        </ul>
+        <ul class="productReviews-list" id="productReviews-list" style="margin-top:45px;">
+            <li class="productReview">
+                <article itemprop="review" itemscope itemtype="http://schema.org/Review">
+                    <header>
+                        <h5 itemprop="name" class="productReview-title" id="name1"></h5>
+                        <span class="productReview-rating rating--small" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+                            {{> components/products/ratings rating=5}}
+                        </span>
+                            <meta itemprop="author" content="{{name}}">
+                            <p class="productReview-author" id="source1">
+                                
+                            </p>
+                    </header>
+                    <p itemprop="reviewBody" class="productReview-body" id="message1"></p>
+                </article>
+            </li>
+        </ul>
+        <ul class="productReviews-list" id="productReviews-list" style="margin-top:45px;">
+            <li class="productReview">
+                <article itemprop="review" itemscope itemtype="http://schema.org/Review">
+                    <header>
+                        <h5 itemprop="name" class="productReview-title" id="name2"></h5>
+                        <span class="productReview-rating rating--small" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+                            {{> components/products/ratings rating=5}}
+                        </span>
+                            <meta itemprop="author" content="{{name}}">
+                            <p class="productReview-author" id="source2">
+                                
+                            </p>
+                    </header>
+                    <p itemprop="reviewBody" class="productReview-body" id="message2"></p>
+                </article>
+            </li>
+        </ul>
+        <ul class="productReviews-list" id="productReviews-list" style="margin-top:45px;">
+            <li class="productReview">
+                <article itemprop="review" itemscope itemtype="http://schema.org/Review">
+                    <header>
+                        <h5 itemprop="name" class="productReview-title" id="name3"></h5>
+                        <span class="productReview-rating rating--small" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+                            {{> components/products/ratings rating=5}}
+                        </span>
+                            <meta itemprop="author" content="{{name}}">
+                            <p class="productReview-author" id="source3">
+                                
+                            </p>
+                    </header>
+                    <p itemprop="reviewBody" class="productReview-body" id="message3"></p>
+                </article>
+            </li>
+        </ul>
+        <ul class="productReviews-list" id="productReviews-list" style="margin-top:45px;">
+            <li class="productReview">
+                <article itemprop="review" itemscope itemtype="http://schema.org/Review">
+                    <header>
+                        <h5 itemprop="name" class="productReview-title" id="name4"></h5>
+                        <span class="productReview-rating rating--small" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+                            {{> components/products/ratings rating=5}}
+                        </span>
+                            <meta itemprop="author" content="{{name}}">
+                            <p class="productReview-author" id="source4">
+                                
+                            </p>
+                    </header>
+                    <p itemprop="reviewBody" class="productReview-body" id="message4"></p>
+                </article>
+            </li>
+        </ul>
+    </div>
+    {{/if}}
+    <!-- End Experimental Reviews Section -->
+    
+    
+    <div class="toggle-content is-open" id="productReviews-content" aria-hidden="true">
+        <ul class="productReviews-list" id="productReviews-list">
+            {{#each reviews.list}}
+            <li class="productReview">
+                <article itemprop="review" itemscope itemtype="http://schema.org/Review">
+                    <header>
+                        <h5 itemprop="name" class="productReview-title">{{{sanitize title}}}</h5>
+                        <span class="productReview-rating rating--small" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+                            {{> components/products/ratings rating=rating}}
+                            <span class="productReview-ratingNumber" itemprop="ratingValue">{{ rating }}</span>
+                        </span>
+                        {{#if name}}
+                            <meta itemprop="author" content="{{name}}">
+                            <p class="productReview-author">
+                                {{lang 'products.reviews.post_on_by' date=date name=name }}
+                            </p>
+                        {{else}}
+                            <p class="productReview-author">
+                                {{lang 'products.reviews.post_on_by' date=date name=(lang 'products.reviews.anonymous_poster')}}
+                            </p>
+                        {{/if}}
+                    </header>
+                    <p itemprop="reviewBody" class="productReview-body">{{{sanitize text}}}</p>
+                </article>
+            </li>
+            {{/each}}
+        </ul>
+        {{> components/common/paginator pagination.reviews}}
+    </div>
+
+    {{#if product.num_reviews '<=' 0}}
+    <script>
+        const data_list = [
+            {
+            "name": "Michael D'Alonzo",
+            "rating": "5",
+            "message": "Purchased an exhaust for our 2000 Porsche Boxter S.  What a fantastic product. Sound is amazing, and the car does indeed feel a step faster. Customer service follow up was amazing and am already shopping for the next performance upgrade for our 986 Fabspeed manufacturers. Highly recommended.",
+            "source": "Google"
+            },
+            {
+                "name": "Angelo Reyes",
+                "rating": "5",
+                "message": "I have no words to express how wonderful the entire Fabspeed Team - especially Vince Dean and his tremendous advice and guidance - have been as they have helped me achieve the maximum power, sound, and performance from my 2019 Cayman S.  Vince's advice in regards to the MaxFlo Exhaust system was spot on, and the results have been amazing - an exhaust note completely unleashed (especially when in Sport Mode).\n\nGreat communication.  Prompt and most helpful responses and advice. Fabspeed has been a true gem in all respects.  Highly recommend this team.",
+                "source": "Google"
+            },
+            {
+                "name": "Joshua Sean",
+                "rating": "5",
+                "message": "Fabspeed Motorsport embodies an all-encompassing, industry-leading, meaningful experience one would ideally envision when engaging an automotive performance company for aftermarket exhaust and performance upgrades. Their passion for designing, engineering, and manufacturing the very best in exotic car performance exhaust is not only displayed in their excellent craftsmanship and elite engineering prowess, but their dedication to the customer and the customer's happiness. After purchasing the GT450 Race Performance Package for the 981 GT4, we literally felt like we were indoctrinated into the Fabspeed family. Red carpet was rolled out for us, communication was effortless and fun, and every team member we have ever had the pleasure of working with sincerely cares about our happiness and experience. Phil and Jason have gone well above and beyond expectations to ensure we are more than satisfied with our purchase and driving experience. This isn’t so much a review, but rather a wake-up call to other companies in the aftermarket automotive industry. Fabspeed Motorsport sets the bar for performance, sound, quality, and customer service in custom exotic car performance fabrication, leading by example through tireless and discerning engineering practices and fostering true connections and relationships with their customers (extended family). I recommend Fabspeed Motorsport for exotic car performance exhaust and upgrades to anyone who values objective performance, elite quality, steadfast expertise, and an honest and true sense of community in the automotive industry. Thank you Fabspeed Motorsport for a truly one-of-a-kind, elite experience.\n-Joshua (Tracking Ponies)",
+                "source": "Google"
+            },
+            {
+                "name": "Zach Fowler",
+                "rating": "5",
+                "message": "Fabspeed earned these 5 stars. They design and deliver amazing products. They also stand behind their products. I purchased their Porsche 981 X-pipes as well as their proprietary tune. The XperTune made an immediate difference in my base Boxster (2.7 H6). It’s well worth the price in my opinion. The car is so much more fun to drive now!\n\nMy Fabspeed purchases exceeded my expectations. Joe and Justin made the tune upgrade process seamless and their customer experience and support are industry leading. Fabspeed is the only business I’ll return to for my Porsche needs if I can help it.",
+                "source": "Google"
+            },
+            {
+                "name": "Feraz S",
+                "rating": "5",
+                "message": "Extremely high quality product and great comms with their team. I bought the Fabspeed X Pipe and 200 cell Sports cats which have been fitted to my 1997 Porsche 993 C2S widebody for several months now and they are excellent! Firstly, they arrived in the UK carefully packaged and looking like works of art and much lighter than the stock item. The Porsche shop that fitted them for me were also very impressed with the quality and the perfect fitment.\n\nI have combined the Fabspeed X Pipe and Sports cat with the Fister Stage I which in my mind is perfect – a more throaty cold start which settles to a nice idle and produces a more aggressive tone at higher revs and enhances the classic air cooled sound without being too loud and has zero drone. Engine responsiveness and urgency also seems to have improved.\n\nThe car sounds great and I am regularly asked for the details of the exhaust set up.",
+                "source": "Google"
+            },
+            {
+                "name": "Maxant Industries",
+                "rating": "5",
+                "message": "Total satisfaction! The crew at Fabspeed is top notch and makes a incredible product.\nMy Porsche has come alive with their new sport cats. Look forward to adding more products from Fabspeed.",
+                "source": "Google"
+            },
+            {
+                "name": "Wesley Cherry",
+                "rating": "5",
+                "message": "Fabspeed did everything they could to help me with my exhaust system for my 718 GT4 (Miami Blue baby!).  Joe Torchiana was my point of contact and he was exceedingly helpful throughout the whole process.  I can’t recommend them more highly.  The exhaust sounds great and really opens up the noise given the addition of the GPF on the 718 series.  Thanks!",
+                "source": "Google"
+            },
+            {
+                "name": "Martin Engster",
+                "rating": "5",
+                "message": "Great team and outstanding products.  Thank you DJ for all your help getting my Porsche 991.1 all setup and sounding amazing.",
+                "source": "Google"
+            },
+            {
+                "name": "Louis D'Amelio",
+                "rating": "5",
+                "message": "Was there for  Porsche club event. Staff was incredibly knowledgeable and helpful with my questions about track upgrades for my car. The place was as clean as an operating room. Attention to detail in their engineering and fabrication were impressive. Looking forward to having them do some work for me.",
+                "source": "Google"
+            },
+            {
+                "name": "Philip Powell",
+                "rating": "5",
+                "message": "Scott K was my sales person. He responded immediately on the web and continued to deal with me on the phone. I purchased a valvetronic system for my R8 and it came out beautifully. We had a hiccup during the process where the system failed their QC process. It took an additional 3 days to get the exhaust, but the expedited it and threw in some swag for the trouble. All-in-all, these guys know how to deal with supercar customers and want to make sure that the VERY small community is well cared for. I'm incredibly happy so far and would highly recommend them.",
+                "source": "Google"
+            },
+            {
+                "name": "Jean Joseph Canale",
+                "rating": "5",
+                "message": "i have made the installation of the FABSPEED Sport cats and Sport headers on my 2017 Porsche 991.2 Carrera 4 cab at my Porsche Center yesterday and iam very satisfied.\n\nStill quiet when the PSE is off and very loud in sport and sport+ mode, i like so much the backfire who are this time stronger and the turbo noise who is more noticeable.\n\nIam very happy of the sound a lot better of the original one, thanks you FABSPEED",
+                "source": "Google"
+            },
+            {
+                "name": "Rashed AlOmran",
+                "rating": "5",
+                "message": "Amazing service, very welcoming and professional staff. Great facility they have, you can do almost anything you want to your car in their facility. Scott helped me out and got me everything I needed. Only bad thing I would say is their hourly rates are pricey, but honestly amazing job they do. 100% recommend this place to anyone with a modern European sports car.\n\nThanks Scott and Joe",
+                "source": "Google"
+            },
+            {
+                "name": "Jonathan Cordoba (Founder CEO CarBuddy)",
+                "rating": "5",
+                "message": "By far the most professional and experienced when it comes to Exotic Motorsports, Performance and Tuning. I have been to many of their shows, and have had Maserati Tuning done here! Definitely recommended as well as their Exotic Shows are a great fun time for the whole family!",
+                "source": "Google"
+            },
+            {
+                "name": "Vincent Rovito",
+                "rating": "5",
+                "message": "Very special thank you to DJ at Fabspeed. DJ answered my call late in the business day. We chatted about exhaust options available for my air cooled Porsche. He was very patient and knowledgeable. I told him I'd call the next day to follow up as I wanted to do more research on their products. I call the next day, speak to DJ, and settle on several performance parts for my Porsche. Best part, all items were in stock and able to be picked up since I'm local to their shop.\n\nI arrive at the shop at the agreed upon time. Items were already packaged and ready for pick up. The cherry on top was an offer from DJ to tour the shop and see \"where the magic happens.\" I really appreciated this and enjoyed hearing about how Fabspeed started and where it's headed. Now that I'm part of their community, I'm looking forward to attending their open houses.\n\nI will be back in the future. Fabspeed is more than a \"shop.\" They want to build lasting relationships with their clients while remaining on the cutting edge of product development. Kudos to the entire team.",
+                "source": "Google"
+            },
+            {
+                "name": "michael feauto",
+                "rating": "5",
+                "message": "I absolutely love my new X Pipe exhaust for my Porsche Cayman. There was an issue with the new exhaust tips fitting correctly. I contacted Fabspeed and spoke with Ted. Their customer service is beyond anything I have ever experienced before. Ted shipped me a set of new exhaust tips and they fit perfectly. I've gotten many compliments on how they transform the look of the car. I will be ordering a full exhaust sometime next year and am excited it will be from Fabspeed. I recommend this company 12/10.",
+                "source": "Google"
+            },
+            {
+                "name": "Jon Washington",
+                "rating": "5",
+                "message": "Purchased the Competition Intake System from Fabspeed for my 996 Carrera. Fast shipping and great quality. The fit and finish of this product is second to none. Installation took no time at all and the mod really livens up the car. When you're at 4k rpm the noise that comes from that thing is incredible. Great customer service that quickly answers any questions too.\nI plan on buying headers from them this winter.",
+                "source": "Google"
+            },
+            {
+                "name": "Anthony DiGiovanni",
+                "rating": "5",
+                "message": "Just got my Fabspeed Maxflo Mufflers installed on my BMW E90 M3! Could not be happier.\n\nI have a fully catless setup, and had trouble finding a suitable rear section that would bring the car to reasonable volume levels, reduce drone, and cut down on the inherent \"raspiness\" of the S65. This exhaust ticks all the boxes!\n\nThe volume level is surprisingly tame for the car being fully catless, but certainly louder than the stock rear section. In-cabin noise or \"drone\" while cruising is greatly reduced compared to the muffler delete I was running previously. Exhaust is absolutely perfect for a daily driver. The \"rasp\" is just right as well. Sounds incredible on the downshifts. Power and low end torque, surprisingly enough, increased greatly. I keep getting compliments from people at car shows, gas stations, and even at stoplights.\n\nFabspeed was an excellent company to deal with as well. The owner Joe Fabiani is a stand up guy, and scheduled me in super early on a Wednesday morning so I could make a business meeting later in the day. The service was fast and professional, and their tech Dustin walked me through the exhaust setup on my car, and allowed me to customize my choice of tips, and assure their placement is perfectly to my liking.\n\nI've read some distasteful reviews of Fabspeed as of late, but the majority of them are frankly not true. I am a former employee of the company, and have seen all the ins and outs of the sales team and fabrication facility. There is nothing out of the ordinary to see, and they will give any walk in customer a full tour of the facility showing off the cool equipment that they have to produce their systems.\n\nThe recent slew of slander and distasteful reviews stem from one customer who tracked his car with a Fabspeed product not designed for the track, voided his warranty, and was stuck with the product. Fabspeed eventually made the situation right, but this customer has a reputation for slandering other businesses and throwing them under the bus for his own personal gain. It is painful to watch a company such as Fabspeed have to endure something like this, hence why I feel the need to address it in this review.\n\nOverall, great friendly service, awesome product, cool facility, and one AMAZING sound!",
+                "source": "Google"
+            },
+            {
+                "name": "Ryan Bean",
+                "rating": "5",
+                "message": "Welcome to the jungle! My C8 Corvette with Fabspeed sport cats, full exhaust is unmatched in the game! Compliments everyday I take it out! Couldn’t be happier with the craftsmanship and service from Fabspeed Sports thank you!!!!",
+                "source": "Google"
+            },
+            {
+                "name": "Rob Bianchin",
+                "rating": "5",
+                "message": "I had heard great things about Fabspeed from others in the industry but my expectations were definitely exceeded with this project. The team at Fabspeed went above and beyond when developing and building the exhaust system for our NSX. With the pictures and video commentary, they made us feel like we were a part of the action and that isn’t an easy to do when you are 800kms away and in another country.\n\nI know that there were many skilled hands that were involved with making this project come to life and I would like to extend our thanks to the entire team. Moreover, I’d like to take a minute to emphasize how much I appreciated having Alec quarterback this engagement. He was a key part in making this happen and was patient, professional, and extremely responsive at all hours of the day/night. The NSX was greatly missed while it was gone but it came back with a new set of lungs and the sound is much more fitting of a car in its class.\n\nWe are already considering working with them on another project and I would highly recommend them.",
+                "source": "Google"
+            },
+            {
+                "name": "Joe Calvo",
+                "rating": "5",
+                "message": "I purchased the front licence plate bracket for my F430 and couldn't be more pleased.Install time 10 minutes, fits perfectly,looks great and you don't have to drill any holes in your $10,000.00 front bumper . A Plus all the way!",
+                "source": "Google"
+            },
+            {
+                "name": "Shelby LeDoux",
+                "rating": "5",
+                "message": "Firstly, I want to start off by complimenting the customer service I received from Fabspeed. I worked with Gary from the beginning and he was nothing but helpful, answering all of my questions and helping me understand exactly what I wanted for my car. Once I picked out what I wanted, the ordering process was easy and the package came FAST! Install was easy and the end results were AMAZING. Simply installing their headers took my car from sounding cool to COOL!! I get so many compliments on how the car sounds and everyone is blown away to learn that I only installed headers with no tune. I could not be happier with the result, especially at a relatively low cost. THANK YOU FABSPEED!! Can't wait to work with this company again in the future.",
+                "source": "Google"
+            },
+            {
+                "name": "Impacting You",
+                "rating": "5",
+                "message": "Cool Cars. The staff took time to show the kids around and talk to them about cars. They let the kids sit inside these cars and the work they were doing on exotic cars was amazing. They let us take pictures. It was fun experience.",
+                "source": "Google"
+            },
+            {
+                "name": "Cameron W.",
+                "rating": "5",
+                "message": "Been a regular customer for a while now and I must say that they're the best at what they do! Bought a number of upgrades for my 991.1 911 Turbo from Scott and absolutely love the extra power and sounds! Top notch quality and service, would recommend to anyone looking to upgrade their car at any level of performance.",
+                "source": "Yelp"
+            },
+            {
+                "name": "Kurt R.",
+                "rating": "5",
+                "message": "I purchased an exhaust system  from FS over 2 years ago for my 997.2 C2S.  The sound was just glorious and I was pleased with the purchase.  Unfortunately, last month, a weld broke on one of the mufflers and I needed it repaired.   \nAfter one phone call, I could tell this company takes customer service seriously.   In a world of voice mail and self help, Everyone I spoke with was very professional.  In fact, Brian Jamison proactively called me 2 times and sent follow up emails, to keep me updated during the process.  \nFabspeed completely warranted their work and sent me 2 brand new mufflers with an improved design.   (Not only is the engineering more simplistic but the welds and workmanship are gorgeous.  They aligned perfectly and went on in minutes.)\nVery impressed with this company, its people, and it's product.",
+                "source": "Yelp"
+            },
+            {
+                "name": "James W.",
+                "rating": "5",
+                "message": "I purchased the Sport Headers for my Porsche 981 and it was worth every penny!  They sound so much better than factory.  I noticed improved throttle response and more pull when accelerating.  Alec and Jason were my customer service contacts and they were friendly, knowledgeable, and helped me make the best decision for my car.  Clean welds, superior craftsmanship, and no CEL.  I will definitely be going with Fabspeed again when it comes time to upgrade the exhaust.  No regrets and very pleased with my experience.",
+                "source": "Yelp"
+            },
+            {
+                "name": "Benjamin B.",
+                "rating": "5",
+                "message": "I have nothing but good stuff to day about working with Fabspeed. From start to finish which includes working with someone on message boards for my M235i, finishing the sale, the product finish, and the east of installation and and final look and sound with my sport cat and muffler delete system with some awesome carbon fiber tips.",
+                "source": "Yelp"
+            },
+            {
+                "name": "Joe L.",
+                "rating": "5",
+                "message": "Great support from Alec. Extremely knowledgeable, I asked a ton of questions and answered everyone patiently. Look forward to my new Porsche upgrade.",
+                "source": "Yelp"
+            },
+            {
+                "name": "Brian Y.",
+                "rating": "5",
+                "message": "I have been using Fabspeed products in my cars. I've tried different things, Resonator bypass X-Pipe, Sports headers and blankets and others on my Ferrari, Audi, Porsche, Maserati, etc.... They are reliable as advertised and have a great customer supporting system available everywhere. I have a great confidence in their products and will continue to use them in future... A reliable company that really follows up with you.",
+                "source": "Yelp"
+            },
+            {
+                "name": "Rob C.",
+                "rating": "5",
+                "message": "months before i put down my deposit on my custom ordered P car, i already knew which exhaust was going on it.  even though there weren't any youtube vids of the system, i relied on the opinion of the Fabspeed employee and other forum members who had the system on their cars to tell me the characteristics of the exhaust.  so, when there was a Father's Day sale, i pounced on it and had the exhaust sitting in my living room several weeks before i took delivery of my car.  craftsmanship on the macan turbo slip system is flawless.  no damage during shipping transit, either.  the CF tips look awesome.  install, done by a specialty shop near me, was done within 1.5 hours.  system sounds exactly how i wanted it to sound; loud, pops, bangs, burbles, etc., etc.  i even ordered some extra decals and they were kind enough to not charge me for shipping!  now that's customer service.",
+                "source": "Yelp"
+            },
+            {
+                "name": "Louis E.",
+                "rating": "5",
+                "message": "I reached out to Fabspeed via their chat feature on their website and made a deal with their representative on the spot.  They called me within a matter of minutes to get my information and a few days later I had my exhaust for my 1988 Carrera.  Perfect fit and finish!  And did I mention it sounds great!\n\nLouis\nHouston, TX\nIG: @thirdcoast911",
+                "source": "Yelp"
+            },
+            {
+                "name": "Mike L.",
+                "rating": "5",
+                "message": "Couldn't be happier. I wanted to add a little power to my Porsche 911 Carrera S (997.1) but didn't want check engine lights or obnoxious sound. I worked with Jason and ended up getting a GT3 throttle body and an IPD plenum with a BMC air filter and the famous Fabspeed Sport exhaust. I seriously couldn't be happier. Talk about bang for your buck! It's a whole new car. Everything works together perfectly. No torque loss at all, in fact, I found some. Mid range is more alive and she just doesn't stop pulling now. The sounds is pretty much the same at low RPMs but my God when you jump on it, it sounds fantastic. No highway drone at all. I was considering the x-pipe cat delete but Jason explained that Porsches, especially naturally aspirated (non turbo) like a little back pressure and if I was not looking for too aggressive sound I should stick with what he suggested. He knows his stuff because the car is now exactly everything I had hoped for. Best car money I have ever spent.",
+                "source": "Yelp"
+            },
+            {
+                "name": "Mike L.",
+                "rating": "5",
+                "message": "i have their secondary cat by pass pipes and maxflow mufflers on my 958s.  i also have their supersport exhaust on my 991.  both sound amazing.  i recently had a minor concern/problem and contacted them.  john palo reached out to me the next day and sorted everything out.  its been well over a year since i purchased and he took care of me no questions asked.  johns customer service is top notch and i just wanted to write this review to thank him.   great products and even better customer service, thanks fabspeed and john!",
+                "source": "Yelp"
+            },
+            {
+                "name": "Randy M.",
+                "rating": "5",
+                "message": "Joe and Amanda saves a bad situation. My friend is getting his exhaust for his 911. Looking forward to the improved sound and feedback.",
+                "source": "Yelp"
+            },
+            {
+                "name": "Danielle L.",
+                "rating": "5",
+                "message": "Just ordered some parts from Scott at Fabspeed and let me tell you--EXCELLENT customer service! I'm super excited to get my bypass pipes! After talking with Scott I definitely felt more comfortable with my decision to buy these pipes from this company!",
+                "source": "Yelp"
+            },
+            {
+                "name": "Larry F.",
+                "rating": "5",
+                "message": "Had a great customer experience with Fabspeed.  Highly recommend.  My catalytic converters failed on my 2006 Cayman S and I contacted Fabspeed for advice.  I got their Sport Headers and it works great - improved sound, a bit more power, and no check engine light.  I also considered other exhaust upgrades and they worked with me to evaluate the pros of cons of different options and I found them very understanding and supportive of my preferences.  And when I had questions or concerns, I found their customer service exceptional.  They stand by their product 100%.",
+                "source": "Yelp"
+            },
+            {
+                "name": "Carl Conway",
+                "rating": "5",
+                "message": "These people really know what they're talking about.\nI spoke on the phone with Phil a few days ago for more information on the M3 Valvetronic system. He answered all of my questions, and yesterday I received my system. I dropped off my car to the shop this morning, and I just drove it home. There were no issues with install, and my car has become an entirely new beast. Thank you Fabspeed!",
+                "source": "Google"
+            },
+            {
+                "name": "mario bellavia",
+                "rating": "5",
+                "message": "The team at Fabspeed is amazing!  Their customer service, one on one consultation process, and performance packages are the best in the business.  The shop is spotless, the décor is any man's dream cave.",
+                "source": "Google"
+            },
+            {
+                "name": "Mark Russell",
+                "rating": "5",
+                "message": "Great experience working with Scott and the Fabspeed team.  Cobb Stage 1 tune for my Macan blew away my expectations!  Look forward to visiting the shop soon.  Cheers!",
+                "source": "Google"
+            },
+        ];
+    </script>
+    <script>
+        let _length = 5
+        let arr = []
+        const random = (min, max) => Math.floor(Math.random() * (max - min)) + min;
+        while (arr.length < _length){
+            let randomNum = random(0, data_list.length)
+            if(!arr.includes(randomNum)){
+                arr.push(randomNum)
+            }
+        }
+        for(var i = 0; i < arr.length; i++){
+            document.getElementById("name" + i).innerHTML = data_list[arr[i]].name
+            document.getElementById("message" + i).innerHTML = data_list[arr[i]].message
+            document.getElementById("source" + i).innerHTML = "Posted from " + data_list[arr[i]].source
+        }      
+    </script>
+    {{/if}}
+</div>
+
+{{{snippet 'reviews'}}}

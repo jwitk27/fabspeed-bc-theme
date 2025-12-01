@@ -1,0 +1,89 @@
+// =============================================================================
+// BREADCRUMBS (CSS)
+// =============================================================================
+//
+//
+// 1. Hide breadcrumbs on mobile-sized screens to improve screen real estate.
+//
+// 2. Since our breadcrumbs are centred with a variable width, we need to use
+//    display: inline-block; on the breadcrumbs. Hence needing to remove the
+//    white-space with font-size: 0;
+//    The font-size is reset in the breadcrumb settings file.
+//
+// -----------------------------------------------------------------------------
+
+
+.breadcrumbs {
+    margin: 0;
+    z-index: 5;
+    font-size: 0;
+    display: none;
+    line-height: 1;
+    text-align: left;
+    position: relative;
+}
+
+.breadcrumb {
+    float: none;
+    line-height: 1;
+    padding: 5px 0;
+    vertical-align: top;
+    display: inline-block;
+    color: stencilColor('breadcrumb-color');
+    font-size: $body-fontSize;
+    background-color: transparent;
+    a {
+        color: stencilColor('breadcrumb-color');
+        text-transform: capitalize;
+        &:hover {
+            color: stencilColor('breadcrumb-color');
+        }
+    }
+    &:before {
+        color: stencilColor('breadcrumb-color');
+        content: ">";
+        font-family: "Poppins", Arial, Helvetica, sans-serif;
+    }
+    &:first-child:before {
+        content: none;
+    }
+    &.is-active {
+        > .breadcrumb-label {
+            color: stencilColor('breadcrumb-color');
+            cursor: text;
+        }
+    }
+}
+
+.breadcrumb-label {
+    text-decoration: none;
+}
+
+.themevale_breadcrumb,
+.themevale_breadcrumbCategory {
+    display: block;
+    text-align: left;
+    padding: 20px 0;
+    color: stencilColor('breadcrumb-color');
+    p {
+        margin: 0;
+    }
+    .page-heading {
+        margin: 0;
+        color: stencilColor('themevale_category-heading');
+        + p {
+            margin-top: 20px;
+        }
+    }
+    @include breakpoint("small") {
+        padding: 20px 0 35px 0;
+        .breadcrumbs {
+            display: block;
+            + #search-results-heading,
+            + .page-heading {
+                margin-top: 15px;
+                margin-bottom: 0;
+            }
+        }
+    }
+}

@@ -1,0 +1,23 @@
+<section class="themevale_section padding-top-70 padding-bottom-70">
+    <div class="container">
+        <ul class="tabs tabs-custom" data-tab data-themevale-products-by-category-id-tabs role="tablist">
+            <li class="tab is-active" role="presentation">
+                <a class="tab-title" href="#category_1" role="tab" tabindex="0" aria-selected="true" aria-controls="category_1">{{theme_settings.themevale_tab-category1-name}}</a></li>
+            <li class="tab" role="presentation">
+                <a class="tab-title" href="#category_2" role="tab" tabindex="0" aria-selected="false" aria-controls="category_2">{{theme_settings.themevale_tab-category2-name}}</a></li>
+            <li class="tab" role="presentation">
+                <a class="tab-title" href="#category_3" role="tab" tabindex="0" aria-selected="false" aria-controls="category_3">{{theme_settings.themevale_tab-category3-name}}</a></li>
+        </ul>
+        <div class="tabs-contents">
+            <div class="tab-content is-active" id="category_1" role="tabpanel" aria-hidden="true">
+                {{> components/themevale/homepage/component/ajax-products-by-category-id-tabs-content category_id=theme_settings.themevale_tab-category1-id}}
+            </div>
+            <div class="tab-content" id="category_2" role="tabpanel" aria-hidden="false">
+                {{> components/themevale/homepage/component/ajax-products-by-category-id-tabs-content category_id=theme_settings.themevale_tab-category2-id}}
+            </div>
+            <div class="tab-content" id="category_3" role="tabpanel" aria-hidden="false">
+                {{> components/themevale/homepage/component/ajax-products-by-category-id-tabs-content category_id=theme_settings.themevale_tab-category3-id}}
+            </div>
+        </div>
+    </div>
+</section>

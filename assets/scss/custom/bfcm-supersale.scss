@@ -1,0 +1,109 @@
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    grid-column-gap: 5px;
+}
+
+.calendar-day {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    border: 2px solid #ddd;
+    padding: 5px;
+    text-align: center;
+    position: relative;
+    border-radius: 10px;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+    background-color: #D72028;
+}
+
+.calendar-day img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 15px;
+    margin-bottom: 15px;
+}
+
+.calendar-day p {
+    height: 60px;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    color: white;
+    font-family: Rajdhani, Arial, Helvetica, sans-serif;
+    font-weight: 400;
+}
+
+.intro a {
+    color: #fff;
+    font-family: Rajdhani, Arial, Helvetica, sans-serif;
+}
+
+@media (min-width: 768px) {
+    .calendar-day p {
+        font-size: 20px;
+    }
+}
+
+.section-title {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+    width: 100%;
+    font-size: 24px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-decoration: underline;
+    font-family: Rajdhani, Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #383e47;
+}
+
+.product-card {
+    display: flex;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 10px;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.header-text p {
+    font-size: 15px;
+    text-align: center;
+}
+
+.mobile-only {
+    display: none;
+}
+
+/* RESPONSIVE FIX: 2 products per row on mobile */
+@media (max-width: 768px) {
+    .calendar-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .product-card {
+        margin: 5px;
+    }
+
+    .calendar-day p {
+        font-size: 16px;
+    }
+
+    .mobile-only {
+        display: block;
+    }
+}

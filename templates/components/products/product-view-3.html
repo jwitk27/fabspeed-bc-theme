@@ -1,0 +1,308 @@
+<div data-categories="{{join product.category '/'}}" class="productView themevale_productView" {{#if settings.data_tag_enabled}} data-event-type="product" data-entity-id="{{product.id}}" data-name="{{product.title}}" data-product-category="{{#each product.category}}{{#if @last}}{{this}}{{else}}{{this}}, {{/if}}{{/each}}"
+    data-product-brand="{{product.brand.name}}" data-product-price="{{#if product.price.with_tax}}{{product.price.with_tax.value}}{{else}}{{product.price.without_tax.value}}{{/if}}" data-product-variant="single-product-option" {{/if}}>
+    {{#each product.reviews.messages}} {{#if error}} {{> components/common/alert-error error}} {{/if}} {{#if success}} {{> components/common/alert-success success}} {{/if}} {{/each}}
+    <div class="themevale_productView-left">
+        <div class="productView-images">
+            <div class="themevale_badges">
+                {{#each products.new}} {{#if this.id '==' ../product.id}}
+                <div class="new-badge themevale_badge">
+                    <span class="text">{{lang 'products.badges.new'}}</span>
+                </div>
+                {{/if}} {{/each}} {{#or product.price.non_sale_price_with_tax product.price.non_sale_price_without_tax}}
+                <div class="sale-badge themevale_badge">
+                    <span class="text">{{lang 'products.badges.sale'}}</span>
+                </div>
+                {{/or}} {{#each product.custom_fields}} {{#if name '===' 'customlabel'}}
+                <div class="custom-badge themevale_badge">
+                    <span class="text">{{{value}}}</span>
+                </div>
+                {{/if}} {{/each}} {{#if product.out_of_stock_message}}
+                <div class="soldOut-badge themevale_badge">
+                    <span class="text">{{lang 'products.badges.sold_out'}}</span>
+                </div>
+                {{/if}}
+            </div>
+            <div class="themevale_productViewImage zoom-image" data-image-gallery>
+                <figure class="productView-image" data-image-gallery-main {{#if product.main_image}}data-zoom-image="{{getImage product.main_image 'zoom_size' (cdn theme_settings.default_image_product)}}" {{/if}}>
+                    <div class="productView-img-container">
+                        {{#if product.main_image}}
+                        <a href="{{getImage product.main_image 'zoom_size' (cdn theme_settings.default_image_product)}}" data-reveal-id="video-gallery-pc-popup">
+                        {{/if}}
+                            <img class="productView-image--default lazyload"
+                                 data-sizes="auto"
+                                 src="{{cdn 'img/loading.svg'}}"
+                                 data-src="{{getImage product.main_image 'product_size' (cdn theme_settings.default_image_product)}}"
+                                 alt="{{product.main_image.alt}}" title="{{product.main_image.alt}}" data-main-image>
+                        {{#if product.main_image}}
+                            </a> {{/if}}
+                    </div>
+                    <div class="hover-to-zoom">
+                        <svg class="icon"><use xlink:href="#icon-search"></use></svg>
+                        <span class="text">{{lang 'products.click_zoom'}}</span>
+                    </div>
+                </figure>
+                <ul class="productView-thumbnails">
+                    {{#each product.images}}
+                    <li class="productView-thumbnail">
+                        <a class="productView-thumbnail-link" href="{{getImage this 'product_size' (cdn ../theme_settings.default_image_product)}}" data-reveal-id="video-gallery-pc-popup" data-image-gallery-item data-image-gallery-new-image-url="{{getImage this 'product_size' (cdn ../theme_settings.default_image_product)}}"
+                            data-image-gallery-zoom-image-url="{{getImage this 'zoom_size' (cdn ../theme_settings.default_image_product)}}">
+                            <img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="{{getImage this 'productview_thumb_size' (cdn ../theme_settings.default_image_product)}}" alt="{{this.alt}}" title="{{this.alt}}">
+                        </a>
+                    </li>
+                    {{/each}} {{#if product.videos}}
+                    <li class="productView-thumbnail-custom">
+                        <a class="video-link" href="javascript:void(0)" data-reveal-id="video-gallery-pc-popup" data-video-icon>
+                            <span class="icon"><img src="/product_images/uploaded_images/{{theme_settings.product_video-image}}" alt=""></span>
+                            <span class="text">{{theme_settings.product_video-text}}</span>
+                        </a>
+                    </li>
+                    {{/if}} {{> components/themevale/product/customfields-instruction-warranty}}
+                </ul>
+            </div>
+            <div class="themevale_productViewImage themevale_productViewImage-mobile" data-image-gallery-mobile>
+                <div class="productView-image-mobile">
+                    {{#each product.images}}
+                    <figure class="productView-image" data-image-gallery-main data-fancybox="images" href="{{getImage this 'zoom_size' (cdn ../theme_settings.default_image_product)}}" data-zoom-image="{{getImage this 'zoom_size' (cdn theme_settings.default_image_product)}}">
+                        <div class="productView-img-container">
+                            <a href="{{getImage this 'zoom_size' (cdn theme_settings.default_image_product)}}">
+                                <img class="productView-image--default lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="{{getImage this 'product_size' (cdn theme_settings.default_image_product)}}" alt="{{product.main_image.alt}}" title="{{product.main_image.alt}}"
+                                    data-main-image>
+                            </a>
+                        </div>
+                    </figure>
+                    {{/each}}
+                </div>
+                <ul class="productView-thumbnails-mobile">
+                    {{#if product.videos.list.length}}
+                    <li class="productView-thumbnail-custom">
+                        <a class="video-link" href="javascript:void(0);" data-reveal-id="video-gallery-popup">
+                            <span class="icon"><img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.product_video-image}}" alt=""></span>
+                            <span class="text">{{theme_settings.product_video-text}}</span>
+                        </a>
+                        {{> components/themevale/product/video-gallery product.videos}}
+                    </li>
+                    {{/if}} {{> components/themevale/product/customfields-instruction-warranty}}
+                </ul>
+            </div>
+            <!--<div class="themevale_ask-an-experts">
+                <div class="contact">
+                    <div class="image-contact">
+                        <img src="/product_images/uploaded_images/{{theme_settings.product_contact-image}}" alt="">
+                    </div>
+                    <div class="content-contact">
+                        <p class="text">{{theme_settings.products_contact-questions}}</p>
+                        <div class="link">
+                            <a class="number-phone" href="tel:{{theme_settings.products_contact-phone}}">{{theme_settings.products_contact-phone}}</a>
+                            <a href="#" data-reveal-id="ask-an-expert">
+                                {{theme_settings.products_contact-ask-experts}}
+                                <svg class="icon"><use xlink:href="#icon-slick-next"></use></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <ul class="services">
+                    <li class="item">
+                        <div class="service-item">
+                            <div class="icons">
+                                <i class="icon"><svg><use xlink:href="#{{theme_settings.products_services-icon-1}}"></use></svg></i>
+                            </div>
+                            <div class="content">
+                                <h4 class="title">{{theme_settings.products_services-title-1}}</h4>
+                                <p class="description">{{theme_settings.products_services-content-1}}</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item">
+                        <div class="service-item">
+                            <div class="icons">
+                                <i class="icon"><svg><use xlink:href="#{{theme_settings.products_services-icon-2}}"></use></svg></i>
+                            </div>
+                            <div class="content">
+                                <h4 class="title">{{theme_settings.products_services-title-2}}</h4>
+                                <p class="description">{{theme_settings.products_services-content-2}}</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item">
+                        <div class="service-item">
+                            <div class="icons">
+                                <i class="icon"><svg><use xlink:href="#{{theme_settings.products_services-icon-3}}"></use></svg></i>
+                            </div>
+                            <div class="content">
+                                <h4 class="title">{{theme_settings.products_services-title-3}}</h4>
+                                <p class="description">{{theme_settings.products_services-content-3}}</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item">
+                        <div class="service-item">
+                            <div class="icons">
+                                <i class="icon"><svg><use xlink:href="#{{theme_settings.products_services-icon-4}}"></use></svg></i>
+                            </div>
+                            <div class="content">
+                                <h4 class="title">{{theme_settings.products_services-title-4}}</h4>
+                                <p class="description">{{theme_settings.products_services-content-4}}</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>-->
+        </div>
+    </div>
+    <div class="themevale_productView-right">
+        <div class="productView-details">
+            <div class="productView-product">
+                {{#if product.brand}}
+                <h2 class="productView-brand" {{#if schema}} itemprop="brand" itemscope itemtype="http://schema.org/Brand" {{/if}}>
+                    <a href="{{product.brand.url}}" {{#if schema}} itemprop="url" {{/if}}>
+                        <span{{#if schema}} itemprop="name" {{/if}}>{{product.brand.name}}</span>
+                    </a>
+                </h2>
+                {{/if}}
+                <h1 class="productView-title" {{#if schema}}itemprop="name" {{/if}}>{{product.title}}</h1>
+
+                <div class="productView-rating" {{#if product.num_reviews '>' 0}}{{#if schema}} itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating" {{/if}}{{/if}}>
+                    {{#if settings.show_product_rating}} {{#if product.num_reviews '>' 0}} {{#if schema}}
+                    <meta itemprop="ratingValue" content="{{product.rating}}">
+                    <meta itemprop="ratingCount" content="{{product.num_reviews}}">
+                    <meta itemprop="reviewCount" content="{{product.num_reviews}}"> {{/if}} {{/if}} {{> components/products/ratings rating=product.rating}}
+                    <span class="productView-reviewLink review-link">
+                            {{#if product.num_reviews '>' 0}}
+                                <a href="{{product.url}}#product-reviews">
+                                    {{product.num_reviews}} reviews
+                                </a>
+                            {{else}}
+                                No reviews yet
+                            {{/if}}
+                        </span> {{/if}} {{#if settings.show_product_reviews}}
+                    <span class="productView-reviewLink popup-link">
+                            <a href="{{product.url}}{{#if is_ajax}}#write_review{{/if}}"
+                               {{#unless is_ajax }}data-reveal-id="modal-review-form"{{/unless}}>
+                               {{lang 'products.reviews.new'}}
+                            </a>
+                        </span> {{> components/products/modals/writeReview}} {{/if}}
+                </div>
+
+                {{> components/themevale/product/countdown}} {{#if product.call_for_price}}
+                <p class="productView-price">
+                    <span>{{product.call_for_price}}</span>
+                </p>
+                {{/if}}
+                <div class="productView-price">
+                    {{#or customer (if theme_settings.restrict_to_login '!==' true)}} {{> components/products/price price=product.price schema_org=schema}} {{else}} {{> components/common/login-for-pricing}} {{/or}} {{#if theme_settings.product_soldProduct}}
+                    <div class="sold-product"></div>
+                    {{/if}}
+                </div>
+                {{{region name="product_below_price"}}}
+                <div class="parentDiv">
+                    <a class="infoTextA"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 560.01 560.01" class="infoHover"><defs><style>.cls-1{isolation:isolate;}.cls-2{fill:gray;}.cls-3{opacity:0.25;mix-blend-mode:multiply;}.cls-4{fill:#e6e6e6;}</style></defs><g class="cls-1"><g id="Layer_1" data-name="Layer 1"><circle class="cls-2" cx="280" cy="280" r="280"/><image class="cls-3" width="118" height="442" transform="translate(225 66)" xlink:href="data:image/png;base64,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PyzS8sxyTbCmFsgvFpj34YHee0L8rw4fMRerJdhlNLGRXO9fi1mCWS4LNskjo+NMcB9ycJ4xP+D56mGxUKM3eNJyHEn1BGtpZsHchjf2HTPRlKU+dlrUV8C8v2ZlGAjEDpRjLckjcg2VHG1sJrgUPxxfs7BIopfUof4aSaxNWe4zfLnegMqTC8w3rruhSXjAqRR70lpSQdMuodggtTw61kHUllKHd+DO4XGGVi2bqrze59F0Ri+xDJcTrzR7bXKaEe1IJjgYnhAVFh3oSrefHtCHZWhJXipX18N0NzYxuu8XV68RscC5HC+JLDtK6UdllZxLaIoN/rQxSnAk1HtdxFycVmA8sUpPXCSxpO7EWrFGS1xJXIaOjC/iUrHFnbKVWB0kVVpvzBZiS+IdsoXY4g4psUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkpsUkp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"/><path class="cls-4" d="M244.72,485.27h40.49a35,35,0,0,0,35-35V184.71a5,5,0,0,0-5-5H233.63c-2.75,0,5.26,4.16,5.63,8.93l.5,291.63A5,5,0,0,0,244.72,485.27Z"/><rect class="cls-4" x="239.76" y="74.73" width="80.48" height="80.48" rx="19.94"/></g></g></svg></a>
+                    <div class="hidden">
+                        <p class="infoText">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad</p>
+                    </div>
+                </div>
+                {{product.detail_messages}}
+                <dl class="productView-info">
+                    <dt class="productView-info-name">{{lang 'products.sku'}}</dt>
+                    <dd class="productView-info-value" data-product-sku>{{product.sku}}</dd>
+                    {{#if product.upc}}
+                    <dt class="productView-info-name">{{lang 'products.upc'}}</dt>
+                    <dd class="productView-info-value" data-product-upc>{{product.upc}}</dd>
+                    {{/if}} {{#if product.condition}}
+                    <dt class="productView-info-name">{{lang 'products.condition'}}</dt>
+                    <dd class="productView-info-value">{{product.condition}}</dd>
+                    {{/if}} {{#if product.availability}}
+                    <dt class="productView-info-name">{{lang 'products.availability'}}</dt>
+                    <dd class="productView-info-value">{{product.availability}}</dd>
+                    {{/if}}
+                    <!--{{#all product.weight theme_settings.show_product_weight}}
+                        <dt class="productView-info-name">{{lang 'products.weight'}}</dt>
+                        <dd class="productView-info-value" data-product-weight>{{product.weight}}</dd>
+                    {{/all}}-->
+                    {{#all product.width product.height product.depth theme_settings.show_product_dimensions}}
+                    <dt class="productView-info-name">{{lang 'products.width'}}</dt>
+                    <dd class="productView-info-value" data-product-width>
+                        {{product.width}} {{#if settings.measurements.length '==' 'Centimeters'}} ({{lang 'products.measurement.metric'}}) {{else}} ({{lang 'products.measurement.imperial'}}) {{/if}}
+                    </dd>
+                    <dt class="productView-info-name">{{lang 'products.height'}}</dt>
+                    <dd class="productView-info-value" data-product-height>
+                        {{product.height}} {{#if settings.measurements.length '==' 'Centimeters'}} ({{lang 'products.measurement.metric'}}) {{else}} ({{lang 'products.measurement.imperial'}}) {{/if}}
+                    </dd>
+                    <dt class="productView-info-name">{{lang 'products.depth'}}</dt>
+                    <dd class="productView-info-value" data-product-depth>
+                        {{product.depth}} {{#if settings.measurements.length '==' 'Centimeters'}} ({{lang 'products.measurement.metric'}}) {{else}} ({{lang 'products.measurement.imperial'}}) {{/if}}
+                    </dd>
+                    {{/all}} {{#if product.min_purchase_quantity}}
+                    <dt class="productView-info-name">{{lang 'products.min_purchase_quantity'}}</dt>
+                    <dd class="productView-info-value">{{lang 'products.purchase_units' quantity=product.min_purchase_quantity}}</dd>
+                    {{/if}} {{#if product.max_purchase_quantity}}
+                    <dt class="productView-info-name">{{lang 'products.max_purchase_quantity'}}</dt>
+                    <dd class="productView-info-value">{{lang 'products.purchase_units' quantity=product.max_purchase_quantity}}</dd>
+                    {{/if}} {{#if product.gift_wrapping_available}}
+                    <dt class="productView-info-name">{{lang 'products.gift_wrapping'}}</dt>
+                    <dd class="productView-info-value">{{lang 'products.gift_wrapping_available'}}</dd>
+                    {{/if}} {{#if product.shipping}} {{#if product.shipping.calculated}}
+                    <dt class="productView-info-name">{{lang 'products.shipping'}}</dt>
+                    <dd class="productView-info-value">{{lang 'products.shipping_calculated'}}</dd>
+                    {{else}} {{#if product.shipping.price.value '===' 0}}
+                    <dt class="productView-info-name">{{lang 'products.shipping'}}</dt>
+                    <dd class="productView-info-value">{{lang 'products.shipping_free'}}</dd>
+                    {{else}}
+                    <dt class="productView-info-name">{{lang 'products.shipping'}}</dt>
+                    <dd class="productView-info-value">{{lang 'products.shipping_fixed' amount=product.shipping.price.formatted}}</dd>
+                    {{/if}} {{/if}} {{/if}} {{#each product.custom_fields}} {{#and (if name '!=' 'warranty' ) (if name '!=' 'instruction')}} {{#and (if name '!=' 'countdown' ) (if name '!=' 'customlabel')}}
+                    <dt class="productView-info-name {{name}}">{{name}}:</dt>
+                    <dd class="productView-info-value {{name}}">{{{value}}}</dd>
+                    {{/and}} {{/and}} {{/each}}
+                    <div class="productView-info-bulkPricing">
+                        {{> components/products/bulk-discount-rates bulk_discount_rates=product.bulk_discount_rates}}
+                    </div>
+                </dl>
+            </div>
+            <div class="productView-options">
+                {{#if product.release_date }}
+                <p>{{product.release_date}}</p>
+                {{/if}}
+                <form class="form" method="post" action="{{product.cart_url}}" enctype="multipart/form-data" data-cart-item-add>
+                    <input type="hidden" name="action" value="add">
+                    <input type="hidden" name="product_id" value="{{product.id}}" />
+                    <div data-product-option-change style="display:none;">
+                        {{#each product.options}} {{{dynamicComponent 'components/products/options'}}} {{/each}}
+                    </div>
+
+                    <div class="form-field form-field--stock{{#unless product.stock_level}} u-hiddenVisually{{/unless}}">
+                        <label class="form-label form-label--alternate">
+                            {{lang 'products.current_stock'}}
+                            <span data-product-stock>{{product.stock_level}}</span>
+                        </label>
+                    </div>
+                    {{#if product.can_purchase}} {{> components/products/add-to-cart}} {{/if}} {{#if product.out_of_stock}}
+                    <div class="form-action">
+                        {{#if product.out_of_stock_message}}
+                        <div class="button" disabled>{{{product.out_of_stock_message}}}</div>
+                        {{else}}
+                        <div class="button" disabled>{{lang 'products.sold_out'}}</div>
+                        {{/if}}
+                    </div>
+                    {{/if}}
+                </form>
+                {{#if settings.show_wishlist}} {{> components/common/wishlist-dropdown}} {{/if}}
+            </div>
+            {{#if theme_settings.product_viewingProduct}}
+            <div class="viewing-product">
+                <svg class="icon"><use xlink:href="#icon-eye"></use></svg>5 customers are viewing this product
+            </div>
+            {{/if}} {{> components/common/share}} {{> components/themevale/product/security-image}} {{{snippet 'product_details'}}}
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    {{> components/themevale/themevale-fbt}} {{#if theme_settings.themevale_sticky-add-to-cart}} {{> components/themevale/product/sticky-add-to-cart}} {{/if}}
+</div>
+
+{{> components/themevale/product/video-gallery-pc product.videos}}
+<div id="previewModal" class="modal" data-reveal>
+    <a href="#" class="modal-close" aria-label="{{lang 'common.close'}}" role="button">
+        <span aria-hidden="true">&#215;</span>
+    </a>
+    <div class="modal-content"></div>
+    <div class="loadingOverlay"></div>
+</div>

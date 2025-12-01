@@ -1,0 +1,433 @@
+<div data-product-id="{{product.id}}" data-categories="{{join product.category '/'}}" class="productView themevale_productView" {{#if settings.data_tag_enabled}} data-event-type="product" data-entity-id="{{product.id}}" data-name="{{product.title}}" data-product-category="{{#each product.category}}{{#if @last}}{{this}}{{else}}{{this}}, {{/if}}{{/each}}"
+    data-product-brand="{{product.brand.name}}" data-product-price="{{#if product.price.with_tax}}{{product.price.with_tax.value}}{{else}}{{product.price.without_tax.value}}{{/if}}" data-product-variant="single-product-option" {{/if}}>
+    {{#each product.reviews.messages}} {{#if error}} {{> components/common/alert-error error}} {{/if}} {{#if success}} {{> components/common/alert-success success}} {{/if}} {{/each}}
+    <div class="themevale_productView-left">
+        <div class="productView-images">
+            <div class="themevale_badges">
+                {{#each products.new}} {{#if this.id '==' ../product.id}}
+                <div class="new-badge themevale_badge">
+                    <span class="text">{{lang 'products.badges.new'}}</span>
+                </div>
+                {{/if}} {{/each}} {{#or product.price.non_sale_price_with_tax product.price.non_sale_price_without_tax}}
+                <div class="sale-badge themevale_badge">
+                    <span class="text">{{lang 'products.badges.sale'}}</span>
+                </div>
+                {{/or}} {{#each product.custom_fields}} {{#if name '===' 'customlabel'}}
+                <div class="custom-badge themevale_badge">
+                    <span class="text">{{{value}}}</span>
+                </div>
+                {{/if}} {{/each}} {{#if product.out_of_stock_message}}
+                <div class="soldOut-badge themevale_badge">
+                    <span class="text">{{lang 'products.badges.sold_out'}}</span>
+                </div>
+                {{/if}}
+            </div>
+            <div class="themevale_productViewImage zoom-image" data-image-gallery>
+                <figure class="productView-image" data-image-gallery-main {{#if product.main_image}}data-zoom-image="{{getImage product.main_image 'zoom_size' (cdn theme_settings.default_image_product)}}" {{/if}}>
+                    <div class="productView-img-container">
+                        {{#if product.main_image}}
+                        <a href="{{getImage product.main_image 'zoom_size' (cdn theme_settings.default_image_product)}}" data-reveal-id="video-gallery-pc-popup">
+                        {{/if}}
+                            <img class="productView-image--default lazyload"
+                                 data-sizes="auto"
+                                 src="{{cdn 'img/loading.svg'}}"
+                                 data-src="{{getImage product.main_image 'product_size' (cdn theme_settings.default_image_product)}}"
+                                 alt="{{product.main_image.alt}}" title="{{product.main_image.alt}}" data-main-image>
+                        {{#if product.main_image}}
+                            </a> {{/if}}
+                    </div>
+                    <div class="hover-to-zoom">
+                        <svg class="icon"><use xlink:href="#icon-search"></use></svg>
+                        <span class="text">{{lang 'products.click_zoom'}}</span>
+                    </div>
+                </figure>
+                <ul class="productView-thumbnails">
+                    {{#each product.images}}
+                    <li class="productView-thumbnail">
+                        <a class="productView-thumbnail-link" href="{{getImage this 'product_size' (cdn ../theme_settings.default_image_product)}}" data-reveal-id="video-gallery-pc-popup" data-image-gallery-item data-image-gallery-new-image-url="{{getImage this 'product_size' (cdn ../theme_settings.default_image_product)}}"
+                            data-image-gallery-zoom-image-url="{{getImage this 'zoom_size' (cdn ../theme_settings.default_image_product)}}">
+                            <img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="{{getImage this 'productview_thumb_size' (cdn ../theme_settings.default_image_product)}}" alt="{{this.alt}}" title="{{this.alt}}">
+                        </a>
+                    </li>
+                    {{/each}} {{#if product.videos}}
+                    <li class="productView-thumbnail-custom">
+                        <a class="video-link" href="javascript:void(0)" data-reveal-id="video-gallery-pc-popup" data-video-icon>
+                            <span class="icon"><img src="/product_images/uploaded_images/{{theme_settings.product_video-image}}" alt=""></span>
+                            <span class="text">{{theme_settings.product_video-text}}</span>
+                        </a>
+                    </li>
+                    {{/if}} {{> components/themevale/product/customfields-instruction-warranty}}
+                </ul>
+            </div>
+            <div class="themevale_productViewImage themevale_productViewImage-mobile" data-image-gallery-mobile>
+                <div class="productView-image-mobile">
+                    {{#each product.images}}
+                    <figure class="productView-image" data-image-gallery-main data-fancybox="images" href="{{getImage this 'zoom_size' (cdn ../theme_settings.default_image_product)}}" data-zoom-image="{{getImage this 'zoom_size' (cdn theme_settings.default_image_product)}}">
+                        <div class="productView-img-container">
+                            <a href="{{getImage this 'zoom_size' (cdn theme_settings.default_image_product)}}">
+                                <img class="productView-image--default lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="{{getImage this 'product_size' (cdn theme_settings.default_image_product)}}" alt="{{product.main_image.alt}}" title="{{product.main_image.alt}}"
+                                    data-main-image>
+                            </a>
+                        </div>
+                    </figure>
+                    {{/each}}
+                </div>
+                <ul class="productView-thumbnails-mobile">
+                    {{#if product.videos.list.length}}
+                    <li class="productView-thumbnail-custom">
+                        <a class="video-link" href="javascript:void(0);" data-reveal-id="video-gallery-popup">
+                            <span class="icon"><img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.product_video-image}}" alt=""></span>
+                            <span class="text">{{theme_settings.product_video-text}}</span>
+                        </a>
+                        {{> components/themevale/product/video-gallery product.videos}}
+                    </li>
+                    {{/if}} {{> components/themevale/product/customfields-instruction-warranty}}
+                </ul>
+            </div>
+            <!--<div class="themevale_ask-an-experts">
+                <div class="contact">
+                    <div class="image-contact">
+                        <img src="/product_images/uploaded_images/{{theme_settings.product_contact-image}}" alt="">
+                    </div>
+                    <div class="content-contact">
+                        <p class="text">{{theme_settings.products_contact-questions}}</p>
+                        <div class="link">
+                            <a class="number-phone" href="tel:{{theme_settings.products_contact-phone}}">{{theme_settings.products_contact-phone}}</a>
+                            <a href="#" data-reveal-id="ask-an-expert">
+                                {{theme_settings.products_contact-ask-experts}}
+                                <svg class="icon"><use xlink:href="#icon-slick-next"></use></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <ul class="services">
+                    <li class="item">
+                        <div class="service-item">
+                            <div class="icons">
+                                <i class="icon"><svg><use xlink:href="#{{theme_settings.products_services-icon-1}}"></use></svg></i>
+                            </div>
+                            <div class="content">
+                                <h4 class="title">{{theme_settings.products_services-title-1}}</h4>
+                                <p class="description">{{theme_settings.products_services-content-1}}</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item">
+                        <div class="service-item">
+                            <div class="icons">
+                                <i class="icon"><svg><use xlink:href="#{{theme_settings.products_services-icon-2}}"></use></svg></i>
+                            </div>
+                            <div class="content">
+                                <h4 class="title">{{theme_settings.products_services-title-2}}</h4>
+                                <p class="description">{{theme_settings.products_services-content-2}}</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item">
+                        <div class="service-item">
+                            <div class="icons">
+                                <i class="icon"><svg><use xlink:href="#{{theme_settings.products_services-icon-3}}"></use></svg></i>
+                            </div>
+                            <div class="content">
+                                <h4 class="title">{{theme_settings.products_services-title-3}}</h4>
+                                <p class="description">{{theme_settings.products_services-content-3}}</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item">
+                        <div class="service-item">
+                            <div class="icons">
+                                <i class="icon"><svg><use xlink:href="#{{theme_settings.products_services-icon-4}}"></use></svg></i>
+                            </div>
+                            <div class="content">
+                                <h4 class="title">{{theme_settings.products_services-title-4}}</h4>
+                                <p class="description">{{theme_settings.products_services-content-4}}</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>-->
+        </div>
+    </div>
+    <div class="themevale_productView-right">
+        <div class="productView-details">
+            <div class="productView-product">
+                {{#if product.brand}}
+                <h2 class="productView-brand" {{#if schema}} itemprop="brand" itemscope itemtype="http://schema.org/Brand" {{/if}}>
+                    <a href="{{product.brand.url}}" {{#if schema}} itemprop="url" {{/if}}>
+                        <span{{#if schema}} itemprop="name" {{/if}}>{{product.brand.name}}</span>
+                    </a>
+                </h2>
+                {{/if}}
+                <h1 class="productView-title" {{#if schema}}itemprop="name" {{/if}}>{{product.title}}</h1>
+
+
+                <div class="productView-rating" {{#if product.num_reviews '>' 0}} {{#if schema}} itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating" {{/if}}{{/if}}>
+                    {{#if product.num_reviews '>=' 0}}
+                    {{#if settings.show_product_rating}} 
+                        {{#if product.num_reviews '>=' 0}} 
+                            {{#if schema}}
+                                <meta itemprop="ratingValue" content="{{product.rating}}">
+                                <meta itemprop="ratingCount" content="{{product.num_reviews}}">
+                                <meta itemprop="reviewCount" content="{{product.num_reviews}}"> 
+                            {{/if}} 
+                        {{/if}} 
+                        
+                    {{> components/products/ratings rating=product.rating}}
+                    <span class="productView-reviewLink review-link">
+                            {{#if product.num_reviews '>=' 0}}
+                                <a href="{{product.url}}#product-reviews">
+                                    {{product.num_reviews}} reviews
+                                </a>
+                            {{else}}
+                                No reviews yet
+                            {{/if}}
+                        </span> {{/if}} {{#if settings.show_product_reviews}}
+                    <span class="productView-reviewLink popup-link">
+                            <a href="{{product.url}}{{#if is_ajax}}#write_review{{/if}}"
+                               {{#unless is_ajax }}data-reveal-id="modal-review-form"{{/unless}}>
+                               {{lang 'products.reviews.new'}}
+                            </a>
+                        </span> {{> components/products/modals/writeReview}} {{/if}}
+                        {{else}}
+                        <meta itemprop="ratingValue" content="{{product.rating}}">
+                        <meta itemprop="ratingCount" content="{{product.num_reviews}}">
+                        <meta itemprop="reviewCount" content="{{product.num_reviews}}"> 
+                        {{/if}}
+                </div>
+
+                {{> components/themevale/product/countdown}} {{#if product.call_for_price}}
+                <p class="productView-price">
+                    <span>{{product.call_for_price}}</span>
+                </p>
+                {{/if}}
+                
+                {{#if customer.customer_group_name '===' "Wholesale 15%"}}
+                        <span class="max-discount-text" style="color: #d72028; padding-bottom: 15px; font-size: 15px;">
+                            Max Discount Shown 
+                        </span>
+                    {{else if customer.customer_group_name '===' "Wholesale 20%"}}
+                        <span class="max-discount-text" style="color: #d72028; padding-bottom: 15px; font-size: 15px;">
+                            Max Discount Shown 
+                        </span>
+                    {{else if customer.customer_group_name '===' "Wholesale 25%"}}
+                        <span class="max-discount-text" style="color: #d72028; padding-bottom: 15px; font-size: 15px;">
+                            Max Discount Shown 
+                        </span>
+                    {{else if customer.customer_group_name '===' "Wholesale 30%"}}
+                        <span class="max-discount-text" style="color: #d72028; padding-bottom: 15px; font-size: 15px;">
+                            Max Discount Shown 
+                        </span>
+                    {{else}}
+                {{/if}}
+                
+                <div class="productView-price" style="margin-top: 8px;">
+                    {{#or customer (if theme_settings.restrict_to_login '!==' true)}} {{> components/products/price price=product.price schema_org=schema}} {{else}} {{> components/common/login-for-pricing}} {{/or}} {{#if theme_settings.product_soldProduct}}
+                    <div class="sold-product"></div>
+                    {{/if}}
+                </div>
+                
+                {{{region name="product_below_price"}}} {{product.detail_messages}}
+                <dl class="productView-info">
+                    <dt class="productView-info-name">{{lang 'products.sku'}}</dt>
+                    <dd class="productView-info-value" data-product-sku>{{product.sku}}</dd>
+                    {{#if product.upc}}
+                    <dt class="productView-info-name">{{lang 'products.upc'}}</dt>
+                    <dd class="productView-info-value" data-product-upc>{{product.upc}}</dd>
+                    {{/if}} {{#if product.condition}}
+                    <dt class="productView-info-name">{{lang 'products.condition'}}</dt>
+                    <dd class="productView-info-value">{{product.condition}}</dd>
+                    {{/if}} {{#if product.availability}}
+                    <dt class="productView-info-name">{{lang 'products.availability'}}</dt>
+                    <dd class="productView-info-value">{{product.availability}}</dd>
+                    {{/if}}
+                    <!--{{#all product.weight theme_settings.show_product_weight}}
+                        <dt class="productView-info-name">{{lang 'products.weight'}}</dt>
+                        <dd class="productView-info-value" data-product-weight>{{product.weight}}</dd>
+                    {{/all}}-->
+                    {{#all product.width product.height product.depth theme_settings.show_product_dimensions}}
+                    <dt class="productView-info-name">{{lang 'products.width'}}</dt>
+                    <dd class="productView-info-value" data-product-width>
+                        {{product.width}} {{#if settings.measurements.length '==' 'Centimeters'}} ({{lang 'products.measurement.metric'}}) {{else}} ({{lang 'products.measurement.imperial'}}) {{/if}}
+                    </dd>
+                    <dt class="productView-info-name">{{lang 'products.height'}}</dt>
+                    <dd class="productView-info-value" data-product-height>
+                        {{product.height}} {{#if settings.measurements.length '==' 'Centimeters'}} ({{lang 'products.measurement.metric'}}) {{else}} ({{lang 'products.measurement.imperial'}}) {{/if}}
+                    </dd>
+                    <dt class="productView-info-name">{{lang 'products.depth'}}</dt>
+                    <dd class="productView-info-value" data-product-depth>
+                        {{product.depth}} {{#if settings.measurements.length '==' 'Centimeters'}} ({{lang 'products.measurement.metric'}}) {{else}} ({{lang 'products.measurement.imperial'}}) {{/if}}
+                    </dd>
+                    {{/all}} {{#if product.min_purchase_quantity}}
+                    <dt class="productView-info-name">{{lang 'products.min_purchase_quantity'}}</dt>
+                    <dd class="productView-info-value">{{lang 'products.purchase_units' quantity=product.min_purchase_quantity}}</dd>
+                    {{/if}} {{#if product.max_purchase_quantity}}
+                    <dt class="productView-info-name">{{lang 'products.max_purchase_quantity'}}</dt>
+                    <dd class="productView-info-value">{{lang 'products.purchase_units' quantity=product.max_purchase_quantity}}</dd>
+                    {{/if}} {{#if product.gift_wrapping_available}}
+                    <dt class="productView-info-name">{{lang 'products.gift_wrapping'}}</dt>
+                    <dd class="productView-info-value">{{lang 'products.gift_wrapping_available'}}</dd>
+                    {{/if}} {{#if product.shipping}} {{#if product.shipping.calculated}}
+                    <dt class="productView-info-name">{{lang 'products.shipping'}}</dt>
+                    <dd class="productView-info-value">{{lang 'products.shipping_calculated'}}</dd>
+                    {{else}} {{#if product.shipping.price.value '===' 0}}
+                    <dt class="productView-info-name">{{lang 'products.shipping'}}</dt>
+                    <dd class="productView-info-value rgb">{{lang 'products.shipping_free'}}</dd>
+                    {{else}}
+                    <dt class="productView-info-name">{{lang 'products.shipping'}}</dt>
+                    <dd class="productView-info-value">{{lang 'products.shipping_fixed' amount=product.shipping.price.formatted}}</dd>
+                    {{/if}} {{/if}} {{/if}} {{#each product.custom_fields}} {{#and (if name '!=' 'warranty' ) (if name '!=' 'instruction')}} {{#and (if name '!=' 'countdown' ) (if name '!=' 'customlabel')}}
+                    <dt class="productView-info-name {{name}}">{{name}}:</dt>
+                    <dd class="productView-info-value {{name}}">{{{value}}}</dd>
+                    {{/and}} {{/and}} {{/each}}
+                    <div class="productView-info-bulkPricing">
+                        {{> components/products/bulk-discount-rates bulk_discount_rates=product.bulk_discount_rates}}
+                    </div>
+                    <!--<script>-->
+                    <!--    const priceElement = document.querySelector('[data-product-price-without-tax]');-->
+                    <!--    const eddElement = document.querySelector('.nsle');-->
+
+                    <!--    if (priceElement) {-->
+                    <!--        const productPrice = parseFloat(priceElement.textContent.replace(/[^0-9.]/g, ''));-->
+                    
+                    <!--        if (productPrice > 800 && !eddElement) {-->
+                    <!--            const discountedPrice = (productPrice * 0.85).toFixed(2);-->
+                    <!--            const formattedPrice = parseFloat(discountedPrice).toLocaleString(undefined, { minimumFractionDigits: 2 });-->
+                    <!--            const salePriceElement = document.createElement('span');-->
+                    <!--            salePriceElement.className = 'price price--sale';-->
+                    <!--            salePriceElement.textContent = `15% off with code BFCM24`;-->
+                    <!--            salePriceElement.style.color = 'white'; -->
+                    <!--            salePriceElement.style.padding = '5px 10px'; -->
+                    <!--            salePriceElement.style.display = 'inline-block';-->
+                    <!--            salePriceElement.style.backgroundColor = 'gray';-->
+                    <!--            salePriceElement.style.borderRadius = '10px';-->
+                    <!--            salePriceElement.style.marginTop = '10px';-->
+                    <!--            salePriceElement.style.fontWeight = 'bold';-->
+                    <!--            salePriceElement.style.fontSize = '1em';-->
+                    <!--            salePriceElement.style.boxShadow = '0 2px 5px rgba(0, 0, 0, 0.3)';-->
+                    <!--            salePriceElement.style.textAlign = 'center';-->
+                    <!--            salePriceElement.style.fontFamily = '"Arimo", Arial, Helvetica, sans-serif';-->
+                    <!--            priceElement.parentNode.appendChild(salePriceElement);-->
+                                
+                    <!--        }-->
+                    <!--    }-->
+                    <!--</script>-->
+                </dl>
+                {{#filter product.custom_fields 'edd' property='name'}}
+                    <div class="edd">
+                        Ships By: <span id="calculated-edd">{{value}}</span>
+                    </div>
+                {{/filter}}
+                {{#filter product.custom_fields 'edd2' property='name'}}
+                    <div class="edd2">
+                        Ships in 24 hours!
+                    </div>
+                {{/filter}}
+                <!-- no free ship  -->
+                {{#filter product.custom_fields 'nfs' property='name'}}
+                    <div class="nfs">
+                        THIS PRODUCT DOES NOT QUALIFY FOR FREE SHIPPING
+                    </div>
+                {{/filter}}
+
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                      function addBusinessDays(date, days, holidays) {
+                        let result = new Date(date);
+                        let count = 0;
+                        while (count < days) {
+                          result.setDate(result.getDate() + 1);
+                          // Skip weekends and holidays
+                          if (result.getDay() !== 0 && result.getDay() !== 6 && !isHoliday(result, holidays)) {
+                            count++;
+                          }
+                        }
+                        return result;
+                      }
+                  
+                      function isHoliday(date, holidays) {
+                        // Check if the date is in the list of holidays
+                        return holidays.some(holiday => {
+                          return date.getFullYear() === holiday.getFullYear() &&
+                                 date.getMonth() === holiday.getMonth() &&
+                                 date.getDate() === holiday.getDate();
+                        });
+                      }
+                  
+                      const holidays = [
+                        new Date('2025-01-01'), // New Year's Day
+                        new Date('2024-12-25'), // Christmas Day
+                        // Add other holidays here
+                      ];
+                  
+                      const eddElement = document.getElementById('calculated-edd');
+                      const edd2Element = document.querySelector('.edd2');
+                      
+                      if (edd2Element && edd2Element.style.display !== 'none') {
+                            
+                            edd2Element.style.display = 'block';
+                            if (eddElement) eddElement.parentElement.style.display = 'none';
+                        } else if (eddElement) {
+                            
+                            const eddValue = parseInt(eddElement.innerText, 10);
+                            if (!isNaN(eddValue)) {
+                                const today = new Date();
+                                const estimatedDeliveryDate = addBusinessDays(today, 5, holidays);
+                                const options = { year: 'numeric', month: 'long', day: 'numeric' };
+                                const formattedDate = estimatedDeliveryDate.toLocaleDateString('en-US', options);
+                                eddElement.innerText = formattedDate;
+                            } else {
+                                eddElement.innerText = 'N/A';
+                            }
+                        }
+                    });
+                  </script>
+            </div>
+            <div class="productView-options">
+                {{#if product.release_date }}
+                <p style="font-size: 1.5em; color: darkred;">{{product.release_date}}</p>
+                {{/if}}
+                <form class="form" method="post" action="{{product.cart_url}}" enctype="multipart/form-data" data-cart-item-add>
+                    <input type="hidden" name="action" value="add">
+                    <input type="hidden" name="product_id" value="{{product.id}}" />
+                    <div data-product-option-change style="display:none;">
+                        {{#each product.options}} {{{dynamicComponent 'components/products/options'}}} {{/each}}
+                    </div>
+
+                    <div class="form-field form-field--stock{{#unless product.stock_level}} u-hiddenVisually{{/unless}}">
+                        <label class="form-label form-label--alternate">
+                            {{lang 'products.current_stock'}}
+                            <span data-product-stock>{{product.stock_level}}</span>
+                        </label>
+                    </div>
+                    {{#if product.can_purchase}} {{> components/products/add-to-cart}} {{/if}} {{#if product.out_of_stock}}
+                    <div class="form-action">
+                        {{#if product.out_of_stock_message}}
+                        <div class="button" disabled>{{{product.out_of_stock_message}}}</div>
+                        {{else}}
+                        <div class="button" disabled>{{lang 'products.sold_out'}}</div>
+                        {{/if}}
+                    </div>
+                    {{/if}}
+                </form>
+                {{#if settings.show_wishlist}} {{> components/common/wishlist-dropdown}} {{/if}}
+            </div>
+            {{#if theme_settings.product_viewingProduct}}
+            <div class="viewing-product">
+                <svg class="icon"><use xlink:href="#icon-eye"></use></svg>5 customers are viewing this product
+            </div>
+            {{/if}} {{> components/themevale/product/security-image}} {{{snippet 'product_details'}}}
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    {{> components/themevale/themevale-fbt}} {{#if theme_settings.themevale_sticky-add-to-cart}} {{> components/themevale/product/sticky-add-to-cart}} {{/if}}
+</div>
+
+{{> components/themevale/product/video-gallery-pc product.videos}}
+<div id="previewModal" class="modal" data-reveal>
+    <a href="#" class="modal-close" aria-label="{{lang 'common.close'}}" role="button">
+        <span aria-hidden="true">&#215;</span>
+    </a>
+    <div class="modal-content"></div>
+    <div class="loadingOverlay"></div>
+</div>

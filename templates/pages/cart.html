@@ -1,0 +1,58 @@
+---
+cart: true
+---
+{{#partial "page"}}
+<div class="themevale_breadcrumb">
+    {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+    {{> components/cart/page-title}}   
+</div>
+<div class="page">
+    <main class="page-content" data-cart>
+        <div class="custom-promo-cart-banner">
+            {{#each cart.coupons}}
+                {{#if (toLowerCase code) '==' 'bfcm25'}}
+                    {{#each ../../cart.items}}
+                        {{#contains (join category_names ', ') 'NO SHIP'}}
+                        {{else contains (join category_names ', ') '10 Percent Max'}}
+                            <span class="custom-promo-discount" data-coupon-value="{{coupon_amount.value}}"></span>
+                        {{else}}
+                            <span class="custom-promo-discount eligible-coupon" data-coupon-value="{{coupon_amount.value}}" data-eligible-spent="{{total.value}}"></span>
+                        {{/contains}}
+                    {{/each}}
+                    <div class="custom-promo-cart-banner-content"></div>
+                {{/if}}
+            {{/each}}
+        </div>
+        <div data-cart-status>
+            {{> components/cart/status-messages}}
+        </div>
+        {{#if cart.items.length}}
+            <div class="loadingOverlay"></div>
+
+            <div data-cart-content>
+                {{> components/cart/content}}
+            </div>
+
+            <div class="cart-actions-wrapper">
+                <div class="button-group" data-cart-empty data-go-home>
+                    <button class="button" id="emptyCart" data-confirm="Are you sure you want to empty your cart?">Clear Shopping Cart</button>
+                    <a class="button" href="{{urls.home}}">Continue Shopping</a>
+                </div>
+                {{> components/themevale/product/security-image}}
+            </div>
+
+            <div class="data-cart-totals">
+                <div data-cart-totals>
+                    {{> components/cart/totals}}
+                </div>
+            </div>
+        {{else}}
+            <h3 class="cart-title-empty">{{lang 'cart.checkout.empty_cart'}}</h3>
+            {{{ remote_api_scripts }}}
+        {{/if}}
+
+        {{{snippet 'cart'}}}
+    </main>
+</div>
+{{/partial}}
+{{> layout/base}}

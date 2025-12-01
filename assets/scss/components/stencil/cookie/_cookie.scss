@@ -1,0 +1,127 @@
+
+.cookieMessage {
+    z-index: 12;
+    display: block;
+    text-align: center;
+    padding: 10px 30px 10px 30px;
+    line-height: 22px;
+    width: 100%;
+    color: #b8b8b8;
+    border-radius: 0;
+    background-color: rgba(25, 25, 25, 0.95);
+    transition: all 0.3s ease;
+    .close {
+        top: 10px;
+        right: 10px;
+        color: #ffffff;
+        font-size: 30px;
+        font-weight: 400;
+        line-height: 20px;
+        position: absolute;
+    }
+    @include breakpoint('small') {
+        max-width: 360px;
+        text-align: left;
+        padding: 10px 40px 10px 15px;
+    }
+    @media (min-width: 1025px) {
+        padding: 30px 50px 30px 30px;
+        max-width: 440px;
+        border-radius: 3px;
+        .close {
+            top: 15px;
+            right: 15px;
+        }
+    }
+}
+
+.cookieMessage-container {
+    width: 100%;
+    p {
+        margin-bottom: 15px;
+    }
+    .group-button {
+        margin-top: 10px;
+        text-align: center;
+    }
+    @include breakpoint('small') {
+        .group-button {
+            text-align: left;
+            margin-top: 20px;
+        }
+    }
+}
+
+.privacy_accept {
+    padding: 0;
+    color: #232323;
+    min-width: 180px;
+    min-height: 36px;
+    line-height: 36px;
+    text-align: center;
+    background-color: #ffffff;
+    display: inline-block;
+    vertical-align: middle;
+    font-weight: 700;
+    font-family: $fontFamily-headings;
+    border-radius: 18px;
+    font-size: 13px;
+    text-transform: uppercase;
+    &:hover,  &:focus,  &:active {
+        color: #232323;
+        background-color: #ffffff;
+    }
+    @include breakpoint('small') {
+        font-size: 16px;
+    }
+}
+
+.privacy_policy {
+    display: block;
+    margin-top: 10px;
+    color: #ffffff;
+    text-decoration: underline;
+    text-underline-position: under;
+    text-transform: capitalize;
+    &:hover,  &:focus,  &:active {
+        color: #ffffff;
+        text-decoration: underline;
+        text-underline-position: under;
+    }
+    @include breakpoint('small') {
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 15px;
+        margin-top: 0;
+    }
+}
+
+/*.privacy_policy, .privacy_accept {
+    display: inline-block;
+    vertical-align: top;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 12px;
+    &:hover, &:focus, &:active {
+        color: #ffffff;
+    }
+}
+
+.privacy_policy {
+    color: #818181;
+    + .privacy_accept {
+        margin-left: 15px;
+    } 
+}
+
+.privacy_accept {
+    color: #ffffff;
+    .text {
+        border-bottom: 1px solid #ffffff;
+    }
+    .icon {
+        text-align: center;
+        width: 18px;
+        height: 22px;
+    }
+}*/

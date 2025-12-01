@@ -1,0 +1,56 @@
+<div class="themevale_searchSticky" id="quickSearch"></div>
+<!--{{#if theme_settings.themevale_top-promotion}}
+    <div id="themevale_top-promotion" class="promotion-image">
+        <div class="container">
+            <div class="banner-promotion">
+                {{#if theme_settings.themevale_top-promotion-image}}
+                    <img class="image lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.themevale_top-promotion-image}}" alt="">
+                {{/if}}
+                <p class="text">{{theme_settings.themevale_top-promotion-text}}</p>
+                {{#if theme_settings.themevale_top-promotion-link}}
+                    <a class="link" href="{{theme_settings.themevale_top-promotion-href}}" target="_blank" rel="noopener">{{theme_settings.themevale_top-promotion-link}}</a>
+                {{/if}}
+            </div>
+            <a href="javascript:void(0)" class="close-banner-promotion">
+                <svg><use xlink:href="#icon-close"></use></svg>
+            </a>
+        </div>
+    </div>
+{{/if}}-->
+{{#if theme_settings.themevale_header-layout-1}}
+    {{> components/themevale/header/header-layout-1}}
+{{/if}}
+{{#if theme_settings.themevale_header-layout-2}}
+    {{> components/themevale/header/header-layout-2}}
+{{/if}}
+{{#if theme_settings.themevale_header-layout-3}}
+    {{> components/themevale/header/header-layout-3}}
+{{/if}}
+
+{{#contains customer.customer_group_name "Wholesale"}}
+    {{#if theme_settings.flash-sale-notice-wholesale}}
+    <div class="flash-sale-wholesale flash-sale" data-count-down="{{theme_settings.flash-sale-time-wholesale}}">
+        <div class="container">
+            <!--<span class="icon"><svg><use xlink:href="#icon-bell"></use></svg></span>-->
+            <span class="title">{{theme_settings.flash-sale-title-wholesale}}</span>
+            <span class="content">{{theme_settings.flash-sale-content-wholesale}}</span>
+            <span class="time" id="flash-sale-time">{{theme_settings.flash-sale-time-wholesale}}</span>
+            <a href="{{theme_settings.flash-sale-link-wholesale}}" class="link" target="_blank" rel="noopener">{{theme_settings.flash-sale-button-wholesale}}</a>
+            <!--<a href="#" class="close"><svg class="icon"><use xlink:href="#icon-cross"></use></svg></a>-->
+        </div>
+    </div>
+    {{/if}}
+{{else}}
+    {{#if theme_settings.themevale_flash-sale-notice}}
+    <div class="themevale_flash-sale flash-sale" data-count-down="{{theme_settings.themevale_flash-sale-time}}">
+        <div class="container">
+            <!--<span class="icon"><svg><use xlink:href="#icon-bell"></use></svg></span>-->
+            <span class="title">{{theme_settings.themevale_flash-sale-title}}</span>
+            <span class="content">{{theme_settings.themevale_flash-sale-content}}</span>
+            <span class="time" id="flash-sale-time">{{theme_settings.themevale_flash-sale-time}}</span>
+            <a href="{{theme_settings.themevale_flash-sale-link}}" class="link" target="_blank" rel="noopener">{{theme_settings.themevale_flash-sale-button}}</a>
+            <!--<a href="#" class="close"><svg class="icon"><use xlink:href="#icon-cross"></use></svg></a>-->
+        </div>
+    </div>
+    {{/if}}
+{{/contains}}

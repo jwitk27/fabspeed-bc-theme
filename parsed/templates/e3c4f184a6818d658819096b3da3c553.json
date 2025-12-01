@@ -1,0 +1,1 @@
+{"components/themevale/homepage/component/product-loading":"<div class=\"themevale_productLoading text-center\">\r\n    <img src=\"{{cdn 'img/loading.svg'}}\" alt=\"loading\" title=\"loading\" />\r\n</div>\r\n"}

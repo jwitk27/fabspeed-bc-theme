@@ -1,0 +1,70 @@
+// =============================================================================
+// WRITE A REVIEW (CSS)
+// =============================================================================
+
+.writeReview-productDetails {
+    @media (min-width: 768px) {
+        width: 45%;
+        float: left;
+        padding-right: 15px;
+    }
+
+    .product-brand {
+        margin: 0;
+        line-height: 1;
+        font-size: 12px;
+        margin-bottom: 10px;
+        font-weight: 700;
+        text-transform: capitalize;
+        font-family: $fontFamily-sans;
+        color: stencilColor('card-brand-color');
+
+    }
+
+    .product-title {
+        font-size: 12px;
+        margin-top: 0;
+        font-weight: 400;
+        text-transform: none;
+        font-family: $fontFamily-sans;
+        color: stencilColor('card-title-color');
+    }
+}
+
+
+.writeReview-form {
+    margin-top: 30px;
+    .form-label small {
+        float: right;
+        font-style: italic;
+        color: #8c8c8c;
+    }
+    textarea {
+        min-height: 120px;
+    }
+    .button {
+        min-width: 200px;
+    }
+    @media (min-width: 768px) {
+        width: 55%;
+        float: left;
+        margin-top: 0;
+        padding-left: 15px;
+    }
+}
+
+.writeReview-productImage-container {
+    position: relative;
+    overflow: hidden;
+    max-width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    img {
+        @include lazy-loaded-img;
+        max-width: 100%;
+    }
+    @include lazy-loaded-padding('product_size');
+    @media (min-width: 768px) {
+        max-width: none;
+    }
+}

@@ -1,0 +1,32 @@
+{{> components/themevale/category/brands-image-carousel}}
+<!--<section class="themevale_section padding-top-50 padding-bottom-50" id="themevale_new_product">-->
+<!--    <div class="container">-->
+<!--        <script type="text/javascript">-->
+<!--            var arrNew = [0{{#each products}},{{id}}{{/each}}];-->
+<!--        </script>-->
+<!--        <div class="themevale_productsCategorySortNew">-->
+<!--            <h2 class="page-heading text-center">{{lang 'products.new' }}</h2>-->
+<!--            <ul class="tabs" data-tab role="tablist">-->
+<!--                {{#each (limit categories theme_settings.themevale_tab-product-category-limit)}}-->
+<!--                <li class="tab {{#if @index '==' 0}}is-active{{/if}}" role="presentation" cat-id="{{id}}" cat-url="{{url}}">-->
+<!--                    <a class="tab-title" href="#tab-{{id}}" role="tab" tabindex="0">{{name}}</a>-->
+<!--                    <script> -->
+<!--                        var url_{{id}} = '{{url}}';-->
+<!--                        url_{{id}} = url_{{id}}.replace('http:', location.protocol);-->
+<!--                        if(document.querySelectorAll('a[cat-id="{{id}}"]')[0] != undefined)-->
+<!--                            document.querySelectorAll('a[cat-id="{{id}}"]')[0].setAttribute("cat-url", url_{{id}});-->
+<!--                    </script>-->
+<!--                </li>-->
+<!--                {{/each}}-->
+<!--            </ul>-->
+<!--            <div class="tabs-contents">-->
+<!--                {{#each (limit categories theme_settings.themevale_tab-product-category-limit)}}-->
+<!--                <div role="tabpanel" aria-hidden="false" class="tab-content {{#if @index '==' 0}}is-active{{/if}}" id="tab-{{id}}">-->
+<!--                    {{> components/themevale/homepage/component/product-loading}}-->
+<!--                </div>-->
+<!--                {{/each}}-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
+{{{region name="below_products_by_category"}}}

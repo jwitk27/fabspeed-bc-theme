@@ -1,0 +1,37 @@
+<section class="themevale-section background-gray padding-top-70 padding-bottom-70">
+    <div class="container">
+        {{#each categories}}
+            {{#if id '==' ../category_id}}
+                <div class="themevale_productsByCategoryId-grid">
+                    <h2 class="page-heading text-left"><a href="{{url}}">{{../../theme_settings.themevale_category-id-title}}</a></h2>
+                    <div data-themevale-products-grid-by-category-id="{{url}}">
+                        {{> components/themevale/homepage/component/product-loading theme_settings=../../theme_settings}}
+                    </div>
+                </div>
+            {{else}}
+                {{#each children}}
+                    {{#if id '==' ../../../category_id}}
+                        <div class="themevale_productsByCategoryId-grid">
+                            <h2 class="page-heading text-left"><a href="{{url}}">{{../../../../theme_settings.themevale_category-id-title}}</a></h2>
+                            <div data-themevale-products-grid-by-category-id="{{url}}">
+                                {{> components/themevale/homepage/component/product-loading theme_settings=../../../../theme_settings}}
+                            </div>
+                        </div>
+                    {{else}}
+                        {{#each children}}
+                            {{#if id '==' ../../../../../category_id}}
+                                <div class="themevale_productsByCategoryId-grid">
+                                    <h2 class="page-heading text-left"><a href="{{url}}">{{../../../../../../theme_settings.themevale_category-id-title}}</a></h2>
+                                    <div data-themevale-products-grid-by-category-id="{{url}}">
+                                        {{> components/themevale/homepage/component/product-loading theme_settings=../../../../../../theme_settings}}
+                                    </div>
+                                </div>
+                            {{/if}}
+                        {{/each}}
+                    {{/if}}
+                {{/each}}
+            {{/if}}
+        {{/each}}
+    </div>
+</section>
+{{{region name="below_products_by_category_id_grid"}}}

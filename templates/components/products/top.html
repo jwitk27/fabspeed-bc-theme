@@ -1,0 +1,95 @@
+{{#if theme_settings.themevale_homepage_1}}
+    <div class="themevale_productsCarousel-custom themevale_productsBestsellers">
+        <div class="page-heading-wrapper text-left">
+            <h2 class="page-heading"><a href="{{url}}">{{lang 'products.top' }}</a></h2>
+            <div class="page-heading-arrow">
+                <svg class="btn-arrow btn-arrow-prev"><use xlink:href="#icon-slick-prev"></use></svg>
+                <svg class="btn-arrow btn-arrow-next"><use xlink:href="#icon-slick-next"></use></svg>
+            </div>
+        </div>
+        <div class="productCarousel" data-list-name="Most Popular Products"
+            data-slick='{
+                "dots": true,
+                "arrows": false,
+                "infinite": false,
+                "mobileFirst": true,
+                "slidesToShow": 2,
+                "slidesToScroll": 2,
+                "responsive": [
+                    {
+                        "breakpoint": 1100,
+                        "settings": {
+                            "slidesToScroll": 1,
+                            "slidesToShow": 1
+                        }
+                    },
+                    {
+                        "breakpoint": 992,
+                        "settings": {
+                            "slidesToScroll": 4,
+                            "slidesToShow": 4
+                        }
+                    },
+                    {
+                        "breakpoint": 551,
+                        "settings": {
+                            "slidesToScroll": 3,
+                            "slidesToShow": 3
+                        }
+                    }
+                ]}'>
+            {{#each (limit products 3)}}
+            <div class="productCarousel-slide">
+                {{> components/products/card-bestseller settings=../settings theme_settings=../theme_settings customer=../customer show_rating=../settings.show_product_rating show_wishlist=../settings.show_wishlist show_compare=true event="list" position=(add @index 1)}}
+            </div>
+            {{/each}}
+        </div>
+    </div>
+{{else}}
+    <div class="themevale_productsCarousel-custom themevale_productsBestsellers">
+        <div class="page-heading-wrapper text-left">
+            <h2 class="page-heading"><a href="{{url}}">{{lang 'products.top' }}</a></h2>
+            <div class="page-heading-arrow">
+                <svg class="btn-arrow btn-arrow-prev"><use xlink:href="#icon-slick-prev"></use></svg>
+                <svg class="btn-arrow btn-arrow-next"><use xlink:href="#icon-slick-next"></use></svg>
+            </div>
+        </div>
+        <div class="productCarousel" data-list-name="Most Popular Products"
+            data-slick='{
+                "dots": true,
+                "arrows": false,
+                "infinite": false,
+                "mobileFirst": true,
+                "slidesToShow": 2,
+                "slidesToScroll": 2,
+                "responsive": [
+                    {
+                        "breakpoint": 1100,
+                        "settings": {
+                            "slidesToScroll": 1,
+                            "slidesToShow": 1
+                        }
+                    },
+                    {
+                        "breakpoint": 992,
+                        "settings": {
+                            "slidesToScroll": 4,
+                            "slidesToShow": 4
+                        }
+                    },
+                    {
+                        "breakpoint": 551,
+                        "settings": {
+                            "slidesToScroll": 3,
+                            "slidesToShow": 3
+                        }
+                    }
+                ]}'>
+            {{#each (limit products theme_settings.themevale_category-flash-sale-limit)}}
+            <div class="productCarousel-slide">
+                {{> components/products/card-bestseller settings=../settings theme_settings=../theme_settings customer=../customer show_rating=../settings.show_product_rating show_wishlist=../settings.show_wishlist show_compare=true event="list" position=(add @index 1)}}
+            </div>
+            {{/each}}
+        </div>
+    </div>
+{{/if}}

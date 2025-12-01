@@ -1,0 +1,31 @@
+{{#each categories}}
+    {{#if id '==' ../category_id}}
+        <div data-themevale-products-by-category-id-tabs="{{url}}" data-themevale-template="themevale/homepage/component/ajax-products-by-category-id-tabs-result">
+            {{> components/themevale/homepage/component/product-loading}}
+        </div>
+    {{else}}
+        {{#each children}}
+            {{#if id '==' ../../../category_id}}
+                <div data-themevale-products-by-category-id-tabs="{{url}}" data-themevale-template="themevale/homepage/component/ajax-products-by-category-id-tabs-result">
+                    {{> components/themevale/homepage/component/product-loading}}
+                </div>
+            {{else}}
+                {{#each children}}
+                    {{#if id '==' ../../../../../category_id}}
+                        <div data-themevale-products-by-category-id-tabs="{{url}}" data-themevale-template="themevale/homepage/component/ajax-products-by-category-id-tabs-result">
+                            {{> components/themevale/homepage/component/product-loading}}
+                        </div>
+                    {{else}}
+                        {{#each children}}
+                            {{#if id '==' ../../../../../../../category_id}}
+                                <div data-themevale-products-by-category-id-tabs="{{url}}" data-themevale-template="themevale/homepage/component/ajax-products-by-category-id-tabs-result">
+                                    {{> components/themevale/homepage/component/product-loading}}
+                                </div>
+                            {{/if}}
+                        {{/each}}
+                    {{/if}}
+                {{/each}}
+            {{/if}}
+        {{/each}}
+    {{/if}}
+{{/each}}

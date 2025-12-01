@@ -1,0 +1,121 @@
+<div class="themevale_productDescription-3">
+    <div class="productView-description"{{#if schema}} itemprop="description"{{/if}}>
+        <ul class="tabs tabs-custom-2" data-tab>
+            <li class="tab is-active">
+                <a class="tab-title" href="#tab-description">{{lang 'products.description'}}</a>
+            </li>
+            {{#if product.warranty}}
+                <li class="tab">
+                    <a class="tab-title" href="#tab-warranty">{{lang 'products.warranty'}}</a>
+                </li>
+            {{/if}}
+            {{#if settings.show_product_reviews}}
+                <li class="tab" id="tab-review">
+                    <a href="product-reviews" class="tab-title productView-reviewTabLink">{{lang 'products.reviews.title'}}</a>
+                </li>
+            {{/if}}
+            <li class="tab">
+                <a href="#tab-shipping" class="tab-title">{{theme_settings.products_tab-title-1}}</a>
+            </li>
+            <li class="tab">
+                <a href="#tab-custom" class="tab-title">{{theme_settings.products_tab-title-2}}</a>
+            </li>
+            <li class="tab">
+                <a href="#tab-faq" class="tab-title">{{theme_settings.products_tab-title-3}}</a>
+            </li>
+        </ul>
+        <div class="tabs-contents">
+            <div class="tab-content is-active" id="tab-description">
+                <div class="toggle-title">
+                    <a class="toggleLink is-open" data-collapsible href="#tabDescription-content">
+                        <span class="page-heading">{{lang 'products.description'}}</span>
+                        <svg class="icon"><use xlink:href="#icon-slick-next"/></svg>
+                    </a>
+                </div>
+                <div class="toggle-content is-open" id="tabDescription-content" aria-hidden="false" {{#if settings.data_tag_enabled}} data-event-type="product" {{/if}}>
+                    {{{product.description}}}
+                    {{{snippet 'product_description'}}}
+                </div>
+            </div>
+            {{#if product.warranty}}
+                <div class="tab-content" id="tab-warranty">
+                    <div class="toggle-title">
+                        <a class="toggleLink" data-collapsible href="#tabWarranty-content">
+                            <span class="page-heading">{{lang 'products.warranty'}}</span>
+                            <svg class="icon"><use xlink:href="#icon-slick-next"/></svg>
+                        </a>
+                    </div>
+                    <div class="toggle-content" id="tabWarranty-content" aria-hidden="false">
+                        {{{product.warranty}}}
+                    </div>
+                </div>
+            {{/if}}
+            {{#if settings.show_product_reviews}}
+            <div class="tab-content" id=product-reviews>
+                <div class="toggle-title">
+                    <a class="toggleLink" data-collapsible href="#productReviews-content">
+                        <span class="page-heading">{{lang 'products.reviews.title'}}</span>
+                        <svg class="icon"><use xlink:href="#icon-slick-next"/></svg>
+                    </a>
+                </div>
+                <div class="toggle-content" id="productReviews-content">
+                    {{> components/products/reviews-2 reviews=product.reviews product=product urls=urls}}
+                </div>
+            </div>
+            {{/if}}
+            <div class="tab-content" id="tab-shipping">
+                <div class="toggle-title">
+                    <a class="toggleLink" data-collapsible href="#tabShipping-content">
+                        <span class="page-heading">{{theme_settings.products_tab-title-1}}</span>
+                        <svg class="icon"><use xlink:href="#icon-slick-next"/></svg>
+                    </a>
+                </div>
+                <div class="toggle-content" id="tabShipping-content" aria-hidden="false">
+                    {{> components/themevale/tabs/tab-shipping}}
+                </div>
+            </div>
+            <div class="tab-content" id="tab-custom">
+                <div class="toggle-title">
+                    <a class="toggleLink" data-collapsible href="#tabCustomProduct-content">
+                        <span class="page-heading">{{theme_settings.products_tab-title-2}}</span>
+                        <svg class="icon"><use xlink:href="#icon-slick-next"/></svg>
+                    </a>
+                </div>
+                <div class="toggle-content" id="tabCustomProduct-content" aria-hidden="false">
+                    {{> components/themevale/tabs/tab-custom}}
+                </div>
+            </div>
+            <div class="tab-content" id="tab-faq">
+                <div class="toggle-title">
+                    <a class="toggleLink" data-collapsible href="#tabFaq-content">
+                        <span class="page-heading">{{theme_settings.products_tab-title-3}}</span>
+                        <svg class="icon"><use xlink:href="#icon-slick-next"/></svg>
+                    </a>
+                </div>
+                <div class="toggle-content" id="tabFaq-content" aria-hidden="false">
+                    {{> components/themevale/tabs/tab-faq}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{#if product.related_products}}
+    <div class="toggle productRelated" id="product-related" data-product-related>
+        <div class="toggle-title">
+            <h4 class="page-heading">{{lang 'products.related_products'}}</h4>
+        </div>
+        <div class="toggle-content is-open" id="productRelated-content" aria-hidden="false">
+            {{> components/products/carousel-2 products=product.related_products theme_settings=theme_settings}}
+        </div>
+    </div>
+{{/if}}
+{{#if product.similar_by_views}}
+    <div class="toggle productSimilar" id="product-similar" data-product-reviews>
+        <div class="toggle-title">
+            <h4 class="page-heading">{{lang 'products.similar_by_views'}}</h4>
+        </div>
+        <div class="toggle-content is-open" id="productSimilar-content" aria-hidden="false">
+            {{> components/products/carousel-2 products=product.similar_by_views theme_settings=theme_settings}}
+        </div>
+    </div>
+{{/if}}

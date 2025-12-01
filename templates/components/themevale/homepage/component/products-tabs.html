@@ -1,0 +1,26 @@
+<section class="themevale_section padding-top-20">
+    <div class="container">
+        <div class="container">
+            <div class="themevale_productscategoryFeatured" style="font-family: 'Rajdhani', Arial, Helvetica, sans-serif; text-align: center;">
+                <h2 class="page-heading text-center">Featured Products</h2>
+                <!--<ul class="tabs" data-tab role="tablist" style="padding-bottom: 30px; overflow: hidden !important;">-->
+                <!--    <li class="tab {{#if @index '==' 0}}is-active{{/if}}" role="presentation" cat-id="{{id}}" cat-url="{{url}}">-->
+                <!--    </li>-->
+                <!--</ul>-->
+            </div>
+        </div>
+        <div class="tabs-contents">
+            <div class="tab-content" id="category_3" role="tabpanel" aria-hidden="false">
+                {{#if products.new}}
+                    {{> components/products/carousel-new products=products.new arrows=true}}
+                {{/if}}
+            </div>
+            <div class="tab-content is-active" id="category_1" role="tabpanel" aria-hidden="false">
+                    {{> components/products/carousel products=products.featured arrows=true}}
+            </div>
+
+        </div>
+    </div>
+</section>
+{{{region name="below_products_tabs"}}}
+

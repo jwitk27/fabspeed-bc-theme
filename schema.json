@@ -1,0 +1,3953 @@
+[
+  {
+    "name": "Global",
+    "settings": [
+      {
+        "type": "heading",
+        "content": "Body text"
+      },
+      {
+        "type": "select",
+        "label": "Body text font size",
+        "id": "fontSize-root",
+        "options": [
+          {
+            "value": 12,
+            "label": "12px"
+          },
+          {
+            "value": 13,
+            "label": "13px"
+          },
+          {
+            "value": 14,
+            "label": "14px"
+          },
+          {
+            "value": 15,
+            "label": "15px"
+          },
+          {
+            "value": 16,
+            "label": "16px"
+          }
+        ]
+      },
+      {
+        "type": "color",
+        "label": "Body text color",
+        "id": "color-textBase"
+      },
+      {
+        "type": "heading",
+        "content": "Links"
+      },
+      {
+        "type": "color",
+        "label": "Link color",
+        "id": "color-textLink"
+      },
+      {
+        "type": "color",
+        "label": "Link hover color",
+        "id": "color-textLink--hover"
+      },
+      {
+        "type": "heading",
+        "content": "Headings"
+      },
+      {
+        "type": "select",
+        "label": "Headings font size",
+        "id": "fontSize-heading",
+        "options": [
+          {
+            "value": 18,
+            "label": "18px"
+          },
+          {
+            "value": 20,
+            "label": "20px"
+          },
+          {
+            "value": 22,
+            "label": "22px"
+          },
+          {
+            "value": 24,
+            "label": "24px"
+          },
+          {
+            "value": 26,
+            "label": "26px"
+          },
+          {
+            "value": 28,
+            "label": "28px"
+          },
+          {
+            "value": 30,
+            "label": "30px"
+          }
+        ]
+      },
+      {
+        "type": "color",
+        "label": "Heading text color",
+        "id": "color-textHeading"
+      },
+      {
+        "type": "color",
+        "label": "Heading link color",
+        "id": "color-linkHeading"
+      },
+      {
+        "type": "heading",
+        "content": "Buttons Default"
+      },
+      {
+        "type": "color",
+        "label": "Button Default color",
+        "id": "button--default-color"
+      },
+      {
+        "type": "color",
+        "label": "Button Default Border color",
+        "id": "button--default-borderColor"
+      },
+      {
+        "type": "color",
+        "label": "Button Default Background color",
+        "id": "button--default-background"
+      },
+      {
+        "type": "color",
+        "label": "Button Default hover color",
+        "id": "button--default-colorHover"
+      },
+      {
+        "type": "color",
+        "label": "Button Default Border hover color",
+        "id": "button--default-borderColorHover"
+      },
+      {
+        "type": "color",
+        "label": "Button Default Background hover color",
+        "id": "button--default-backgroundHover"
+      },
+      {
+        "type": "heading",
+        "content": "Buttons Primary"
+      },
+      {
+        "type": "color",
+        "label": "Button Primary color",
+        "id": "button--primary-color"
+      },
+      {
+        "type": "color",
+        "label": "Button Primary Border color",
+        "id": "button--primary-borderColor"
+      },
+      {
+        "type": "color",
+        "label": "Button Primary Background color",
+        "id": "button--primary-backgroundColor"
+      },
+      {
+        "type": "color",
+        "label": "Button Primary hover color",
+        "id": "button--primary-colorHover"
+      },
+      {
+        "type": "color",
+        "label": "Button Primary Border hover color",
+        "id": "button--primary-borderColorHover"
+      },
+      {
+        "type": "color",
+        "label": "Button Primary Background hover color",
+        "id": "button--primary-backgroundColorHover"
+      },
+      {
+        "type": "heading",
+        "content": "Buttons secondary"
+      },
+      {
+        "type": "color",
+        "label": "Button Secondary color",
+        "id": "button--secondary-color"
+      },
+      {
+        "type": "color",
+        "label": "Button secondary Border color",
+        "id": "button--secondary-borderColor"
+      },
+      {
+        "type": "color",
+        "label": "Button secondary Background color",
+        "id": "button--secondary-backgroundColor"
+      },
+      {
+        "type": "color",
+        "label": "Button secondary hover color",
+        "id": "button--secondary-colorHover"
+      },
+      {
+        "type": "color",
+        "label": "Button secondary Border hover color",
+        "id": "button--secondary-borderColorHover"
+      },
+      {
+        "type": "color",
+        "label": "Button secondary Background hover color",
+        "id": "button--secondary-backgroundColorHover"
+      },
+      {
+        "type": "heading",
+        "content": "Buttons Transparent"
+      },
+      {
+        "type": "color",
+        "label": "Button transparent color",
+        "id": "button--transparent-color"
+      },
+      {
+        "type": "color",
+        "label": "Button transparent Border color",
+        "id": "button--transparent-borderColor"
+      },
+      {
+        "type": "color",
+        "label": "Button transparent Background color",
+        "id": "button--transparent-backgroundColor"
+      },
+      {
+        "type": "color",
+        "label": "Button transparent hover color",
+        "id": "button--transparent-colorHover"
+      },
+      {
+        "type": "color",
+        "label": "Button transparent Border hover color",
+        "id": "button--transparent-borderColorHover"
+      },
+      {
+        "type": "color",
+        "label": "Button transparent Background hover color",
+        "id": "button--transparent-backgroundColorHover"
+      },
+      {
+        "type": "heading",
+        "content": "Tabs"
+      },
+      {
+        "type": "select",
+        "label": "Tab font size",
+        "id": "tab--textfontsize",
+        "options": [
+          {
+            "value": 12,
+            "label": "12px"
+          },
+          {
+            "value": 13,
+            "label": "13px"
+          },
+          {
+            "value": 14,
+            "label": "14px"
+          },
+          {
+            "value": 16,
+            "label": "16px"
+          },
+          {
+            "value": 18,
+            "label": "18px"
+          },
+          {
+            "value": 20,
+            "label": "20px"
+          },
+          {
+            "value": 22,
+            "label": "22px"
+          },
+          {
+            "value": 24,
+            "label": "24px"
+          }
+        ]
+      },
+      {
+        "type": "color",
+        "label": "Tab Heading color",
+        "id": "tab--textcolor"
+      },
+      {
+        "type": "color",
+        "label": "Tab Border color",
+        "id": "tab--bordercolor"
+      },
+      {
+        "type": "color",
+        "label": "Tab Heading active color",
+        "id": "tab--active-textcolor"
+      },
+      {
+        "type": "color",
+        "label": "Tab Border active color",
+        "id": "tab--active-bordercolor"
+      },
+      {
+        "type": "heading",
+        "content": "Buttons arrow carousel"
+      },
+      {
+        "type": "color",
+        "label": "Buttons arrow color",
+        "id": "color-slick-arrow"
+      },
+      {
+        "type": "color",
+        "label": "Buttons arrow border",
+        "id": "color-slick-borderarrow"
+      },
+      {
+        "type": "color",
+        "label": "Buttons arrow background",
+        "id": "color-slick-bgarrow"
+      },
+      {
+        "type": "color",
+        "label": "Buttons arrow disabled color",
+        "id": "color-slick-arrow-disabled"
+      },
+      {
+        "type": "color",
+        "label": "Buttons arrow disabled border",
+        "id": "color-slick-borderarrow-disabled"
+      },
+      {
+        "type": "color",
+        "label": "Buttons arrow disabled background",
+        "id": "color-slick-bgarrow-disabled"
+      },
+      {
+        "type": "heading",
+        "content": "Products"
+      },
+      {
+        "type": "imageDimension",
+        "label": "product images size",
+        "id": "productgallery_size",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "400x400",
+            "label": "Optimized for theme"
+          },
+          {
+            "value": "custom",
+            "label": "Specify dimensions"
+          }
+        ]
+      },
+      {
+        "type": "color",
+        "label": "Text color Sale Badges",
+        "id": "product_sale_badges_color"
+      },
+      {
+        "type": "color",
+        "label": "Background color Sale Badges",
+        "id": "product_sale_badges_background"
+      },
+      {
+        "type": "color",
+        "label": "Text color Custom Badges",
+        "id": "product_custom_badges_color"
+      },
+      {
+        "type": "color",
+        "label": "Background color Custom Badges",
+        "id": "product_custom_badges_background"
+      },
+      {
+        "type": "color",
+        "label": "Text color SoldOut Badges",
+        "id": "product_soldOut_badges_color"
+      },
+      {
+        "type": "color",
+        "label": "Background color SoldOut Badges",
+        "id": "product_soldOut_badges_background"
+      },
+      {
+        "type": "color",
+        "label": "Product quickview color",
+        "id": "card-quickview-color"
+      },
+      {
+        "type": "color",
+        "label": "Product quickview background",
+        "id": "card-quickview-bgcolor"
+      },
+      {
+        "type": "color",
+        "label": "Product brand color",
+        "id": "card-brand-color"
+      },
+      {
+        "type": "color",
+        "label": "Product title color",
+        "id": "card-title-color"
+      },
+      {
+        "type": "color",
+        "label": "Product title hover color",
+        "id": "card-title-color-hover"
+      },
+      {
+        "type": "color",
+        "label": "Product rating Empty",
+        "id": "icon-ratingEmpty"
+      },
+      {
+        "type": "color",
+        "label": "Product rating Full",
+        "id": "icon-ratingFull"
+      },
+      {
+        "type": "color",
+        "label": "Product price color",
+        "id": "card-price-color"
+      },
+      {
+        "type": "color",
+        "label": "Product price resale color",
+        "id": "card-resale-price-color"
+      },
+      {
+        "type": "color",
+        "label": "Product price sale color",
+        "id": "card-sale-price-color"
+      },
+      {
+        "type": "color",
+        "label": "Product Wishlist color",
+        "id": "card-wishlist-color"
+      },
+      {
+        "type": "color",
+        "label": "Button text color",
+        "id": "card-figcaption-button-color"
+      },
+      {
+        "type": "color",
+        "label": "Button border color",
+        "id": "card-figcaption-button-border"
+      },
+      {
+        "type": "color",
+        "label": "Button background color",
+        "id": "card-figcaption-button-background"
+      },
+      {
+        "type": "color",
+        "label": "Button text hover color",
+        "id": "card-figcaption-button-colorHover"
+      },
+      {
+        "type": "color",
+        "label": "Button border hover color",
+        "id": "card-figcaption-button-borderHover"
+      },
+      {
+        "type": "color",
+        "label": "Button background hover color",
+        "id": "card-figcaption-button-backgroundHover"
+      }
+    ]
+  },
+  {
+    "name": "Header",
+    "settings": [
+      {
+        "type": "heading",
+        "content": "Banner Promotion"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Banner Promotion",
+        "force_reload": true,
+        "id": "themevale_top-promotion"
+      },
+      {
+        "type": "color",
+        "label": "Banner Promotion color",
+        "id": "themevale_top-promotion-color"
+      },
+      {
+        "type": "color",
+        "label": "Banner Promotion background",
+        "id": "themevale_top-promotion-bg"
+      },
+      {
+        "type": "text",
+        "label": "Banner Promotion image",
+        "id": "themevale_top-promotion-image",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Banner Promotion content",
+        "id": "themevale_top-promotion-text",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Banner Promotion button",
+        "id": "themevale_top-promotion-link",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Banner Promotion button url",
+        "id": "themevale_top-promotion-href",
+        "force_reload": true
+      },
+      {
+        "type": "color",
+        "label": "Banner Promotion button color",
+        "id": "themevale_top-promotion-color"
+      },
+      {
+        "type": "color",
+        "label": "Banner Promotion button border",
+        "id": "themevale_top-promotion-border"
+      },
+      {
+        "type": "heading",
+        "content": "Choose one layout header"
+      },
+      {
+        "type": "checkbox",
+        "label": "Display header layout 1",
+        "id": "themevale_header-layout-1",
+        "force_reload": true
+      },
+      {
+        "type": "checkbox",
+        "label": "Display header layout 2",
+        "id": "themevale_header-layout-2",
+        "force_reload": true
+      },
+      {
+        "type": "checkbox",
+        "label": "Display header layout 3",
+        "id": "themevale_header-layout-3",
+        "force_reload": true
+      },
+      {
+        "type": "heading",
+        "content": "Header Top Bar"
+      },
+      {
+        "type": "color",
+        "label": "Header Top Bar color",
+        "id": "themevale_header-top-color"
+      },
+      {
+        "type": "color",
+        "label": "Header Top Bar color hover",
+        "id": "themevale_header-top-color--hover"
+      },
+      {
+        "type": "color",
+        "label": "Header Top Bar background",
+        "id": "themevale_header-top-background"
+      },
+      {
+        "type": "color",
+        "label": "Header Top Bar border",
+        "id": "themevale_header-top-border"
+      },
+      {
+        "type": "text",
+        "label": "Header Top Bar content",
+        "id": "themevale_header-top-content",
+        "force_reload": true,
+        "reference": "themevale_header-layout-1",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Email Support",
+        "id": "themevale_office-mail",
+        "force_reload": true,
+        "reference": "themevale_header-layout-1",
+        "reference_default": true
+      },
+      {
+        "type": "text",
+        "label": "Own Text",
+        "id": "themevale_office-text",
+        "force_reload": true,
+        "reference": "themevale_header-layout-1",
+        "reference_default": true
+      },
+      {
+        "type": "color",
+        "label": "Own Text color",
+        "id": "navUser-own-text-Color",
+        "reference": "themevale_header-layout-1",
+        "reference_default": true
+      },
+      {
+        "type": "heading",
+        "content": "Header Middle"
+      },
+      {
+        "type": "color",
+        "label": "Header Middle color",
+        "id": "themevale_header-middle-color"
+      },
+      {
+        "type": "color",
+        "label": "Header Middle color hover",
+        "id": "themevale_header-middle-color--hover"
+      },
+      {
+        "type": "color",
+        "label": "Header Middle background",
+        "id": "themevale_header-middle-background"
+      },
+      {
+        "type": "text",
+        "label": "Phone Number",
+        "id": "themevale_office-phone",
+        "force_reload": true,
+        "reference": "themevale_header-layout-1",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Open time",
+        "id": "themevale_office-hours",
+        "force_reload": true,
+        "reference": "themevale_header-layout-1",
+        "reference_default": false
+      },
+      {
+        "type": "color",
+        "label": "Phone Number color",
+        "id": "themevale_office-phone-color",
+        "reference": "themevale_header-layout-1",
+        "reference_default": false
+      },
+      {
+        "type": "color",
+        "label": "Search form color",
+        "id": "themevale_searchCategory-text"
+      },
+      {
+        "type": "color",
+        "label": "Search form border color",
+        "id": "themevale_searchCategory-border"
+      },
+      {
+        "type": "color",
+        "label": "Search form background",
+        "id": "themevale_searchCategory-background"
+      },
+      {
+        "type": "color",
+        "label": "Search form button",
+        "id": "themevale_searchCategory-button"
+      },
+      {
+        "type": "color",
+        "label": "Search form icon Search",
+        "id": "themevale_searchCategory-icon"
+      },
+      {
+        "type": "color",
+        "label": "Cart counter color",
+        "id": "navUser-indicator-Color"
+      },
+      {
+        "type": "color",
+        "label": "Cart counter background",
+        "id": "navUser-indicator-backgroundColor"
+      },
+      {
+        "type": "heading",
+        "content": "Header Bottom (Navigation Bar)"
+      },
+      {
+        "type": "heading",
+        "content": "All Categories",
+        "reference": "themevale_header-layout-3",
+        "reference_default": false
+      },
+      {
+        "type": "color",
+        "label": "All Categories text color",
+        "reference": "themevale_header-layout-3",
+        "reference_default": false,
+        "id": "themevale-allCategories-textColor"
+      },
+      {
+        "type": "color",
+        "label": "All Categories background",
+        "reference": "themevale_header-layout-3",
+        "reference_default": false,
+        "id": "themevale-allCategories-backgroundColor"
+      },
+      {
+        "type": "color",
+        "label": "All Categories border color",
+        "reference": "themevale_header-layout-3",
+        "reference_default": false,
+        "id": "themevale-allCategories-borderColor"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show dropdown All Categories",
+        "reference": "themevale_header-layout-3",
+        "reference_default": false,
+        "force_reload": true,
+        "id": "themevale_allCategories_open"
+      },
+      {
+        "type": "color",
+        "label": "All Categories dropdown text color",
+        "reference": "themevale_header-layout-3",
+        "reference_default": false,
+        "id": "themevale-allCategories-dropdown-textColor"
+      },
+      {
+        "type": "color",
+        "label": "All Categories dropdown background",
+        "reference": "themevale_header-layout-3",
+        "reference_default": false,
+        "id": "themevale-allCategories-dropdown-backgroundColor"
+      },
+      {
+        "type": "color",
+        "label": "All Categories dropdown border color",
+        "reference": "themevale_header-layout-3",
+        "reference_default": false,
+        "id": "themevale-allCategories-dropdown-borderColor"
+      },
+      {
+        "type": "color",
+        "label": "Navigation color",
+        "id": "navPages-color"
+      },
+      {
+        "type": "color",
+        "label": "Navigation hover color",
+        "id": "navPages-color-hover"
+      },
+      {
+        "type": "color",
+        "label": "Navigation background",
+        "id": "themevale_header-bottom-background"
+      },
+      {
+        "type": "color",
+        "label": "Navigation border",
+        "id": "themevale_header-bottom-border"
+      },
+      {
+        "type": "text",
+        "label": "Custom text",
+        "id": "themevale_header-layout-3-customtext",
+        "force_reload": true,
+        "reference": "themevale_header-layout-3",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Custom link",
+        "id": "themevale_header-layout-3-customlink",
+        "force_reload": true,
+        "reference": "themevale_header-layout-3",
+        "reference_default": false
+      },
+      {
+        "type": "heading",
+        "content": "Label Sale"
+      },
+      {
+        "type": "select",
+        "label": "Position Label Sale",
+        "id": "themevale_megamenu-label-sale",
+        "force_reload": true,
+        "options": [
+          {
+            "value": 1,
+            "label": "1"
+          },
+          {
+            "value": 2,
+            "label": "2"
+          },
+          {
+            "value": 3,
+            "label": "3"
+          },
+          {
+            "value": 4,
+            "label": "4"
+          },
+          {
+            "value": 5,
+            "label": "5"
+          },
+          {
+            "value": 6,
+            "label": "6"
+          },
+          {
+            "value": 7,
+            "label": "7"
+          },
+          {
+            "value": 8,
+            "label": "8"
+          },
+          {
+            "value": 9,
+            "label": "9"
+          },
+          {
+            "value": 10,
+            "label": "10"
+          }
+        ]
+      },
+      {
+        "type": "color",
+        "label": "Label Sale color",
+        "id": "navPages-label-color-1"
+      },
+      {
+        "type": "color",
+        "label": "Label Sale background color",
+        "id": "navPages-label-background-1"
+      },
+      {
+        "type": "heading",
+        "content": "Label New"
+      },
+      {
+        "type": "select",
+        "label": "Position Label New",
+        "id": "themevale_megamenu-label-new",
+        "force_reload": true,
+        "options": [
+          {
+            "value": 1,
+            "label": "1"
+          },
+          {
+            "value": 2,
+            "label": "2"
+          },
+          {
+            "value": 3,
+            "label": "3"
+          },
+          {
+            "value": 4,
+            "label": "4"
+          },
+          {
+            "value": 5,
+            "label": "5"
+          },
+          {
+            "value": 6,
+            "label": "6"
+          },
+          {
+            "value": 7,
+            "label": "7"
+          },
+          {
+            "value": 8,
+            "label": "8"
+          },
+          {
+            "value": 9,
+            "label": "9"
+          },
+          {
+            "value": 10,
+            "label": "10"
+          }
+        ]
+      },
+      {
+        "type": "color",
+        "label": "Label New color",
+        "id": "navPages-label-color-2"
+      },
+      {
+        "type": "color",
+        "label": "Label New background color",
+        "id": "navPages-label-background-2"
+      },
+      {
+        "type": "heading",
+        "content": "Label Hot"
+      },
+      {
+        "type": "select",
+        "label": "Position Label Hot",
+        "id": "themevale_megamenu-label-hot",
+        "force_reload": true,
+        "options": [
+          {
+            "value": 1,
+            "label": "1"
+          },
+          {
+            "value": 2,
+            "label": "2"
+          },
+          {
+            "value": 3,
+            "label": "3"
+          },
+          {
+            "value": 4,
+            "label": "4"
+          },
+          {
+            "value": 5,
+            "label": "5"
+          },
+          {
+            "value": 6,
+            "label": "6"
+          },
+          {
+            "value": 7,
+            "label": "7"
+          },
+          {
+            "value": 8,
+            "label": "8"
+          },
+          {
+            "value": 9,
+            "label": "9"
+          },
+          {
+            "value": 10,
+            "label": "10"
+          }
+        ]
+      },
+      {
+        "type": "color",
+        "label": "Label Hot color",
+        "id": "navPages-label-color-3"
+      },
+      {
+        "type": "color",
+        "label": "Label Hot background color",
+        "id": "navPages-label-background-3"
+      },
+      {
+        "type": "heading",
+        "content": "Dropdown menu/ Mega menu"
+      },
+      {
+        "type": "checkbox",
+        "label": "Enable Mega Menu",
+        "force_reload": true,
+        "id": "themevale_megamenu"
+      },
+      {
+        "type": "color",
+        "label": "Dropdown menu heading",
+        "id": "navPages-color-heading",
+        "reference": "themevale_megamenu",
+        "reference_default": false
+      },
+      {
+        "type": "color",
+        "label": "Dropdown menu text color",
+        "id": "navPages-color-2"
+      },
+      {
+        "type": "color",
+        "label": "Dropdown menu text hover color",
+        "id": "navPages-color-2-hover"
+      },
+      {
+        "type": "color",
+        "label": "Dropdown menu background color",
+        "id": "navPages-subMenu-backgroundColor"
+      },
+      {
+        "type": "color",
+        "label": "Dropdown menu background hover color",
+        "id": "navPages-subMenu-backgroundColor-hover"
+      },
+      {
+        "type": "color",
+        "label": "Dropdown menu border",
+        "id": "navPages-subMenu-separatorColor"
+      },
+      {
+        "type": "color",
+        "label": "Dropdown menu banner bottom color",
+        "id": "navPages-subMenu-promotion-bottom-color",
+        "reference": "themevale_megamenu",
+        "reference_default": false
+      },
+      {
+        "type": "color",
+        "label": "Dropdown menu banner bottom background",
+        "id": "navPages-subMenu-promotion-bottom-background",
+        "reference": "themevale_megamenu",
+        "reference_default": false
+      },
+      {
+        "type": "heading",
+        "content": "Mega menu layout 1",
+        "reference": "themevale_megamenu",
+        "reference_default": false
+      },
+      {
+        "type": "select",
+        "label": "Position show in navigation menu",
+        "id": "themevale_megamenu-layout-1",
+        "force_reload": true,
+        "reference": "themevale_megamenu",
+        "reference_default": false,
+        "options": [
+          {
+            "value": 1,
+            "label": "1"
+          },
+          {
+            "value": 2,
+            "label": "2"
+          },
+          {
+            "value": 3,
+            "label": "3"
+          },
+          {
+            "value": 4,
+            "label": "4"
+          },
+          {
+            "value": 5,
+            "label": "5"
+          },
+          {
+            "value": 6,
+            "label": "6"
+          },
+          {
+            "value": 7,
+            "label": "7"
+          },
+          {
+            "value": 8,
+            "label": "8"
+          },
+          {
+            "value": 9,
+            "label": "9"
+          },
+          {
+            "value": 10,
+            "label": "10"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "label": "Column show Submenu",
+        "id": "themevale_megamenu-layout-1-col",
+        "force_reload": true,
+        "reference": "themevale_megamenu",
+        "reference_default": false,
+        "options": [
+          {
+            "value": 1,
+            "label": "1"
+          },
+          {
+            "value": 2,
+            "label": "2"
+          },
+          {
+            "value": 3,
+            "label": "3"
+          },
+          {
+            "value": 4,
+            "label": "4"
+          },
+          {
+            "value": 5,
+            "label": "5"
+          },
+          {
+            "value": 6,
+            "label": "6"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "label": "Banner image 1",
+        "id": "themevale_megamenu-banner-1",
+        "force_reload": true,
+        "reference": "themevale_megamenu",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Banner image 2",
+        "id": "themevale_megamenu-banner-2",
+        "force_reload": true,
+        "reference": "themevale_megamenu",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Banner image 3",
+        "id": "themevale_megamenu-banner-3",
+        "force_reload": true,
+        "reference": "themevale_megamenu",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Banner image 4",
+        "id": "themevale_megamenu-banner-4",
+        "force_reload": true,
+        "reference": "themevale_megamenu",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Banner image 5",
+        "id": "themevale_megamenu-banner-5",
+        "force_reload": true,
+        "reference": "themevale_megamenu",
+        "reference_default": false
+      },
+      {
+        "type": "heading",
+        "content": "Mega menu layout 2",
+        "reference": "themevale_megamenu",
+        "reference_default": false
+      },
+      {
+        "type": "select",
+        "label": "Position show in navigation menu",
+        "id": "themevale_megamenu-layout-2",
+        "force_reload": true,
+        "reference": "themevale_megamenu",
+        "reference_default": false,
+        "options": [
+          {
+            "value": 1,
+            "label": "1"
+          },
+          {
+            "value": 2,
+            "label": "2"
+          },
+          {
+            "value": 3,
+            "label": "3"
+          },
+          {
+            "value": 4,
+            "label": "4"
+          },
+          {
+            "value": 5,
+            "label": "5"
+          },
+          {
+            "value": 6,
+            "label": "6"
+          },
+          {
+            "value": 7,
+            "label": "7"
+          },
+          {
+            "value": 8,
+            "label": "8"
+          },
+          {
+            "value": 9,
+            "label": "9"
+          },
+          {
+            "value": 10,
+            "label": "10"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "label": "Column show Submenu",
+        "id": "themevale_megamenu-layout-2-col",
+        "force_reload": true,
+        "reference": "themevale_megamenu",
+        "reference_default": false,
+        "options": [
+          {
+            "value": 1,
+            "label": "1"
+          },
+          {
+            "value": 2,
+            "label": "2"
+          },
+          {
+            "value": 3,
+            "label": "3"
+          },
+          {
+            "value": 4,
+            "label": "4"
+          },
+          {
+            "value": 5,
+            "label": "5"
+          },
+          {
+            "value": 6,
+            "label": "6"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "label": "Banner image 1",
+        "id": "themevale_megamenu-banner-9",
+        "force_reload": true,
+        "reference": "themevale_megamenu",
+        "reference_default": false
+      },
+      {
+        "type": "heading",
+        "content": "Mega menu layout 3",
+        "reference": "themevale_megamenu",
+        "reference_default": false
+      },
+      {
+        "type": "select",
+        "label": "Position show in navigation menu",
+        "id": "themevale_megamenu-layout-3",
+        "force_reload": true,
+        "reference": "themevale_megamenu",
+        "reference_default": false,
+        "options": [
+          {
+            "value": 1,
+            "label": "1"
+          },
+          {
+            "value": 2,
+            "label": "2"
+          },
+          {
+            "value": 3,
+            "label": "3"
+          },
+          {
+            "value": 4,
+            "label": "4"
+          },
+          {
+            "value": 5,
+            "label": "5"
+          },
+          {
+            "value": 6,
+            "label": "6"
+          },
+          {
+            "value": 7,
+            "label": "7"
+          },
+          {
+            "value": 8,
+            "label": "8"
+          },
+          {
+            "value": 9,
+            "label": "9"
+          },
+          {
+            "value": 10,
+            "label": "10"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "label": "Column show Submenu",
+        "id": "themevale_megamenu-layout-3-col",
+        "force_reload": true,
+        "reference": "themevale_megamenu",
+        "reference_default": false,
+        "options": [
+          {
+            "value": 1,
+            "label": "1"
+          },
+          {
+            "value": 2,
+            "label": "2"
+          },
+          {
+            "value": 3,
+            "label": "3"
+          },
+          {
+            "value": 4,
+            "label": "4"
+          },
+          {
+            "value": 5,
+            "label": "5"
+          },
+          {
+            "value": 6,
+            "label": "6"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "label": "Banner image 6",
+        "id": "themevale_megamenu-banner-6",
+        "force_reload": true,
+        "reference": "themevale_megamenu",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Banner image 7",
+        "id": "themevale_megamenu-banner-7",
+        "force_reload": true,
+        "reference": "themevale_megamenu",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Banner image 8",
+        "id": "themevale_megamenu-banner-8",
+        "force_reload": true,
+        "reference": "themevale_megamenu",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Banner bottom content",
+        "id": "themevale_megamenu-bottomtext",
+        "force_reload": true,
+        "reference": "themevale_megamenu",
+        "reference_default": false
+      },
+      {
+        "type": "heading",
+        "content": "Header Sticky"
+      },
+      {
+        "type": "checkbox",
+        "label": "Enable Sticky Navigation",
+        "force_reload": true,
+        "id": "themevale_stickyHeader"
+      },
+      {
+        "type": "heading",
+        "content": "Flash Sale Notice"
+      },
+      {
+        "type": "checkbox",
+        "label": "Enable Flash Sale Notice",
+        "force_reload": true,
+        "id": "themevale_flash-sale-notice"
+      },
+      {
+        "type": "text",
+        "label": "Flash Sale title",
+        "id": "themevale_flash-sale-title",
+        "force_reload": true,
+        "reference": "themevale_flash-sale-notice",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Flash Sale content",
+        "id": "themevale_flash-sale-content",
+        "force_reload": true,
+        "reference": "themevale_flash-sale-notice",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Flash Sale time",
+        "id": "themevale_flash-sale-time",
+        "force_reload": true,
+        "reference": "themevale_flash-sale-notice",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Flash Sale button",
+        "id": "themevale_flash-sale-button",
+        "force_reload": true,
+        "reference": "themevale_flash-sale-notice",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Flash Sale link",
+        "id": "themevale_flash-sale-link",
+        "force_reload": true,
+        "reference": "themevale_flash-sale-notice",
+        "reference_default": false
+      },
+      {
+        "type": "color",
+        "label": "Flash Sale text color",
+        "id": "themevale_flash-sale-color",
+        "reference": "themevale_flash-sale-notice",
+        "reference_default": false
+      },
+      {
+        "type": "color",
+        "label": "Flash Sale background color",
+        "id": "themevale_flash-sale-bg",
+        "reference": "themevale_flash-sale-notice",
+        "reference_default": false
+      },
+      {
+        "type": "heading",
+        "content": "Flash Sale Notice - Wholesale"
+      },
+      {
+        "type": "checkbox",
+        "label": "Enable Flash Sale Notice",
+        "force_reload": true,
+        "id": "flash-sale-notice-wholesale"
+      },
+      {
+        "type": "text",
+        "label": "Flash Sale title",
+        "id": "flash-sale-title-wholesale",
+        "force_reload": true,
+        "reference": "flash-sale-notice-wholesale",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Flash Sale content",
+        "id": "flash-sale-content-wholesale",
+        "force_reload": true,
+        "reference": "flash-sale-notice-wholesale",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Flash Sale time",
+        "id": "flash-sale-time-wholesale",
+        "force_reload": true,
+        "reference": "flash-sale-notice-wholesale",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Flash Sale button",
+        "id": "flash-sale-button-wholesale",
+        "force_reload": true,
+        "reference": "flash-sale-notice-wholesale",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Flash Sale link",
+        "id": "flash-sale-link-wholesale",
+        "force_reload": true,
+        "reference": "flash-sale-notice-wholesale",
+        "reference_default": false
+      },
+      {
+        "type": "color",
+        "label": "Flash Sale text color",
+        "id": "flash-sale-color-wholesale",
+        "reference": "flash-sale-notice-wholesale",
+        "reference_default": false
+      },
+      {
+        "type": "color",
+        "label": "Flash Sale background color",
+        "id": "flash-sale-bg-wholesale",
+        "reference": "flash-sale-notice-wholesale",
+        "reference_default": false
+      }
+    ]
+  },
+  {
+    "name": "Footer",
+    "settings": [
+      {
+        "type": "heading",
+        "content": "Footer settings"
+      },
+      {
+        "type": "color",
+        "label": "Text color",
+        "id": "footer-textColor"
+      },
+      {
+        "type": "color",
+        "label": "Text color hover",
+        "id": "footer-textColorHover"
+      },
+      {
+        "type": "color",
+        "label": "Heading color",
+        "id": "footer-headingColor"
+      },
+      {
+        "type": "color",
+        "label": "Background color",
+        "id": "footer-backgroundColor"
+      },
+      {
+        "type": "color",
+        "label": "Button color",
+        "id": "footer-button-Color"
+      },
+      {
+        "type": "color",
+        "label": "Button Background color",
+        "id": "footer-button-backgroundColor"
+      },
+      {
+        "type": "color",
+        "label": "Form Input color",
+        "id": "footer-inputColor"
+      },
+      {
+        "type": "color",
+        "label": "Form Input background color",
+        "id": "footer-inputbackgroundColor"
+      },
+      {
+        "type": "heading",
+        "content": "Footer Top"
+      },
+      {
+        "type": "text",
+        "label": "Footer Top content",
+        "id": "footer-top-content",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Footer Top phone number",
+        "id": "footer-top-button",
+        "force_reload": true
+      },
+      {
+        "type": "color",
+        "label": "Footer Top border color",
+        "id": "footer-top-border"
+      },
+      {
+        "type": "heading",
+        "content": "Footer Middle"
+      },
+      {
+        "type": "text",
+        "label": "Footer Middle phone 1",
+        "id": "footer-middle-phone1",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Footer Middle phone 2",
+        "id": "footer-middle-phone2",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Footer Middle email",
+        "id": "footer-middle-email",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Footer Security logo",
+        "id": "themevale_footer-security-image-1",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Footer Security logo",
+        "id": "themevale_footer-security-image-2",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Footer Security logo",
+        "id": "themevale_footer-security-image-3",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Footer Security logo",
+        "id": "themevale_footer-security-image-4",
+        "force_reload": true
+      },
+      {
+        "type": "heading",
+        "content": "GeoTrust SSL"
+      },
+      {
+        "type": "paragraph",
+        "content": "If you've purchased a GeoTrust SSL from BigCommerce, check your BigCommerce Account Dashboard for the correct Common Name to use here."
+      },
+      {
+        "type": "text",
+        "label": "SSL Common Name",
+        "force_reload": true,
+        "id": "geotrust_ssl_common_name"
+      },
+      {
+        "type": "select",
+        "label": "Seal size",
+        "id": "geotrust_ssl_seal_size",
+        "options": [
+          {
+            "value": "M",
+            "label": "Medium"
+          },
+          {
+            "value": "S",
+            "label": "Small"
+          }
+        ],
+        "force_reload": true
+      },
+      {
+        "type": "heading",
+        "content": "Footer Bottom"
+      },
+      {
+        "type": "color",
+        "label": "Footer Bottom Text color",
+        "id": "footer-bottom-textColor"
+      },
+      {
+        "type": "color",
+        "label": "Footer Bottom Background color",
+        "id": "footer-bottom-backgroundColor"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show &quot;&copy;&quot;, current year and store name",
+        "force_reload": true,
+        "id": "show_copyright_footer"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show &quot;Powered by BigCommerce&quot;",
+        "force_reload": true,
+        "id": "show_powered_by"
+      },
+      {
+        "type": "text",
+        "label": "Powered by BigCommerce content",
+        "force_reload": true,
+        "id": "powered_by_content"
+      },
+      {
+        "type": "heading",
+        "content": "Payment icons"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show payment visa",
+        "force_reload": true,
+        "id": "show_accept_visa"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show payment mastercard",
+        "force_reload": true,
+        "id": "show_accept_mastercard"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show payment amex",
+        "force_reload": true,
+        "id": "show_accept_amex"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show payment discover",
+        "force_reload": true,
+        "id": "show_accept_discover"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show payment cirrus",
+        "force_reload": true,
+        "id": "show_accept_sage"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show payment paypal",
+        "force_reload": true,
+        "id": "show_accept_paypal"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show payment union",
+        "force_reload": true,
+        "id": "show_accept_wallet"
+      }
+    ]
+  },
+  {
+    "name": "Home Page",
+    "settings": [
+      {
+        "type": "heading",
+        "content": "Homepage Carousel"
+      },
+      {
+        "type": "color",
+        "label": "Title color",
+        "id": "carousel-title-color"
+      },
+      {
+        "type": "color",
+        "label": "Description color",
+        "id": "carousel-description-color"
+      },
+      {
+        "type": "color",
+        "label": "button color",
+        "id": "carousel-button-color"
+      },
+      {
+        "type": "color",
+        "label": "button Border color",
+        "id": "carousel-button-border"
+      },
+      {
+        "type": "color",
+        "label": "button Background color",
+        "id": "carousel-button-bgcolor"
+      },
+      {
+        "type": "color",
+        "label": "button color hover",
+        "id": "carousel-button-colorHover"
+      },
+      {
+        "type": "color",
+        "label": "button Border color hover",
+        "id": "carousel-button-borderHover"
+      },
+      {
+        "type": "color",
+        "label": "button Background color hover",
+        "id": "carousel-button-bgcolorHover"
+      },
+      {
+        "type": "checkbox",
+        "label": "Display Dots",
+        "id": "carousel-button-bgcolor",
+        "force_reload": true
+      },
+      {
+        "type": "color",
+        "label": "Dots color",
+        "id": "carousel-dot-color"
+      },
+      {
+        "type": "color",
+        "label": "Dots active color",
+        "id": "carousel-dot-color-active"
+      },
+      {
+        "type": "checkbox",
+        "label": "Display Arrows",
+        "id": "homepage_show_carousel_arrows",
+        "force_reload": true
+      },
+      {
+        "type": "color",
+        "label": "Arrow color",
+        "id": "carousel-arrow-color"
+      },
+      {
+        "type": "color",
+        "label": "Arrow border color",
+        "id": "carousel-arrow-borderColor"
+      },
+      {
+        "type": "text",
+        "label": "Image Mobile (slide 1)",
+        "id": "homepage_images_mobile-0",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Image Mobile (slide 2)",
+        "id": "homepage_images_mobile-1",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Image Mobile (slide 3)",
+        "id": "homepage_images_mobile-2",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Image Mobile (slide 4)",
+        "id": "homepage_images_mobile-3",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Image Mobile (slide 5)",
+        "id": "homepage_images_mobile-4",
+        "force_reload": true
+      },
+      {
+        "type": "heading",
+        "content": "Categories Carousel",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "color",
+        "label": "Title color",
+        "id": "themevale_category-carousel-title",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "color",
+        "label": "Title hover color",
+        "id": "themevale_category-carousel-title-hover",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "heading",
+        "content": "Popular Categories",
+        "reference": "themevale_homepage_3",
+        "reference_default": true
+      },
+      {
+        "type": "color",
+        "label": "Title color",
+        "id": "themevale_category-card-title",
+        "reference": "themevale_homepage_3",
+        "reference_default": true
+      },
+      {
+        "type": "color",
+        "label": "Title hover color",
+        "id": "themevale_category-card-title-hover",
+        "reference": "themevale_homepage_3",
+        "reference_default": true
+      },
+      {
+        "type": "color",
+        "label": "Content color",
+        "id": "themevale_category-card-color",
+        "reference": "themevale_homepage_3",
+        "reference_default": true
+      },
+      {
+        "type": "heading",
+        "content": "Flash Sale"
+      },
+      {
+        "type": "text",
+        "label": "Flash Sale icon",
+        "id": "themevale_category-flash-sale-icon",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Flash Sale title",
+        "id": "themevale_category-flash-sale-title",
+        "force_reload": true
+      },
+      {
+        "type": "color",
+        "label": "Flash Sale title color",
+        "id": "themevale_category-flash-sale-titlecolor"
+      },
+      {
+        "type": "text",
+        "label": "Flash Sale Category ID",
+        "id": "themevale_category-flash-sale-id",
+        "force_reload": true
+      },
+      {
+        "type": "select",
+        "label": "Limit Products",
+        "id": "themevale_category-flash-sale-limit",
+        "force_reload": true,
+        "options": [
+          {
+            "value": 4,
+            "label": "4"
+          },
+          {
+            "value": 5,
+            "label": "5"
+          },
+          {
+            "value": 6,
+            "label": "6"
+          },
+          {
+            "value": 7,
+            "label": "7"
+          },
+          {
+            "value": 8,
+            "label": "8"
+          },
+          {
+            "value": 9,
+            "label": "9"
+          },
+          {
+            "value": 10,
+            "label": "10"
+          },
+          {
+            "value": 15,
+            "label": "15"
+          },
+          {
+            "value": 20,
+            "label": "20"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "label": "banner ads",
+        "id": "themevale_banner-ads-3",
+        "force_reload": true,
+        "reference": "themevale_homepage_3",
+        "reference_default": false
+      },
+      {
+        "type": "heading",
+        "content": "banner marketing",
+        "reference": "themevale_homepage_3",
+        "reference_default": true
+      },
+      {
+        "type": "color",
+        "label": "Title color",
+        "id": "themevale_banner-marketing-title",
+        "reference": "themevale_homepage_3",
+        "reference_default": true
+      },
+      {
+        "type": "color",
+        "label": "Title hover color",
+        "id": "themevale_banner-marketing-title-hover",
+        "reference": "themevale_homepage_3",
+        "reference_default": true
+      },
+      {
+        "type": "color",
+        "label": "Content color",
+        "id": "themevale_banner-marketing-color",
+        "reference": "themevale_homepage_3",
+        "reference_default": true
+      },
+      {
+        "type": "heading",
+        "content": "Featured Category",
+        "reference": "themevale_homepage_2",
+        "reference_default": true
+      },
+      {
+        "type": "text",
+        "label": "Featured Category title",
+        "id": "themevale_category-custom-title",
+        "force_reload": true,
+        "reference": "themevale_homepage_2",
+        "reference_default": true
+      },
+      {
+        "type": "text",
+        "label": "Featured Category content",
+        "id": "themevale_category-custom-content",
+        "force_reload": true,
+        "reference": "themevale_homepage_2",
+        "reference_default": true
+      },
+      {
+        "type": "paragraph",
+        "content": "*When you choose Category ID for Featured Category, Then it will not show on the navigation menu*",
+        "reference": "themevale_homepage_2",
+        "reference_default": true
+      },
+      {
+        "type": "text",
+        "label": "Featured Category ID 1",
+        "id": "themevale_category-custom-1",
+        "force_reload": true,
+        "reference": "themevale_homepage_2",
+        "reference_default": true
+      },
+      {
+        "type": "text",
+        "label": "Featured Category ID 2",
+        "id": "themevale_category-custom-2",
+        "force_reload": true,
+        "reference": "themevale_homepage_2",
+        "reference_default": true
+      },
+      {
+        "type": "text",
+        "label": "Featured Category ID 3",
+        "id": "themevale_category-custom-3",
+        "force_reload": true,
+        "reference": "themevale_homepage_2",
+        "reference_default": true
+      },
+      {
+        "type": "text",
+        "label": "Featured Category ID 4",
+        "id": "themevale_category-custom-4",
+        "force_reload": true,
+        "reference": "themevale_homepage_2",
+        "reference_default": true
+      },
+      {
+        "type": "text",
+        "label": "Featured Category ID 5",
+        "id": "themevale_category-custom-5",
+        "force_reload": true,
+        "reference": "themevale_homepage_2",
+        "reference_default": true
+      },
+      {
+        "type": "text",
+        "label": "Featured Category ID 6",
+        "id": "themevale_category-custom-6",
+        "force_reload": true,
+        "reference": "themevale_homepage_2",
+        "reference_default": true
+      },
+      {
+        "type": "heading",
+        "content": "Tab New Product",
+        "reference": "themevale_homepage_2",
+        "reference_default": true
+      },
+      {
+        "type": "select",
+        "label": "Limit Category",
+        "id": "themevale_tab-product-category-limit",
+        "force_reload": true,
+        "reference": "themevale_homepage_2",
+        "reference_default": true,
+        "options": [
+          {
+            "value": 4,
+            "label": "4"
+          },
+          {
+            "value": 5,
+            "label": "5"
+          },
+          {
+            "value": 6,
+            "label": "6"
+          },
+          {
+            "value": 7,
+            "label": "7"
+          },
+          {
+            "value": 8,
+            "label": "8"
+          },
+          {
+            "value": 9,
+            "label": "9"
+          },
+          {
+            "value": 10,
+            "label": "10"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "label": "Limit Products/Category",
+        "id": "themevale_tab-product-id-limit",
+        "force_reload": true,
+        "reference": "themevale_homepage_2",
+        "reference_default": true,
+        "options": [
+          {
+            "value": 4,
+            "label": "4"
+          },
+          {
+            "value": 5,
+            "label": "5"
+          },
+          {
+            "value": 6,
+            "label": "6"
+          },
+          {
+            "value": 7,
+            "label": "7"
+          },
+          {
+            "value": 8,
+            "label": "8"
+          },
+          {
+            "value": 9,
+            "label": "9"
+          },
+          {
+            "value": 10,
+            "label": "10"
+          },
+          {
+            "value": 15,
+            "label": "15"
+          },
+          {
+            "value": 20,
+            "label": "20"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "content": "Category Banner (has popup video)",
+        "reference": "themevale_homepage_1",
+        "reference_default": false
+      },
+      {
+        "type": "color",
+        "label": "Category Banner color",
+        "id": "themevale_category-banner-color",
+        "reference": "themevale_homepage_1",
+        "reference_default": false
+      },
+      {
+        "type": "color",
+        "label": "Category Banner title color",
+        "id": "themevale_category-banner-titlecolor",
+        "reference": "themevale_homepage_1",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category Banner background image",
+        "id": "themevale_category-banner-image",
+        "force_reload": true,
+        "reference": "themevale_homepage_1",
+        "reference_default": false
+      },
+      {
+        "type": "color",
+        "label": "Category point color",
+        "id": "themevale_category-banner-point-color",
+        "reference": "themevale_homepage_1",
+        "reference_default": false
+      },
+      {
+        "type": "color",
+        "label": "Category point color",
+        "id": "themevale_category-banner-point-bgcolor",
+        "reference": "themevale_homepage_1",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "ID product popup 1",
+        "id": "themevale_category-banner-product1-id",
+        "force_reload": true,
+        "reference": "themevale_homepage_1",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Coordinates X (unit %)",
+        "id": "themevale_category-banner-product1-x",
+        "force_reload": true,
+        "reference": "themevale_homepage_1",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Coordinates Y (unit %)",
+        "id": "themevale_category-banner-product1-y",
+        "force_reload": true,
+        "reference": "themevale_homepage_1",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "ID product popup 2",
+        "id": "themevale_category-banner-product2-id",
+        "force_reload": true,
+        "reference": "themevale_homepage_1",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Coordinates X (unit %)",
+        "id": "themevale_category-banner-product2-x",
+        "force_reload": true,
+        "reference": "themevale_homepage_1",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Coordinates Y (unit %)",
+        "id": "themevale_category-banner-product2-y",
+        "force_reload": true,
+        "reference": "themevale_homepage_1",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category Banner category ID",
+        "id": "themevale_category-banner-id",
+        "force_reload": true,
+        "reference": "themevale_homepage_1",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category Banner video url (youtube)",
+        "id": "themevale_category-banner-video-url",
+        "force_reload": true,
+        "reference": "themevale_homepage_1",
+        "reference_default": false
+      },
+      {
+        "type": "paragraph",
+        "content": "Ex: https://www.youtube.com/embed/ZeKC2myhQf8?autoplay=1&mute=1",
+        "reference": "themevale_homepage_1",
+        "reference_default": false
+      },
+      {
+        "type": "select",
+        "label": "Limit Products",
+        "id": "themevale_tab-category-id-limit",
+        "reference": "themevale_homepage_1",
+        "reference_default": false,
+        "force_reload": true,
+        "options": [
+          {
+            "value": 4,
+            "label": "4"
+          },
+          {
+            "value": 5,
+            "label": "5"
+          },
+          {
+            "value": 6,
+            "label": "6"
+          },
+          {
+            "value": 7,
+            "label": "7"
+          },
+          {
+            "value": 8,
+            "label": "8"
+          },
+          {
+            "value": 9,
+            "label": "9"
+          },
+          {
+            "value": 10,
+            "label": "10"
+          },
+          {
+            "value": 15,
+            "label": "15"
+          },
+          {
+            "value": 20,
+            "label": "20"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "content": "Category carousel with banner 1",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category ID",
+        "id": "themevale_category-id-width-banner-1",
+        "force_reload": true,
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Banner 1",
+        "id": "themevale_category-id-width-banner-1-image-1",
+        "force_reload": true,
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Link Banner 1",
+        "id": "themevale_category-id-width-banner-1-link-1",
+        "force_reload": true,
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Banner 2",
+        "id": "themevale_category-id-width-banner-1-image-2",
+        "force_reload": true,
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Link Banner 2",
+        "id": "themevale_category-id-width-banner-1-link-2",
+        "force_reload": true,
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Banner 3",
+        "id": "themevale_category-id-width-banner-1-image-3",
+        "force_reload": true,
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Link Banner 3",
+        "id": "themevale_category-id-width-banner-1-link-3",
+        "force_reload": true,
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "heading",
+        "content": "Category carousel width banner 2",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category ID",
+        "id": "themevale_category-id-width-banner-2",
+        "force_reload": true,
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Banner 1",
+        "id": "themevale_category-id-width-banner-2-image-1",
+        "force_reload": true,
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Link Banner 1",
+        "id": "themevale_category-id-width-banner-2-link-1",
+        "force_reload": true,
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Banner 2",
+        "id": "themevale_category-id-width-banner-2-image-2",
+        "force_reload": true,
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Link Banner 2",
+        "id": "themevale_category-id-width-banner-2-link-2",
+        "force_reload": true,
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Banner 3",
+        "id": "themevale_category-id-width-banner-2-image-3",
+        "force_reload": true,
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Link Banner 3",
+        "id": "themevale_category-id-width-banner-2-link-3",
+        "force_reload": true,
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "heading",
+        "content": "Category carousel width banner 3",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category ID",
+        "id": "themevale_category-id-width-banner-3",
+        "force_reload": true,
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Banner 1",
+        "id": "themevale_category-id-width-banner-3-image-1",
+        "force_reload": true,
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Link Banner 1",
+        "id": "themevale_category-id-width-banner-3-link-1",
+        "force_reload": true,
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Banner 2",
+        "id": "themevale_category-id-width-banner-3-image-2",
+        "force_reload": true,
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Link Banner 2",
+        "id": "themevale_category-id-width-banner-3-link-2",
+        "force_reload": true,
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Banner 3",
+        "id": "themevale_category-id-width-banner-3-image-3",
+        "force_reload": true,
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Link Banner 3",
+        "id": "themevale_category-id-width-banner-3-link-3",
+        "force_reload": true,
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "heading",
+        "content": "Category carousel width banner 4",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category ID",
+        "id": "themevale_category-id-width-banner-4",
+        "force_reload": true,
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Banner 1",
+        "id": "themevale_category-id-width-banner-4-image-1",
+        "force_reload": true,
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Link Banner 1",
+        "id": "themevale_category-id-width-banner-4-link-1",
+        "force_reload": true,
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Banner 2",
+        "id": "themevale_category-id-width-banner-4-image-2",
+        "force_reload": true,
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Link Banner 2",
+        "id": "themevale_category-id-width-banner-4-link-2",
+        "force_reload": true,
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Banner 3",
+        "id": "themevale_category-id-width-banner-4-image-3",
+        "force_reload": true,
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Link Banner 3",
+        "id": "themevale_category-id-width-banner-4-link-3",
+        "force_reload": true,
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "heading",
+        "content": "More Departments"
+      },
+      {
+        "type": "color",
+        "label": "Title color",
+        "id": "themevale_category-card2-title"
+      },
+      {
+        "type": "color",
+        "label": "Title hover color",
+        "id": "themevale_category-card2-title-hover"
+      },
+      {
+        "type": "color",
+        "label": "Content color",
+        "id": "themevale_category-card2-color"
+      },
+      {
+        "type": "heading",
+        "content": "You May Also Like",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category ID",
+        "id": "themevale_category-id",
+        "force_reload": true,
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category title",
+        "id": "themevale_category-id-title",
+        "force_reload": true,
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "select",
+        "label": "Column show",
+        "id": "themevale_category-id-column",
+        "force_reload": true,
+        "options": [
+          {
+            "value": 2,
+            "label": "2"
+          },
+          {
+            "value": 3,
+            "label": "3"
+          },
+          {
+            "value": 4,
+            "label": "4"
+          },
+          {
+            "value": 5,
+            "label": "5"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "label": "Number product show",
+        "id": "themevale_category-id-number",
+        "force_reload": true,
+        "options": [
+          {
+            "value": 4,
+            "label": "4"
+          },
+          {
+            "value": 5,
+            "label": "5"
+          },
+          {
+            "value": 6,
+            "label": "6"
+          },
+          {
+            "value": 7,
+            "label": "7"
+          },
+          {
+            "value": 8,
+            "label": "8"
+          },
+          {
+            "value": 9,
+            "label": "9"
+          },
+          {
+            "value": 10,
+            "label": "10"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "content": "Recent Blogs"
+      },
+      {
+        "type": "select",
+        "label": "Maximum number post",
+        "id": "homepage_blog_posts_count",
+        "force_reload": true,
+        "options": [
+          {
+            "value": 1,
+            "label": "1"
+          },
+          {
+            "value": 2,
+            "label": "2"
+          },
+          {
+            "value": 3,
+            "label": "3"
+          },
+          {
+            "value": 4,
+            "label": "4"
+          },
+          {
+            "value": 5,
+            "label": "5"
+          },
+          {
+            "value": 6,
+            "label": "6"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "label": "Column",
+        "id": "homepage_blog_col",
+        "force_reload": true,
+        "reference": "themevale_homepage_3",
+        "reference_default": true,
+        "options": [
+          {
+            "value": 1,
+            "label": "1"
+          },
+          {
+            "value": 2,
+            "label": "2"
+          },
+          {
+            "value": 3,
+            "label": "3"
+          },
+          {
+            "value": 4,
+            "label": "4"
+          }
+        ]
+      },
+      {
+        "type": "color",
+        "label": "Recent Blogs Title color",
+        "id": "homepage_blog_title-color"
+      },
+      {
+        "type": "color",
+        "label": "Recent Blogs Author color",
+        "id": "homepage_blog_author-color"
+      },
+      {
+        "type": "heading",
+        "content": "Videos Carousel",
+        "reference": "themevale_homepage_3",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Video image 1",
+        "id": "homepage_video_image_1",
+        "force_reload": true,
+        "reference": "themevale_homepage_3",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Video title 1",
+        "id": "homepage_video_title_1",
+        "force_reload": true,
+        "reference": "themevale_homepage_3",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Video description 1",
+        "id": "homepage_video_description_1",
+        "force_reload": true,
+        "reference": "themevale_homepage_3",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Video url 1",
+        "id": "homepage_video_url_1",
+        "force_reload": true,
+        "reference": "themevale_homepage_3",
+        "reference_default": false
+      },
+      {
+        "type": "paragraph",
+        "content": "Ex: https://www.youtube.com/embed/ZeKC2myhQf8?autoplay=1&mute=1",
+        "reference": "themevale_homepage_3",
+        "reference_default": false
+      },
+      {
+        "type": "paragraph",
+        "content": "-----------------------------------------",
+        "reference": "themevale_homepage_3",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Video image 2",
+        "id": "homepage_video_image_2",
+        "force_reload": true,
+        "reference": "themevale_homepage_3",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Video title 2",
+        "id": "homepage_video_title_2",
+        "force_reload": true,
+        "reference": "themevale_homepage_3",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Video description 2",
+        "id": "homepage_video_description_2",
+        "force_reload": true,
+        "reference": "themevale_homepage_3",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Video url 2",
+        "id": "homepage_video_url_2",
+        "force_reload": true,
+        "reference": "themevale_homepage_3",
+        "reference_default": false
+      },
+      {
+        "type": "paragraph",
+        "content": "Ex: https://www.youtube.com/embed/ZeKC2myhQf8?autoplay=1&mute=1",
+        "reference": "themevale_homepage_3",
+        "reference_default": false
+      },
+      {
+        "type": "paragraph",
+        "content": "-----------------------------------------",
+        "reference": "themevale_homepage_3",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Video image 3",
+        "id": "homepage_video_image_3",
+        "force_reload": true,
+        "reference": "themevale_homepage_3",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Video title 3",
+        "id": "homepage_video_title_3",
+        "force_reload": true,
+        "reference": "themevale_homepage_3",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Video description 3",
+        "id": "homepage_video_description_3",
+        "force_reload": true,
+        "reference": "themevale_homepage_3",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Video url 3",
+        "id": "homepage_video_url_3",
+        "force_reload": true,
+        "reference": "themevale_homepage_3",
+        "reference_default": false
+      },
+      {
+        "type": "paragraph",
+        "content": "Ex: https://www.youtube.com/embed/ZeKC2myhQf8?autoplay=1&mute=1",
+        "reference": "themevale_homepage_3",
+        "reference_default": false
+      },
+      {
+        "type": "paragraph",
+        "content": "-----------------------------------------",
+        "reference": "themevale_homepage_3",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Video image 4",
+        "id": "homepage_video_image_4",
+        "force_reload": true,
+        "reference": "themevale_homepage_3",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Video title 4",
+        "id": "homepage_video_title_4",
+        "force_reload": true,
+        "reference": "themevale_homepage_3",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Video description 4",
+        "id": "homepage_video_description_4",
+        "force_reload": true,
+        "reference": "themevale_homepage_3",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Video url 4",
+        "id": "homepage_video_url_4",
+        "force_reload": true,
+        "reference": "themevale_homepage_3",
+        "reference_default": false
+      },
+      {
+        "type": "paragraph",
+        "content": "Ex: https://www.youtube.com/embed/ZeKC2myhQf8?autoplay=1&mute=1",
+        "reference": "themevale_homepage_3",
+        "reference_default": false
+      },
+      {
+        "type": "paragraph",
+        "content": "-----------------------------------------",
+        "reference": "themevale_homepage_3",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Video image 5",
+        "id": "homepage_video_image_5",
+        "force_reload": true,
+        "reference": "themevale_homepage_3",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Video title 5",
+        "id": "homepage_video_title_5",
+        "force_reload": true,
+        "reference": "themevale_homepage_3",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Video description 5",
+        "id": "homepage_video_description_5",
+        "force_reload": true,
+        "reference": "themevale_homepage_3",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Video url 5",
+        "id": "homepage_video_url_5",
+        "force_reload": true,
+        "reference": "themevale_homepage_3",
+        "reference_default": false
+      },
+      {
+        "type": "paragraph",
+        "content": "Ex: https://www.youtube.com/embed/ZeKC2myhQf8?autoplay=1&mute=1",
+        "reference": "themevale_homepage_3",
+        "reference_default": false
+      },
+      {
+        "type": "paragraph",
+        "content": "-----------------------------------------",
+        "reference": "themevale_homepage_3",
+        "reference_default": false
+      },
+      {
+        "type": "heading",
+        "content": "Customer Service"
+      },
+      {
+        "type": "color",
+        "label": "Customer Service text color",
+        "id": "themevale_customer-service-color"
+      },
+      {
+        "type": "color",
+        "label": "Customer Service background color",
+        "id": "themevale_customer-service-bg",
+        "reference": "themevale_homepage_3",
+        "reference_default": true
+      },
+      {
+        "type": "color",
+        "label": "Customer Service icon color",
+        "id": "themevale_customer-service-bg",
+        "reference": "themevale_homepage_3",
+        "reference_default": false
+      },
+      {
+        "type": "paragraph",
+        "content": "-----------------------------------------"
+      },
+      {
+        "type": "text",
+        "label": "Service icon",
+        "id": "themevale_customer-service-icon-1",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Service title",
+        "id": "themevale_customer-service-title-1",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Service content",
+        "id": "themevale_customer-service-text-1",
+        "force_reload": true,
+        "reference": "themevale_homepage_3",
+        "reference_default": false
+      },
+      {
+        "type": "paragraph",
+        "content": "-----------------------------------------"
+      },
+      {
+        "type": "text",
+        "label": "Service icon",
+        "id": "themevale_customer-service-icon-2",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Service title",
+        "id": "themevale_customer-service-title-2",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Service content",
+        "id": "themevale_customer-service-text-2",
+        "force_reload": true,
+        "reference": "themevale_homepage_3",
+        "reference_default": false
+      },
+      {
+        "type": "paragraph",
+        "content": "-----------------------------------------"
+      },
+      {
+        "type": "text",
+        "label": "Service icon",
+        "id": "themevale_customer-service-icon-3",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Service title",
+        "id": "themevale_customer-service-title-3",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Service content",
+        "id": "themevale_customer-service-text-3",
+        "force_reload": true,
+        "reference": "themevale_homepage_3",
+        "reference_default": false
+      },
+      {
+        "type": "paragraph",
+        "content": "-----------------------------------------"
+      },
+      {
+        "type": "text",
+        "label": "Service icon",
+        "id": "themevale_customer-service-icon-4",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Service title",
+        "id": "themevale_customer-service-title-4",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Service content",
+        "id": "themevale_customer-service-text-4",
+        "force_reload": true,
+        "reference": "themevale_homepage_3",
+        "reference_default": false
+      }
+    ]
+  },
+  {
+    "name": "Category Page",
+    "settings": [
+      {
+        "type": "heading",
+        "content": "Category Heading"
+      },
+      {
+        "type": "heading",
+        "content": "Category breadcrumb"
+      },
+      {
+        "type": "color",
+        "label": "Category breadcrumb color",
+        "id": "breadcrumb-color"
+      },
+      {
+        "type": "color",
+        "label": "Title color",
+        "id": "themevale_category-heading"
+      },
+      {
+        "type": "color",
+        "label": "Category breadcrumb background",
+        "id": "themevale_Category-breadcrumb-background"
+      },
+      {
+        "type": "heading",
+        "content": "Layout SubCategory"
+      },
+      {
+        "type": "checkbox",
+        "label": "Enable SubCategory",
+        "force_reload": true,
+        "id": "themevale_subCategory"
+      },
+      {
+        "type": "heading",
+        "content": "Layout category page"
+      },
+      {
+        "type": "select",
+        "id": "product_list_display_mode",
+        "force_reload": true,
+        "label": "Display style",
+        "options": [
+          {
+            "value": "list",
+            "label": "Show products in a list"
+          },
+          {
+            "value": "grid 3 column",
+            "label": "Layout grid 3 column"
+          },
+          {
+            "value": "grid 4 column",
+            "label": "Layout grid 4 column"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "content": "Number products per Category page"
+      },
+      {
+        "type": "select",
+        "label": "Number",
+        "id": "categorypage_products_per_page",
+        "force_reload": true,
+        "options": [
+          {
+            "value": 9,
+            "label": "9"
+          },
+          {
+            "value": 12,
+            "label": "12"
+          },
+          {
+            "value": 15,
+            "label": "15"
+          },
+          {
+            "value": 20,
+            "label": "20"
+          },
+          {
+            "value": 24,
+            "label": "24"
+          },
+          {
+            "value": 30,
+            "label": "30"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "content": "Sidebar Category"
+      },
+      {
+        "type": "text",
+        "label": "banner ads 1",
+        "id": "themevale_banner-ads-1",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "banner ads 2",
+        "id": "themevale_banner-ads-2",
+        "force_reload": true
+      }
+    ]
+  },
+  {
+    "name": "Product Detail page",
+    "settings": [
+      {
+        "type": "heading",
+        "content": "Video"
+      },
+      {
+        "type": "text",
+        "label": "Video icon",
+        "force_reload": true,
+        "id": "product_video-image"
+      },
+      {
+        "type": "text",
+        "label": "Video text",
+        "force_reload": true,
+        "id": "product_video-text"
+      },
+      {
+        "type": "heading",
+        "content": "Instruction"
+      },
+      {
+        "type": "text",
+        "label": "Instruction icon",
+        "force_reload": true,
+        "id": "product_instruction-image"
+      },
+      {
+        "type": "text",
+        "label": "Instruction text",
+        "force_reload": true,
+        "id": "product_instruction-text"
+      },
+      {
+        "type": "heading",
+        "content": "Warranty"
+      },
+      {
+        "type": "text",
+        "label": "Warranty icon",
+        "force_reload": true,
+        "id": "product_warranty-image"
+      },
+      {
+        "type": "text",
+        "label": "Warranty text",
+        "force_reload": true,
+        "id": "product_warranty-text"
+      },
+      {
+        "type": "heading",
+        "content": "Ask An Experts"
+      },
+      {
+        "type": "text",
+        "label": "Ask An Experts image",
+        "force_reload": true,
+        "id": "product_contact-image"
+      },
+      {
+        "type": "text",
+        "label": "Ask An Experts text",
+        "force_reload": true,
+        "id": "products_contact-questions"
+      },
+      {
+        "type": "text",
+        "label": "Ask An Experts phone",
+        "force_reload": true,
+        "id": "products_contact-phone"
+      },
+      {
+        "type": "text",
+        "label": "Ask An Experts link",
+        "force_reload": true,
+        "id": "products_contact-ask-experts"
+      },
+      {
+        "type": "text",
+        "label": "Service 1 icon",
+        "force_reload": true,
+        "id": "products_services-icon-1"
+      },
+      {
+        "type": "text",
+        "label": "Service 1 Title",
+        "force_reload": true,
+        "id": "products_services-title-1"
+      },
+      {
+        "type": "text",
+        "label": "Service 1 Content",
+        "force_reload": true,
+        "id": "products_services-content-1"
+      },
+      {
+        "type": "text",
+        "label": "Service 2 icon",
+        "force_reload": true,
+        "id": "products_services-icon-2"
+      },
+      {
+        "type": "text",
+        "label": "Service 2 Title",
+        "force_reload": true,
+        "id": "products_services-title-2"
+      },
+      {
+        "type": "text",
+        "label": "Service 2 Content",
+        "force_reload": true,
+        "id": "products_services-content-2"
+      },
+      {
+        "type": "text",
+        "label": "Service 3 icon",
+        "force_reload": true,
+        "id": "products_services-icon-3"
+      },
+      {
+        "type": "text",
+        "label": "Service 3 Title",
+        "force_reload": true,
+        "id": "products_services-title-3"
+      },
+      {
+        "type": "text",
+        "label": "Service 3 Content",
+        "force_reload": true,
+        "id": "products_services-content-3"
+      },
+      {
+        "type": "text",
+        "label": "Service 4 icon",
+        "force_reload": true,
+        "id": "products_services-icon-4"
+      },
+      {
+        "type": "text",
+        "label": "Service 4 Title",
+        "force_reload": true,
+        "id": "products_services-title-4"
+      },
+      {
+        "type": "text",
+        "label": "Service 4 Content",
+        "force_reload": true,
+        "id": "products_services-content-4"
+      },
+      {
+        "type": "heading",
+        "content": "Form Ask an Experts"
+      },
+      {
+        "type": "text",
+        "label": "Subject",
+        "force_reload": true,
+        "id": "themevale_ask_an_expert_subject"
+      },
+      {
+        "type": "text",
+        "label": "Name",
+        "force_reload": true,
+        "id": "themevale_ask_an_expert_name"
+      },
+      {
+        "type": "text",
+        "label": "Email",
+        "force_reload": true,
+        "id": "themevale_ask_an_expert_email"
+      },
+      {
+        "type": "heading",
+        "content": "Sold In Last function"
+      },
+      {
+        "type": "checkbox",
+        "label": "Enable Sold In Last function",
+        "force_reload": true,
+        "id": "product_soldProduct"
+      },
+      {
+        "type": "color",
+        "label": "Change text color",
+        "id": "product_soldProduct_textColor"
+      },
+      {
+        "type": "text",
+        "label": "The number of Product",
+        "force_reload": true,
+        "id": "product_soldProduct_products"
+      },
+      {
+        "type": "text",
+        "label": "Text sold in",
+        "force_reload": true,
+        "id": "product_soldProduct_text"
+      },
+      {
+        "type": "text",
+        "label": "Hours",
+        "force_reload": true,
+        "id": "product_soldProduct_hours"
+      },
+      {
+        "type": "text",
+        "label": "Text Hours",
+        "force_reload": true,
+        "id": "product_soldProduct_hours_text"
+      },
+      {
+        "type": "heading",
+        "content": "Customers View In Last function"
+      },
+      {
+        "type": "checkbox",
+        "label": "Enable Customers View In",
+        "force_reload": true,
+        "id": "product_viewingProduct"
+      },
+      {
+        "type": "text",
+        "label": "The number of Customers View In",
+        "force_reload": true,
+        "id": "product_viewingProduct_viewer"
+      },
+      {
+        "type": "text",
+        "label": "Customers View In text",
+        "force_reload": true,
+        "id": "product_viewingProduct_text"
+      },
+      {
+        "type": "heading",
+        "content": "Security Image"
+      },
+      {
+        "type": "text",
+        "label": "Security Image 1",
+        "force_reload": true,
+        "id": "product_security-image-1"
+      },
+      {
+        "type": "text",
+        "label": "Security Image 2",
+        "force_reload": true,
+        "id": "product_security-image-2"
+      },
+      {
+        "type": "text",
+        "label": "Security Image 3",
+        "force_reload": true,
+        "id": "product_security-image-3"
+      },
+      {
+        "type": "text",
+        "label": "Security Image 4",
+        "force_reload": true,
+        "id": "product_security-image-4"
+      },
+      {
+        "type": "checkbox",
+        "label": "Enable Add On Sticky Add To Cart",
+        "force_reload": true,
+        "id": "themevale_sticky-add-to-cart"
+      }
+    ]
+  },
+  {
+    "name": "Search Page",
+    "settings": [
+      {
+        "type": "heading",
+        "content": "Number products per Search page"
+      },
+      {
+        "type": "select",
+        "label": "Number",
+        "id": "searchpage_products_per_page",
+        "force_reload": true,
+        "options": [
+          {
+            "value": 9,
+            "label": "9"
+          },
+          {
+            "value": 12,
+            "label": "12"
+          },
+          {
+            "value": 15,
+            "label": "15"
+          },
+          {
+            "value": 20,
+            "label": "20"
+          },
+          {
+            "value": 24,
+            "label": "24"
+          },
+          {
+            "value": 30,
+            "label": "30"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Brands Page",
+    "settings": [
+      {
+        "type": "heading",
+        "content": "Layout Brands page"
+      },
+      {
+        "type": "select",
+        "label": "Display style",
+        "id": "brandpage_brands_per_page_layout",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "aztable",
+            "label": "A to Z layout"
+          },
+          {
+            "value": "Grid",
+            "label": "Grid layout"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "label": "Number brands per page",
+        "id": "brandpage_brands_per_page",
+        "force_reload": true,
+        "reference": "themevale_brandlayout",
+        "reference_default": "aztable",
+        "options": [
+          {
+            "value": 10,
+            "label": "10 brands"
+          },
+          {
+            "value": 20,
+            "label": "20 brands"
+          },
+          {
+            "value": 50,
+            "label": "50 brands"
+          },
+          {
+            "value": 100,
+            "label": "100 brands"
+          },
+          {
+            "value": 200,
+            "label": "200 brands"
+          },
+          {
+            "value": 500,
+            "label": "500 brands"
+          },
+          {
+            "value": 1000,
+            "label": "1000 brands"
+          },
+          {
+            "value": 5000,
+            "label": "5000 brands"
+          },
+          {
+            "value": 10000,
+            "label": "10000 brands"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "content": "Number products per BrandPage"
+      },
+      {
+        "type": "select",
+        "label": "Number",
+        "id": "brandpage_products_per_page",
+        "force_reload": true,
+        "options": [
+          {
+            "value": 9,
+            "label": "9"
+          },
+          {
+            "value": 12,
+            "label": "12"
+          },
+          {
+            "value": 15,
+            "label": "15"
+          },
+          {
+            "value": 20,
+            "label": "20"
+          },
+          {
+            "value": 24,
+            "label": "24"
+          },
+          {
+            "value": 30,
+            "label": "30"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Contacts Page",
+    "settings": [
+      {
+        "type": "heading",
+        "content": "Contact infomation"
+      },
+      {
+        "type": "text",
+        "label": "Store address",
+        "force_reload": true,
+        "id": "contact_us-store-address"
+      },
+      {
+        "type": "text",
+        "label": "Store email",
+        "force_reload": true,
+        "id": "contact_us-store-email"
+      },
+      {
+        "type": "text",
+        "label": "Store Phone",
+        "force_reload": true,
+        "id": "contact_us-store-phone"
+      },
+      {
+        "type": "text",
+        "label": "Opening hours 1",
+        "force_reload": true,
+        "id": "contact_us-opentime-1"
+      },
+      {
+        "type": "text",
+        "label": "Opening hours 2",
+        "force_reload": true,
+        "id": "contact_us-opentime-2"
+      }
+    ]
+  },
+  {
+    "name": "Other Settings",
+    "settings": [
+      {
+        "type": "heading",
+        "content": "Newsletter Popup"
+      },
+      {
+        "type": "checkbox",
+        "label": "Enable Newsletter Popup",
+        "force_reload": true,
+        "id": "newsletterPopup-show"
+      },
+      {
+        "type": "text",
+        "label": "Newsletter Popup title",
+        "force_reload": true,
+        "id": "newsletterPopup-title",
+        "reference": "newsletterPopup-show",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Newsletter Popup subtitle",
+        "force_reload": true,
+        "id": "newsletterPopup-subtitle",
+        "reference": "newsletterPopup-show",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Newsletter Popup content",
+        "force_reload": true,
+        "id": "newsletterPopup-content",
+        "reference": "newsletterPopup-show",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Newsletter Popup image background",
+        "force_reload": true,
+        "id": "newsletterPopup-image",
+        "reference": "newsletterPopup-show",
+        "reference_default": false
+      },
+      {
+        "type": "color",
+        "label": " Newsletter Popup color",
+        "id": "newsletterPopup-color",
+        "reference": "newsletterPopup-show",
+        "reference_default": false
+      },
+      {
+        "type": "color",
+        "label": " Newsletter Popup background color",
+        "id": "newsletterPopup-bgcolor",
+        "reference": "newsletterPopup-show",
+        "reference_default": false
+      },
+      {
+        "type": "color",
+        "label": " Newsletter Popup title color",
+        "id": "newsletterPopup-title-color",
+        "reference": "newsletterPopup-show",
+        "reference_default": false
+      },
+      {
+        "type": "color",
+        "label": " Newsletter Popup input border",
+        "id": "newsletterPopup-form-border",
+        "reference": "newsletterPopup-show",
+        "reference_default": false
+      },
+      {
+        "type": "color",
+        "label": " Newsletter Popup input background",
+        "id": "newsletterPopup-form-bg",
+        "reference": "newsletterPopup-show",
+        "reference_default": false
+      },
+      {
+        "type": "color",
+        "label": " Newsletter Popup button submit color",
+        "id": "newsletterPopup-button-color",
+        "reference": "newsletterPopup-show",
+        "reference_default": false
+      },
+      {
+        "type": "color",
+        "label": " Newsletter Popup button submit background",
+        "id": "newsletterPopup-button-bg",
+        "reference": "newsletterPopup-show",
+        "reference_default": false
+      },
+      {
+        "type": "color",
+        "label": " Newsletter Popup social color",
+        "id": "newsletterPopup-social",
+        "reference": "newsletterPopup-show",
+        "reference_default": false
+      },
+      {
+        "type": "heading",
+        "content": "Button Back To Top"
+      },
+      {
+        "type": "checkbox",
+        "label": "Enable Button Back To Top",
+        "force_reload": true,
+        "id": "themevale_BackTop"
+      },
+      {
+        "type": "color",
+        "label": "Text color",
+        "id": "back-to-top-color",
+        "reference": "themevale_BackTop",
+        "reference_default": false
+      },
+      {
+        "type": "color",
+        "label": "Border color",
+        "id": "back-to-top-border",
+        "reference": "themevale_BackTop",
+        "reference_default": false
+      },
+      {
+        "type": "color",
+        "label": "Background color",
+        "id": "back-to-top-bg",
+        "reference": "themevale_BackTop",
+        "reference_default": false
+      },
+      {
+        "type": "color",
+        "label": "Text color hover",
+        "id": "back-to-top-colorHover",
+        "reference": "themevale_BackTop",
+        "reference_default": false
+      },
+      {
+        "type": "color",
+        "label": "Border color hover",
+        "id": "back-to-top-borderHover",
+        "reference": "themevale_BackTop",
+        "reference_default": false
+      },
+      {
+        "type": "color",
+        "label": "Background color hover",
+        "id": "back-to-top-bgHover",
+        "reference": "themevale_BackTop",
+        "reference_default": false
+      },
+      {
+        "type": "heading",
+        "content": "Accept Cookie Popup"
+      },
+      {
+        "type": "text",
+        "label": "privacy policy",
+        "force_reload": true,
+        "id": "privacy_policy"
+      },
+      {
+        "type": "text",
+        "label": "privacy policy url",
+        "force_reload": true,
+        "id": "privacy_policy_url"
+      },
+      {
+        "type": "heading",
+        "content": "Someone just bought Popup"
+      },
+      {
+        "type": "checkbox",
+        "label": "Enable Someone just bought Popup",
+        "force_reload": true,
+        "id": "themevale_RecentlyBought"
+      },
+      {
+        "type": "checkbox",
+        "label": "Enable Someone just bought Popup (Mobile)",
+        "force_reload": true,
+        "id": "themevale_RecentlyBought_mobile",
+        "reference": "themevale_RecentlyBought",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "choose Product ID",
+        "force_reload": true,
+        "id": "recently_bought_productID",
+        "reference": "themevale_RecentlyBought",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Change Purchase time",
+        "force_reload": true,
+        "id": "recently_bought_hours",
+        "reference": "themevale_RecentlyBought",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Change text 'Someone recently bought a' ",
+        "force_reload": true,
+        "id": "recently_bought_text_name",
+        "reference": "themevale_RecentlyBought",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Change text 'minutes ago, from' ",
+        "force_reload": true,
+        "id": "recently_bought_text_info",
+        "reference": "themevale_RecentlyBought",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Location 1",
+        "force_reload": true,
+        "id": "recently_bought_customer_name1",
+        "reference": "themevale_RecentlyBought",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Location 2",
+        "force_reload": true,
+        "id": "recently_bought_customer_name2",
+        "reference": "themevale_RecentlyBought",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Location 3",
+        "force_reload": true,
+        "id": "recently_bought_customer_name3",
+        "reference": "themevale_RecentlyBought",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Location 4",
+        "force_reload": true,
+        "id": "recently_bought_customer_name4",
+        "reference": "themevale_RecentlyBought",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Location 5",
+        "force_reload": true,
+        "id": "recently_bought_customer_name5",
+        "reference": "themevale_RecentlyBought",
+        "reference_default": false
+      },
+      {
+        "type": "select",
+        "label": "Time Change slides (Second)",
+        "id": "recently_bought_changeSlides",
+        "reference": "themevale_RecentlyBought",
+        "reference_default": false,
+        "force_reload": true,
+        "options": [
+          {
+            "value": 5,
+            "label": "5"
+          },
+          {
+            "value": 10,
+            "label": "10"
+          },
+          {
+            "value": 15,
+            "label": "15"
+          },
+          {
+            "value": 30,
+            "label": "30"
+          },
+          {
+            "value": 60,
+            "label": "60"
+          }
+        ]
+      }
+    ]
+  }
+]

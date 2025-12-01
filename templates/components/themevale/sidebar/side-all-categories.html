@@ -1,0 +1,24 @@
+<div class="sidebarBlock" id="sideAllCategories">
+    <h5 class="sidebarBlock-heading">Categories</h5>
+    {{#if categories}}
+    <ul class="all-categories-list">
+        {{#each categories}}
+        <li class="navPages-item">
+            {{#if children}}
+                <span class="navPages-action-wrapper">
+                    <a class="navPages-action has-subMenu" href="{{url}}">{{name}}</a>
+                    <i class="icon-arrow"><svg><use xlink:href="#icon-slick-next"/></svg></i>
+                </span>
+                <ul class="dropdown-category-list navPages-level-2">
+                    {{#each children}}
+                        {{> components/themevale/sidebar/sub-categories}}
+                    {{/each}}
+                </ul>
+            {{else}}
+                <a class="navPages-action" href="{{url}}">{{name}}</a>
+            {{/if}}
+        </li>
+        {{/each}}
+    </ul>
+    {{/if}}
+</div>

@@ -1,0 +1,17 @@
+<li class="navPage-subMenu-item">
+    {{#if children}}
+        <span class="navPages-action-wrapper">
+            <a class="navPage-subMenu-action navPages-action has-subMenu" href="{{url}}">
+                {{name}}
+            </a>
+            <i class="icon-arrow"><svg><use xlink:href="#icon-slick-next"/></svg></i>
+        </span>
+        <ul class="dropdown-category-list navPages-level-3">
+            {{#each children}}
+                {{> components/themevale/sidebar/sub-categories}}
+            {{/each}}
+        </ul>
+    {{else}}
+        <a class="navPage-subMenu-action navPages-action" href="{{url}}">{{name}}</a>
+    {{/if}}
+</li>

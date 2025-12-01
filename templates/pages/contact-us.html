@@ -1,0 +1,54 @@
+{{#partial "page"}}
+<div class="themevale_map">
+    {{#if theme_settings.themevale_map}}
+        {{> components/themevale/contact-us-map}}
+    {{/if}}
+</div>
+<div class="container">
+    <div class="themevale_breadcrumb">
+        {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+        {{#unless theme_settings.hide_contact_us_page_heading }}
+            <h1 class="page-heading">{{page.title}}</h1>
+        {{/unless}}
+    </div>
+    <main class="page">
+        {{#if page.sub_pages}}
+            <nav class="navBar navBar--sub">
+                <ul class="navBar-section account-navigation">
+                    {{#each page.sub_pages}}
+                        <li class="navBar-item"><a class="navBar-action" href="{{url}}">{{title}}</a></li>
+                    {{/each}}
+                </ul>
+            </nav>
+        {{/if}}
+        <div id="contact-us-page" class="page-content themevale_contact-us">
+            <div class="themevale_form">
+                <div id="contact-us-page">
+                    {{#if forms.contact.success}}
+                        <div id="contact-us-success">{{{lang 'forms.contact_us.successful' shopPath=urls.home}}}</div>
+                    {{else}}
+                        <p>{{{page.content}}}</p>
+                        {{> components/page/contact-us-form}}
+                    {{/if}}
+                </div>
+            </div>
+            <div class="themevale_location">
+                <h3 class="title">Shop Location</h3>
+                <div class="content">
+                    <div class="store-address">{{theme_settings.contact_us-store-address}}</div>
+                    <div class="store-email">Email: <a href="mailto:{{theme_settings.contact_us-store-email}}">{{theme_settings.contact_us-store-email}}</a></div>
+                    <div class="store-bone">Toll-free: 215-646-4945</div>
+                </div>
+                <div class="content">
+                    <p class="sub-title">{{lang 'contact_us.opening_hours'}}</p>
+                    <div class="item1">{{theme_settings.contact_us-opentime-1}}</div>
+                    <div class="item2">{{theme_settings.contact_us-opentime-2}}</div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+{{/partial}}
+
+{{> layout/base}}

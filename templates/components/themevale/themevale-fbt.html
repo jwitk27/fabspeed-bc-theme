@@ -1,0 +1,42 @@
+<div id="themvale-fbt" style="display: none;">
+    <div class="loadingOverlay"></div>
+    <h2 class="page-heading no-border">Performance Package</h2>
+    <div class="themvale-fbt-product-wrapper">
+        <div class="themvale-fbt-product-list">
+            <div class="themvale-fbt-product-item {{#if product.can_purchase}}isChecked{{/if}}" data-product-id="{{product.id}}">
+                <div class="themvale-fbt-product-image">
+                    <a class="themvale-fbt-image-link" href="#">
+                        <img class="themvale-fbt-image lazyautosizes lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="{{getImage product.main_image 'productgallery_size' (cdn theme_settings.default_image_product)}}" alt="{{product.alt}}" title="{{product.alt}}" sizes="50px">
+                    </a>
+                </div>
+                <div class="themvale-fbt-product-content">
+                    <form method="post" action="/cart.php" enctype="multipart/form-data">
+                        <input type="hidden" name="action" value="add">
+                        <input type="hidden" name="product_id" value="{{product.id}}">
+                        <input type="hidden" name="qty[]" value="1">
+                        <div class="themvale-fbt-detail-field">
+                            <input class="themvale-fbt-detail-checkbox form-checkbox" type="checkbox" id="fbt_product{{product.id}}" checked disabled>
+                            <label class="themvale-fbt-detail-label form-label" for="fbt_product{{product.id}}">
+                                <span class="themvale-fbt-detail-name"><strong>This Item:</strong> {{product.title}}</span>
+                            </label>
+                            <div class="themvale-fbt-detail-price"> 
+                                {{> components/products/price price=product.price schema_org=schema}}
+                            </div>
+                        </div>
+                        {{#if product.options}}
+                        <div class="button themvale-fbt-toggle-options">Choose Options</div>
+                        <div class="themvale-fbt-detail-options" data-fbt-option-change>
+                            <a href="javascript:void(0)" class="close-options">
+                                <svg><use xlink:href="#icon-close"></use></svg>
+                            </a>
+                            {{#each product.options}}
+                            {{{dynamicComponent 'components/themevale/options'}}}
+                            {{/each}}
+                        </div>
+                        {{/if}}
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

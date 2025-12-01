@@ -1,0 +1,229 @@
+// =============================================================================
+// PAGINATION (CSS)
+// =============================================================================
+
+
+// Pagination list items
+// -----------------------------------------------------------------------------
+//
+// 1. Centred list via inline-block. Font-size: 0; to remove white-space.
+// 2. Specificity overrides for Foundation's inadequate selectors.
+//
+// -----------------------------------------------------------------------------
+
+.pagination-wrapper {
+    text-align: center;
+    position: relative;
+    margin-top: 20px;
+    @include breakpoint('medium') {
+        margin-top: 30px;
+    }
+}
+
+.pagination {
+    display: block;
+    margin-top: 30px;
+    .pagination-list {
+        margin-bottom: 0;
+        display: block;
+    }
+    .pagination-info {
+        color: #8c8c8c;
+        display: none;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    @include breakpoint('small') {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .pagination-info {
+            text-align: left;
+            display: inline-block;
+            margin-bottom: 0;
+        }
+        .pagination-list {
+            display: inline-block;
+        }
+    }
+}
+
+.pagination-list {
+    @include clearfix;
+    font-size: 0;
+    margin-bottom: spacing("single");
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    .pagination-item {
+        font-size: 13px;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    li {
+        margin-left: 10px;
+    }
+}
+
+#button-showmore-category + .pagination {
+    @media(min-width: 1025px) {
+        margin-top: 50px;
+    }
+}
+
+// Pagination list items
+// -----------------------------------------------------------------------------
+//
+// 1. Specificity overrides for Foundation's inadequate selectors.
+//
+// -----------------------------------------------------------------------------
+
+.pagination-item {
+    border: none;
+    line-height: 1;
+    vertical-align: top;
+    border-radius: 3px;
+    svg {
+        fill: #323232;
+        stroke: #323232;
+    }
+    .pagination-link {
+        padding: 12px 0 11px 0;
+        font-size: 12px;
+        font-weight: 400;
+        color: #323232;
+        min-width: 36px;
+        line-height: 1;
+        text-align: center;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 1px solid transparent;
+        background-color: transparent;
+        &:hover {
+            color: #323232;
+            background-color: #f7f7f7;
+            border: 1px solid #f7f7f7;
+        }
+    }
+    &.pagination-item--current {
+        .pagination-link {
+            color: #323232;
+            background-color: #f7f7f7;
+            border: 1px solid #f7f7f7;
+            border-radius: 3px;
+        }
+    }
+    &.pagination-item--previous,
+    &.pagination-item--next {
+        > a {
+            font-weight: 700;
+            border-radius: 3px;
+            padding: 12px 15px 11px 15px;
+            border: 1px solid #eaeaea;
+            background-color: transparent;
+            text-transform: uppercase;
+        }
+    }
+    @include breakpoint("small") {
+        .pagination-link {
+            font-size: 13px;
+            min-width: 40px;
+            padding: 13px 0 12px 0;
+        }
+        &.pagination-item--previous,
+        &.pagination-item--next {
+            > a {
+                padding: 14px 20px 12px 20px;
+            }
+        }
+    }
+}
+
+.pagination-item--previous,
+.pagination-item--next {
+    .icon {
+        top: -2px;
+        position: relative;
+        @include square(10px);
+    }
+}
+
+.pagination-item--previous {
+    .icon {
+        margin-right: 5px;
+    }
+}
+
+.pagination-item--next {
+    .icon {
+        margin-left: 5px;
+    }
+}
+
+
+// Simple/small pagination (Next/Previous arrows are the only way to navigate)
+// -----------------------------------------------------------------------------
+
+.pagination-list--small {
+    position: relative;
+
+    .pagination-item {
+        font-size: 12px;
+        color: $pagination-list--small-color;
+        cursor: inherit;
+        line-height: $pagination-list--small-lineHeight;
+    }
+
+    .pagination-link {
+        padding: $pagination-list--small-link-padding;
+    }
+}
+
+
+// Compare product
+// -----------------------------------------------------------------------------
+
+.compare-link {
+    display: none;
+    @media (min-width: 1025px) {
+        display: block;
+        position: fixed;
+        right: 50px;
+        top: 40%;
+        z-index: 10;
+        a {
+            opacity: 0;
+            visibility: hidden;
+            line-height: 1;
+            font-size: 16px;
+            font-weight: 700;
+            border-radius: 3px;
+            position: relative;
+            text-transform: uppercase;
+            padding: 10px 30px 8px 30px;
+            border: 1px solid #808287;
+            background-color: #ffffff;
+            font-family: $fontFamily-headings;
+            color: stencilColor('color-textHeading');
+            box-shadow: 0 0 3px 1px rgba(0,0,0,0.05);
+            &.show {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+        .countPill {
+            top: -12px;
+            right: -12px;
+            width: 24px;
+            height: 24px;
+            margin-left: 0;
+            line-height: 24px;
+            font-weight: 400;
+            text-align: center;
+            position: absolute;
+            font-family: $fontFamily-sans;
+            color: stencilColor("navUser-indicator-Color");
+            background-color: stencilColor("navUser-indicator-backgroundColor");
+        }
+    }
+}

@@ -1,0 +1,109 @@
+{{#contains customer.customer_group_name "Wholesale"}}
+<section class="wholesale-carousel">
+    <div class="custom-carousel" data-slick='{
+            "dots": true,
+            "arrows": true,
+            "infinite": true,
+            "slidesToShow": 1,
+            "slidesToScroll": 1,
+            "nextArrow": "<svg class=&apos;slick-next slick-arrow&apos; style=&apos;fill: white&apos;><use xlink:href=&apos;#icon-slick-next&apos;></use></svg>", 
+            "prevArrow": "<svg class=&apos;slick-prev slick-arrow&apos; style=&apos;fill: white&apos;><use xlink:href=&apos;#icon-slick-prev&apos;></use></svg>",
+            "autoplay": true,
+            "autoplaySpeed": 7000,
+            "fade": true
+        }'>
+        <!-- <div class="carousel-slide">
+            <a href="https://www.fabspeed.com/bfcm-supersale/">
+                <img src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/image-manager/bf25-wholesale-web-banner-1.jpg?t=1763476308"
+                    alt="welcome" style="width: 100%; height: auto;">
+            </a>
+        </div> -->
+        <div class="carousel-slide">
+            <img src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/image-manager/dealeraccess-banner-3.jpg?t=1740073835"
+                alt="welcome" style="width: 100%; height: auto;">
+        </div>
+        <div class="carousel-slide">
+            <a href="https://www.fabspeed.com/who-we-are/">
+                <img src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/carousel/920/WEB_Banner_WorldsBest_1.jpg?c=2"
+                    alt="best-performance-system" style="width: 100%; height: auto;">
+            </a>
+        </div>
+        <div class="carousel-slide">
+            <a href="https://www.fabspeed.com/pay-over-time/">
+                <img src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/carousel/923/affirm_web_banner_1920x600__51019.jpg?c=2"
+                    alt="affirm" style="width: 100%; height: auto;">
+            </a>
+        </div>
+
+    </div>
+</section>
+{{else}}
+<section class="themevale_heroCarousel">
+    <div class="heroCarousel" data-slick='{
+            "dots": false,
+            "arrows": false,
+            "mobileFirst": true,
+            "slidesToShow": 1,
+            "slidesToScroll": 1,
+            "adaptiveHeight": true,
+            "lazyLoad": "anticipated",
+            "autoplaySpeed": 7000,
+            "autoplay": true,
+            "fade": true,
+            "nextArrow": "<svg class=&apos;slick-next slick-arrow&apos;><use xlink:href=&apos;#icon-slick-next&apos;></use></svg>", 
+            "prevArrow": "<svg class=&apos;slick-prev slick-arrow&apos;><use xlink:href=&apos;#icon-slick-prev&apos;></use></svg>",
+            "responsive": [
+                {
+                    "breakpoint": 1100,
+                    "settings": {
+                        "dots": {{dots}},
+                        "arrows": {{arrows}}
+                    }
+                }
+        ]}'>
+        {{#each carousel.slides}}
+        <div
+            class="heroCarousel-slide {{#if ../theme_settings.homepage_stretch_carousel_images}}stretch{{/if}} {{#if @first}}heroCarousel-slide--first{{/if}}">
+            <div class="heroCarousel-image-wrapper">
+                <a class="link" href="{{url}}"></a>
+                {{#and (if @index '==' 0) ../theme_settings.homepage_images_mobile-0}}
+                <img class="heroCarousel-image-mobile lazyload" src="{{cdn 'img/loading.svg'}}"
+                    data-src="/product_images/uploaded_images/{{../../theme_settings.homepage_images_mobile-0}}" alt="">
+                {{/and}}
+                {{#and (if @index '==' 1) ../theme_settings.homepage_images_mobile-1}}
+                <img class="heroCarousel-image-mobile lazyload" src="{{cdn 'img/loading.svg'}}"
+                    data-src="/product_images/uploaded_images/{{../../theme_settings.homepage_images_mobile-1}}" alt="">
+                {{/and}}
+                {{#and (if @index '==' 2) ../theme_settings.homepage_images_mobile-2}}
+                <img class="heroCarousel-image-mobile lazyload" src="{{cdn 'img/loading.svg'}}"
+                    data-src="/product_images/uploaded_images/{{../../theme_settings.homepage_images_mobile-2}}" alt="">
+                {{/and}}
+                {{#and (if @index '==' 3) ../theme_settings.homepage_images_mobile-3}}
+                <img class="heroCarousel-image-mobile lazyload" src="{{cdn 'img/loading.svg'}}"
+                    data-src="/product_images/uploaded_images/{{../../theme_settings.homepage_images_mobile-3}}" alt="">
+                {{/and}}
+                {{#and (if @index '==' 4) ../theme_settings.homepage_images_mobile-4}}
+                <img class="heroCarousel-image-mobile lazyload" src="{{cdn 'img/loading.svg'}}"
+                    data-src="/product_images/uploaded_images/{{../../theme_settings.homepage_images_mobile-4}}" alt="">
+                {{/and}}
+                <img class="heroCarousel-image lazyload" data-src="{{image}}" alt="{{alt_text}}" title="{{alt_text}}"
+                    {{#if image_width}}width="{{image_width}}" {{/if}} {{#if image_height}}height="{{image_height}}"
+                    {{/if}} />
+            </div>
+            {{#if heading}}
+            {{> components/carousel-content show_background=true}}
+            {{else}}
+            {{#if text}}
+            {{> components/carousel-content show_background=true}}
+            {{else}}
+            {{#if button_text}}
+            {{> components/carousel-content show_background=false}}
+            {{/if}}
+            {{/if}}
+            {{/if}}
+        </div>
+        {{/each}}
+    </div>
+</section>
+
+{{/contains}}

@@ -1,0 +1,28 @@
+<div class="navPages-container" id="menu" data-menu>
+    <nav class="navPages">
+        <ul class="navPages-list">
+            <li class="navPages-item">
+                <a class="navPages-action" href="{{urls.home}}"><span class="text">{{lang 'home.heading'}}</span></a>
+            </li>
+            {{#each pages}}
+                <li class="navPages-item">
+                    {{> components/common/navigation-list-alternate}}
+                </li>
+            {{/each}}
+        </ul>
+    </nav>
+    <div class="facebook-like">
+        <div id="fb-root"></div>
+        <script>
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.3";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+        </script>
+        <div class="fb-like fb_iframe_widget" data-href="https://www.facebook.com/pages/Halothemes-Premium-Magento-Themes/469058089834105" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+    </div>
+</div>

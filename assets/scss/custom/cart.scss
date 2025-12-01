@@ -1,0 +1,55 @@
+.strikethrough-price {
+    text-decoration: line-through;
+    font-weight: 600;
+}
+
+.sale-price,
+.red-price,
+.sale-price--addon {
+    color: red;
+    font-weight: 600;
+}
+
+.custom-promo-cart-banner-content {
+    background: #10a310;
+    color: #fff;
+    padding: 10px 5px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.no-free-shipping {
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+    background: linear-gradient(90deg, red, green, blue, red);
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 300% 300%;
+    animation: colorRotate 3s ease-in-out infinite;
+    text-shadow:
+        0 0 10px rgba(255, 255, 255, 0.8),
+        0 0 25px rgba(255, 255, 255, 0.8),
+        0 0 20px rbga(255, 255, 255, 0.8)
+}
+
+@keyframes colorRotate {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.is-disabled {
+    background: gray;
+    border-color: gray;
+}

@@ -1,0 +1,14 @@
+{{#if theme_settings.homepage_blog_title}}
+    <div class="page-heading-wrapper text-left">
+        <h2 class="page-heading">{{theme_settings.homepage_blog_title}}</h2>
+        <a class="page-heading-link" href="/blog/">{{lang 'common.view_all'}}</a>
+    </div>
+{{/if}}
+<div class="recent_post_list">
+    {{#each blog}}
+        <div class="items">
+            {{> components/blog/recent_post post=this settings=../settings readmore=../theme_settings.homepage_blog_showreadmore}}
+        </div>
+    {{/each}}
+</div>
+{{{region name="below_recent_blogs"}}}

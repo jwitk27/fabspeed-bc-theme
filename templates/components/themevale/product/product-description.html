@@ -1,0 +1,264 @@
+<div class="themevale_productDescription">
+    <div class="productView-description"{{#if schema}} itemprop="description"{{/if}}>
+        <ul class="tabs tabs-custom-2" data-tab>
+            <li class="tab is-active">
+                <a class="tab-title" href="#tab-description">{{lang 'products.description'}}</a>
+            </li>
+            
+            <li class="tab">
+                <a href="#tab-shipping" class="tab-title">{{theme_settings.products_tab-title-1}}</a>
+            </li>
+            
+            {{#if product.warranty}}
+               <li class="tab">
+                   <a href="#tab-warranty" class="tab-title">INSTALL GUIDE</a>
+               </li>
+            {{/if}}
+            
+            <!--<li class="tab">
+                <a href="#tab-custom" class="tab-title">{{theme_settings.products_tab-title-2}}</a>
+            </li>--
+            <--<li class="tab">
+                <a href="#tab-faq" class="tab-title">{{theme_settings.products_tab-title-3}}</a>
+            </li>-->
+        </ul>
+        <div class="tabs-contents">
+            <div class="tab-content is-active" id="tab-description">
+                <div class="toggle-title">
+                    <a class="toggleLink is-open" data-collapsible href="#tabDescription-content">
+                        <span class="page-heading">{{lang 'products.description'}}</span>
+                        <svg class="icon"><use xlink:href="#icon-slick-next"/></svg>
+                    </a>
+                </div>
+                <div class="toggle-content is-open" id="tabDescription-content" aria-hidden="false" {{#if settings.data_tag_enabled}} data-event-type="product" {{/if}}>
+                    {{{product.description}}}
+                    {{{snippet 'product_description'}}}
+                </div>
+            </div>
+            {{#if product.warranty}}
+            <div class="tab-content" id="tab-warranty">
+                <div class="toggle-title">
+                    <a class="toggleLink" data-collapsible href="#tabWarranty-content">
+                        <span class="page-heading">INSTALL GUIDE</span>
+                        <svg class="icon"><use xlink:href="#icon-slick-next"/></svg>
+                    </a>
+                </div>
+                <div class="toggle-content" id="tabWarranty-content" aria-hidden="true">
+                    <div style="text-align: center; margin: 20px 0;">
+                            <p style="color: #333; font-weight: 700; font-family: 'Rajdhani', Arial, Helvetica, sans-serif; font-size: 16px; margin-bottom: 15px;">
+                            For Instructions on how to install this product please click the PDF below:
+                        </p>
+                        <div style="display: inline-block; background-color: #69a0ff; padding: 12px 20px; border-radius: 6px; transition: all 0.3s ease;">
+                            <svg style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px; fill: #FFFFFF;" viewBox="0 0 24 24">
+                                <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+                            </svg>
+                            <span style="color: white !important; font-family: 'Rajdhani', Arial, Helvetica, sans-serif; font-size: 15px; font-weight: bold; vertical-align: middle;">
+                                {{{product.warranty}}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{/if}}
+            <div class="tab-content" id="tab-shipping">
+                <div class="toggle-title">
+                    <a class="toggleLink" data-collapsible href="#tabShipping-content">
+                        <span class="page-heading">{{theme_settings.products_tab-title-1}}</span>
+                        <svg class="icon"><use xlink:href="#icon-slick-next"/></svg>
+                    </a>
+                </div>
+                <div class="toggle-content" id="tabShipping-content" aria-hidden="false">
+                    <h2>Returns Policy</h2>
+
+<p>To RETURN any system, product or merchandise you must contact us first for a Return Authorization (RA) Number. Special order and custom made systems, apparel, Carbon Fiber Wall Art, and other certain merchandise are NOT returnable. ALL SALES ARE FINAL. To return a Fabspeed Motorsport product an RA number must be requested and if granted the item(S) must be in original Fabspeed Motorsport sealed packaging. A copy of the original invoice and a brief explanation must accompany all returned items. You must follow our instructions for returning items carefully, or Fabspeed Motorsport reserves the right to charge a 25% restocking fee on any OPENED box or repackaged products. Customers are responsible for return shipping charges. If an order was shipped with a promotional “Free Shipping”, and the order is returned, we exclusively reserve the right to charge the customer or distributor for the cost of that original shipping and handling. If a Fabspeed Motorsport Performance package is ordered, and an individual component of that package is returned, Fabspeed Motorsport reserves the right to charge back the performance package discount along with any additionally offered discounts. Return shipped items DAMAGED in transit will RESULT in additional charges up to and including rejection of the competent. It is the customer’s responsibility to ship safely and properly. No returns accepted after 30 days from the invoice date. No credits will be given after 30 days from the invoice date.</p>
+
+<p>To qualify for return, the product must be unused and remain in the original packaging, as well as match the current design and packaging for the product at the time of return. Sounds is subjective and therefore does not qualify for a return of a used product. See Sound Solution Guarantee to see if your product is covered.</p>
+
+<p>Periodically mistakes are made when ordering, or a wrong part is shipped, and you may wish to return an item. We will do everything reasonable to satisfy you. Please contact Fabspeed Motorsport immediately via email at service@fabspeed.com to discuss the circumstances before returning any products. Anything returned without prior authorization from Fabspeed Motorsport will be refused. All returns must be sent back fully prepaid. Our customer service department (service@Fabspeed.com) will issue a Return Authorization Number, which must accompany any return. A copy of the original invoice and a brief explanation must accompany all returned items. No returns accepted after 30 days from the invoice date. No credits given after 30 days.</p>
+
+<h2>Shipping</h2>
+
+<p>Fabspeed Motorsport cannot be held liable for refusal of, delay of, loss of, theft or damage to a shipment of any item. The customer agrees to indemnify Fabspeed Motorsport for all costs, fees and expenses Fabspeed Motorsport incurs as a result of any violation of any local, state, federal, national or international laws or regulations. Customer agrees to take responsibility for lost packages that were not independently insured or sent without requiring signature. The customer understands they will be liable in the event of additional fees, tariffs, or legal issues such as border seizure. Customer accepts these risks and agrees to release Fabspeed Motorsport of all liability.</p>
+
+<p>Fabspeed Motorsport reserves the right to charge a shipping and handling fee on every order being shipped from our facility. This fee is universal and applies to all retail and wholesale purchases and cannot be waived or credited.</p>
+
+<p>A 6% sales tax will be implemented for every purchase made by a Pennsylvania resident. This fee will be charged for in-house installations and products purchased online, over the phone, and/or via email, this fee is required by law, is non-negotiable and non-refundable.</p>
+
+                </div>
+            </div>
+            <!--<div class="tab-content" id="tab-custom">
+                <div class="toggle-title">
+                    <a class="toggleLink" data-collapsible href="#tabCustomProduct-content">
+                        <span class="page-heading">{{theme_settings.products_tab-title-2}}</span>
+                        <svg class="icon"><use xlink:href="#icon-slick-next"/></svg>
+                    </a>
+                </div>
+                <div class="toggle-content" id="tabCustomProduct-content" aria-hidden="false">
+                    {{> components/themevale/tabs/tab-custom}}
+                </div>
+            </div>-->
+            <!--<div class="tab-content" id="tab-faq">
+                <div class="toggle-title">
+                    <a class="toggleLink" data-collapsible href="#tabFaq-content">
+                        <span class="page-heading">{{theme_settings.products_tab-title-3}}</span>
+                        <svg class="icon"><use xlink:href="#icon-slick-next"/></svg>
+                    </a>
+                </div>
+                <div class="toggle-content" id="tabFaq-content" aria-hidden="false">
+                    {{> components/themevale/tabs/tab-faq}}
+                </div>
+            </div>-->
+        </div>
+    </div>
+    {{#if product.related_products}}
+    <div class="toggle productRelated" id="product-related" data-product-related>
+        <div class="toggle-title">
+            <h4 class="page-heading">{{lang 'products.related_products'}}</h4>
+        </div>
+        <div class="toggle-content is-open" id="productRelated-content" aria-hidden="false">
+            {{> components/products/related products=product.related_products theme_settings=theme_settings}}
+        </div>
+    </div>
+    {{/if}}
+</div>
+{{#all settings.show_product_reviews}}
+    {{> components/products/reviews reviews=product.reviews product=product urls=urls}}
+{{/all}}
+
+{{#if product.similar_by_views}}
+    <div class="toggle productSimilar" id="product-similar" data-product-reviews>
+        <div class="toggle-title">
+            <h4 class="page-heading">{{lang 'products.similar_by_views'}}</h4>
+        </div>
+        <div class="toggle-content is-open" id="productSimilar-content" aria-hidden="false">
+            {{> components/products/carousel products=product.similar_by_views theme_settings=theme_settings arrows=true}}
+        </div>
+    </div>
+{{/if}}
+
+<style>
+.showmore.collapsed.pressed {
+    display: block!important;
+    margin-top: 30px;
+}
+.halfdiv {
+    width: 55%;
+    float: right;
+}
+p.diffdiv {
+    width: 45%;
+    float: left;
+}
+.topheader p {
+    margin-top: 16px;
+    font-size: 16px;
+}
+ div#tab-description .install-description {
+    display: none;
+}
+div#tabWarranty-content .product-description {
+    display: none;
+}
+.install-description h1 {
+    font-size: 28px;
+    margin: 0;
+}
+.install-description {
+    background: #fff4f394;
+    float: left;
+    position: relative;
+    width: 100%;
+}
+.install-content {
+    padding: 30px 5%;
+    float: left;
+    width: 100%;
+}
+.install-description h1 {
+
+}
+.topheader {
+    right: 0;
+    font-size: 25px;
+    margin: 0;
+    width: 100%;
+    left: 0;
+    background: #B21100;
+    padding: 20px 5%;
+    color: #fff;
+    float: left;
+    line-height: 32px;
+    padding-top: 40px;
+}
+span.viewinstall {
+    background: #B21100;
+    border-radius: 8px;
+    padding: 10px 30px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    color: #FFFAFA;
+    cursor: pointer;
+    padding-right: 45px;
+}
+span.viewinstall::after {
+    content: "22";
+    background-image: url(https://www.fabspeed.com/product_images/uploaded_images/polygon-1.png);
+    color: transparent;
+    background-repeat: no-repeat;
+    margin-top: 5px;
+    position: absolute;
+    margin-left: 6px;
+}
+span.viewinstall.reverse:after {
+    transform: rotate(180deg);
+    margin-top: -2px;
+    transition: 0.3s;
+}
+.showmore{display:none;}
+@media only screen and (max-width:1100px){
+ .topheader span {
+    text-align: left!important;
+}   
+    .topheader {
+    right: 0;
+    font-size: 20px;
+}
+}
+@media only screen and (max-width:767px){
+ .topheader p {
+    margin-top: 0px;
+    font-size: 16px;
+    margin-bottom: 10px;
+}   
+    .topheader {
+    right: 0;
+    font-size: 18px;
+    margin: 0;
+    width: 100%;
+    left: 0;
+    background: #B21100;
+    padding: 20px 5%;
+    color: #fff;
+    float: left;
+    line-height: 27px;
+    padding-top: 25px;
+}
+.halfdiv {
+    width: 100%;
+    float: left;
+}
+p.diffdiv {
+    width: 100%;
+    float: left;
+}
+}
+</style>
+<script>    
+    $('.viewinstall').on('click', function(e) {
+      $('.viewinstall').toggleClass("reverse");   
+      $('.showmore').toggleClass("collapsed pressed"); //you can list several class names 
+      e.preventDefault();
+    });
+</script>

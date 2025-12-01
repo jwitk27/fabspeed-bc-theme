@@ -1,0 +1,286 @@
+// =============================================================================
+// TABS (CSS)
+// =============================================================================
+//
+// Most of these styles deliberately reset Citadel's defaults for smaller
+// screens since the styles in Stencil for smaller screens are more persistent
+// across breakpoints.
+//
+// -----------------------------------------------------------------------------
+
+.tabs {
+    width: 100%;
+    border: none;
+    display: block;
+    text-align: left;
+    position: relative;
+    font-size: 0;
+    margin-bottom: 30px;
+    .tab {
+        z-index: 1;
+        padding: 0;
+        float: none;
+        width: calc(50% - 8px);
+        margin-bottom: 16px;
+        display: inline-block;
+        vertical-align: middle;
+        position: relative;
+        text-align: center;
+        background-color: #ffffff;
+        border-radius: 3px;
+        border: 1px solid stencilColor('tab--bordercolor');
+        a {
+            color: stencilColor('tab--textcolor');
+            height: 40px;
+            padding: 11px 15px 9px 15px;
+            line-height: 20px;
+            font-size: 16px;
+            font-weight: 700;
+            display: block;
+            white-space: nowrap;
+            text-transform: uppercase;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            background-color: transparent;
+            font-family: $fontFamily-headings;
+        }
+        &:nth-child(odd) {
+            margin-right: 8px;
+        }
+        &:nth-child(even) {
+            margin-left: 8px;
+        }
+        &.is-active {
+            background-color: #ffffff;
+            border-color: stencilColor('tab--active-textcolor');
+            a {
+                font-weight: 700;
+                color: stencilColor('tab--active-textcolor');
+            }
+        }
+    }
+    @media (min-width: 768px) {
+        border-bottom: 1px solid stencilColor('tab--bordercolor');
+        .tab {
+            width: auto;
+            border: none;
+            margin-bottom: 0;
+            a {
+                padding: 0;
+                margin: 0 15px;
+                height: auto;
+                font-size: stencilNumber('tab--textfontsize');
+                line-height: 1.2;
+                padding-bottom: 20px;
+                overflow: visible;
+                &:after {
+                    left: 0;
+                    bottom: -1px;
+                    content: "";
+                    width: 0px;
+                    height: 2px;
+                    position: absolute;
+                    transition: all 0.3s ease;
+                    background-color: stencilColor('tab--active-bordercolor');
+                }
+            }
+            &:first-child a {
+                margin-left: 0;
+            }
+            &:last-child a {
+                margin-right: 0;
+            }
+            &:nth-child(odd) {
+                margin-right: 0px;
+            }
+            &:nth-child(even) {
+                margin-left: 0px;
+            }
+            &.is-active {
+                a {
+                    &:after {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+    @media (min-width: 1025px) {
+        text-align: left;
+        &.tabs-custom {
+            .tab a {
+                font-size: 24px;
+                padding-bottom: 15px;
+            }
+        }
+        &.tabs-custom-2 {
+            .tab a {
+                font-size: 20px;
+                padding-bottom: 10px;
+            }
+        }
+    }
+}
+
+.tabs-contents {
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.tab-content {
+    padding: 0;
+    font-size: $body-fontSize;
+    &.has-jsContent {
+        display: block;
+        height: 0;
+        overflow: hidden;
+        padding: 0;
+        visibility: hidden;
+        &.is-active {
+            height: auto;
+            overflow: visible;
+            padding: $tabs-content-padding;
+            visibility: visible;
+        }
+    }
+    > h1, > h2, > h3, > h4, > h5, > h6, strong {
+        color: stencilColor('color-textHeading');
+        display: inline-block;
+        margin-top: 10px;
+        font-weight: 700;
+    }
+    > p {
+       color: stencilColor('color-textBase');
+       margin-bottom: 15px;
+    }
+    .toggle-content > ul {
+        margin-left: 20px;
+        li {
+            list-style: disc;
+            position: relative;
+            line-height: 30px;
+        }
+        &.accordion--List,
+        &.productReviews-list,
+        &.pagination-list,
+        &.imageGallery-carousel {
+            margin-left: 0;
+            li {
+                padding-left: 0;
+                list-style: none;
+                &:before {
+                    content: none;
+                }
+            }
+        }
+    }
+    .toggle-content > p {
+        margin-bottom: 15px;
+    }
+    ol {
+        margin-left: 20px;
+        li {
+            line-height: 30px;
+            padding-left: 2px;
+        }
+    }
+    blockquote {
+        padding: 28px 25px;
+        background: #fafafa;
+        font-size: 12px;
+        font-style: italic;
+        line-height: 20px;
+        margin-bottom: 30px;
+    }
+    table {
+        border: none;
+        td {
+            border: none;
+            padding: 10px 25px;
+            line-height: 20px;
+            vertical-align: top;
+        }
+        .title {
+            padding-left: 0;
+            font-weight: 500;
+            color: stencilColor('color-textHeading');
+        }
+    }
+    @media (min-width: 1025px) {
+        .themevale_productLoading {
+            height: 434px;
+        }
+    }
+}
+
+// -----------------------------------------------------------------------------
+.tabs-vertical {
+    margin-bottom: 0;
+    /*border-top: 1px solid #ebebeb;*/
+    .toggle-title {
+        margin: 0;
+        display: block;
+        font-size: 14px;
+        line-height: 24px;
+        position: relative;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: stencilColor('color-textHeading');
+        border-bottom: 1px solid #ebebeb;
+        .toggleLink {
+            width: 100%;
+            float: none;
+            color: inherit;
+            vertical-align: top;
+            display: inline-block;
+            .text {
+                float: left;
+            }
+            .icon {
+                width: 15px;
+                height: 24px;
+                float: right;
+                padding: 5px 0;
+                transform: rotate(90deg);
+                fill: #c1c1c1;
+                stroke: #c1c1c1;
+                transition: all 0.3s ease;
+            }
+            &.is-open {
+                .icon {
+                    transform: rotate(270deg);
+                }
+            }
+        }
+        @include breakpoint('small') {
+            font-size: 16px;
+        }
+    }
+    .toggle-content {
+        font-size: $body-fontSize;
+        padding: 30px 0 35px 0;
+    }
+    .productReview {
+        &:first-child {
+            border-top: none;
+            margin-top: 0;
+            padding-top: 0;
+        }
+    }
+    &:first-child {
+        border-top: none;
+        .toggle-title {
+            padding-top: 0;
+        }
+    }
+}
+
+#productReviews-content {
+    > h6 {
+        margin-top: 0px;
+        margin-bottom: 10px;
+        font-size: 24px;
+    }
+}

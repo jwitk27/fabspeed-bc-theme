@@ -1,0 +1,48 @@
+<section class="themevale_section padding-top-50 padding-bottom-50">
+    <div class="container">
+        {{#each categories}}
+            {{#if id '==' ../category_id}}
+                <div class="themevale_productsCategorySortTabs">
+                    <h2 class="page-heading text-center"><a href="{{url}}">{{name}}</a></h2>
+                    {{> components/themevale/homepage/component/ajax-products-by-category-sorting-tabs-content }}
+                </div>
+            {{else}}
+                {{#each children}}
+                    {{#if id '==' ../../../category_id}}
+                        <div class="themevale_productsCategorySortTabs">
+                            <h2 class="page-heading text-center"><a href="{{url}}">{{name}}</a></h2>
+                            {{> components/themevale/homepage/component/ajax-products-by-category-sorting-tabs-content}}
+                        </div>
+                    {{else}}
+                        {{#each children}}
+                            {{#if id '==' ../../../../../category_id}}
+                                <div class="themevale_productsCategorySortTabs">
+                                    <h2 class="page-heading text-center"><a href="{{url}}">{{name}}</a></h2>
+                                    {{> components/themevale/homepage/component/ajax-products-by-category-sorting-tabs-content}}
+                                </div>
+                            {{else}}
+                                {{#each children}}
+                                    {{#if id '==' ../../../../../../../category_id}}
+                                        <div class="themevale_productsCategorySortTabs">
+                                            <h2 class="page-heading text-center"><a href="{{url}}">{{name}}</a></h2>
+                                            {{> components/themevale/homepage/component/ajax-products-by-category-sorting-tabs-content}}
+                                        </div>
+                                    {{else}}
+                                        {{#each children}}
+                                            {{#if id '==' ../../../../../../../../../category_id}}
+                                                <div class="themevale_productsCategorySortTabs">
+                                                    <h2 class="page-heading text-center"><a href="{{url}}">{{name}}</a></h2>
+                                                    {{> components/themevale/homepage/component/ajax-products-by-category-sorting-tabs-content}}
+                                                </div>
+                                            {{/if}}
+                                        {{/each}}
+                                    {{/if}}
+                                {{/each}}
+                            {{/if}}
+                        {{/each}}
+                    {{/if}}
+                {{/each}}
+            {{/if}}
+        {{/each}}
+    </div>
+</section>

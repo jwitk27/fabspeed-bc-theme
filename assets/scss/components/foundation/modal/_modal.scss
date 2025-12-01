@@ -1,0 +1,275 @@
+// =============================================================================
+// MODAL (CSS)
+// =============================================================================
+
+
+.modal {
+    // scss-lint:disable ImportantRule
+    top: calc(50% + 100px) !important;
+    left: 50%;
+    bottom: auto;
+    padding: 0;
+    right: auto;
+    outline: none;
+    height: auto;
+    margin: 0 auto;
+    max-width: 95%;
+    max-height: 90%;
+    overflow: hidden;
+    min-height: 240px;
+    border-radius: 3px;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease, width 0s ease;
+    &.open {
+        top: 50% !important;
+    }
+    @media (min-width: 1025px) {
+        overflow: visible;
+        .modal-close {
+            right: -16px;
+            top: -16px;
+            transform: none;
+        }
+    }
+}
+
+.modal--alert {
+    padding: 15px;
+    text-align: center;
+    .button-container {
+        margin-top: 15px;
+        .confirm {
+            min-width: 120px;
+        }
+    }
+}
+
+.modal--large {
+    @include breakpoint("large") {
+        width: $modal-width--large;
+    }
+}
+
+.modal-header {
+    display: block;
+    border-radius: 3px 3px 0 0;
+    border-color: #f7f7f7;
+    background-color: #f7f7f7;
+    padding: 12px 30px 10px 15px;
+    .modal-close {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    @media (min-width: 1025px) {
+        padding: 12px 15px 10px 15px;
+        .modal-close {
+            top: -20px;
+            right: -20px;
+            transform: none;
+        }
+    }
+}
+
+.modal-close {
+    top: 10px;
+    right: 5px;
+    z-index: 5;
+    width: 30px;
+    height: 30px;
+    color: #000000;
+    font-size: 30px;
+    line-height: 30px;
+    position: absolute;
+    transform: none;
+    text-align: center;
+    font-weight: 300;
+    > span {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+    &:hover, &:focus {
+        color: #ffffff;
+    }
+    @media (min-width: 1025px) {
+        top: -20px;
+        right: -20px;
+        font-size: 28px;
+        width: 40px;
+        height: 40px;
+        line-height: 34px;
+        color: #ffffff;
+        background-color: #000000;
+        border: 3px solid #ffffff;
+        border-radius: 50%;
+        box-shadow: 0 2px 3px rgba(0,0,0,0.15);
+    }
+}
+
+.modal-header-title {
+    text-align: center;
+    font-size: 16px;
+    font-family: $fontFamily-headings;
+    color: stencilColor('color-textHeading');
+    text-transform: capitalize;
+    @include breakpoint("medium") {
+        text-transform: uppercase;
+    }
+}
+
+.modal-content {
+    border: none;
+    background-color: transparent;
+    display: block;
+}
+
+.modal-body {
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 20px 15px;
+    @include breakpoint("small") {
+        padding: 30px;
+    }
+    @include breakpoint("medium") {
+        padding: 40px 50px 50px;
+    }
+    .modal--small & {
+        padding: 20px 15px;
+    }
+}
+
+.g-recaptcha {
+    @media (max-width: 360px) {
+        > div {
+            width: 275px !important;
+        }
+    }
+}
+
+#ask-an-expert {
+    .modal-header {
+        .modal-header-title {
+            font-size: $body-fontSize;
+        }
+    }
+    .modal-body {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    .form-field-radio {
+        .form-radio + .form-label {
+            margin-bottom: 8px;
+        }
+    }
+    .form-inner {
+        margin: 0 auto;
+        max-width: 500px;
+        .form {
+            margin-bottom: 0;
+        }
+        .question,
+        .description {
+            line-height: 22px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .description {
+            font-style: italic;
+            br {
+                display: none;
+            }
+            + .question {
+                padding-top: 20px;
+                border-top: 1px solid #eeeeee;
+            }
+        }
+        .question {
+            font-weight: 700;
+        }
+    }
+    .form-actions {
+        .button {
+            width: 100%;
+        }
+    }
+    @include breakpoint("small") {
+        .modal-header {
+            padding-top: 18px;
+            padding-bottom: 18px;
+            .modal-header-title {
+                font-size: 20px;
+            }
+        }
+        .modal-body {
+            padding-top: 30px;
+            padding-bottom: 55px;
+        }
+        .form-field-radio {
+            .form-label {
+                width: auto;
+                display: inline-block;
+                margin-right: 30px;
+            }
+            .form-label-custom {
+                display: block;
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+        }
+    }
+    @include breakpoint("medium") {
+        right: auto;
+        width: 768px;
+        .form-inner {
+            .description br {
+                display: block;
+            }
+        }
+    }
+}
+
+#instruction-popup,
+#warranty-popup {
+    width: 100%;
+    @include breakpoint("medium") {
+        width: auto;
+        min-width: 60%;
+    }
+    @media (min-width: 1025px) {
+        min-width: 30%;
+    }
+}
+
+#previewModal {
+    width: 960px;
+    @media (min-width: 993px) {
+        .modal-body {
+            padding: 35px 50px 50px 50px;
+        }
+    }
+    &.modal-quickview {
+        width: 1050px;
+    }
+}
+
+#video-gallery-pc-popup {
+    .modal-header-title {
+        font-weight: 400;
+        text-transform: capitalize;
+        color: stencilColor('card-title-color');
+        strong {
+            font-weight: 700;
+            margin-right: 10px;
+            text-transform: uppercase;
+            color: stencilColor('color-textHeading');
+        }
+    }
+}
+
+.themevale_popup-video {
+    background-color: transparent;
+   .modal-body {
+        padding: 0;
+        overflow: initial;
+   }
+}

@@ -1,0 +1,169 @@
+// =============================================================================
+// DROPDOWN (CSS)
+// =============================================================================
+
+
+.dropdown {
+    left: -9999px;
+    outline: none;
+    position: absolute;
+}
+
+.dropdown-menu {
+    &.is-loading .loadingOverlay {
+        background: none;
+        padding: (spacing("double") + spacing("single")) 0;
+        position: relative;
+    }
+
+    &.is-open {
+        display: block;
+    }
+}
+
+.dropdown-menu-item {
+    text-align: left;
+
+    &:first-child {
+
+        // scss-lint:disable NestingDepth
+        > a {
+            padding-top: spacing("half");
+        }
+    }
+
+    &:last-child {
+
+        // scss-lint:disable NestingDepth
+        > a {
+            padding-bottom: spacing("base");
+        }
+    }
+
+    > a {
+        margin: 0;
+        padding: spacing("sixth") (spacing("half") + spacing("quarter"));
+        text-decoration: none;
+    }
+}
+
+.form-wishlist {
+    position: relative;
+    .button {
+        .icon {
+            @include square(24px);
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+}
+
+.dropdown-menu-button {
+    width: 100%;
+
+    &.is-open {
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+
+    .icon {
+        float: right;
+        margin-left: 10px;
+    }
+}
+
+.form-wishlist .dropdown-menu {
+    text-align: center;
+    padding: 7px 0;
+    margin-top: 12px;
+    border: 1px solid #eaeaea;
+    box-shadow: 0 0 3px rgba(0,0,0,.1);
+    background-color: #ffffff;
+    li {
+        line-height: 30px;
+        + li {
+            border-top: 1px solid #eaeaea;
+        }
+    }
+    a {
+        color: inherit;
+        font-weight: 700;
+    }
+    &.is-open {
+        &:before {
+            @include css-triangle(
+                $triangle-direction: "bottom",
+                $triangle-size: 10px,
+                $triangle-color: #e5e5e5
+            );
+            left: auto;
+            bottom: 100%;
+            right: spacing("half");
+            position: absolute;
+        }
+
+        &:after {
+            @include css-triangle(
+                $triangle-direction: "bottom",
+                $triangle-size: 8px,
+                $triangle-color: #ffffff
+            );
+            left: auto;
+            bottom: 100%;
+            right: spacing("half") + remCalc(2px);
+            position: absolute;
+        }
+    }
+    &.is-open {
+        background: #ffffff;
+        left: auto !important;
+        top: auto !important;
+        max-width: none !important;
+        width: 100% !important;
+        position: absolute;
+        padding: 0;
+        margin-top: 10px;
+        border-radius: 3px;
+        &:before {
+            left: auto;
+            right: 22px;
+        }
+        &:after {
+            left: auto;
+            right: 24px;
+        }
+        &:focus {
+            outline: none;
+        }
+        > li + li {
+            border-top: 1px solid #eaeaea;
+        }
+        [data-wishlist] {
+            border-top: none;
+            margin-bottom: 0px;
+            width: 100%;
+        }
+        .button {
+            border: none;
+            padding: 10px 10px;
+            background-color: #ffffff;
+            text-transform: capitalize !important;
+            border-top-left-radius: 0px;
+            border-top-right-radius: 0px;
+            width: 100%;
+            &:hover, &:active, &:focus {
+                color: stencilColor('color-textHeading');
+            }
+        }
+        .button--has-items {
+            font-weight: 700;
+        }
+        li:not(:last-child) .button {
+            border-bottom: none;
+            border-radius: 0px;
+            border-top: none;
+            margin-bottom: 0px;
+        }
+    }
+}

@@ -1,0 +1,55 @@
+// =============================================================================
+// PRODUCT REVIEWS (CSS)
+// =============================================================================
+
+
+.productReviews-list {
+    margin: 0;
+}
+
+.productReview {
+    width: 100%;
+    float: none;
+    font-size: $body-fontSize;
+    display: block;
+    vertical-align: top;
+    margin-bottom: 0;
+    + .productReview {
+        margin-top: 45px;
+    }
+    .productReview-title {
+        font-size: 18px;
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0 20px 0 0;
+        text-transform: capitalize;
+        font-family: $fontFamily-sans;
+        font-weight: 700;
+        color: stencilColor('color-textLink--hover');
+    }
+    .productReview-rating {
+        line-height: 1;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .productReview-author {
+        color: #8c8c8c;
+        margin-top: 10px;
+        margin-bottom: 15px;
+    }
+    .productReview-ratingNumber {
+        display: none;
+    }
+    .productReview-body {
+        margin-bottom: 0;
+    }
+    .pagination {
+        margin: 30px 0 0 0;
+    }
+}
+
+.btn-createReview{
+    margin-top: 5px;
+    float: left;
+    width: 100%;
+}

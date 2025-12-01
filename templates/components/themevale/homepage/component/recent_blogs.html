@@ -1,0 +1,24 @@
+<section class="themevale-section padding-top-70 padding-bottom-50">
+    <div class="container">
+        {{#if theme_settings.homepage_blog_title}}
+            <div class="page-heading-wrapper">
+                <h2 class="page-heading">{{theme_settings.homepage_blog_title}}</h2>
+                <a class="page-heading-link" href="/blog/">{{lang 'common.view_all'}}</a>
+            </div>
+        {{/if}}
+        <div class="recent_postCarousel" data-slick='{
+                "dots": true,
+                "arrows": false,
+                "infinite": false,
+                "slidesToScroll": {{theme_settings.homepage_blog_col}},
+                "slidesToShow": {{theme_settings.homepage_blog_col}}
+            }'>
+            {{#each blog}}
+                <div class="items">
+                    {{> components/blog/recent_post post=this settings=../settings readmore=../theme_settings.homepage_blog_showreadmore}}
+                </div>
+            {{/each}}
+        </div>
+    </div>
+</section>
+{{{region name="below_recent_blogs"}}}

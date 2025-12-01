@@ -1,0 +1,40 @@
+---
+blog:
+    posts:
+        limit: 3
+        pages: 3
+        summary: 380
+    recent_posts:
+        limit: 5
+products:
+    featured:
+        limit: 5
+---
+{{#partial "page"}}
+
+<div class="themevale_breadcrumb">
+    {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+    <h1 class="page-heading">{{ blog.name }}</h1>
+</div>
+<div class="page">
+    {{{region name="page_builder_content"}}}
+    <main class="page-content" id="blog-listing-container"> 
+        <div class="themevale_sidebar-mobile-wrapper">
+            <div class="item item-iconSidebar text-left">
+                <div class="themevale_sidebar-mobile">
+                    <span class='text'>sidebar:</span>
+                    <svg class="icon"><use xlink:href='#sidebar'></use></svg>
+                </div>
+            </div>
+        </div>
+        {{#each blog.posts}}
+            {{> components/blog/post post=this settings=../settings show_tags=true}}
+        {{/each}}
+        {{#if pagination.blog}}
+            {{> components/common/paginator pagination.blog}}
+        {{/if}}
+    </main>
+</div>
+
+{{/partial}}
+{{> layout/base}}

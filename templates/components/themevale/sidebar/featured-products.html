@@ -1,0 +1,20 @@
+<div id="featured-products" class="sidebarBlock">
+    <h5 class="sidebarBlock-heading">{{lang 'products.featured'}}</h5>
+    <div class="sidebarBlock-content productCarousel"
+        data-slick='{
+            "arrows": true,
+            "dots": false,
+            "autoplay": true,
+            "infinite": true,
+            "slidesToShow": 1,
+            "slidesToScroll": 1,
+            "nextArrow": "<svg class=&apos;slick-next slick-arrow&apos;><use xlink:href=&apos;#icon-slick-next&apos;></use></svg>", 
+            "prevArrow": "<svg class=&apos;slick-prev slick-arrow&apos;><use xlink:href=&apos;#icon-slick-prev&apos;></use></svg>"
+        }'>
+        {{#each products}}
+        <div class="productCarousel-slide">
+            {{> components/products/card theme_settings=../theme_settings customer=../customer show_rating=../settings.show_product_rating show_wishlist=../settings.show_wishlist}}
+        </div>
+        {{/each}}
+    </div>
+</div>

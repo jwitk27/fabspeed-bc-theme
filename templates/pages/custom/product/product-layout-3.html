@@ -1,0 +1,224 @@
+---
+products:
+    new:
+        limit: {{theme_settings.homepage_new_products_count}}
+product:
+    videos:
+        limit: {{theme_settings.productpage_videos_count}}
+    reviews:
+        limit: {{theme_settings.productpage_reviews_count}}
+    related_products:
+        limit: {{theme_settings.productpage_related_products_count}}
+    similar_by_views:
+        limit: {{theme_settings.productpage_similar_by_views_count}}
+---
+
+{{#partial "page"}}
+<div class="themevale_breadcrumb">
+        <h1 style="text-align:center; font-size:4rem;" class="productView-title" {{#if schema}}itemprop="name"{{/if}}><u style="text-decoration-color:#d80000;">{{product.title}}</u></h1>
+    </div>
+    <div itemscope itemtype="http://schema.org/Product">
+        <div data-categories="{{join product.category '/'}}" class="productView themevale_productView" {{#if settings.data_tag_enabled}} data-event-type="product" data-entity-id="{{product.id}}" data-name="{{product.title}}" data-product-category="{{#each product.category}}{{#if @last}}{{this}}{{else}}{{this}}, {{/if}}{{/each}}" data-product-brand="{{product.brand.name}}" data-product-price="{{#if product.price.with_tax}}{{product.price.with_tax.value}}{{else}}{{product.price.without_tax.value}}{{/if}}" data-product-variant="single-product-option"{{/if}}>
+    {{#each product.reviews.messages}}
+        {{#if error}}
+            {{> components/common/alert-error error}}
+        {{/if}}
+        {{#if success}}
+            {{> components/common/alert-success success}}
+        {{/if}}
+    {{/each}}
+    <div class="topProductSection">
+    <div class="themevale_productView-left" style="vertical-align:middle !important">
+        <div class="productView-images">
+            <div class="themevale_productViewImage zoom-image" data-image-gallery>
+                <figure class="productView-image" data-image-gallery-main {{#if product.main_image}}data-zoom-image="{{getImage product.main_image 'zoom_size' (cdn theme_settings.default_image_product)}}"{{/if}}>
+                    <div class="productView-img-container">
+                        {{#if product.main_image}}
+                            <a href="{{getImage product.main_image 'zoom_size' (cdn theme_settings.default_image_product)}}" data-reveal-id="video-gallery-pc-popup">
+                        {{/if}}
+                            <img class="productView-image--default lazyload"
+                                 data-sizes="auto"
+                                 src="{{cdn 'img/loading.svg'}}"
+                                 data-src="{{getImage product.main_image 'product_size' (cdn theme_settings.default_image_product)}}"
+                                 alt="{{product.main_image.alt}}" title="{{product.main_image.alt}}" data-main-image>
+                        {{#if product.main_image}}
+                            </a>
+                        {{/if}}
+                    </div>
+                </figure>
+                <ul class="productView-thumbnails">
+                    {{#each product.images}}
+                        <li class="productView-thumbnail">
+                            <a
+                                class="productView-thumbnail-link"
+                                href="{{getImage this 'product_size' (cdn ../theme_settings.default_image_product)}}"
+                                data-reveal-id="video-gallery-pc-popup"
+                                data-image-gallery-item
+                                data-image-gallery-new-image-url="{{getImage this 'product_size' (cdn ../theme_settings.default_image_product)}}"
+                                data-image-gallery-zoom-image-url="{{getImage this 'zoom_size' (cdn ../theme_settings.default_image_product)}}">
+                                <img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="{{getImage this 'productview_thumb_size' (cdn ../theme_settings.default_image_product)}}" alt="{{this.alt}}" title="{{this.alt}}">
+                            </a>
+                        </li>
+                    {{/each}}
+                    {{#if product.videos}}
+                        <li class="productView-thumbnail-custom">
+                            <a class="video-link" href="javascript:void(0)" data-reveal-id="video-gallery-pc-popup" data-video-icon>
+                                <span class="icon"><img src="/product_images/uploaded_images/{{theme_settings.product_video-image}}" alt=""></span>
+                                <span class="text">{{theme_settings.product_video-text}}</span>
+                            </a>
+                        </li>
+                    {{/if}}
+                    {{> components/themevale/product/customfields-instruction-warranty}}
+                </ul>
+            </div>
+            <div class="themevale_productViewImage themevale_productViewImage-mobile" data-image-gallery-mobile>
+                <div class="productView-image-mobile">
+                    {{#each product.images}}
+                        <figure class="productView-image"
+                            data-image-gallery-main data-fancybox="images" href="{{getImage this 'zoom_size' (cdn ../theme_settings.default_image_product)}}"
+                            data-zoom-image="{{getImage this 'zoom_size' (cdn theme_settings.default_image_product)}}">
+                            <div class="productView-img-container">
+                                <a href="{{getImage this 'zoom_size' (cdn theme_settings.default_image_product)}}">
+                                    <img class="productView-image--default lazyload"
+                                        data-sizes="auto"
+                                        src="{{cdn 'img/loading.svg'}}"
+                                        data-src="{{getImage this 'product_size' (cdn theme_settings.default_image_product)}}"
+                                        alt="{{product.main_image.alt}}" title="{{product.main_image.alt}}" data-main-image>
+                                </a>
+                            </div>
+                        </figure>
+                    {{/each}}
+                </div>
+                <ul class="productView-thumbnails-mobile">
+                    {{#if product.videos.list.length}}
+                        <li class="productView-thumbnail-custom">
+                            <a class="video-link" href="javascript:void(0);" data-reveal-id="video-gallery-popup">
+                                <span class="icon"><img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.product_video-image}}" alt=""></span>
+                                <span class="text">{{theme_settings.product_video-text}}</span>
+                            </a>
+                            {{> components/themevale/product/video-gallery product.videos}}
+                        </li>
+                    {{/if}}
+                    {{> components/themevale/product/customfields-instruction-warranty}}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="themevale_productView-right" style="vertical-align:middle !important">
+        <div class="productView-details" >
+            <div class="productView-product">
+                {{#each product.custom_fields}}
+                        {{#and (if name '!=' 'warranty' ) (if name '!=' 'instruction')}}
+                            {{#and (if name '!=' 'countdown' ) (if name '!=' 'customlabel')}}
+                            <div class="{{name}}"></div>
+                            {{/and}}
+                        {{/and}}
+                    {{/each}}
+                {{> components/themevale/product/countdown}}
+                {{{region name="product_below_price"}}}
+                {{product.detail_messages}}
+            </div>
+    </div>
+</div>
+    </div>
+{{> components/themevale/product/video-gallery-pc product.videos}}
+<div id="previewModal" class="modal" data-reveal>
+    <a href="#" class="modal-close" aria-label="{{lang 'common.close'}}" role="button">
+        <span aria-hidden="true">&#215;</span>
+    </a>
+    <div class="modal-content"></div>
+    <div class="loadingOverlay"></div>
+</div>
+        {{{region name="product_below_content"}}}
+        <div class="themevale_breadcrumb">
+        <p></p>
+    </div>
+        <div class="themevale_productDescription">
+    <div class="productView-description"{{#if schema}} itemprop="description"{{/if}}>
+        <ul class="tabs tabs-custom-2" data-tab>
+            <li class="tab is-active">
+                <a class="tab-title" href="#tab-description">Product Suite Information</a>
+            </li>
+        </ul>
+        <div class="tabs-contents">
+            <div class="tab-content is-active" id="tab-description">
+                <div class="toggle-title">
+                    <a class="toggleLink is-open" data-collapsible href="#tabDescription-content">
+                        <span class="page-heading">{{lang 'products.description'}}</span>
+                        <svg class="icon"><use xlink:href="#icon-slick-next"/></svg>
+                    </a>
+                </div>
+                <div class="toggle-content is-open" id="tabDescription-content" aria-hidden="false" {{#if settings.data_tag_enabled}} data-event-type="product" {{/if}}>
+                    {{{product.description}}}
+                    {{{snippet 'product_description'}}}
+                </div>
+            </div>
+            {{#if product.warranty}}
+                <div class="tab-content" id="tab-warranty">
+                    <div class="toggle-title">
+                        <a class="toggleLink" data-collapsible href="#tabWarranty-content">
+                            <span class="page-heading">{{lang 'products.warranty'}}</span>
+                            <svg class="icon"><use xlink:href="#icon-slick-next"/></svg>
+                        </a>
+                    </div>
+                    <div class="toggle-content" id="tabWarranty-content" aria-hidden="false">
+                        <p>For Instructions on how to install your product please see the PDF below:</p>
+                        {{{product.warranty}}}
+                    </div>
+                </div>
+            {{/if}}
+            <div class="tab-content" id="tab-shipping">
+                <div class="toggle-title">
+                    <a class="toggleLink" data-collapsible href="#tabShipping-content">
+                        <span class="page-heading">{{theme_settings.products_tab-title-1}}</span>
+                        <svg class="icon"><use xlink:href="#icon-slick-next"/></svg>
+                    </a>
+                </div>
+                <div class="toggle-content" id="tabShipping-content" aria-hidden="false">
+                    <h2>Returns Policy</h2>
+
+<p>To RETURN any system, product or merchandise you must contact us first for a Return Authorization (RA) Number. Special order and custom made systems, apparel, Carbon Fiber Wall Art, and other certain merchandise are NOT returnable. ALL SALES ARE FINAL. To return a Fabspeed Motorsport product an RA number must be requested and if granted the item(S) must be in original Fabspeed Motorsport sealed packaging. A copy of the original invoice and a brief explanation must accompany all returned items. You must follow our instructions for returning items carefully, or Fabspeed Motorsport reserves the right to charge a 25% restocking fee on any OPENED box or repackaged products. Customers are responsible for return shipping charges. If an order was shipped with a promotional “Free Shipping”, and the order is returned, we exclusively reserve the right to charge the customer or distributor for the cost of that original shipping and handling. If a Fabspeed Motorsport Performance package is ordered, and an individual component of that package is returned, Fabspeed Motorsport reserves the right to charge back the performance package discount along with any additionally offered discounts. Return shipped items DAMAGED in transit will RESULT in additional charges up to and including rejection of the competent. It is the customer’s responsibility to ship safely and properly. No returns accepted after 30 days from the invoice date. No credits will be given after 30 days from the invoice date.</p>
+
+<p>To qualify for return, the product must be unused and remain in the original packaging, as well as match the current design and packaging for the product at the time of return. Sounds is subjective and therefore does not qualify for a return of a used product. See Sound Solution Guarantee to see if your product is covered.</p>
+
+<p>Periodically mistakes are made when ordering, or a wrong part is shipped, and you may wish to return an item. We will do everything reasonable to satisfy you. Please contact Fabspeed Motorsport immediately via email at service@fabspeed.com to discuss the circumstances before returning any products. Anything returned without prior authorization from Fabspeed Motorsport will be refused. All returns must be sent back fully prepaid. Our customer service department (service@Fabspeed.com) will issue a Return Authorization Number, which must accompany any return. A copy of the original invoice and a brief explanation must accompany all returned items. No returns accepted after 30 days from the invoice date. No credits given after 30 days.</p>
+
+<h2>Shipping</h2>
+
+<p>Fabspeed Motorsport cannot be held liable for refusal of, delay of, loss of, theft or damage to a shipment of any item. The customer agrees to indemnify Fabspeed Motorsport for all costs, fees and expenses Fabspeed Motorsport incurs as a result of any violation of any local, state, federal, national or international laws or regulations. Customer agrees to take responsibility for lost packages that were not independently insured or sent without requiring signature. The customer understands they will be liable in the event of additional fees, tariffs, or legal issues such as border seizure. Customer accepts these risks and agrees to release Fabspeed Motorsport of all liability.</p>
+
+<p>Fabspeed Motorsport reserves the right to charge a shipping and handling fee on every order being shipped from our facility. This fee is universal and applies to all retail and wholesale purchases and cannot be waived or credited.</p>
+
+<p>A 6% sales tax will be implemented for every purchase made by a Pennsylvania resident. This fee will be charged for in-house installations and products purchased online, over the phone, and/or via email, this fee is required by law, is non-negotiable and non-refundable.</p>
+
+                </div>
+            </div>
+            <!--<div class="tab-content" id="tab-custom">
+                <div class="toggle-title">
+                    <a class="toggleLink" data-collapsible href="#tabCustomProduct-content">
+                        <span class="page-heading">{{theme_settings.products_tab-title-2}}</span>
+                        <svg class="icon"><use xlink:href="#icon-slick-next"/></svg>
+                    </a>
+                </div>
+                <div class="toggle-content" id="tabCustomProduct-content" aria-hidden="false">
+                    {{> components/themevale/tabs/tab-custom}}
+                </div>
+            </div>-->
+            <!--<div class="tab-content" id="tab-faq">
+                <div class="toggle-title">
+                    <a class="toggleLink" data-collapsible href="#tabFaq-content">
+                        <span class="page-heading">{{theme_settings.products_tab-title-3}}</span>
+                        <svg class="icon"><use xlink:href="#icon-slick-next"/></svg>
+                    </a>
+                </div>
+                <div class="toggle-content" id="tabFaq-content" aria-hidden="false">
+                    {{> components/themevale/tabs/tab-faq}}
+                </div>
+            </div>-->
+        </div>
+    </div>
+</div>
+</div>
+</div>
+{{/partial}}
+{{> layout/base}}

@@ -1,0 +1,20 @@
+{{#each product.custom_fields}}
+    {{#if name '===' 'instruction'}}
+        <li class="productView-thumbnail-custom">
+            <a class="instruction-link" href="javascript:void(0)" data-reveal-id="instruction-popup">
+                <span class="icon"><img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{ ../../theme_settings.product_instruction-image}}" alt=""></span>
+                <span class="text">{{ ../../theme_settings.product_instruction-text}}</span>
+            </a>
+            {{> components/themevale/product/instruction}}
+        </li>
+    {{/if}}
+    {{#if name '===' 'warranty'}}
+        <li class="productView-thumbnail-custom">
+            <a class="warranty-link" href="javascript:void(0);" data-reveal-id="warranty-popup">
+                <span class="icon"><img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{ ../../theme_settings.product_warranty-image}}" alt=""></span>
+                <span class="text">{{ ../../theme_settings.product_warranty-text}}</span>
+            </a>
+            {{> components/themevale/product/warranty}}
+        </li>
+    {{/if}}
+{{/each}}

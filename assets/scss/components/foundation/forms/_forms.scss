@@ -1,0 +1,156 @@
+// =============================================================================
+// FORMS (CSS)
+// =============================================================================
+
+
+// Select boxes
+// -----------------------------------------------------------------------------
+
+.form-select {
+    appearance: none;
+    background-image: $select-backgroundImage;
+    background-position: $select-backgroundPosition;
+    border-radius: $select-borderRadius;
+    padding: $select-padding;
+
+    &:hover {
+        border-color: $select-hover-borderColor;
+    }
+}
+
+
+// Form labels
+// -----------------------------------------------------------------------------
+
+.form-label {
+
+    small {
+        float: $opposite-direction;
+        margin-top: $form-label-small-marginTop;
+    }
+}
+
+
+// Form labels (inline small text)
+// -----------------------------------------------------------------------------
+
+.form-label--inlineSmall {
+
+    small {
+        color: stencilColor("color-textSecondary");
+        float: none;
+        font-size: inherit;
+        font-weight: fontWeight("normal");
+        margin-left: spacing("quarter");
+        text-transform: none;
+    }
+}
+
+
+/*=========================================
+=            www.themevale.com            =
+=========================================*/
+    .form-input {
+        height: auto;
+        border-radius: 3px;
+        line-height: 38px;
+        padding: 0px 15px;
+        min-height: 38px;
+        border: 1px solid #cccfd6;
+        background-color: #ffffff;
+        &::-webkit-input-placeholder {
+            color: #787878;
+            left: 0;
+            opacity: 1;
+            visibility: visible;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        &::-moz-placeholder {
+            color: #787878;
+            left: 0;
+            opacity: 1;
+            visibility: visible;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        &:-ms-input-placeholder {
+            color: #787878;
+            left: 0;
+            opacity: 1;
+            visibility: visible;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        &:-moz-placeholder {
+            color: #787878;
+            left: 0;
+            opacity: 1;
+            visibility: visible;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        &:focus {
+            &::-webkit-input-placeholder {
+                left: 5%;
+                opacity: 0;
+                visibility: hidden;
+            }
+            &::-moz-placeholder {
+                left: 5%;
+                opacity: 0;
+                visibility: hidden;
+            }
+            &:-ms-input-placeholder {
+                left: 5%;
+                opacity: 0;
+                visibility: hidden;
+            }
+            &:-moz-placeholder {
+                left: 5%;
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+    }
+
+    .form-select {
+        height: auto;
+        border-radius: 3px;
+        line-height: 38px;
+        padding: 0 31px 0 15px;
+        min-height: 38px;
+        border: 1px solid #cccfd6;
+        background-color: #ffffff;
+        appearance: none;
+        background-image: $select-backgroundImage;
+        background-position: $select-backgroundPosition;
+        background-size: remCalc(20px);
+        option {
+            line-height: 38px;
+            padding: 0px 15px;
+            min-height: 38px;
+        }
+    }
+
+    textarea.form-input {
+        resize: none;
+        line-height: 20px;
+    }
+
+    .form-label {
+        font-size: 12px;
+        font-weight: 700;
+        margin-bottom: 8px;
+        font-family: $fontFamily-sans;
+        color: stencilColor('color-textHeading');
+        small {
+            color: #8c8c8c;
+            font-size: 11px;
+            font-weight: 400;
+            text-transform: capitalize;
+            margin-top: 1px;
+            font-style: italic;
+        }
+    }
+/*=====  End of www.themevale.com  ======*/

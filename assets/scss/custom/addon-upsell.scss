@@ -1,0 +1,32 @@
+.addon-upsell__box {
+  display:flex;
+  gap:0.75rem;
+  border:1px solid #ddd;
+  border-radius:6px;
+  padding:0.75rem 1rem;
+  cursor:pointer;
+}
+
+.addon-upsell__box input[type="checkbox"] {
+  margin-top:4px;
+}
+
+.addon-upsell__title {
+  font-weight:600;
+  margin-bottom:.5rem;
+}
+
+.addon-upsell__text {
+  color:#666;
+  margin-bottom: .5rem;
+}
+
+.addon-upsell__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.addon-upsell__img {
+  max-height: 75px;
+}

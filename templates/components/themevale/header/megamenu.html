@@ -1,0 +1,358 @@
+<script>
+var themevaleMenu = new window.themevaleMenu();
+
+$(document).ready(function() {
+    if (!$('.themevale_allCategories-dropdown').length) {
+        themevaleMenu.menuItem({{theme_settings.themevale_megamenu-layout-1}}).themevaleMegaMenu({
+            dropAlign: 'fullWidth',     // Dropdown MegaMenu Alignment: left, right, center, fullWidth
+            dropWidth: '800px',         // Width of Dropdown MegaMenu (if dropAlign: fullWidth => dropWidth auto set 100%)
+            dropType: 'imageTop',       // Type of Dropdown MegaMenu content: imageLeft, imageRight, noImage
+            imageAreaWidth: '0%',       // width of images area
+            cateAreaWidth: '100%',      // width of categories area
+            cateColumns: {{theme_settings.themevale_megamenu-layout-1-col}},             // columns of categories area - max 6 columns
+            
+            // contents for images column (HTML supported)
+            imagesTop: [
+                '<a class="imageTop-item" href="#"><img class="lazyload" src="http://caros-demo.mybigcommerce.com/content/loading.svg" data-src="/product_images/uploaded_images/{{theme_settings.themevale_megamenu-banner-1}}" alt=""/></a>',
+                '<a class="imageTop-item" href="#"><img class="lazyload" src="http://caros-demo.mybigcommerce.com/content/loading.svg" data-src="/product_images/uploaded_images/{{theme_settings.themevale_megamenu-banner-2}}" alt=""/></a>',
+                '<a class="imageTop-item" href="#"><img class="lazyload" src="http://caros-demo.mybigcommerce.com/content/loading.svg" data-src="/product_images/uploaded_images/{{theme_settings.themevale_megamenu-banner-3}}" alt=""/></a>',
+                '<a class="imageTop-item" href="#"><img class="lazyload" src="http://caros-demo.mybigcommerce.com/content/loading.svg" data-src="/product_images/uploaded_images/{{theme_settings.themevale_megamenu-banner-4}}" alt=""/></a>',
+                '<a class="imageTop-item" href="#"><img class="lazyload" src="http://caros-demo.mybigcommerce.com/content/loading.svg" data-src="/product_images/uploaded_images/{{theme_settings.themevale_megamenu-banner-5}}" alt=""/></a>'
+            ],
+        });
+
+        themevaleMenu.menuItem({{theme_settings.themevale_megamenu-layout-2}}).themevaleMegaMenu({
+            dropAlign: 'fullWidth',   // Dropdown MegaMenu Alignment: left, right, center, fullWidth
+            dropWidth: '800px',       // Width of Dropdown MegaMenu (if dropAlign: fullWidth => dropWidth auto set 100%)
+            dropType: 'imageRight',   // Type of Dropdown MegaMenu content: imageLeft, imageRight, noImage
+            imageAreaWidth: '42%',    // width of images area
+            cateAreaWidth: '58%',     // width of categories area
+            cateColumns: {{theme_settings.themevale_megamenu-layout-2-col}},           // columns of categories area - max 6 columns
+            // contents for images column (HTML supported)
+            images: '<div class="imgList style-2">\
+                        <div class="imgItem imgLeft">\
+                        <div class="imgHeading">Featured products</div>\
+                        <div class="featuredProductCarousel">\
+                            <div class="items">\
+                                <article class="card">\
+                                    <figure class="card-figure">\
+                                        <a href="#" class="product_img_link">\
+                                            <div class="card-img-container">\
+                                                <img class="card-image lazyload" src="http://caros-demo.mybigcommerce.com/content/loading.svg" data-src="https://cdn11.bigcommerce.com/s-35csgqmz9s/images/stencil/120x120/products/748/1544/wheel_arch-1__23069__30106.1554784137.jpg" alt="" title="(Sample)">\
+                                            </div>\
+                                        </a>\
+                                    </figure>\
+                                    <div class="card-body">\
+                                        <div class="card-detail">\
+                                            <p class="card-brand" data-test-info-type="brandName">Jimmy Choo®</p>\
+                                            <h4 class="card-title">\
+                                                <a href="https://caros-demo.mybigcommerce.com/sample-arcu-tincidun-tegery-lesuada-anim/">(Sample) Arcu tincidun tegery lesuada anim dapboe</a>\
+                                            </h4>\
+                                            <p class="card-rating" data-test-info-type="productRating">\
+                                                <span class="icon icon--ratingFull"><svg><use xlink:href="#icon-star"></use></svg></span>\
+                                                <span class="icon icon--ratingFull"><svg><use xlink:href="#icon-star"></use></svg></span>\
+                                                <span class="icon icon--ratingFull"><svg><use xlink:href="#icon-star"></use></svg></span>\
+                                                <span class="icon icon--ratingFull"><svg><use xlink:href="#icon-star"></use></svg></span>\
+                                                <span class="icon icon--ratingFull"><svg><use xlink:href="#icon-star"></use></svg></span>\
+                                                <span class="number-review">(4)</span>\
+                                            </p>\
+                                            <div class="card-price-wrapper">\
+                                                <div class="card-price" data-test-info-type="price">\
+                                                    <div class="price-section price-section--withoutTax price-none"></div>\
+                                                    <div class="price-section price-section--withoutTax">\
+                                                        <span data-product-price-without-tax="" class="price price--withoutTax">$189.99</span>\
+                                                    </div>\
+                                                </div>\
+                                            </div>\
+                                            <figcaption class="card-figcaption">\
+                                                <a href="https://caros-demo.mybigcommerce.com/sample-arcu-tincidun-tegery-lesuada-anim/" class="button card-figcaption-button">Shop Now</a>\
+                                            </figcaption>\
+                                        </div>\
+                                    </div>\
+                                </article>\
+                            </div>\
+                            <div class="items">\
+                                <article class="card">\
+                                    <figure class="card-figure">\
+                                        <a href="#" class="product_img_link">\
+                                            <div class="card-img-container">\
+                                                <img class="card-image lazyload" src="http://caros-demo.mybigcommerce.com/content/loading.svg" data-src="https://cdn11.bigcommerce.com/s-35csgqmz9s/images/stencil/120x120/products/809/1774/performance-1d__35582__24444.1554784181.jpg" alt="" title="(Sample)">\
+                                            </div>\
+                                        </a>\
+                                    </figure>\
+                                    <div class="card-body">\
+                                        <div class="card-detail">\
+                                            <p class="card-brand" data-test-info-type="brandName">Tomorrow®</p>\
+                                            <h4 class="card-title">\
+                                                <a href="https://caros-demo.mybigcommerce.com/sample-imperdiet-nterdum-pharetra-vestibulum/">(Sample) Imperdiet nterdum pharetra vestibulum pretium boe</a>\
+                                            </h4>\
+                                            <p class="card-rating" data-test-info-type="productRating">\
+                                                <span class="icon icon--ratingFull"><svg><use xlink:href="#icon-star"></use></svg></span>\
+                                                <span class="icon icon--ratingFull"><svg><use xlink:href="#icon-star"></use></svg></span>\
+                                                <span class="icon icon--ratingFull"><svg><use xlink:href="#icon-star"></use></svg></span>\
+                                                <span class="icon icon--ratingFull"><svg><use xlink:href="#icon-star"></use></svg></span>\
+                                                <span class="icon icon--ratingFull"><svg><use xlink:href="#icon-star"></use></svg></span>\
+                                                <span class="number-review">(6)</span>\
+                                            </p>\
+                                            <div class="card-price-wrapper">\
+                                                <div class="card-price" data-test-info-type="price">\
+                                                    <div class="price-section price-section--withoutTax price-none"></div>\
+                                                    <div class="price-section price-section--withoutTax">\
+                                                        <span data-product-price-without-tax="" class="price price--withoutTax">$789.00</span>\
+                                                    </div>\
+                                                </div>\
+                                            </div>\
+                                            <figcaption class="card-figcaption">\
+                                                <a href="https://caros-demo.mybigcommerce.com/sample-imperdiet-nterdum-pharetra-vestibulum/" class="button card-figcaption-button">Shop Now</a>\
+                                            </figcaption>\
+                                        </div>\
+                                    </div>\
+                                </article>\
+                            </div>\
+                            <div class="items">\
+                                <article class="card">\
+                                    <figure class="card-figure">\
+                                        <a href="#" class="product_img_link">\
+                                            <div class="card-img-container">\
+                                                <img class="card-image lazyload" src="https://cdn11.bigcommerce.com/s-35csgqmz9s/images/stencil/120x120/products/743/1523/wheel_arch-8__12181__20333.1554784129.jpg" alt="" title="(Sample)">\
+                                            </div>\
+                                        </a>\
+                                    </figure>\
+                                    <div class="card-body">\
+                                        <div class="card-detail">\
+                                            <p class="card-brand" data-test-info-type="brandName">Daventry Meers®</p>\
+                                            <h4 class="card-title">\
+                                                <a href="https://caros-demo.mybigcommerce.com/sample-tempus-es-lortis-ados-tempus-cosmo-sapiendos/">(Sample) Tempus es lortis ados tempus cosmo sapiendos</a>\
+                                            </h4>\
+                                            <p class="card-rating" data-test-info-type="productRating">\
+                                                <span class="icon icon--ratingFull"><svg><use xlink:href="#icon-star"></use></svg></span>\
+                                                <span class="icon icon--ratingFull"><svg><use xlink:href="#icon-star"></use></svg></span>\
+                                                <span class="icon icon--ratingFull"><svg><use xlink:href="#icon-star"></use></svg></span>\
+                                                <span class="icon icon--ratingFull"><svg><use xlink:href="#icon-star"></use></svg></span>\
+                                                <span class="icon icon--ratingFull"><svg><use xlink:href="#icon-star"></use></svg></span>\
+                                                <span class="number-review">(2)</span>\
+                                            </p>\
+                                            <div class="card-price-wrapper">\
+                                                <div class="card-price" data-test-info-type="price">\
+                                                    <div class="price-section price-section--withoutTax price-none"></div>\
+                                                    <div class="price-section price-section--withoutTax">\
+                                                        <span data-product-price-without-tax="" class="price price--withoutTax">$889.00</span>\
+                                                    </div>\
+                                                </div>\
+                                            </div>\
+                                            <figcaption class="card-figcaption">\
+                                                <a href="https://caros-demo.mybigcommerce.com/sample-tempus-es-lortis-ados-tempus-cosmo-sapiendos/" class="button card-figcaption-button">Shop Now</a>\
+                                            </figcaption>\
+                                        </div>\
+                                    </div>\
+                                </article>\
+                            </div>\
+                        </div>\
+                        </div>\
+                        <div class="imgItem imgRight">\
+                            <a href="#"><img class="lazyload" src="http://caros-demo.mybigcommerce.com/content/loading.svg" data-src="/product_images/uploaded_images/{{theme_settings.themevale_megamenu-banner-9}}" alt=""/></a>\
+                        </div>\
+                    </div>',
+        });
+
+        themevaleMenu.menuItem({{theme_settings.themevale_megamenu-layout-3}}).themevaleMegaMenu({
+            dropAlign: 'fullWidth',   // Dropdown MegaMenu Alignment: left, right, center, fullWidth
+            dropWidth: 'auto',       // Width of Dropdown MegaMenu (if dropAlign: fullWidth => dropWidth auto set 100%)
+            dropType: 'noImage',   // Type of Dropdown MegaMenu content: imageLeft, imageRight, noImage
+            imageAreaWidth: '0%',    // width of images area
+            cateAreaWidth: '100%',     // width of categories area
+            cateColumns: {{theme_settings.themevale_megamenu-layout-3-col}},           // columns of categories area - max 6 columns
+            images: '<div class="imgList">\
+                        <div class="imgItem imgLeft">\
+                            <a href="#"><img class="lazyload" src="http://caros-demo.mybigcommerce.com/content/loading.svg" data-src="/product_images/uploaded_images/{{theme_settings.themevale_megamenu-banner-6}}" alt=""/></a>\
+                        </div>\
+                        <div class="imgItem imgRight">\
+                            <a href="#"><img class="lazyload" src="http://caros-demo.mybigcommerce.com/content/loading.svg" data-src="/product_images/uploaded_images/{{theme_settings.themevale_megamenu-banner-7}}" alt=""/></a>\
+                        </div>\
+                        <div class="imgItem imgItem--full">\
+                            <a href="#"><img class="lazyload" src="http://caros-demo.mybigcommerce.com/content/loading.svg" data-src="/product_images/uploaded_images/{{theme_settings.themevale_megamenu-banner-8}}" alt=""/></a>\
+                        </div>\
+                    </div>',
+            bottomMegamenu: '<div class="own-text"><span>{{theme_settings.themevale_megamenu-bottomtext}}</span></div>'// contents for images column (HTML supported)
+            
+        });
+    } else {
+        themevaleMenu.menuItem({{theme_settings.themevale_megamenu-layout-1}}).themevaleMegaMenu({
+            dropAlign: 'fullWidth',     // Dropdown MegaMenu Alignment: left, right, center, fullWidth
+            dropWidth: '800px',         // Width of Dropdown MegaMenu (if dropAlign: fullWidth => dropWidth auto set 100%)
+            dropType: 'imageTop',       // Type of Dropdown MegaMenu content: imageLeft, imageRight, noImage
+            imageAreaWidth: '0%',       // width of images area
+            cateAreaWidth: '100%',      // width of categories area
+            cateColumns: {{theme_settings.themevale_megamenu-layout-1-col}},             // columns of categories area - max 6 columns
+            
+            // contents for images column (HTML supported)
+            imagesTop: [
+                '<a class="imageTop-item" href="#"><img class="lazyload" src="http://caros-demo.mybigcommerce.com/content/loading.svg" data-src="/product_images/uploaded_images/{{theme_settings.themevale_megamenu-banner-1}}" alt=""/></a>',
+                '<a class="imageTop-item" href="#"><img class="lazyload" src="http://caros-demo.mybigcommerce.com/content/loading.svg" data-src="/product_images/uploaded_images/{{theme_settings.themevale_megamenu-banner-2}}" alt=""/></a>',
+                '<a class="imageTop-item" href="#"><img class="lazyload" src="http://caros-demo.mybigcommerce.com/content/loading.svg" data-src="/product_images/uploaded_images/{{theme_settings.themevale_megamenu-banner-3}}" alt=""/></a>',
+                '<a class="imageTop-item" href="#"><img class="lazyload" src="http://caros-demo.mybigcommerce.com/content/loading.svg" data-src="/product_images/uploaded_images/{{theme_settings.themevale_megamenu-banner-4}}" alt=""/></a>',
+                '<a class="imageTop-item" href="#"><img class="lazyload" src="http://caros-demo.mybigcommerce.com/content/loading.svg" data-src="/product_images/uploaded_images/{{theme_settings.themevale_megamenu-banner-5}}" alt=""/></a>'
+            ],
+        });
+
+        themevaleMenu.menuItem({{theme_settings.themevale_megamenu-layout-2}}).themevaleMegaMenu({
+            dropAlign: 'fullWidth',   // Dropdown MegaMenu Alignment: left, right, center, fullWidth
+            dropWidth: '800px',       // Width of Dropdown MegaMenu (if dropAlign: fullWidth => dropWidth auto set 100%)
+            dropType: 'imageRight',   // Type of Dropdown MegaMenu content: imageLeft, imageRight, noImage
+            imageAreaWidth: '60%',    // width of images area
+            cateAreaWidth: '40%',     // width of categories area
+            cateColumns: {{theme_settings.themevale_megamenu-layout-2-col}},           // columns of categories area - max 6 columns
+            // contents for images column (HTML supported)
+            images: '<div class="imgList style-2">\
+                        <div class="imgItem imgLeft">\
+                        <div class="imgHeading">Featured products</div>\
+                        <div class="featuredProductCarousel">\
+                            <div class="items">\
+                                <article class="card">\
+                                    <figure class="card-figure">\
+                                        <a href="#" class="product_img_link">\
+                                            <div class="card-img-container">\
+                                                <img class="card-image lazyload" src="http://caros-demo.mybigcommerce.com/content/loading.svg" data-src="https://cdn11.bigcommerce.com/s-35csgqmz9s/images/stencil/120x120/products/748/1544/wheel_arch-1__23069__30106.1554784137.jpg" alt="" title="(Sample)">\
+                                            </div>\
+                                        </a>\
+                                    </figure>\
+                                    <div class="card-body">\
+                                        <div class="card-detail">\
+                                            <p class="card-brand" data-test-info-type="brandName">Jimmy Choo®</p>\
+                                            <h4 class="card-title">\
+                                                <a href="https://caros-demo.mybigcommerce.com/sample-arcu-tincidun-tegery-lesuada-anim/">(Sample) Arcu tincidun tegery lesuada anim dapboe</a>\
+                                            </h4>\
+                                            <p class="card-rating" data-test-info-type="productRating">\
+                                                <span class="icon icon--ratingFull"><svg><use xlink:href="#icon-star"></use></svg></span>\
+                                                <span class="icon icon--ratingFull"><svg><use xlink:href="#icon-star"></use></svg></span>\
+                                                <span class="icon icon--ratingFull"><svg><use xlink:href="#icon-star"></use></svg></span>\
+                                                <span class="icon icon--ratingFull"><svg><use xlink:href="#icon-star"></use></svg></span>\
+                                                <span class="icon icon--ratingFull"><svg><use xlink:href="#icon-star"></use></svg></span>\
+                                                <span class="number-review">(4)</span>\
+                                            </p>\
+                                            <div class="card-price-wrapper">\
+                                                <div class="card-price" data-test-info-type="price">\
+                                                    <div class="price-section price-section--withoutTax price-none"></div>\
+                                                    <div class="price-section price-section--withoutTax">\
+                                                        <span data-product-price-without-tax="" class="price price--withoutTax">$189.99</span>\
+                                                    </div>\
+                                                </div>\
+                                            </div>\
+                                            <figcaption class="card-figcaption">\
+                                                <a href="https://caros-demo.mybigcommerce.com/sample-arcu-tincidun-tegery-lesuada-anim/" class="button card-figcaption-button">Shop Now</a>\
+                                            </figcaption>\
+                                        </div>\
+                                    </div>\
+                                </article>\
+                            </div>\
+                            <div class="items">\
+                                <article class="card">\
+                                    <figure class="card-figure">\
+                                        <a href="#" class="product_img_link">\
+                                            <div class="card-img-container">\
+                                                <img class="card-image lazyload" src="http://caros-demo.mybigcommerce.com/content/loading.svg" data-src="https://cdn11.bigcommerce.com/s-35csgqmz9s/images/stencil/120x120/products/809/1774/performance-1d__35582__24444.1554784181.jpg" alt="" title="(Sample)">\
+                                            </div>\
+                                        </a>\
+                                    </figure>\
+                                    <div class="card-body">\
+                                        <div class="card-detail">\
+                                            <p class="card-brand" data-test-info-type="brandName">Tomorrow®</p>\
+                                            <h4 class="card-title">\
+                                                <a href="https://caros-demo.mybigcommerce.com/sample-imperdiet-nterdum-pharetra-vestibulum/">(Sample) Imperdiet nterdum pharetra vestibulum pretium boe</a>\
+                                            </h4>\
+                                            <p class="card-rating" data-test-info-type="productRating">\
+                                                <span class="icon icon--ratingFull"><svg><use xlink:href="#icon-star"></use></svg></span>\
+                                                <span class="icon icon--ratingFull"><svg><use xlink:href="#icon-star"></use></svg></span>\
+                                                <span class="icon icon--ratingFull"><svg><use xlink:href="#icon-star"></use></svg></span>\
+                                                <span class="icon icon--ratingFull"><svg><use xlink:href="#icon-star"></use></svg></span>\
+                                                <span class="icon icon--ratingFull"><svg><use xlink:href="#icon-star"></use></svg></span>\
+                                                <span class="number-review">(6)</span>\
+                                            </p>\
+                                            <div class="card-price-wrapper">\
+                                                <div class="card-price" data-test-info-type="price">\
+                                                    <div class="price-section price-section--withoutTax price-none"></div>\
+                                                    <div class="price-section price-section--withoutTax">\
+                                                        <span data-product-price-without-tax="" class="price price--withoutTax">$789.00</span>\
+                                                    </div>\
+                                                </div>\
+                                            </div>\
+                                            <figcaption class="card-figcaption">\
+                                                <a href="https://caros-demo.mybigcommerce.com/sample-imperdiet-nterdum-pharetra-vestibulum/" class="button card-figcaption-button">Shop Now</a>\
+                                            </figcaption>\
+                                        </div>\
+                                    </div>\
+                                </article>\
+                            </div>\
+                            <div class="items">\
+                                <article class="card">\
+                                    <figure class="card-figure">\
+                                        <a href="#" class="product_img_link">\
+                                            <div class="card-img-container">\
+                                                <img class="card-image lazyload" src="https://cdn11.bigcommerce.com/s-35csgqmz9s/images/stencil/120x120/products/743/1523/wheel_arch-8__12181__20333.1554784129.jpg" alt="" title="(Sample)">\
+                                            </div>\
+                                        </a>\
+                                    </figure>\
+                                    <div class="card-body">\
+                                        <div class="card-detail">\
+                                            <p class="card-brand" data-test-info-type="brandName">Daventry Meers®</p>\
+                                            <h4 class="card-title">\
+                                                <a href="https://caros-demo.mybigcommerce.com/sample-tempus-es-lortis-ados-tempus-cosmo-sapiendos/">(Sample) Tempus es lortis ados tempus cosmo sapiendos</a>\
+                                            </h4>\
+                                            <p class="card-rating" data-test-info-type="productRating">\
+                                                <span class="icon icon--ratingFull"><svg><use xlink:href="#icon-star"></use></svg></span>\
+                                                <span class="icon icon--ratingFull"><svg><use xlink:href="#icon-star"></use></svg></span>\
+                                                <span class="icon icon--ratingFull"><svg><use xlink:href="#icon-star"></use></svg></span>\
+                                                <span class="icon icon--ratingFull"><svg><use xlink:href="#icon-star"></use></svg></span>\
+                                                <span class="icon icon--ratingFull"><svg><use xlink:href="#icon-star"></use></svg></span>\
+                                                <span class="number-review">(2)</span>\
+                                            </p>\
+                                            <div class="card-price-wrapper">\
+                                                <div class="card-price" data-test-info-type="price">\
+                                                    <div class="price-section price-section--withoutTax price-none"></div>\
+                                                    <div class="price-section price-section--withoutTax">\
+                                                        <span data-product-price-without-tax="" class="price price--withoutTax">$889.00</span>\
+                                                    </div>\
+                                                </div>\
+                                            </div>\
+                                            <figcaption class="card-figcaption">\
+                                                <a href="https://caros-demo.mybigcommerce.com/sample-tempus-es-lortis-ados-tempus-cosmo-sapiendos/" class="button card-figcaption-button">Shop Now</a>\
+                                            </figcaption>\
+                                        </div>\
+                                    </div>\
+                                </article>\
+                            </div>\
+                        </div>\
+                        </div>\
+                        <div class="imgItem imgRight">\
+                            <a href="#"><img class="lazyload" src="http://caros-demo.mybigcommerce.com/content/loading.svg" data-src="/product_images/uploaded_images/{{theme_settings.themevale_megamenu-banner-9}}" alt=""/></a>\
+                        </div>\
+                    </div>',
+        });
+
+        themevaleMenu.menuItem({{theme_settings.themevale_megamenu-layout-3}}).themevaleMegaMenu({
+            dropAlign: 'fullWidth',   // Dropdown MegaMenu Alignment: left, right, center, fullWidth
+            dropWidth: '100%',       // Width of Dropdown MegaMenu (if dropAlign: fullWidth => dropWidth auto set 100%)
+            dropType: 'imageRight',   // Type of Dropdown MegaMenu content: imageLeft, imageRight, noImage
+            imageAreaWidth: '0%',    // width of images area
+            cateAreaWidth: '100%',     // width of categories area
+            cateColumns: {{theme_settings.themevale_megamenu-layout-3-col}},           // columns of categories area - max 6 columns
+            // contents for images column (HTML supported)
+            bottomMegamenu: '<div class="own-text"><span>{{theme_settings.themevale_megamenu-bottomtext}}</span></div>'
+        });
+    }
+
+    themevaleMenu.menuItem({{theme_settings.themevale_megamenu-label-sale}}).themevaleMegaMenu({
+        label: 'sale',              // Type of Menu Lablel: sale, hot, new
+        disabled: true
+    });
+    themevaleMenu.menuItem({{theme_settings.themevale_megamenu-label-new}}).themevaleMegaMenu({
+        label: 'new',             // Type of Menu Lablel: sale, hot, new
+        disabled: true
+    });
+    themevaleMenu.menuItem({{theme_settings.themevale_megamenu-label-hot}}).themevaleMegaMenu({
+        label: 'hot',             // Type of Menu Lablel: sale, hot, new
+        disabled: true
+    }); 
+
+});
+</script>

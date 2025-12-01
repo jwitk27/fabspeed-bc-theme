@@ -1,0 +1,12 @@
+<ul id="productLayout" class="productGrid">
+    {{#each products}}
+    <li class="product">
+        {{> components/products/card-category settings=../settings show_compare=../show_compare show_wishlist=../settings.show_wishlist show_rating=../settings.show_product_rating theme_settings=../theme_settings customer=../customer event=../event position=(add @index 1)}}
+    </li>
+    {{/each}}
+</ul>
+{{#if show_compare}}
+    <div class="compare-link">
+        <a href="{{urls.compare}}" data-compare-nav>{{lang 'common.compare'}}<span class="countPill">0</span></a>
+    </div>
+{{/if}}

@@ -1,0 +1,66 @@
+---
+products:
+    new:
+        limit: {{theme_settings.homepage_new_products_count}}
+product:
+    videos:
+        limit: {{theme_settings.productpage_videos_count}}
+    reviews:
+        limit: {{theme_settings.productpage_reviews_count}}
+    related_products:
+        limit: {{theme_settings.productpage_related_products_count}}
+    similar_by_views:
+        limit: {{theme_settings.productpage_similar_by_views_count}}
+---
+
+{{#partial "page"}}
+    {{#if product.brand.name '===' 'COBB'}}
+        <div class="section" style="left: 0%; top: auto; right: 0%; bottom: auto; background-color: #d80000;">
+            <p class="paragraph" style="margin-top: 3px; margin-bottom: 3px; color: #fff; text-align:center;"><strong>This product is not available for any California residents. <a href="https://www.fabspeed.com/contact-us/">Click here for any questions.</a></strong></p>
+        </div>
+    {{/if}}
+    <div class="themevale_breadcrumb">
+        {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+    </div>
+    {{#each product.shipping_messages}}
+        {{> components/common/alert-info message}}
+    {{/each}}
+    <div itemscope itemtype="http://schema.org/Product">
+        {{> components/products/product-view schema=true }}
+
+        {{{region name="product_below_content"}}}
+        
+        {{> components/themevale/product/product-description}}
+    </div>
+{{/partial}}
+{{> layout/base}}
+
+<script type="text/javascript">
+   var _learnq = _learnq || [];
+
+   var item = {
+    Name: "{{product.title}}",
+    ProductID: "{{product.id}}",
+    ImageURL: "{{getImage product.main_image 'product_size' (cdn theme_settings.default_image_product)}}",
+    URL: "{{product.url}}",
+    Brand: "{{product.brand.name}}",
+    Price: "{{product.price.without_tax.value}}",
+    CompareAtPrice:"{{product.price.rrp_without_tax.value}}"
+   };
+
+  _learnq.push(['track', 'Viewed Product', item]);
+
+  _learnq.push(['trackViewedItem', {
+   Title: item.Name,
+   ItemId: item.ProductID,
+   Categories: item.Categories,
+   ImageUrl: item.ImageURL,
+   Url: item.URL,
+
+   Metadata: {
+     Brand: item.Brand,
+     Price: item.Price,
+     CompareAtPrice: item.CompareAtPrice
+   }
+  }]);
+</script>

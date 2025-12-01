@@ -1,0 +1,127 @@
+// =============================================================================
+// BODY (CSS)
+//
+// 1. Header is fixed on small screens, use the content body to create the whitespace
+//    between it and the header on all situations. If you change the spacing here,
+//    please update .heroCarousel too.
+//
+// =============================================================================
+
+
+.body {
+    position: relative;
+    // padding-bottom: 30px;
+    @include breakpoint("small") {
+        padding-bottom: 50px;
+    }
+    @include breakpoint("medium") {
+        padding-bottom: 80px;
+    }
+    .page-type-default & {
+        padding-bottom: 0;
+    }
+}
+
+.container {
+    @include grid-row(
+        $behavior: nest
+    );
+    width: 100%;
+    margin: 0;
+    padding: 0 15px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+.container--full {
+    width: 100%;
+    padding: 0 15px;
+    position: relative;
+    @media (min-width: 1025px) {
+        .page-sidebar {
+            width: 285px;
+            + .page-content {
+                width: calc(100% - 285px);
+            }
+        }
+        .themevale_categoryToolbar {
+            padding: 0;
+            background-color: #ffffff;
+        }
+    }
+    @media (min-width: 1281px) {
+        max-width: 100%;
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+}
+
+.page {
+    @include grid-row(
+        $behavior: nest
+    );
+    margin: 0;
+}
+
+.page-sidebar,
+.page-content,
+.page-content--full {
+    width: 100%;
+    float: left;
+    padding: 0;
+    position: relative;
+}
+
+.page-content {
+    .panel--large .panel-body {
+        border-radius: 3px;
+        background-color: #f7f7f7;
+        .suggestion-title {
+            font-size: 16px;
+        }
+    }
+}
+
+.page-content--centered {
+    @include breakpoint("medium") {
+        @include grid-column(
+            $columns: 8,
+            $center: true
+        );
+    }
+}
+
+.page-content--textCenter {
+    text-align: center;
+}
+
+.page-sidebar {
+    display: none;
+    @media (min-width: 1025px) {
+        width: 240px;
+        display: block;
+        padding-right: 15px;
+        + .page-content {
+            padding-left: 15px;
+            width: calc(100% - 240px);
+        }
+        &.u-hiddenVisually + .page-content {
+            width: 100%;
+            padding-left: 0;
+        }
+    }
+}
+
+.page-sidebar-right {
+    float: right;
+    @media (min-width: 1025px) {
+        padding-left: 15px;
+        padding-right: 0;
+        + .page-content {
+            padding-left: 0;
+            padding-right: 15px;
+        }
+    }
+}

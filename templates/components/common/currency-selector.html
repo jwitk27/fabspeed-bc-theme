@@ -1,0 +1,17 @@
+<a class="navUser-action navUser-action--currencySelector" href="javascript:void(0)">
+    <span class="image-flag">{{{currency_selector.active_currency_flag}}}</span> 
+    <span class="text-flag">{{lang 'common.currency' code=currency_selector.active_currency_code}}</span>
+    <i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-chevron-down" /></svg></i></a>
+<ul class="dropdown-menu" id="currencySelection">
+    {{#each currency_selector.currencies}}
+    <li class="dropdown-menu-item">
+        <a href="{{{switch_url}}}">
+            {{#if is_active}}
+                {{{flag}}} <strong>{{name}}</strong>
+            {{else}}
+                {{{flag}}} {{name}}
+            {{/if}}
+        </a>
+    </li>
+    {{/each}}
+</ul>

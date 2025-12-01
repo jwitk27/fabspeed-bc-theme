@@ -1,0 +1,43 @@
+{{#partial "hero"}}
+    {{#if carousel}}
+        {{> components/carousel arrows=theme_settings.homepage_show_carousel_arrows dots=theme_settings.homepage_show_carousel_dots}}
+    {{/if}}
+    {{{snippet 'home_content'}}}
+{{/partial}}
+
+{{#partial "page"}}
+
+    {{#each shipping_messages}}
+        {{> components/common/alert-info message}}
+    {{/each}}
+
+<div class="main full">
+
+    {{> components/themevale/homepage/component/banner-marketing banner-marketing="category-card-1"}}
+
+    {{> components/themevale/homepage/component/banner-marketing banner-marketing="brands-grid-1"}}
+
+    {{> components/themevale/homepage/component/flash-sale-category-2}}
+
+    {{> components/themevale/homepage/component/banner-marketing banner-marketing="banner-marketing-1"}}
+
+    {{> components/themevale/homepage/component/ajax-products-by-category-sorting-tabs-2 category_id=theme_settings.themevale_category-id-width-banner-1}}
+
+    <!--{{> components/themevale/homepage/component/ajax-products-by-category-sorting-tabs-3 category_id=theme_settings.themevale_category-id-width-banner-2}}-->
+
+    {{> components/themevale/homepage/component/ajax-products-by-category-sorting-tabs-4 category_id=theme_settings.themevale_category-id-width-banner-3}}
+
+    {{> components/themevale/homepage/component/ajax-products-by-category-sorting-tabs-5 category_id=theme_settings.themevale_category-id-width-banner-4}}
+
+    {{> components/themevale/homepage/component/banner-marketing banner-marketing="category-card-3"}}
+
+    {{> components/themevale/homepage/component/ajax-products-by-category-id-grid category_id=theme_settings.themevale_category-id}}
+
+    {{> components/themevale/homepage/component/banner-marketing banner-marketing="category-card-4"}}
+
+    {{#if blog.recent_posts}}
+        {{> components/themevale/homepage/component/recent_blogs blog=blog.recent_posts}}
+    {{/if}}
+</div>
+{{/partial}}
+{{> layout/base}}

@@ -1,0 +1,62 @@
+---
+brand:
+    products:
+        limit: {{theme_settings.brandpage_products_per_page}}
+products:
+    new:
+        limit: {{theme_settings.homepage_new_products_count}}
+    featured:
+        limit: {{theme_settings.homepage_featured_products_count}}
+    top_sellers:
+         limit: {{theme_settings.homepage_top_products_count}}
+---
+{{inject "brandProductsPerPage" theme_settings.brandpage_products_per_page}}
+{{#partial "head"}}
+    {{#if pagination.brand.previous}}
+        <link rel="prev" href="{{pagination.brand.previous}}">
+    {{/if}}
+    {{#if pagination.brand.next}}
+        <link rel="next" href="{{pagination.brand.next}}">
+    {{/if}}
+{{/partial}}
+
+{{#partial "page"}}
+<div class="themevale_breadcrumb">
+    {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+    <h1 class="page-heading">{{brand.name}}</h1>
+    {{#if brand.image}}
+        <div class="brand-image-container">
+            <img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="{{getImage brand.image 'thumb_size'}}">
+        </div>
+    {{/if}}
+    {{{region name="brand_below_header"}}}
+</div>
+
+{{{snippet 'brand'}}}
+{{#if theme_settings.product_list_display_mode '===' 'list'}}
+    <div id="grid-list-layout" class="page productGrid--maxCol1">
+{{/if}}
+{{#if theme_settings.product_list_display_mode '===' 'grid 2 column'}}
+    <div id="grid-list-layout" class="page productGrid--maxCol2">
+{{/if}}
+{{#if theme_settings.product_list_display_mode '===' 'grid 3 column'}}
+    <div id="grid-list-layout" class="page productGrid--maxCol3">
+{{/if}}
+{{#if theme_settings.product_list_display_mode '===' 'grid 4 column'}}
+    <div id="grid-list-layout" class="page productGrid--maxCol4">
+{{/if}}
+    <aside class="page-sidebar" id="faceted-search-container">
+        {{> components/brand/sidebar}}
+    </aside>
+
+    <main class="page-content" id="product-listing-container">
+        {{#if brand.products}}
+            {{> components/brand/product-listing}}
+        {{else}}
+            <p>{{lang 'brands.no_products'}}</p>
+        {{/if}}
+    </main>
+</div>
+{{{region name="brand_below_content"}}}
+{{/partial}}
+{{> layout/base}}

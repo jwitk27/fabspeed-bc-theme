@@ -1,0 +1,314 @@
+/*----------  Multilevel filter  ---------*/
+.heroCarousel-content {
+    @media (min-width: 1025px) {
+        padding-bottom: 80px;
+    }
+}
+
+.themevale_MultiCategory {
+    width: 100%;
+    z-index: 11;
+    display: block;
+    padding: 20px 15px 22px 15px;
+    margin-left: auto;
+    max-width: 1200px;
+    margin-right: auto;
+    position: relative;
+    background-color: #f7f7f7;
+    /*.page-type-default & {
+        margin-top: 30px;
+    }*/
+    .popover {
+        left: 0;
+        top: auto;
+        opacity: 1;
+        display: none;
+        bottom: calc(100% + 20px);
+        position: absolute;
+        color: #8b6c41;
+        line-height: 20px;
+        max-width: 620px;
+        border-radius: 5px;
+        background-color: #fcf8e5;
+        border: 1px solid #fbeacf;
+        font-size: $body-fontSize;
+        font-weight: 400;
+        font-family: $fontFamily-sans;
+        &:before, &:after {
+            top: 100%;
+            width: 0;
+            height: 0;
+            content: "";
+            display: block;
+            position: absolute;
+        }
+        &:before {
+            left: 20px;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid #fbeacf;
+        }
+        &:after {
+            left: 21px;
+            border-left: 9px solid transparent;
+            border-right: 9px solid transparent;
+            border-top: 9px solid #fcf8e5;
+        }
+        .close {
+            top: 10px;
+            right: 13px;
+            color: #8b6c41;
+            font-weight: 400;
+            line-height: 20px;
+            position: absolute;
+            .icon {
+                @include square(12px);
+                fill: #8b6c41;
+            }
+        }
+        .popover-body {
+            color: #8b6c41;
+            padding: 12px 50px 12px 12px;
+            p:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+    @media (min-width: 768px) {
+        padding: 30px;
+        .page-type-category & {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+        .page-type-default & {
+            margin-top: 0px;
+        }
+    }
+    @media (min-width: 1025px) {
+        .page-type-default & {
+            .popover {
+                &.fade {
+                    display: block;
+                }
+            }
+        }
+        .themevale_heroCarousel & {
+            top: 388px;
+            left: 50%;
+            position: absolute;
+            transform: translateX(-50%);
+            background-color: transparent;
+        }
+        .page-type-category & {
+            max-width: none;
+            padding: 15px;
+            .themevale_multilevel-category-filter {
+                max-width: 1200px;
+                margin-left: auto;
+                margin-right: auto;
+                .form-label {
+                    color: stencilColor('color-textHeading');
+                }
+            }
+        }
+        .page-type-category [data-banner-location="top"] ~ & {
+            position: absolute;
+            top: 127px;
+            background-color: transparent;
+            .themevale_multilevel-category-filter {
+                .form-label {
+                    color: #ffffff;
+                }
+            }
+        }
+    }
+    @media (min-width: 1281px) {
+        .page-type-category & {
+            padding: 30px;
+        }
+    }
+}
+
+.themevale_MultiCategory.layout-2 {
+    top: auto !important;
+    color: #ffffff;
+    background-color: stencilColor('color-textHeading');
+    .themevale_multilevel-category-filter {
+        > .form-label {
+            color: #ffffff;
+        }
+        .description {
+            display: none;
+        }
+        .group-button {
+            #themevale_clear-select {
+                span {
+                    display: none;
+                }
+            }
+        }
+    }
+    @media (min-width: 1025px) {
+        border-radius: 3px;
+        padding: 20px 30px;
+        margin-bottom: 30px;
+        .themevale_multilevel-category-filter {
+            display: block;
+            text-align: left;
+            > .form-label {
+                display: block;
+                margin-right: 0;
+                text-align: left;
+                margin-bottom: 10px;
+                padding-bottom: 10px;
+                border-bottom: 1px solid #60656c;
+            }
+            .description {
+                display: block;
+                margin-bottom: 15px;
+            }
+            .form-wrapper {
+                display: block;
+            }
+            .form-field {
+                width: 100%;
+                display: block;
+                margin: 0 0 15px 0;
+            }
+            .group-button {
+                display: block;
+                .button {
+                    display: block;
+                    + .button {
+                        margin: 5px 0 0 0;
+                    }
+                }
+                #themevale_clear-select {
+                    display: inline-block;
+                    border-color: transparent;
+                    background-color: transparent;
+                    box-shadow: none;
+                    text-transform: capitalize;
+                    font-size: 12px;
+                    font-family: $fontFamily-sans;
+                    .icon {
+                        margin-right: 5px;
+                    }
+                    span {
+                        display: inline-block;
+                        vertical-align: middle;
+                        text-decoration: underline;
+                        text-underline-position: under;
+                    }
+                    &:hover, &:focus, &:active {
+                        color: #ffffff;
+                        svg {
+                            fill: #ffffff;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.themevale_multilevel-category-filter {
+    display: block;
+    position: relative;
+    .form-label {
+        display: block;
+        font-size: 16px;
+        margin-bottom: 20px;
+        white-space: nowrap;
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-family: $fontFamily-headings;
+    }
+    .form-wrapper {
+        display: block;
+    }
+    .form-field {
+        display: block;
+        margin: 0 0 10px 0;
+        .form-label {
+            display: block;
+            font-size: 0;
+            line-height: 0;
+            margin: 0;
+            padding: 0;
+        }
+        .form-select {
+            height: 40px;
+            max-width: 100%;
+        }
+    }
+    .group-button {
+        font-size: 0;
+        margin-top: 20px;
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-between;
+        .button {
+            min-width: 90px;
+            padding: 0 20px;
+            height: 40px;
+            line-height: 38px;
+            width: 50%;
+            + .button {
+                margin-left: 10px;
+            }
+        }
+        #themevale_clear-select {
+            padding: 0;
+        }
+    }
+    @include breakpoint('small') {
+        .form-wrapper {
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: space-between;
+            flex-grow: 1;
+        }
+        .form-field {
+            width: 30%;
+            margin: 0 20px 0 0;
+            display: inline-block;
+            .form-select {
+                height: 46px;
+                background-position: right 0.58333rem top 12px;
+            }
+        }
+        .group-button {
+            min-width: 160px;
+            margin-top: 0;
+            display: inline-block;
+            .button {
+                height: 46px;
+                min-width: 46px;
+                line-height: 44px;
+                width: auto;
+            }
+        }
+    }
+    @media (min-width: 992px) {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-between;
+        .form-label {
+            display: inline-block;
+            margin-bottom: 0;
+            margin-top: 0;
+            margin-right: 30px;
+        }
+    }
+    @media (min-width: 1025px) {
+        .form-label {
+            font-size: 16px;
+            color: #ffffff;
+        }
+    }
+}

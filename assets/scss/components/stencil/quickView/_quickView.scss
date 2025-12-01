@@ -1,0 +1,162 @@
+// =============================================================================
+// QUICK VIEW (CSS)
+// =============================================================================
+
+.quickView {
+    @include clearfix();
+}
+
+.modal-quickview {
+    width: 1050px;
+    @media (min-width: 1024px) {
+        .modal-body {
+            padding: 40px 60px 60px 60px;
+        }
+    }
+}
+
+.productView--quickView.themevalte_productView {
+	margin-bottom: 0;
+	@media (min-width: 1024px) {
+		.themevalte_productView-left {
+			width: 50%;
+		}
+		.themevalte_productView-right {
+			width: 50%;
+		}
+	}
+}
+
+/*=========================================
+=            www.themevale.com            =
+=========================================*/
+
+    .productView--quickView {
+    	.productView-details {
+    		margin-bottom: 0;
+    	}
+    }
+
+    .quickView .themevale_productView {
+        display: block;
+        font-size: 0;
+        padding-top: 0;
+        margin-bottom: 0;
+        .themevale_productView-left,
+        .themevale_productView-right {
+            display: block;
+            font-size: $body-fontSize;
+        }
+        .productView-description {
+            display: none;
+        }
+        .themevale_securityImage {
+            ul {
+                margin: 0;
+                font-size: 0;
+                list-style: none;
+                overflow: hidden;
+                white-space: nowrap;
+            }
+        }
+        @media (min-width: 768px) {
+            .themevale_productView-left,
+            .themevale_productView-right {
+                width: 50%;
+                vertical-align: top;
+                display: inline-block;
+            }
+            .themevale_productView-left {
+                padding-right: 15px;
+            }
+            .themevale_productView-right {
+                padding-left: 15px;
+                margin-top: 0;
+            }
+        }
+    }
+
+    /*--------  2.0 Product images  ------*/
+        .themevale_quickViewImage {
+            width: 100%;
+            max-width: 470px;
+            position: relative;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 30px;
+            .productView-image {
+                cursor: zoom-in;
+                vertical-align: top;
+                .easyzoom-flyout {
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    z-index: 10;
+                    position: absolute;
+                }
+            }
+            .productView-img-container {
+                max-width: none;
+                > a {
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    position: absolute;
+                    img {
+                        top: 50%;
+                        left: 50%;
+                        right: auto;
+                        bottom: auto;
+                        width: auto;
+                        height: 100%;
+                        position: absolute;
+                        transform: translate(-50%,-50%);
+                    }
+                }
+            }
+            .productView-thumbnails {
+                width: 100%;
+                display: block;
+                margin-top: 20px;
+                padding: 0 30px;
+                .productView-thumbnail {
+                    border: none;
+                    outline: none;
+                    padding: 0px 10px;
+                    vertical-align: top;
+                    > a {
+                        display: block;
+                        position: relative;
+                        @include lazy-loaded-padding('product_size');
+                        img {
+                            top: 50%;
+                            left: 50%;
+                            bottom: auto;
+                            right: auto;
+                            width: auto;
+                            height: 100%;
+                            position: absolute;
+                            transform: translate(-50%,-50%);
+                        }
+                    }
+                }
+                .slick-arrow {
+                    width: 21px;
+                    height: 21px;
+                    padding: 0;
+                }
+                .slick-prev {
+                    left: 0;
+                }
+                .slick-next {
+                    right: 0;
+                }
+            }
+        }
+
+    
+
+/*=====  End of www.themevale.com  ======*/

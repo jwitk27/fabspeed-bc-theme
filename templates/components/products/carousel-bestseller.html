@@ -1,0 +1,34 @@
+<div class="productCarousel" data-list-name="{{list}}"
+    data-slick='{
+    "dots": true,
+    "arrows": false,
+    "mobileFirst": true,
+    "slidesToShow": 2,
+    "slidesToScroll": 2,
+    "infinite": false,
+    "nextArrow": "<svg class=&apos;slick-next slick-arrow&apos;><use xlink:href=&apos;#icon-slick-next&apos;></use></svg>", 
+    "prevArrow": "<svg class=&apos;slick-prev slick-arrow&apos;><use xlink:href=&apos;#icon-slick-prev&apos;></use></svg>",
+    "responsive": [
+        {
+            "breakpoint": 992,
+            "settings": {
+                "slidesToScroll": 4,
+                "slidesToShow": 4,
+                "dots": true,
+                "arrows": {{arrows}}
+            }
+        },
+        {
+            "breakpoint": 551,
+            "settings": {
+                "slidesToScroll": 3,
+                "slidesToShow": 3
+            }
+        }
+    ]}'>
+    {{#each products}}
+    <div class="productCarousel-slide">
+        {{> components/products/card-bestseller theme_settings=../theme_settings customer=../customer show_rating=../settings.show_product_rating show_wishlist=../settings.show_wishlist show_compare=true event="list" position=(add @index 1)}}
+    </div>
+    {{/each}}
+</div>

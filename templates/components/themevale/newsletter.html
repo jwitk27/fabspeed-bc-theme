@@ -1,0 +1,40 @@
+<div id="themevale_newsletter" class="hide">
+    <div class="popup-overlay"></div>
+    <div class="newsletterPopup">
+        <a href="#" class="modal-close" aria-label="{{lang 'common.close'}}" role="button" data-close-newsletter-popup>
+            <span aria-hidden="true">&#215;</span>
+        </a>
+        <div class="newsletter-content">
+            <h2 class="newsletter-heading">{{ theme_settings.newsletterPopup-title}}</h2>
+            <p class="newsletter-sub-heading">{{ theme_settings.newsletterPopup-subtitle}}</p>
+            <div id="popupSubcribeForm">
+                <form class="form" action="{{urls.subscribe.action}}" method="post" id="popupSubcribeFormSubmit">
+                    <fieldset class="form-fieldset">
+                        <input type="hidden" name="action" value="subscribe">
+                        <input type="hidden" name="nl_first_name" value="bc">
+                        <input type="hidden" name="check" value="1">
+                        <div class="form-field">
+                            <div class="form-wrap">
+                                <input class="form-input" id="nl_email2" name="nl_email" type="email" placeholder="{{lang 'newsletter.email_placeholder'}}">
+                                <input class="button button--primary" type="submit" value="{{lang 'newsletter.subscribe_submit'}}">
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            <p class="newsletter-message">{{ theme_settings.newsletterPopup-content}}</p>
+            <div class="newsletter-icons">
+                {{> components/common/social-links}}
+            </div>
+            <div class="newsletter-show-again">
+                <form>
+                    <input id="do-not-show-again" class="do-not-show-again" type="checkbox" name="don't show again" value="1"> 
+                    <label for="do-not-show-again">{{lang 'newsletter.dont_show'}}</label>
+                </form>
+            </div>
+        </div>
+        <div class="newsletter-image">
+            <img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{ theme_settings.newsletterPopup-image}}" alt="">
+        </div>
+    </div>
+</div>

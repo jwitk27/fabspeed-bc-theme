@@ -1,0 +1,47 @@
+<div class="productCarousel" data-slick='{
+    "rows": 1,
+    "dots": true,
+    "arrows": false,
+    "mobileFirst": true,
+    "slidesToShow": 2,
+    "slidesToScroll": 2,
+    "infinite": false,
+    "nextArrow": "<svg class=&apos;slick-next slick-arrow&apos;><use xlink:href=&apos;#icon-slick-next&apos;></use></svg>", 
+    "prevArrow": "<svg class=&apos;slick-prev slick-arrow&apos;><use xlink:href=&apos;#icon-slick-prev&apos;></use></svg>",
+    "responsive": [
+        {
+            "breakpoint": 1100,
+            "settings": {
+                "slidesToShow": 2,
+                "slidesToScroll": 2,
+                "rows": 2,
+                "dots": true,
+                "arrows": false
+            }
+        },
+        {
+            "breakpoint": 740,
+            "settings": {
+                "slidesToShow": 2,
+                "slidesToScroll": 2,
+                "rows": 2,
+                "dots": true,
+                "arrows": false
+            }
+        },
+        {
+            "breakpoint": 551,
+            "settings": {
+                "slidesToScroll": 3,
+                "slidesToShow": 3
+            }
+        }
+    ]}'>
+    {{#each products}}
+    <div>
+        <div class="productCarousel-slide">
+            {{> components/products/card theme_settings=../theme_settings customer=../customer show_rating=../settings.show_product_rating show_wishlist=../settings.show_wishlist event="list" position=(add @index 1)}}
+        </div>
+    </div>
+    {{/each}}
+</div>

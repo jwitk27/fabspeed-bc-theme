@@ -1,0 +1,13 @@
+<section class="themevale_section themevale_section-flash-sale padding-top-70 padding-bottom-50">
+    <div class="container">
+        <div class="items">
+            {{> components/themevale/homepage/component/ajax-products-by-category-id category_id=theme_settings.themevale_category-flash-sale-id}}
+        </div>
+        <div class="items">
+            {{#if products.top_sellers}}
+                {{> components/products/top products=products.top_sellers}}
+            {{/if}}
+        </div>
+    </div>
+</section>
+{{{region name="below_flash_sale_category"}}}

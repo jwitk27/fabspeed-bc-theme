@@ -1,0 +1,73 @@
+<section class="themevale_section themevale_category-banner padding-top-100 padding-bottom-100">
+    <div class="themevale_category-background">
+        <div class="title-wrapper">
+            <h3 class="label">{{lang 'products.badges.new'}}</h3>
+            {{#each categories}}
+                {{#if id '==' ../theme_settings.themevale_category-banner-id}}
+                    <h2 class="page-heading"><a href="{{url}}">{{name}}</a></h2>
+                {{/if}}
+            {{/each}}
+        </div>
+        <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.themevale_category-banner-image}}" alt="">
+    </div>
+    <div class="container">
+        <div class="themevale_category-content">
+            <div class="items themevale_category-products">
+                <div class="themevale_category-product-item" style="top: {{theme_settings.themevale_category-banner-product1-y}}%; left: {{theme_settings.themevale_category-banner-product1-x}}%;">
+                    <div class="position-point" data-product-id="{{theme_settings.themevale_category-banner-product1-id}}">+</div>
+                </div>
+                <div class="themevale_category-product-item" style="top: {{theme_settings.themevale_category-banner-product2-y}}%; left: {{theme_settings.themevale_category-banner-product2-x}}%;">
+                    <div class="position-point" data-product-id="{{theme_settings.themevale_category-banner-product2-id}}">+</div>
+                </div>
+            </div>
+            <div class="items themevale_category-id">
+                {{#each categories}}
+                    {{#if id '==' ../theme_settings.themevale_category-banner-id}}
+                        <h2 class="page-heading"><a href="{{url}}">{{name}}</a></h2>
+                        {{#if children}}
+                            <ul class="subcategory-list">
+                                {{#each children}}
+                                    <li class="subcategory-list"><a href="{{url}}">{{name}}</a></li>
+                                {{/each}}
+                            </ul>
+                        {{/if}}
+                    {{else}}
+                        {{#each children}}
+                            {{#if id '==' ../../theme_settings.themevale_category-banner-id}}
+                                <h2 class="page-heading"><a href="{{url}}">{{name}}</a></h2>
+                                {{#if children}}
+                                    <ul class="subcategory-list">
+                                        {{#each children}}
+                                            <li class="subcategory-list"><a href="{{url}}">{{name}}</a></li>
+                                        {{/each}}
+                                    </ul>
+                                {{/if}}
+                            {{else}}
+                                {{#each children}}
+                                    {{#if id '==' ../../../../theme_settings.themevale_category-banner-id}}
+                                        <h2 class="page-heading"><a href="{{url}}">{{name}}</a></h2>
+                                        {{#if children}}
+                                            <ul class="subcategory-list">
+                                                {{#each children}}
+                                                    <li class="subcategory-list"><a href="{{url}}">{{name}}</a></li>
+                                                {{/each}}
+                                            </ul>
+                                        {{/if}}
+                                    {{/if}}
+                                {{/each}}
+                            {{/if}}
+                        {{/each}}
+                    {{/if}}
+                {{/each}}
+                <p class="description">Nullam aliquet vestibulum augue non varius. Cras nec congue elit duis tristique vel ante nec aliquam. Praesent urna tellus laoreet eu tellus ullamcorper lorem, fermentum facilisis erat. Suspendisse tellus erat, saliquam loremous a posuere tincidunt melit. Aliquam eget lacus nec metus lobortis gravida sedos...</p>
+                <div class="button-group">
+                    <a class="button button--primary" href="#">{{lang 'common.shop_now'}}</a>
+                    <a class="button button--transparent button--videos" href="javascript:void(0)" {{#if theme_settings.themevale_category-banner-video-url}} data-reveal-id="popup-video" {{/if}}>{{lang 'common.watch_video'}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="product-popup" class="themevale_category-product-popup"></div>
+    <div id="popup-video" class="modal themevale_popup-video" data-reveal></div>
+</section>
+{{{region name="below_category_banner"}}}

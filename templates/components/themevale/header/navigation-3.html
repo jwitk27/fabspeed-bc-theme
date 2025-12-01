@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="navUser text-left">
+        <div class="navUser-item navUser-item--phone">
+            <svg class="icon big"><use xlink:href="#icon-telephone"></use></svg>
+            <a class="navUser-action store-phone" href="tel:{{settings.phone_number}}">{{settings.phone_number}}</a>
+        </div>
+        <div class="navUser-item navUser-item--mail">
+            <svg class="icon big"><use xlink:href="#icon-envelope-3"></use></svg>
+            <a class="navUser-action" href="mailto:{{theme_settings.themevale_office-mail}}">{{theme_settings.themevale_office-mail}}</a>
+        </div>
+    </div>
+    <div class="navUser text-center">
+        <div class="navUser-item"><p class="own-text">{{theme_settings.themevale_office-text}}</p></div>
+    </div>
+    <div class="navUser text-right">
+        <div class="navUser-item navUser-item--contact">
+            <a class="navUser-action" href="/contact-us/">{{lang 'common.need_help'}}</a>
+        </div>
+        <div class="navUser-item">
+            <a class="navUser-action" href="/blogs/">{{lang 'common.blog'}}</a>
+        </div>
+        <!--
+        {{#if settings.gift_certificates_enabled}}
+        <div class="navUser-item">
+            <a class="navUser-action" href="{{urls.gift_certificate.purchase}}">{{lang 'common.gift_cert'}}</a>
+        </div>
+        {{/if}}
+        -->
+        <div class="navUser-item">
+            <a class="navUser-action" href="{{urls.compare}}" data-compare-nav>{{lang 'common.compare'}} (<span class="countPill">0</span>)</a>
+        </div>
+        <div class="navUser-item navUser-item--currencySelector">
+            {{> components/common/currency-selector}}
+        </div>
+    </div>
+</div>

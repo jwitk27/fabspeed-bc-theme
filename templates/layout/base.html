@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html class="no-js" lang="{{ locale_name }}">
+    <head>
+        <!-- Google Tag Manager -->
+        <script type="text/javascript">
+        var dataLayer = new Array();
+        // console.log(dataLayer);
+        function trackGTMEcommerce() {
+        this._addTrans = addTrans;
+        this._addItem = addItems;
+        this._trackTrans = trackTrans;
+        }
+        var transaction = {};
+        transaction.transactionProducts = [];
+        function addTrans(orderID, store, total, tax, shipping, city, state, country) {
+        transaction.transactionId = orderID;
+        transaction.transactionAffiliation = store;
+        transaction.transactionTotal = total;
+        transaction.transactionTax = tax;
+        transaction.transactionShipping = shipping;
+        // console.log(11)
+        }
+        function addItems(orderID, sku, product, variation, price, quantity) {
+        transaction.transactionProducts.push({
+        'id': orderID,
+        'sku': sku,
+        'name': product,
+        'category': variation,
+        'price': price,
+        'quantity': quantity
+        });
+        // console.log('a')
+        }
+        function trackTrans() {
+        transaction.event = 'bcTransactionComplete';
+        // console.log(transaction);
+        dataLayer.push(transaction);
+        }
+        var pageTracker = new trackGTMEcommerce();
+        </script>
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-NJCXF4P');</script>
+        <!-- End Google Tag Manager -->
+        
+        <!-- Global site tag (gtag.js) - Google Ads: 968521147 -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-968521147"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'AW-968521147');
+        </script>
+        <!-- Global site tag (gtag.js) - Google Ads: 968521147 -->
+        <script>
+          gtag('event', 'page_view', {
+            'send_to': 'AW-968521147',
+            'ecomm_pagetype': 'replace with value',
+            'ecomm_prodid': 'replace with value',
+            'user_id': 'replace with value'
+          });
+        </script>
+<title>{{ head.title }}</title>
+{{{ resourceHints }}}
+{{{ head.meta_tags }}}
+{{{ head.config }}}
+{{#block "head"}} {{/block}}
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="theme-color" content="#383e47">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+            <script>
+            // Change document class from no-js to js so we can detect this in css
+            document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+        </script>
+
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        
+        {{{stylesheet '/assets/css/theme.css'}}}
+        {{{head.scripts}}}
+        {{{head.rsslinks}}}
+        {{inject 'themeSettings' theme_settings}}
+        {{inject 'genericError' (lang 'common.generic_error')}}
+        {{inject 'maintenanceMode' settings.maintenance}}
+        {{inject 'urls' urls}}
+        {{inject 'secureBaseUrl' settings.secure_base_url}}
+        {{inject 'cartId' cart_id}}
+        {{inject 'template' template}}
+        {{{snippet 'htmlhead'}}}
+        
+        <meta name="google-site-verification" content="c9lHKpy1TXycWc2iwuD89uY6zx1vS_OAkq5iljb36Ko" />
+          <link href="https://cdn11.bigcommerce.com/s-fh9wsjv2/product_images/Fabspeed%20Favicon%20%28Whole%20Logo%29.png" rel="shortcut icon">
+    </head>
+    <body class="page-type-{{page_type}}">
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NJCXF4P"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+        
+        {{{snippet 'header'}}}
+        <svg data-src="{{cdn 'img/icon-sprite.svg'}}" class="icons-svg-sprite"></svg>
+
+        <!-- menu mobile  -->
+        {{#if theme_settings.themevale_header-layout-1}}
+            <div class="themevale_Mobile themevale_MobileMenu" id="menu-mobile">
+                <div class="themevale_close">
+                    <a href="javascript:void(0)" class="close">×</a>
+                </div>
+                <div class="navPages-container" id="menuMobile" data-menu>
+                    {{> components/themevale/header/navigation-mobile}}
+                </div>
+            </div>
+        {{else}}
+            <div class="themevale_Mobile themevale_MobileMenu" id="menu-mobile">
+                <div class="themevale_close">
+                    <a href="javascript:void(0)" class="close">×</a>
+                </div>
+                <div class="navPages-container" id="menuMobile" data-menu>
+                    {{> components/themevale/header/navigation-mobile}}
+                </div>
+            </div>
+        {{/if}}
+
+        <!-- Account mobile  -->
+        {{#if page_type '!==' 'login'}}
+        <div class="themevale_Mobile themevale_MobileAccount" id="account-mobile">
+            <div class="themevale_close2">
+                <a href="javascript:void(0)" class="close">
+                    <svg class="icon"><use xlink:href="#times"/></svg>
+                    <span class="text">close</span>
+                </a>
+            </div>
+            <div id="accountMobile">
+                    {{> components/themevale/header/navigation-accountMobile}}
+            </div>
+        </div>
+        {{/if}}
+
+        <!-- Cart mobile  -->
+        <div class="themevale_Mobile themevale_MobileCart" id="cart-mobile">
+            <div class="themevale_close2">
+                <a href="javascript:void(0)" class="close">
+                    <svg class="icon"><use xlink:href="#times"/></svg>
+                    <span class="text">close</span>
+                </a>
+            </div>
+            <div id="cartMobile">
+                <p class="navPage-subMenu-title">
+                    <span class="text">{{lang 'cart.title'}}</span>
+                </p>
+                <div class="dropdown-cart" id="cart-preview-dropdown-3" aria-hidden="true"></div>
+            </div>
+        </div>
+        
+        <!-- Sidebar mobile -->
+        <div class="themevale_Mobile themevale_MobileSidebar" id="sidebar-mobile">
+           <div class="themevale_close2">
+                <a href="javascript:void(0)" class="close">
+                    <svg class="icon"><use xlink:href="#times"/></svg>
+                    <span class="text">close</span>
+                </a>
+            </div>
+            <div class="themevale_MobileContent page-sidebar" id="faceted-search-container2"></div>
+        </div>
+
+        {{> components/common/header }}
+        {{> components/common/body }}
+        {{> components/common/footer }}
+
+        <div class="themevale_background"></div>
+
+        <script>window.__webpack_public_path__ = "{{cdn 'assets/dist/'}}";</script>
+        <script src="{{cdn 'assets/dist/theme-bundle.main.js'}}"></script>
+        <script>
+            // Exported in app.js
+            window.stencilBootstrap("{{page_type}}", {{jsContext}}).load();
+        </script>
+
+        <!-- MegaMenu -->
+        {{#if theme_settings.themevale_megamenu}}
+            {{> components/themevale/header/megamenu }}
+        {{/if}}
+
+        <!-- Newsletter Popup -->
+        {{#if theme_settings.newsletterPopup-show}}
+            {{> components/themevale/newsletter}}
+            <script>
+                window.themevaleNewsletterPopup(1, true);
+            </script>
+        {{else}}
+            <script>
+                window.themevaleNewsletterPopup(1, false);
+            </script>
+        {{/if}}
+
+        {{{footer.scripts}}}
+        {{{snippet 'footer'}}}
+    </body>
+</html>

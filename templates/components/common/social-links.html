@@ -1,0 +1,17 @@
+{{#if social_media}}
+    <ul class="socialLinks socialLinks--alt">
+        {{#each social_media}}
+            <li class="socialLinks-item">
+                {{#if display_name '===' 'twitter'}}
+                    <a class="icon icon--google" href="https://www.tiktok.com/@fabspeed?lang=en" target="_blank" rel="noopener">
+                        <img src="https://store-fh9wsjv2.mybigcommerce.com/content/tik-tok.svg"></img>
+                    </a>
+                {{else}}
+                    <a class="icon icon--{{display_name}}" href="{{url}}" target="_blank" rel="noopener">
+                        <svg><use xlink:href="#icon-{{display_name}}" /></svg>
+                    </a>
+                {{/if}}
+            </li>
+        {{/each}}
+    </ul>
+{{/if}}

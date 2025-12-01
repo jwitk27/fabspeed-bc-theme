@@ -1,0 +1,38 @@
+<div class="themevale_categoryToolbar">
+    <div class="item item-iconSidebar">
+        <div class="themevale_sidebar-mobile">
+            <span class='form-label'>Category:</span>
+            <svg class="icon"><use xlink:href='#sidebar'></use></svg>
+        </div>
+    </div>
+    <div class="item item-viewas">
+        <div class="view-as-group">
+            <label class="form-label">{{lang 'common.sorter.view'}}</label>
+            <div class="view-as-btn">
+                <a href="javascript:void(0);" id="list-view" data-layout="productGrid--maxCol1" title="List View"></a>
+                <a href="javascript:void(0);" id="grid-view-2" data-layout="productGrid--maxCol2" title="Grid View 2"></a>
+                <a href="javascript:void(0);" id="grid-view-3" data-layout="productGrid--maxCol3" title="Grid View 3"></a>
+                <a href="javascript:void(0);" id="grid-view-4" data-layout="productGrid--maxCol4" title="Grid View 4"></a>
+            </div>
+        </div>
+    </div>
+    <div class="item item-filter">
+        {{> components/products/filter sort=pagination.category.sort products_per_page=theme_settings.categorypage_products_per_page}}
+    </div>
+</div>
+
+<form action="{{urls.compare}}" method='POST' {{#if settings.data_tag_enabled}} data-list-name="Category: {{category.name}}" {{/if}} data-product-compare>
+    {{#if settings.data_tag_enabled}}
+        {{> components/products/grid products=category.products show_compare=category.show_compare theme_settings=theme_settings event="list" }}
+    {{else}}
+        {{> components/products/grid products=category.products show_compare=category.show_compare theme_settings=theme_settings}}
+    {{/if}}
+</form>
+
+<div class="pagination-wrapper"> 
+    <a id="button-showmore-category" class="button button--secondary button--big" href="javascript:void(0)">
+        <svg class="icon"><use xlink:href="#icon-refresh"></use></svg>
+        <span class="text">show more</span>
+    </a>
+    {{> components/common/paginator pagination.category total=category.total_products}}
+</div>

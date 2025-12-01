@@ -1,0 +1,60 @@
+{{#if theme_settings.show_product_quantity_box}}
+    <div class="form-field form-field--increments">
+        <label class="form-label form-label--alternate"
+               for="qty[]">{{lang 'products.quantity'}}</label>
+            <div class="form-increment" data-quantity-change>
+                <button class="button button--icon" data-action="dec">
+                    <span class="is-srOnly">{{lang 'products.quantity_decrease'}}</span>
+                    <i class="icon" aria-hidden="true">
+                        <svg>
+                            <use xlink:href="#icon-keyboard-arrow-down"/>
+                        </svg>
+                    </i>
+                </button>
+                <input class="form-input form-input--incrementTotal"
+                       id="qty[]"
+                       name="qty[]"
+                       type="tel"
+                       value="{{#if product.min_purchase_quantity}}{{product.min_purchase_quantity}}{{else}}1{{/if}}"
+                       data-quantity-min="{{product.min_purchase_quantity}}"
+                       data-quantity-max="{{product.max_purchase_quantity}}"
+                       min="1"
+                       pattern="[0-9]*"
+                       aria-live="polite">
+                <button class="button button--icon" data-action="inc">
+                    <span class="is-srOnly">{{lang 'products.quantity_increase'}}</span>
+                    <i class="icon" aria-hidden="true">
+                        <svg>
+                            <use xlink:href="#icon-keyboard-arrow-up"/>
+                        </svg>
+                    </i>
+                </button>
+            </div>
+    </div>
+{{/if}}
+
+<div class="addon-upsell" id="addon-upsell" style="display:none;">
+  <label class="addon-upsell__box">
+    <input type="checkbox" id="addon-upsell-input">
+    <img class="addon-upsell__img" src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/100x100/products/6561/51530/FeetHuggers_Placeholder_1__75348.1763789469.jpg?c=2" alt=""> 
+    <div class="addon-upsell__content">
+      <div class="addon-upsell__title">Limited Edition Fabspeed Feet Huggers</div>
+      <div class="addon-upsell__text">Add a pair to your cart and get $5.00 off!</div>
+      <div class="price"><span class="strikethrough-price">$25.00</span> <span class="sale-price--addon" style="display: inline-block!important">$20.00</span></div>
+    </div>
+  </label>
+</div>
+
+<div class="alertBox productAttributes-message" style="display:none">
+    <div class="alertBox-column alertBox-icon">
+        <icon glyph="ic-success" class="icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path></svg></icon>
+    </div>
+    <p class="alertBox-column alertBox-message"></p>
+</div>
+{{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+    <div class="form-action">
+        <input id="form-action-addToCart" data-wait-message="{{lang 'products.adding_to_cart'}}" class="button button--primary" type="submit"
+            value="{{#if product.pre_order}}{{lang 'products.pre_order'}}{{else}}{{lang 'products.add_to_cart'}}{{/if}}">
+    </div>
+     {{{snippet 'product_addtocart'}}}
+{{/or}}

@@ -1,0 +1,87 @@
+{{#if theme_settings.themevale_homepage_1}}
+<div class="productCarousel"
+    data-slick='{
+        "dots": true,
+        "arrows": false,
+        "infinite": false,
+        "mobileFirst": true,
+        "slidesToShow": 2,
+        "slidesToScroll": 2,
+        "responsive": [
+            {
+                "breakpoint": 1100,
+                "settings": {
+                    "slidesToScroll": 3,
+                    "slidesToShow": 3
+                }
+            },
+            {
+                "breakpoint": 992,
+                "settings": {
+                    "slidesToScroll": 4,
+                    "slidesToShow": 4
+                }
+            },
+            {
+                "breakpoint": 551,
+                "settings": {
+                    "slidesToScroll": 3,
+                    "slidesToShow": 3
+                }
+            }
+        ]}'>
+    {{#each (limit category.products theme_settings.themevale_category-flash-sale-limit)}}
+    <div class="productCarousel-slide">
+        {{> components/products/card-sale settings=../settings theme_settings=../theme_settings customer=../customer show_rating=../settings.show_product_rating show_wishlist=../settings.show_wishlist show_compare=true event="list" position=(add @index 1)}}
+    </div>
+    {{/each}}
+</div>
+{{/if}}
+{{#if theme_settings.themevale_homepage_2}}
+<div class="productCarousel"
+    data-slick='{
+        "dots": true,
+        "arrows": false,
+        "infinite": false,
+        "mobileFirst": true,
+        "slidesToShow": 2,
+        "slidesToScroll": 2,
+        "responsive": [
+            {
+                "breakpoint": 1100,
+                "settings": {
+                    "slidesToScroll": 1,
+                    "slidesToShow": 1
+                }
+            },
+            {
+                "breakpoint": 992,
+                "settings": {
+                    "slidesToScroll": 4,
+                    "slidesToShow": 4
+                }
+            },
+            {
+                "breakpoint": 551,
+                "settings": {
+                    "slidesToScroll": 3,
+                    "slidesToShow": 3
+                }
+            }
+        ]}'>
+    {{#each (limit category.products theme_settings.themevale_category-flash-sale-limit)}}
+    <div class="productCarousel-slide">
+        {{> components/products/card-sale settings=../settings theme_settings=../theme_settings customer=../customer show_rating=../settings.show_product_rating show_wishlist=../settings.show_wishlist show_compare=true event="list" position=(add @index 1)}}
+    </div>
+    {{/each}}
+</div>
+{{/if}}
+{{#if theme_settings.themevale_homepage_3}}
+<ul class="productGrid">
+    {{#each (limit category.products theme_settings.themevale_category-flash-sale-limit)}}
+    <li class="product productCarousel-slide">
+        {{> components/products/card-sale settings=../settings theme_settings=../theme_settings customer=../customer show_rating=../settings.show_product_rating show_wishlist=../settings.show_wishlist show_compare=true event="list" position=(add @index 1)}}
+    </li>
+    {{/each}}
+</ul>
+{{/if}}

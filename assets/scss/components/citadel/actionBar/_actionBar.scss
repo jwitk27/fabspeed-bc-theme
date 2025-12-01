@@ -1,0 +1,295 @@
+// =============================================================================
+// ACTION BAR (CSS)
+// =============================================================================
+
+
+.actionBar-section {
+    .form-field {
+        margin: 0;
+    }
+    .form-input,
+    .form-select {
+        height: 40px;
+        min-height: 40px;
+        line-height: 38px;
+        padding-top: 0;
+        padding-bottom: 0;
+        vertical-align: middle;
+        border-color: #cccfd6;
+        background-color: #f7f7f7;
+    }
+    .form-select {
+        background-position: right 0.58333rem top 9px;
+        &:after {
+            content: "";
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            background-color: #ffffff;
+            top: 0;
+            right: 0;
+        }
+    }
+}
+
+.themevale_sidebar-mobile {
+    display: inline-block;
+    position: relative;
+    z-index: 10;
+    cursor: pointer;
+    pointer-events: auto;
+    > .icon {
+        width: 40px;
+        height: 40px;
+        padding: 10px;
+        display: inline-block;
+        vertical-align: middle;
+        border: 1px solid #cccfd6;
+        border-radius: 3px;
+        fill: stencilColor('color-textHeading');
+    }
+    > .text {
+        font-size: 12px;
+        font-weight: 700;
+        display: inline-block;
+        vertical-align: middle;
+        text-transform: uppercase;
+        padding-right: 10px;
+        min-width: 70px;
+        color: stencilColor('color-textHeading');
+    }
+    @media (min-width: 1025px) {
+        display: none;
+    }
+}
+
+.themevale_categoryToolbar {
+    font-size: 0;
+    text-align: left;
+    position: relative;
+    margin-bottom: 30px;
+    .actionBar {
+        margin: 0 0 15px 0;
+        display: block;
+        &:last-child {
+            margin: 0;
+        }
+    }
+    .form-label {
+        margin: 0;
+        font-size: 12px;
+        padding-right: 10px;
+        min-width: 70px;
+        font-weight: 700;
+        display: none;
+        vertical-align: middle;
+        text-transform: uppercase;
+        color: stencilColor('color-textHeading');
+    }
+    .view-as-btn {
+        font-size: 0;
+        border-radius: 3px;
+        display: inline-block;
+        vertical-align: middle;
+        border: 1px solid #cccfd6;
+        overflow: hidden;
+        > a {
+            padding: 8px;
+            width: 38px;
+            height: 38px;
+            position: relative;
+            vertical-align: top;
+            display: inline-block;
+            background-color: #ffffff;
+            &:before {
+                top: 10px;
+                left: 10px;
+                content: "";
+                position: absolute;
+                background-color: #e2e4e8;
+                transition: all 0.3s ease;
+            }
+        }
+        > #list-view {
+            &:before {
+                width: 18px;
+                height: 4px;
+                box-shadow: 0px 7px 0 #dcdcdc, 0px 14px 0 #dcdcdc;
+            }
+            .productGrid--maxCol1 & {
+                background-color: #f7f7f7;
+                &:before {
+                    background-color: #222326;
+                    box-shadow: 0px 7px 0 #222326, 0px 14px 0 #222326;
+                }
+            }
+        }
+        > #grid-view-2 {
+            width: 32px;
+            &:before {
+                width: 4px;
+                height: 18px;
+                box-shadow: 7px 0 0 #dcdcdc;
+            }
+            .productGrid--maxCol2 &,
+            .productGrid--maxCol3 &,
+            .productGrid--maxCol4 &,
+            .productGrid--maxCol5 & {
+                background-color: #f7f7f7;
+                &:before {
+                    background-color: #222326;
+                    box-shadow: 7px 0 0 #222326;
+                }
+            }
+            @include breakpoint("small") {
+                .productGrid--maxCol5 &,
+                .productGrid--maxCol4 &,
+                .productGrid--maxCol3 & {
+                    background-color: #ffffff;
+                    &:before {
+                        background-color: #dcdcdc;
+                        box-shadow: 7px 0 0 #dcdcdc;
+                    }
+                }
+            }
+            @media (min-width: 1025px) {
+                display: none;
+            }
+        }
+        > #grid-view-3 {
+            display: none;
+            &:before {
+                width: 4px;
+                height: 18px;
+                box-shadow: 7px 0 0 #dcdcdc, 14px 0 0 #dcdcdc;
+            }
+            @include breakpoint("small") {
+                display: inline-block;
+                .productGrid--maxCol5 &,
+                .productGrid--maxCol4 &,
+                .productGrid--maxCol3 & {
+                    background-color: #f7f7f7;
+                    &:before {
+                        background-color: #222326;
+                        box-shadow: 7px 0 0 #222326, 14px 0 0 #222326;
+                    }
+                }
+            }
+            @media (min-width: 993px) {
+                .productGrid--maxCol5 &,
+                .productGrid--maxCol4 & {
+                    background-color: #ffffff;
+                    &:before {
+                        background-color: #dcdcdc;
+                        box-shadow: 7px 0 0 #dcdcdc, 14px 0 0 #dcdcdc;
+                    }
+                }
+            }
+        }
+        > #grid-view-4 {
+            width: 44px;
+            display: none;
+            &:before {
+                width: 4px;
+                height: 18px;
+                box-shadow: 7px 0 0 #dcdcdc, 14px 0 0 #dcdcdc, 21px 0 0 #dcdcdc;
+            }
+            @media (min-width: 993px) {
+                display: inline-block;
+                .productGrid--maxCol5 &,
+                .productGrid--maxCol4 & {
+                    background-color: #f7f7f7;
+                    &:before {
+                        background-color: #222326;
+                        box-shadow: 7px 0 0 #222326, 14px 0 0 #222326, 21px 0 0 #222326;
+                    }
+                }
+            }
+            @media (min-width: 1025px) {
+                .productGrid--maxCol5 & {
+                    background-color: #ffffff;
+                    &:before {
+                        background-color: #dcdcdc;
+                        box-shadow: 7px 0 0 #dcdcdc, 14px 0 0 #dcdcdc, 21px 0 0 #dcdcdc;
+                    }
+                }
+            }
+        }
+    }
+    > .item-iconSidebar,
+    > .item-viewas {
+        width: 50%;
+        vertical-align: top;
+        display: inline-block;
+    }
+    > .item-viewas {
+        text-align: right;
+    }
+    > .item-filter {
+        width: 100%;
+        display: block;
+        margin-top: 15px;
+    }
+    .form-field {
+        margin: 0;
+        display: block;
+        .form-label {
+            display: none;
+        }
+        .form-select {
+            display: block;
+            min-width: 100%;
+            background-color: #f7f7f7;
+        }
+    }
+    @media (min-width: 360px) {
+        .form-label {
+            display: inline-block;
+        }
+        .form-field {
+            display: flex;
+            align-items: center;
+            .form-label {
+                display: inline-block;
+            }
+            .form-select {
+                display: inline-block;
+                min-width: calc(100% - 70px);
+            }
+        }
+    }
+    @media (min-width: 1025px) {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        margin-bottom: 40px;
+        .form-label {
+            min-width: 0;
+            padding-right: 15px;
+            position: relative;
+            top: 1px;
+        }
+        .form-field .form-select {
+            min-width: 175px;
+        }
+        > .item-iconSidebar {
+            display: none;
+        }
+        > .item-viewas {
+            width: auto;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        > .item-filter {
+            width: auto;
+            margin-top: 0;
+            line-height: 1;
+            display: inline-block;
+            vertical-align: middle;
+            .actionBar {
+                display: inline-block;
+                margin: 0 0 0 30px;
+            }
+        }
+    }
+}

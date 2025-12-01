@@ -1,0 +1,17 @@
+{{#partial "page"}}
+<div class="bulk-export-machine">
+    <h1>Bulk Export Machine</h1>
+
+    <div class="bem-row">
+        <input type="file" id="bem-file" accept=".csv" />
+        <button id="bem-download-price-list" disabled>
+            Download cleaned price list
+        </button>
+    </div>
+
+    <p id="bem-status"></p>
+
+    <div id="bem-preview-table"></div>
+</div>
+{{/partial}}
+{{> layout/base}}

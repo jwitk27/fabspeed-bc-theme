@@ -1,0 +1,65 @@
+{{#each categories}}
+    {{#if id '==' ../category_id}}
+        <div class="themevale_productsCarousel-custom productGrid--maxCol3">
+            <div class="page-heading-wrapper text-left">
+                <h2 class="page-heading page-heading-flashsale">
+                    <a href="{{url}}">
+                        <svg class="icon"><use xlink:href="#{{ ../../theme_settings.themevale_category-flash-sale-icon}}"></use></svg>
+                        {{ ../../theme_settings.themevale_category-flash-sale-title}}
+                    </a>
+                </h2>
+                <div class="page-heading-link">
+                    <p class="text">{{lang 'home.content_1'}}</p>
+                    <a class="link" href="/brands/">{{lang 'brand.view_brands'}}</a>
+                </div>
+            </div>
+            <div data-themevale-products-by-category-id="{{url}}">
+                {{> components/themevale/homepage/component/product-loading theme_settings=../../theme_settings}}
+            </div>
+        </div>
+    {{else}}
+        {{#each children}}
+            {{#if id '==' ../../../category_id}}
+                <div class="themevale_productsCarousel-custom productGrid--maxCol3">
+                    <div class="page-heading-wrapper">
+                        <h2 class="page-heading page-heading-flashsale">
+                            <a href="{{url}}">
+                                <svg class="icon"><use xlink:href="#{{ ../../../../theme_settings.themevale_category-flash-sale-icon}}"></use></svg>
+                                {{ ../../../../theme_settings.themevale_category-flash-sale-title}}
+                            </a>
+                        </h2>
+                        <div class="page-heading-link">
+                            <p class="text">{{lang 'home.content_1'}}</p>
+                            <a class="link" href="/brands/">{{lang 'brand.view_brands'}}</a>
+                        </div>
+                    </div>
+                    <div data-themevale-products-by-category-id="{{url}}">
+                        {{> components/themevale/homepage/component/product-loading theme_settings=../../../../theme_settings}}
+                    </div>
+                </div>
+            {{else}}
+                {{#each children}}
+                    {{#if id '==' ../../../../../category_id}}
+                        <div class="themevale_productsCarousel-custom productGrid--maxCol3">
+                            <div class="page-heading-wrapper">
+                                <h2 class="page-heading page-heading-flashsale">
+                                    <a href="{{url}}">
+                                        <svg class="icon"><use xlink:href="#{{ ../../../../../../theme_settings.themevale_category-flash-sale-icon}}"></use></svg>
+                                        {{ ../../../../../../theme_settings.themevale_category-flash-sale-title}}
+                                    </a>
+                                </h2>
+                                <div class="page-heading-link">
+                                    <p class="text">{{lang 'home.content_1'}}</p>
+                                    <a class="link" href="/brands/">{{lang 'brand.view_brands'}}</a>
+                                </div>
+                            </div>
+                            <div data-themevale-products-by-category-id="{{url}}">
+                                {{> components/themevale/homepage/component/product-loading theme_settings=../../../../../../theme_settings}}
+                            </div>
+                        </div>
+                    {{/if}}
+                {{/each}}
+            {{/if}}
+        {{/each}}
+    {{/if}}
+{{/each}}

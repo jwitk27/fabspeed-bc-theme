@@ -1,0 +1,64 @@
+{{#partial "hero"}}
+    {{#if carousel}}
+        {{> components/carousel-2 arrows=theme_settings.homepage_show_carousel_arrows dots=theme_settings.homepage_show_carousel_dots}}
+    {{/if}}
+    {{{snippet 'home_content'}}}
+{{/partial}}
+
+{{#partial "page"}}
+
+    {{#each shipping_messages}}
+        {{> components/common/alert-info message}}
+    {{/each}}
+
+<div class="main full">
+
+    {{> components/themevale/homepage/component/flash-sale-category-3 }}
+
+    {{> components/themevale/homepage/component/featured-category-2 }}
+
+    {{> components/themevale/homepage/component/themevale_service }}
+
+    {{> components/themevale/homepage/component/banner-marketing banner-marketing="category-card-5" }}
+
+    {{> components/themevale/homepage/component/ajax-products-by-category-sorting-new products=products.new }}
+
+    {{> components/themevale/homepage/component/products-tabs }}
+    
+    <section class="themevale_section container">
+        <div style="display: flex; align-items:center; margin-bottom: 20px; margin-top: 30px;">
+            <img src="https://cdn11.bigcommerce.com/s-fh9wsjv2/product_images/uploaded_images/instagram.png" style="width: 30px;">
+            {{#if customer.customer_group_name '===' "Wholesale 15%"}}
+                <h2 style="margin-bottom: 0; margin-top: 0; margin-left: 0.2em;">PROMOTE US ON INSTAGRAM USE #fabspeed</h2>
+            {{else if customer.customer_group_name '===' "Wholesale 20%"}}
+                <h2 style="margin-bottom: 0; margin-top: 0; margin-left: 0.2em;">PROMOTE US ON INSTAGRAM USE #fabspeed</h2>
+            {{else if customer.customer_group_name '===' "Wholesale 25%"}}
+                <h2 style="margin-bottom: 0; margin-top: 0; margin-left: 0.2em;">PROMOTE US ON INSTAGRAM USE #fabspeed</h2>
+            {{else if customer.customer_group_name '===' "Wholesale 30%"}}
+                <h2 style="margin-bottom: 0; margin-top: 0; margin-left: 0.2em;">PROMOTE US ON INSTAGRAM USE #fabspeed</h2>
+            {{else}}
+                <h2 style="margin-bottom: 0; margin-top: 0; margin-left: 0.2em;">FOLLOW US ON INSTAGRAM</h2>
+            {{/if}}
+        </div>
+        <div class="taggbox-container" style="width:100%;height:100%;overflow: auto; padding-bottom: 40px;"><div class="taggbox-socialwall" data-wall-id="95199" view-url="https://widget.taggbox.com/95199"></div><script src="https://widget.taggbox.com/embed.min.js" type="text/javascript"></script></div>
+    </section>
+    
+    {{#if customer.customer_group_name '===' "Wholesale 15%"}}
+    {{else if customer.customer_group_name '===' "Wholesale 20%"}}
+    {{else if customer.customer_group_name '===' "Wholesale 25%"}}
+    {{else if customer.customer_group_name '===' "Wholesale 30%"}}
+    {{else}}
+        {{> components/themevale/homepage/component/banner-marketing banner-marketing="brands-grid-2" }}
+    {{/if}}
+    
+    {{#if customer.customer_group_name '===' "Wholesale 15%"}}
+    {{else if customer.customer_group_name '===' "Wholesale 20%"}}
+    {{else if customer.customer_group_name '===' "Wholesale 25%"}}
+    {{else if customer.customer_group_name '===' "Wholesale 30%"}}
+    {{else}}
+        {{> components/themevale/homepage/component/custom_recent_blogs }}
+    {{/if}}
+
+</div>
+{{/partial}}
+{{> layout/base}}

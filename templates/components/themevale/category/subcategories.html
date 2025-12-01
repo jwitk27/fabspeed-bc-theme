@@ -1,0 +1,33 @@
+
+{{#if category.subcategories}}
+<div class="mobile-only">
+    <div class="themevale_subCategory">
+        <div class="container">
+            <div class="themevale_column themevale_customColumn themevale_column--col3">
+                {{#each category.subcategories}}
+                    <div class="item">
+
+                            
+                        <!--<div class="sub-category">-->
+                        <!--    <div class="image">-->
+                        <!--        <a class="title" href="{{url}}">-->
+                        <!--        <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="{{getImage image 'themevale_subCategory_image_size' (cdn ../theme_settings.default_image_category)}}" alt="{{name}}">-->
+                        <!--    </div>-->
+                        <!--    <div class="content">-->
+                        <!--            <span class="text">{{name}}</span><span class="count">{{product_count}}</span>-->
+                        <!--        </a>-->
+                        <!--    </div>-->
+                            
+                        <!--</div>-->
+                        <div class="sub-category brand-item">
+                            <a class="brand-button" href="{{url}}">
+                                <span>{{name}}</span>
+                            </a>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</div>
+{{/if}} 

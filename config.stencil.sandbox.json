@@ -1,0 +1,13 @@
+{
+  "customLayouts": {
+    "brand": {},
+    "category": {},
+    "page": {
+      "bulk-export-machine.html": "/bulk-export-machine/",
+      "bfcm-supersale.html": "/bfcm-supersale/"
+    },
+    "product": {}
+  },
+  "normalStoreUrl": "https://fabspeed-motorsport-sandbox.mybigcommerce.com/",
+  "port": 3000
+}

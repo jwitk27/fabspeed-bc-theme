@@ -1,0 +1,14 @@
+{{#if product.options}}
+    {{#if product.out_of_stock_message}}
+        <a href="javascript:void(0)" class="button card-figcaption-button card_out_of_stock">{{lang 'products.out_of_stock'}}</a>
+    {{/if}}
+    <div class="button themvale-fbt-toggle-options">{{lang 'products.choose_options'}}</div>
+    <div class="themvale-fbt-detail-options" data-fbt-option-change>
+        <a href="javascript:void(0)" class="close-options">
+            <svg><use xlink:href="#icon-close"></use></svg>
+        </a>
+        {{#each product.options}}
+        {{{dynamicComponent 'components/themevale/options'}}}
+        {{/each}}
+    </div>
+{{/if}}

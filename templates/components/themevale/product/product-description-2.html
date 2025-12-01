@@ -1,0 +1,29 @@
+<div class="themevale_productDescription-2">
+    <div class="item item-left">
+        <article class="productView-description"{{#if schema}} itemprop="description"{{/if}}>
+            {{#if theme_settings.show_product_details_tabs}}
+                {{> components/themevale/product/description-tabs-2}}
+            {{else}}
+                {{> components/products/description  settings=../settings}}
+            {{/if}}
+        </article>
+    </div>
+    <div class="item item-right">
+        {{#if product.related_products}}
+            <div class="productRelated" id="product-related" data-product-related>
+                <div class="toggle-title">
+                    <h4 class="page-heading">{{lang 'products.related_products'}}</h4>
+                </div>
+                {{> components/themevale/product/related-2 products=product.related_products theme_settings=theme_settings}}
+            </div>
+        {{/if}}
+        {{#if product.similar_by_views}}
+            <div class="productSimilar" id="product-similar" data-product-reviews>
+                <div class="toggle-title">
+                    <h4 class="page-heading">{{lang 'products.similar_by_views'}}</h4>
+                </div>
+                {{> components/themevale/product/similar-2 products=product.similar_by_views theme_settings=theme_settings}}
+            </div>
+        {{/if}}
+    </div>
+</div>

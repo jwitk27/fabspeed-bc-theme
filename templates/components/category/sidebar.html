@@ -1,0 +1,26 @@
+<nav>
+    <!--Category-->
+    {{> components/themevale/sidebar/side-all-categories}}
+    <div style="margin-top: 20px;"></div>
+    <!--Refine by + Brand-->
+    {{> components/faceted-search/index category}}
+    <!-- slider product -->
+    {{#if products.featured}}
+        {{> components/themevale/sidebar/featured-products products=products.featured}}
+    {{/if}}
+    <!--
+    {{#if category.faceted_search_enabled}}
+        {{> components/faceted-search/index category}}
+    {{else}}
+
+        {{> components/themevale/sidebar/side-all-categories}}
+
+        {{> components/category/shop-by-price shop_by_price=category.shop_by_price category_url=category.url}}
+
+        {{> components/themevale/sidebar/side-shop-by-brands}}
+        {{#if products.featured}}
+            {{> components/themevale/sidebar/featured-products products=products.featured}}
+        {{/if}}
+    {{/if}}
+    -->
+</nav>

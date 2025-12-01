@@ -1,0 +1,35 @@
+<section class="themevale_section themevale_section-flash-sale style-2 padding-bottom-50">
+    <div class="container">
+        <div class="items">
+            <ul class="tabs tabs-custom" data-tab data-themevale-products-by-category-id-tabs role="tablist">
+                <li class="tab is-active" role="presentation">
+                    <a class="tab-title" href="#category_3" role="tab" tabindex="0" aria-selected="false" aria-controls="category_3">{{lang 'home.tab_products.new'}}</a></li>
+                <li class="tab" role="presentation">
+                    <a class="tab-title" href="#category_1" role="tab" tabindex="0" aria-selected="true" aria-controls="category_1">{{lang 'home.tab_products.bestselling'}}</a></li>
+                <li class="tab" role="presentation">
+                    <a class="tab-title" href="#category_2" role="tab" tabindex="0" aria-selected="false" aria-controls="category_2">{{lang 'home.tab_products.featured'}}</a></li>
+            </ul>
+            <div class="tabs-contents">
+                <div class="tab-content is-active" id="category_3" role="tabpanel" aria-hidden="false">
+                    {{#if products.new}}
+                        {{> components/products/carousel-new products=products.new arrows=false}}
+                    {{/if}}
+                </div>
+                <div class="tab-content" id="category_1" role="tabpanel" aria-hidden="true">
+                    {{#if products.top_sellers}}
+                        {{> components/products/carousel-bestseller products=products.top_sellers arrows=false}}
+                    {{/if}}
+                </div>
+                <div class="tab-content" id="category_2" role="tabpanel" aria-hidden="false">
+                    {{#if products.featured}}
+                        {{> components/products/carousel products=products.featured arrows=false}}
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+        <div class="items">
+            {{> components/themevale/homepage/component/ajax-products-by-category-id-2 category_id=theme_settings.themevale_category-flash-sale-id}}
+        </div>
+    </div>
+</section>
+{{{region name="below_flash_sale_category"}}}

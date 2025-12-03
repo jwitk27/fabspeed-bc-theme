@@ -1,9 +1,9 @@
 {{#partial "page"}}
 <h1 class="page-heading" style="margin-top: 3rem;">BFCM Super Sale</h1>
+{{#contains customer.customer_group_name "Wholesale"}}
 <div class="header-image" style="text-align: center; padding-bottom: 15px;"><img
         src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/image-manager/bf25-wholesale-landpage.jpg?t=1763476307">
 </div>
-{{#contains customer.customer_group_name "Wholesale"}}
 <div style="font-size: 17px;">
     <ul style="list-style: none; margin: 0 0 15px; text-align: center;">
         <li><strong>Black Friday Sale Details:</strong></li>
@@ -20,6 +20,9 @@
     </p>
 </div>
 {{else}}
+<div class="header-image" style="text-align: center; padding-bottom: 15px;"><img
+        src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/image-manager/bf-2025-extend-landingpage.jpg?t=1764625782">
+</div>
 <div style="font-size: 17px;">
     <ul style="list-style: none; margin: 0 0 15px; text-align: center;">
         <li><strong>Black Friday Sale Details:</strong></li>

@@ -1,5 +1,3 @@
-// import swal from '../global/sweet-alert'; // no longer needed
-
 export default function () {
 
     const tier1 = 2000;
@@ -19,7 +17,6 @@ export default function () {
         // no banner -> clear bfcm state
         if (!$('.custom-promo-cart-banner-content').length) {
             localStorage.removeItem('bfcm');
-            return;
         }
 
         // mark NO SHIP items with inline notice, but do NOT block checkout

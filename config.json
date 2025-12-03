@@ -1,6 +1,6 @@
 {
-  "name": "Fabspeed-11-28-2025",
-  "version": "1.1.3",
+  "name": "Fabspeed-12-3-2025",
+  "version": "1.1.5",
   "meta": {
     "price": 0,
     "documentation_url": "https://support.bigcommerce.com/articles/Public/Cornerstone-Theme-Manual",
@@ -683,8 +683,7 @@
           "home_garden"
         ]
       },
-      "images": {
-      },
+      "images": {},
       "settings": {
         "homepage_images_mobile-0": "",
         "homepage_images_mobile-1": "",
@@ -765,10 +764,10 @@
         "themevale_megamenu-label-hot": 1,
         "themevale_flash-sale-notice": true,
         "themevale_flash-sale-color": "#FFFFFF",
-        "themevale_flash-sale-bg": "#C00011",
+        "themevale_flash-sale-bg": "#0278C0",
         "themevale_flash-sale-title": "",
         "themevale_flash-sale-content": "USE CODE: BFCM25 FOR UP TO 15% OFF + SHIPPING. ENDS",
-        "themevale_flash-sale-time": "12/2/2025",
+        "themevale_flash-sale-time": "12/15/2025",
         "themevale_flash-sale-button": "",
         "themevale_flash-sale-link": "",
         "flash-sale-notice-wholesale": true,
@@ -776,7 +775,7 @@
         "flash-sale-bg-wholesale": "#C00011",
         "flash-sale-title-wholesale": "",
         "flash-sale-content-wholesale": "SPEND $2500 OR MORE, GET FREE SHIPPING. ENDS",
-        "flash-sale-time-wholesale": "12/2/2025",
+        "flash-sale-time-wholesale": "12/15/2025",
         "flash-sale-button-wholesale": "",
         "flash-sale-link-wholesale": "",
         "themevale_category-carousel-title": "#383e47",
@@ -1313,8 +1312,7 @@
           "home_garden"
         ]
       },
-      "images": {
-      },
+      "images": {},
       "settings": {
         "homepage_images_mobile-0": "slide-mobile-1.jpg",
         "homepage_images_mobile-1": "slide-mobile-2.jpg",
@@ -1938,8 +1936,7 @@
           "home_garden"
         ]
       },
-      "images": {
-      },
+      "images": {},
       "settings": {
         "themevale_homepage_layout": "homepage layout 2",
         "themevale_homepage_2": true,

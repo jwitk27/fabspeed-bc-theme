@@ -32,7 +32,6 @@ import themevaleNewsletterPopup from './themevale/themevale_NewsletterPopup';
 /*=====  End of www.themevale.com  ======*/
 
 // FABSPEED CUSTOM
-import cartUpsellBanner from './custom/cart-upsell-banner';
 import bulkExportMachine from './custom/bulk-export-machine';
 
 export default class Global extends PageManager {
@@ -54,12 +53,12 @@ export default class Global extends PageManager {
         maintenanceMode(this.context.maintenanceMode);
         // loadingProgressBar();
         svgInjector();
-
+        
         themevale_Global();
         themevale_Sticky(this.context);
         themevale_AddToCart();
         themevale_RecentlyBought(this.context);
-        cartUpsellBanner();
+        
         bulkExportMachine();
     }
 }

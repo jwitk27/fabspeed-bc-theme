@@ -3,6 +3,7 @@ import utils from '@bigcommerce/stencil-utils';
 import swal from 'sweetalert2';
 import _ from 'lodash';
 import modalFactory, { showAlertModal } from '../global/modal';
+import equalizeHeights from '../custom/equalizeHeights';
 
 export default function (context) {
     const relate_tab = "#product-related";
@@ -169,6 +170,7 @@ export default function (context) {
         </div>');
         slick_slider();
         totalPrice();
+        equalizeHeights(['.themvale-fbt-product-item form']);
     }
 
     function slick_slider() {

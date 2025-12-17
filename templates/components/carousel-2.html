@@ -1,5 +1,5 @@
 {{#contains customer.customer_group_name "Wholesale"}}
-<section class="wholesale-carousel">
+<section class="wholesale-carousel wait-to-show">
     <div class="custom-carousel" data-slick='{
             "dots": true,
             "arrows": true,
@@ -32,7 +32,7 @@
     </div>
 </section>
 {{else}}
-<section class="themevale_heroCarousel">
+<section class="themevale_heroCarousel wait-to-show">
     <div class="heroCarousel" data-slick='{
             "dots": false,
             "arrows": false,
@@ -100,4 +100,43 @@
     </div>
 </section>
 
+<!-- australia carousel -->
+<!-- <section class="themevale_heroCarousel australia-carousel">
+    <div class="heroCarousel" data-slick='{
+            "dots": false,
+            "arrows": false,
+            "mobileFirst": true,
+            "slidesToShow": 1,
+            "slidesToScroll": 1,
+            "adaptiveHeight": true,
+            "lazyLoad": "anticipated",
+            "autoplaySpeed": 7000,
+            "autoplay": true,
+            "fade": true,
+            "nextArrow": "<svg class=&apos;slick-next slick-arrow&apos;><use xlink:href=&apos;#icon-slick-next&apos;></use></svg>", 
+            "prevArrow": "<svg class=&apos;slick-prev slick-arrow&apos;><use xlink:href=&apos;#icon-slick-prev&apos;></use></svg>",
+            "responsive": [
+                {
+                    "breakpoint": 1100,
+                    "settings": {
+                        "dots": {{dots}},
+                        "arrows": {{arrows}}
+                    }
+                }
+        ]}'>
+        <div class="carousel-slide australia-slide">
+            <a href="https://www.fabspeed.com/who-we-are/">
+                <img src="https://placehold.co/1865x582" alt="best-performance-system"
+                    style="width: 100%; height: auto;">
+            </a>
+        </div>
+
+        <div class="carousel-slide australia-slide">
+            <a href="https://www.fabspeed.com/who-we-are/">
+                <img src="https://placehold.co/1865x582" alt="best-performance-system"
+                    style="width: 100%; height: auto;">
+            </a>
+        </div>
+    </div>
+</section> -->
 {{/contains}}

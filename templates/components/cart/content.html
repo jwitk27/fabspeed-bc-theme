@@ -9,7 +9,7 @@
     </thead>
     <tbody class="cart-list">
         {{#each cart.items}}
-        <tr data-categories="{{join category_names '/'}}" class="cart-item" data-item-row>
+        <tr data-categories="{{#if category_names}}{{join category_names '/'}}{{/if}}" class="cart-item" data-item-row>
             <td class="cart-item-block cart-item-figure">
                 {{#if type '==' 'GiftCertificate'}}
                 <img class="cart-item-fixed-image lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}"
@@ -125,7 +125,7 @@
                 {{else}}
                 {{> components/common/login-for-pricing}}
                 {{/or}}
-                {{# if can_modify}}
+                {{#if can_modify}}
                 <a class="cart-remove icon" data-cart-itemid="{{id}}" href="#"
                     data-confirm-delete="{{lang 'cart.confirm_delete'}}">
                     <svg>

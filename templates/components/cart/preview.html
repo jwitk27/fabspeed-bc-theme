@@ -58,12 +58,6 @@
                 </a>
             {{/if}}
 
-            <div class="previewCartCheckout-additionalCheckoutButtons">
-                {{#each cart.additional_checkout_buttons}}
-                    {{{this}}}
-                {{/each}}
-            </div>
-
             {{#if cart.show_multiple_address_shipping}}
                 <div class="previewCartAction-checkoutMultiple">
                     <a href="{{urls.checkout.multiple_address}}">

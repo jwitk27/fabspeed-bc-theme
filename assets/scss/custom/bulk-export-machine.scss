@@ -57,6 +57,15 @@
     padding: 0.4rem;
 }
 
+/* NEW: category dropdown */
+#bem-topcat{
+    padding: 0.45rem 0.6rem;
+    border-radius: 6px;
+    border: 1px solid #d0d0d0;
+    font-size: 0.9rem;
+    max-width: 260px;
+}
+
 /* Button */
 .bem-button {
     padding: 0.55rem 1.1rem;
@@ -140,6 +149,10 @@
 
     .bulk-export-machine input[type="file"],
     .bulk-export-machine input[type="text"] {
+        max-width: 100%;
+    }
+
+    #bem-topcat {
         max-width: 100%;
     }
 }

@@ -2,7 +2,7 @@
     <ul class="productList" {{#if settings.data_tag_enabled}} data-list-name="Quick Search Results" {{/if}}>
         {{#each product_results.products}}
         <li class="product">
-            <article data-categories="{{join category '/'}}" class="card">
+            <article data-categories="{{#if category}}{{join category '/'}}{{/if}}" class="card">
                 <figure class="card-figure">
                     <a class="card-link" href="{{url}}">
                         <div class="card-img-container">

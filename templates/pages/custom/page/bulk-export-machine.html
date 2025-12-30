@@ -1,20 +1,25 @@
 {{#partial "page"}}
 <div class="bulk-export-machine">
-    <h1>Bulk Export Machine</h1>
+  <h1>Bulk Export Machine</h1>
 
-    <p>Instructions:</p>
-    <p>Export products with the "Price List" option, then upload that file and click the "Download" button</p>
+  <p>Instructions:</p>
+  <p>Export products with the "Price List" option, then upload that file and click the "Download" button</p>
 
-    <div class="bem-row">
-        <input type="file" id="bem-file" accept=".csv" />
-        <button id="bem-download-price-list" class="button" disabled>
-            Download
-        </button>
-    </div>
+  <div class="bem-row">
+    <input type="file" id="bem-file" accept=".csv" />
 
-    <p id="bem-status"></p>
+    <select id="bem-topcat" disabled>
+      <option value="__all__">All categories</option>
+    </select>
 
-    <div id="bem-preview-table"></div>
+    <button id="bem-download-price-list" class="button" disabled>
+      Download
+    </button>
+  </div>
+
+  <p id="bem-status"></p>
+
+  <div id="bem-preview-table"></div>
 </div>
 {{/partial}}
 {{> layout/base}}

@@ -4,10 +4,11 @@ import Papa from 'papaparse';
 export default function bulkExportMachine() {
     if (!$('.bulk-export-machine').length) return;
 
-    const fileInput   = document.getElementById('bem-file');
-    const statusEl    = document.getElementById('bem-status');
-    const previewEl   = document.getElementById('bem-preview-table');
-    const downloadBtn = document.getElementById('bem-download-price-list');
+    const fileInput    = document.getElementById('bem-file');
+    const statusEl     = document.getElementById('bem-status');
+    const previewEl    = document.getElementById('bem-preview-table');
+    const downloadBtn  = document.getElementById('bem-download-price-list');
+    const topCatSelect = document.getElementById('bem-topcat');
 
     if (!fileInput || !previewEl || !downloadBtn) return;
 
@@ -17,7 +18,7 @@ export default function bulkExportMachine() {
     let priceField     = null;
     let itemTypeField  = null;
     let visibleField   = null;
-    let purchasesField = null;
+    let categoryField  = null; // "Category String"
 
     function setStatus(msg) {
         if (statusEl) statusEl.textContent = msg || '';
@@ -30,18 +31,18 @@ export default function bulkExportMachine() {
 
         const findHeader = (exact, includes) => {
             let idx = lowers.indexOf(exact);
-            if (idx === -1 && includes) {
-                idx = lowers.findIndex(h => h.includes(includes));
-            }
+            if (idx === -1 && includes) idx = lowers.findIndex(h => h.includes(includes));
             return idx >= 0 ? headers[idx] : null;
         };
 
-        nameField      = findHeader('product name', 'product name');
-        skuField       = findHeader('product sku', 'product sku');
-        priceField     = findHeader('price', 'price');
-        itemTypeField  = findHeader('item type', 'item type');
-        visibleField   = findHeader('product visible', 'product visible');
-        purchasesField = findHeader('allow purchases', 'allow purchases');
+        nameField     = findHeader('product name', 'product name');
+        skuField      = findHeader('product sku', 'product sku');
+        priceField    = findHeader('price', 'price');
+        itemTypeField = findHeader('item type', 'item type');
+        visibleField  = findHeader('product visible', 'product visible');
+
+        // Your export’s category column
+        categoryField = findHeader('category string', 'category string');
 
         console.log('[BEM] detected:', {
             nameField,
@@ -49,28 +50,106 @@ export default function bulkExportMachine() {
             priceField,
             itemTypeField,
             visibleField,
-            purchasesField,
+            categoryField,
         });
     }
 
-    // basic name check (used as fallback / safety)
+    // basic name check (fallback / safety)
     function hasName(row) {
         const name = nameField ? String(row[nameField] ?? '').trim() : '';
         return name.length > 0;
     }
 
+    // Clean up category strings (handles BigCommerce escaping + weird spaces)
+    function normalizeCat(s) {
+        return String(s ?? '')
+            .replace(/\\\//g, '/')      // turns "\/" into "/"
+            .replace(/\u00A0/g, ' ')    // nbsp -> space
+            .trim();
+    }
+
+    // Extract top-level categories, with two special cases:
+    // 1) "Factory/OEM Catalytic Converter Re-Coring" is a top-level category even though it contains "/"
+    // 2) Include ONE subcategory in dropdown: "Fabspeed Apparel & Accessories"
+    function getTopCatsFromCategoryString(val) {
+        const raw = normalizeCat(val);
+        if (!raw) return [];
+
+        const SPECIAL_TOP_LEVELS = new Set([
+            'Factory/OEM Catalytic Converter Re-Coring',
+        ]);
+
+        const SPECIAL_SUBCATEGORY = 'Fabspeed Apparel & Accessories';
+
+        const parts = raw.split(';').map(normalizeCat).filter(Boolean);
+
+        const tops = parts
+            .map(cat => {
+                // Special top-level with slash
+                if (SPECIAL_TOP_LEVELS.has(cat)) return cat;
+
+                // Special subcategory should appear as itself (not collapsed to "Fabspeed Apparel & Accessories" already has no "/")
+                // BUT in case it appears as "Fabspeed Products/Fabspeed Apparel & Accessories", detect and return just the subcategory.
+                if (cat === SPECIAL_SUBCATEGORY) return SPECIAL_SUBCATEGORY;
+                if (cat.includes(`/${SPECIAL_SUBCATEGORY}`)) return SPECIAL_SUBCATEGORY;
+
+                // Normal behavior: top level = first segment before /
+                return normalizeCat(cat.split('/')[0]);
+            })
+            .filter(Boolean);
+
+        return Array.from(new Set(tops));
+    }
+
+    // Apply category dropdown options based on parsed rows (Product rows only, SKU inherits)
+    function populateTopCatDropdown(parsedRows) {
+        if (!topCatSelect) return;
+
+        if (!categoryField || !itemTypeField) {
+            topCatSelect.innerHTML = `<option value="__all__">All categories</option>`;
+            topCatSelect.disabled = true;
+            return;
+        }
+
+        const set = new Set();
+        let currentTops = [];
+
+        parsedRows.forEach(r => {
+            const type = String(r[itemTypeField] ?? '').trim().toLowerCase();
+
+            if (type === 'product') {
+                currentTops = getTopCatsFromCategoryString(r[categoryField]);
+                currentTops.forEach(t => set.add(t));
+                return;
+            }
+
+            if (type === 'sku') {
+                // SKU inherits last product’s categories
+                currentTops.forEach(t => set.add(t));
+            }
+        });
+
+        const cats = Array.from(set).sort((a, b) => a.localeCompare(b));
+
+        topCatSelect.innerHTML =
+            `<option value="__all__">All categories</option>` +
+            cats.map(c => `<option value="${c.replace(/"/g, '&quot;')}">${c}</option>`).join('');
+
+        topCatSelect.disabled = false;
+    }
+
     // main filter:
     // - drop Item Type "rule"
-    // - keep Product only if Product Visible === "1" AND Allow Purchases === "1"
-    // - keep SKU rows under the last kept Product (even though those cols are blank)
+    // - keep Product only if Product Visible === "1"
+    // - keep SKU rows under the last kept Product
     function filterRowsByItemType(parsedRows) {
-        // if we don't have these columns, fall back to simple name filter
-        if (!itemTypeField || !visibleField || !purchasesField) {
+        // if we don't have needed columns, fall back to simple name filter
+        if (!itemTypeField || !visibleField) {
             return parsedRows.filter(hasName);
         }
 
         const result = [];
-        let keepCurrentBlock = false; // whether current Product block is valid
+        let keepCurrentBlock = false;
 
         parsedRows.forEach(row => {
             const typeRaw = row[itemTypeField];
@@ -78,20 +157,16 @@ export default function bulkExportMachine() {
 
             if (type === 'product') {
                 const visible = String(row[visibleField] ?? '').trim();
-                const purch   = String(row[purchasesField] ?? '').trim();
 
-                keepCurrentBlock = (visible === '1' && purch === '1');
+                // ✅ keep only visible products
+                keepCurrentBlock = (visible === '1');
 
-                if (keepCurrentBlock) {
-                    result.push(row);
-                }
+                if (keepCurrentBlock) result.push(row);
                 return;
             }
 
             if (type === 'sku') {
-                if (keepCurrentBlock) {
-                    result.push(row);
-                }
+                if (keepCurrentBlock) result.push(row);
                 return;
             }
 
@@ -101,12 +176,35 @@ export default function bulkExportMachine() {
             }
 
             // unknown type: be conservative, keep if it at least has a name
-            if (hasName(row)) {
-                result.push(row);
-            }
+            if (hasName(row)) result.push(row);
         });
 
         return result;
+    }
+
+    // Filter rows by selected dropdown category
+    // Products included if ANY of their top-level categories match; SKUs inherit last product’s tops.
+    function filterRowsByTopCategory(selected) {
+        if (!selected || selected === '__all__' || !categoryField || !itemTypeField) return rows;
+
+        let currentTops = [];
+        const out = [];
+
+        rows.forEach(r => {
+            const type = String(r[itemTypeField] ?? '').trim().toLowerCase();
+
+            if (type === 'product') {
+                currentTops = getTopCatsFromCategoryString(r[categoryField]);
+                if (currentTops.includes(selected)) out.push(r);
+                return;
+            }
+
+            if (type === 'sku') {
+                if (currentTops.includes(selected)) out.push(r);
+            }
+        });
+
+        return out;
     }
 
     function renderPreview() {
@@ -155,9 +253,7 @@ export default function bulkExportMachine() {
     }
 
     function triggerDownload(csvString, filename) {
-        const blob = new Blob([csvString], {
-            type: 'text/csv;charset=utf-8;',
-        });
+        const blob = new Blob([csvString], { type: 'text/csv;charset=utf-8;' });
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
@@ -168,6 +264,13 @@ export default function bulkExportMachine() {
         URL.revokeObjectURL(url);
     }
 
+    function safeSlug(s) {
+        return String(s)
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, '-')
+            .replace(/^-+|-+$/g, '');
+    }
+
     fileInput.addEventListener('change', (e) => {
         const file = e.target.files && e.target.files[0];
         if (!file) return;
@@ -175,6 +278,7 @@ export default function bulkExportMachine() {
         setStatus('Parsing CSV…');
         previewEl.innerHTML = '';
         downloadBtn.disabled = true;
+        if (topCatSelect) topCatSelect.disabled = true;
 
         Papa.parse(file, {
             header: true,
@@ -201,8 +305,7 @@ export default function bulkExportMachine() {
 
                     parsedRows.forEach(r => {
                         const raw = r[priceField];
-                        const hasPrice =
-                            raw != null && String(raw).trim() !== '';
+                        const hasPrice = raw != null && String(raw).trim() !== '';
 
                         if (hasPrice) {
                             currentPrice = raw;
@@ -212,7 +315,7 @@ export default function bulkExportMachine() {
                     });
                 }
 
-                // apply Item Type / visibility / purchases logic
+                // apply Item Type / visibility logic (no purchasable check)
                 parsedRows = filterRowsByItemType(parsedRows);
 
                 rows = parsedRows;
@@ -223,6 +326,7 @@ export default function bulkExportMachine() {
                     return;
                 }
 
+                populateTopCatDropdown(rows);
                 renderPreview();
                 downloadBtn.disabled = false;
             },
@@ -243,7 +347,10 @@ export default function bulkExportMachine() {
             return;
         }
 
-        const exportRows = rows.map(r => ({
+        const selectedTop = topCatSelect ? topCatSelect.value : '__all__';
+        const sourceRows = filterRowsByTopCategory(selectedTop);
+
+        const exportRows = sourceRows.map(r => ({
             'Product SKU':  r[skuField]   ?? '',
             'Product Name': r[nameField]  ?? '',
             'Price':        r[priceField] ?? '',
@@ -255,7 +362,12 @@ export default function bulkExportMachine() {
         }
 
         const csv = Papa.unparse(exportRows);
-        triggerDownload(csv, 'price-list-cleaned.csv');
-        setStatus(`Exported ${exportRows.length} rows to price-list-cleaned.csv`);
+
+        const suffix = (selectedTop && selectedTop !== '__all__')
+            ? `-${safeSlug(selectedTop)}`
+            : '';
+
+        triggerDownload(csv, `price-list-cleaned${suffix}.csv`);
+        setStatus(`Exported ${exportRows.length} rows${suffix ? ` (${selectedTop})` : ''}.`);
     });
 }

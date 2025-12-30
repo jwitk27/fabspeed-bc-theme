@@ -1,6 +1,6 @@
 {
-  "name": "Fabspeed-12-16-2025 (1)",
-  "version": "1.1.7",
+  "name": "Fabspeed-12-30-2025",
+  "version": "1.1.8",
   "meta": {
     "price": 0,
     "documentation_url": "https://support.bigcommerce.com/articles/Public/Cornerstone-Theme-Manual",
@@ -764,10 +764,10 @@
         "themevale_megamenu-label-hot": 1,
         "themevale_flash-sale-notice": false,
         "themevale_flash-sale-color": "#FFFFFF",
-        "themevale_flash-sale-bg": "#0278C0",
+        "themevale_flash-sale-bg": "#C00011",
         "themevale_flash-sale-title": "",
         "themevale_flash-sale-content": "USE CODE: BFCM25 FOR UP TO 15% OFF + SHIPPING. ENDS",
-        "themevale_flash-sale-time": "12/15/2025",
+        "themevale_flash-sale-time": "12/2/2025",
         "themevale_flash-sale-button": "",
         "themevale_flash-sale-link": "",
         "flash-sale-notice-wholesale": false,

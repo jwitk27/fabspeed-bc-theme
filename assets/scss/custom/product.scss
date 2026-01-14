@@ -1,0 +1,26 @@
+.productView-info {
+    margin-bottom: 0;
+}
+
+#afffirm-promo-box {
+    max-height: 30px;
+}
+
+.productView-details .productView-product {
+    margin-bottom: 0;
+}
+
+#playButton {
+    margin-bottom: 1rem;
+    width: 100%;
+    @media (min-width: 551px) {
+        width: 285px;
+    }
+}
+
+.productView-details .productView-info .productView-info-name.HP, .productView-details .productView-info .productView-info-name.TQ, .productView-details .productView-info .productView-info-name.WT,
+.productView-details .productView-info .productView-info-value.HP, .productView-details .productView-info .productView-info-value.TQ, .productView-details .productView-info .productView-info-value.WT {
+    @media (max-width: 552px) {
+        width: 50%;
+    }
+}

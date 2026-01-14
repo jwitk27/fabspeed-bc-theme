@@ -1,17 +1,17 @@
 export default function pdpAddonUpsell() {
 
     const ALLOWED_CATEGORY_MATCHES = [
-        "Fabspeed Products/Exhaust Systems",
-        "Fabspeed Products/Sport Headers (Don't remove Cats)",
-        "Fabspeed Products/Sport Catalytic Converters",
-        "Fabspeed Products/Performance Packages",
-        "Fabspeed Products/Tuning",
-        "Fabspeed Products/Exhaust Tips",
-        "Fabspeed Products/Air Intake Systems",
-        "Fabspeed Products/link comp Pipes",
-        "Fabspeed Products/Special Operations",
-        "Fabspeed Products/Race Headers (Headers Without Cats)",
-        "Additional Products/Fabspeed Apparel & Accessories",
+        // "Fabspeed Products/Exhaust Systems",
+        // "Fabspeed Products/Sport Headers (Don't remove Cats)",
+        // "Fabspeed Products/Sport Catalytic Converters",
+        // "Fabspeed Products/Performance Packages",
+        // "Fabspeed Products/Tuning",
+        // "Fabspeed Products/Exhaust Tips",
+        // "Fabspeed Products/Air Intake Systems",
+        // "Fabspeed Products/link comp Pipes",
+        // "Fabspeed Products/Special Operations",
+        // "Fabspeed Products/Race Headers (Headers Without Cats)",
+        // "Additional Products/Fabspeed Apparel & Accessories",
     ];
 
     // 👇 Add product IDs here to HIDE the upsell

@@ -87,7 +87,6 @@
 // 1. Stencil design layout files (example: Header or Footer).
 //
 // -----------------------------------------------------------------------------
-
 @import "custom/globals";
 @import "custom/variables";
 @import "layouts/layouts"; // 1
@@ -100,3 +99,4 @@
 @import "custom/bulk-export-machine";
 @import "custom/bfcm-supersale";
 @import "custom/addon-upsell";
+@import "custom/product";

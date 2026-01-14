@@ -14,6 +14,7 @@ import carousel from './common/carousel';
 import 'lazysizes';
 import loadingProgressBar from './global/loading-progress-bar';
 import svgInjector from './global/svg-injector';
+import soundButton from './custom/sound-button';
 
 /*=========================================
 =            www.themevale.com            =
@@ -33,6 +34,7 @@ window.themevaleNewsletterPopup = themevaleNewsletterPopup;
 
 import bulkExportMachine from './custom/bulk-export-machine';
 import equalizeHeights from './custom/equalizeHeights';
+import ausCode from './custom/aus-code';
 
 export default class Global extends PageManager {
     onReady() {
@@ -41,6 +43,7 @@ export default class Global extends PageManager {
         window.lazySizesConfig = window.lazySizesConfig || {};
         window.lazySizesConfig.loadMode = 1;
 
+        ausCode();
         cartPreview(this.context.secureBaseUrl, this.context.cartId);
         quickSearch();
         currencySelector();
@@ -54,43 +57,6 @@ export default class Global extends PageManager {
         // loadingProgressBar();
         svgInjector();
 
-        // australia specific code
-        // (async function () {
-        //     const AU = 'AU';
-        //     const CURRENCY_ID_AU = 4;
-        //     const STORAGE_KEY = 'country';
-
-        //     const country = localStorage.getItem(STORAGE_KEY);
-
-        //     const showAU = () => $('body').addClass('is-au');
-        //     const showDefault = () => $('.wait-to-show').show();
-
-        //     // If we already know the country
-        //     if (country) {
-        //         country === AU ? showAU() : showDefault();
-        //         return;
-        //     }
-
-        //     try {
-        //         const response = await fetch('https://ipapi.co/json/', { cache: 'no-store' });
-        //         const { country: detectedCountry } = await response.json();
-
-        //         localStorage.setItem(STORAGE_KEY, detectedCountry || '');
-
-        //         if (detectedCountry === AU) {
-        //             showAU();
-
-        //             if (!location.search.includes(`setCurrencyId=${CURRENCY_ID_AU}`)) {
-        //                 location.href = `/?setCurrencyId=${CURRENCY_ID_AU}`;
-        //             }
-        //         } else {
-        //             showDefault();
-        //         }
-        //     } catch {
-        //         showDefault();
-        //     }
-        // })();
-
         themevale_Global();
         themevale_Sticky(this.context);
         themevale_AddToCart();
@@ -98,5 +64,6 @@ export default class Global extends PageManager {
 
         bulkExportMachine();
         equalizeHeights([]);
+        soundButton();
     }
 }

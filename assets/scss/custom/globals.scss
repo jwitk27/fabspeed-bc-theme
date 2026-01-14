@@ -2,14 +2,14 @@ iframe {
     max-width: 100%;
 }
 
-// .wait-to-show {
-//     display: none;
-// }
-
-.australia-carousel {
+.wait-to-show {
     display: none;
 }
 
-// .is-au .australia-carousel {
-//     display: block;
-// }
+.aus-content {
+    display: none;
+}
+
+.is-au .aus-content {
+    display: block;
+}

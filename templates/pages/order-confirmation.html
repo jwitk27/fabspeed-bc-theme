@@ -14,7 +14,7 @@
 {{#partial "page"}}
 <header class="checkoutHeader optimizedCheckout-header">
     <div class="checkoutHeader-content">
-        <h1 class="is-srOnly">{{lang 'checkout.title'}}</h1>
+        <h1 class="is-srOnly">{{lang 'checkout.title'}}.</h1>
         <h2 class="checkoutHeader-heading">
             <a class="checkoutHeader-link" href="{{urls.home}}">
                 {{#if checkout.header_image}}
@@ -28,6 +28,51 @@
 </header>
 
 {{{ checkout.order_confirmation_content }}}
+
+<script>
+  const GA4_ID = "G-XK31WB42D5";
+
+  // load gtag
+  const s = document.createElement("script");
+  s.async = true;
+  s.src = "https://www.googletagmanager.com/gtag/js?id=" + GA4_ID;
+  document.head.appendChild(s);
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+
+  gtag("js", new Date());
+  gtag("config", GA4_ID, { send_page_view: false });
+
+  // order id available on this page
+  const orderId = "{{{ checkout.order.id }}}";
+
+  fetch("/api/storefront/orders/" + orderId, { credentials: "include" })
+    .then(r => r.json())
+    .then(order => {
+      const currency = order.currency?.code;
+      const value = Number(order.orderAmount) || 0;
+
+      const items = (order.lineItems?.physicalItems || []).map(item => ({
+        item_id: String(item.productId),
+        item_name: item.name,
+        price: Number(item.salePrice || item.listPrice || item.price) || undefined,
+        quantity: item.quantity
+      }));
+
+      gtag("event", "purchase", {
+        transaction_id: String(orderId),
+        value,
+        currency,
+        tax: Number(order.taxTotal) || undefined,
+        shipping: Number(order.shippingCostTotal) || undefined,
+        items
+      });
+
+      console.log("[ga4] purchase sent", orderId);
+    })
+    .catch(err => console.log("[ga4] purchase failed", err));
+</script>
 
 {{{ footer.scripts }}}
 

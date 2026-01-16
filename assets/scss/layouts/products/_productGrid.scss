@@ -28,10 +28,6 @@
         /* matches 2 lines of text */
     }
 
-    .card .card-actions {
-        display: none;
-    }
-
     .product {
         @include grid-column(6, $float: none);
         display: inline-block;

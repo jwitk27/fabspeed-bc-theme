@@ -85,7 +85,7 @@
     text-align: center;
 }
 
-.mobile-only {
+.mobile-break {
     display: none;
 }
 
@@ -103,7 +103,7 @@
         font-size: 16px;
     }
 
-    .mobile-only {
+    .mobile-break {
         display: block;
     }
 }

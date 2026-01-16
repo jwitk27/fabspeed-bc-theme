@@ -11,6 +11,7 @@ products:
     top_sellers:
          limit: {{theme_settings.homepage_top_products_count}}
 ---
+<span style="display:none">{{category.id}}</span>
 {{inject "categoryProductsPerPage" theme_settings.categorypage_products_per_page}}
 {{#partial "head"}}
     {{#if pagination.category.previous}}
@@ -40,11 +41,21 @@ products:
     <div class="container"> 
         {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
         {{#unless theme_settings.hide_category_page_heading }}
-            <h1 class="page-heading" style="font-size:clamp(2rem, 5vw, 3.5rem);">Performance Parts for <span style="color: #d72028;">{{category.name}}</span></h1>
+            <h1 class="page-heading category-heading">Performance Parts for <br class="category-title-line-break"><span style="color: #d72028;">{{category.name}}</span></h1>
         {{/unless}}
-        {{{category.description}}}
         {{{snippet 'categories'}}}
-        {{{region name="category_below_header"}}}
+        
+        {{#if category.image}}
+            {{> components/common/responsive-img
+                image=category.image
+                fallback_size=theme_settings.zoom_size
+                lazyload=theme_settings.lazyload_mode
+                class="category-header-image"
+            }}
+        {{else}}
+            {{{region name="category_below_header"}}}
+        {{/if}}
+        <div class="category-description">{{{category.description}}}</div>
     </div>
 </div>
 

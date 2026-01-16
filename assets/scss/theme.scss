@@ -95,8 +95,11 @@
 
 @import "custom";
 
+@import "custom/home";
+@import "custom/navigation";
 @import "custom/cart";
 @import "custom/bulk-export-machine";
 @import "custom/bfcm-supersale";
 @import "custom/addon-upsell";
 @import "custom/product";
+@import "custom/category";

@@ -2,14 +2,26 @@ iframe {
     max-width: 100%;
 }
 
-.wait-to-show {
-    display: none;
+.wait-to-show{
+  visibility: hidden;   /* keeps layout space */
+}
+.wait-to-show.is-ready{
+  visibility: visible;
 }
 
-.aus-content {
-    display: none;
+.themevale_heroCarousel{ position: relative; }
+
+.aus-content{
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
 }
 
-.is-au .aus-content {
-    display: block;
+.is-au .aus-content{
+  opacity: 1;
+  pointer-events: auto;
+}
+.is-au .wait-to-show{
+  visibility: hidden;
 }

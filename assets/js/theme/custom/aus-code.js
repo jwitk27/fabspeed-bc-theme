@@ -7,7 +7,7 @@ export default function () {
         const country = localStorage.getItem(STORAGE_KEY);
 
         const showAU = () => $('body').addClass('is-au');
-        const showDefault = () => $('.wait-to-show').show();
+        const showDefault = () => $('.wait-to-show').addClass('is-ready');
         
         // If we already know the country
         if (country) {

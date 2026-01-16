@@ -173,16 +173,17 @@
             white-space: normal;
             display: inline-block;
             vertical-align: top;
-            padding-right: 15px;
-            width: 40%;
-        }
-    }
-    @media (min-width: 551px) {
-        &:not(.slick-slider) .brand-item {
-            width: 30%;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            width: auto;
         }
     }
     @media (min-width: 768px) {
+        &:not(.slick-slider) .brand-item {
+            margin-right: 15px;
+        }
+    }
+    @media (min-width: 1040px) {
         &:not(.slick-slider) .brand-item {
             width: 23%;
         }

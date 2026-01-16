@@ -400,7 +400,8 @@
                             <span data-product-stock>{{product.stock_level}}</span>
                         </label>
                     </div>
-                    {{#if product.can_purchase}} {{> components/products/add-to-cart}} {{/if}} {{#if product.out_of_stock}}
+                    {{#if product.can_purchase}} {{> components/products/add-to-cart}} {{/if}}
+                    {{#if product.out_of_stock}}
                     <div class="form-action">
                         {{#if product.out_of_stock_message}}
                         <div class="button" disabled>{{{product.out_of_stock_message}}}</div>
@@ -410,8 +411,9 @@
                     </div>
                     {{/if}}
                 </form>
-                {{#if settings.show_wishlist}} {{> components/common/wishlist-dropdown}} {{/if}}
+                {{#if product.can_purchase}} {{#if settings.show_wishlist}} {{> components/common/wishlist-dropdown}} {{/if}} {{/if}}
             </div>
+            {{#if product.can_purchase}} {{else}} {{#if settings.show_wishlist}} {{> components/common/wishlist-dropdown}} {{/if}} {{/if}}
             {{#if theme_settings.product_viewingProduct}}
             <div class="viewing-product">
                 <svg class="icon"><use xlink:href="#icon-eye"></use></svg>5 customers are viewing this product

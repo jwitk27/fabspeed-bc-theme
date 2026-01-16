@@ -1,0 +1,46 @@
+.themevale_breadcrumbCategory {
+    margin-bottom: 0;
+}
+
+.read-toggle {
+    color: $fabspeed-red;
+    text-decoration: underline;
+}
+
+.category-title-line-break {
+    @media (min-width: 551px) {
+        display: none;
+    }
+}
+
+.category-heading {
+    font-size: 22px;
+    @media (min-width: 801px) {
+      font-size: 24px;
+    }
+}
+
+.card-figcaption,
+.productGrid .product .card {
+    height: auto;
+}
+
+.productGrid {
+    overflow: hidden;
+}
+
+.slick-slide {
+    height: auto;
+}
+
+.category-description {
+    margin-top: 1rem;
+}
+
+.category-header-image {
+    width: 100%;
+}
+
+.card-actions {
+    display: none;
+}

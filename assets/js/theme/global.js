@@ -35,6 +35,8 @@ window.themevaleNewsletterPopup = themevaleNewsletterPopup;
 import bulkExportMachine from './custom/bulk-export-machine';
 import equalizeHeights from './custom/equalizeHeights';
 import ausCode from './custom/aus-code';
+import categoryDescriptions from './custom/category-descriptions';
+import clickDescriptionTab from './custom/click-description-tab';
 
 export default class Global extends PageManager {
     onReady() {
@@ -62,8 +64,10 @@ export default class Global extends PageManager {
         themevale_AddToCart();
         themevale_RecentlyBought(this.context);
 
-        bulkExportMachine();
+        categoryDescriptions();
         equalizeHeights([]);
+        clickDescriptionTab();
         soundButton();
+        bulkExportMachine();
     }
 }

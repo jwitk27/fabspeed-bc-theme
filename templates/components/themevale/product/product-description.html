@@ -1,8 +1,8 @@
 <div class="themevale_productDescription">
     <div class="productView-description"{{#if schema}} itemprop="description"{{/if}}>
         <ul class="tabs tabs-custom-2" data-tab>
-            <li class="tab is-active">
-                <a class="tab-title" href="#tab-description">{{lang 'products.description'}}</a>
+            <li class="tab">
+                <a class="tab-title description-tab-title" href="#tab-description">{{lang 'products.description'}}</a>
             </li>
             
             <li class="tab">
@@ -23,14 +23,14 @@
             </li>-->
         </ul>
         <div class="tabs-contents">
-            <div class="tab-content is-active" id="tab-description">
+            <div class="tab-content description-tab-content" id="tab-description">
                 <div class="toggle-title">
-                    <a class="toggleLink is-open" data-collapsible href="#tabDescription-content">
+                    <a class="toggleLink description-tab-toggle-link" data-collapsible href="#tabDescription-content">
                         <span class="page-heading">{{lang 'products.description'}}</span>
                         <svg class="icon"><use xlink:href="#icon-slick-next"/></svg>
                     </a>
                 </div>
-                <div class="toggle-content is-open" id="tabDescription-content" aria-hidden="false" {{#if settings.data_tag_enabled}} data-event-type="product" {{/if}}>
+                <div class="toggle-content description-tab-toggle-content" id="tabDescription-content" aria-hidden="false" {{#if settings.data_tag_enabled}} data-event-type="product" {{/if}}>
                     {{{product.description}}}
                     {{{snippet 'product_description'}}}
                 </div>

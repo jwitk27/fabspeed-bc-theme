@@ -210,6 +210,15 @@
                     }
                 </script>
                 
+                
+                <!--{{#if show_compare}}-->
+                <!--    <label class="card-compare" for="compare-cate-{{id}}">-->
+                <!--        <input type="checkbox" name="products[]" value="{{id}}" id="compare-cate-{{id}}" data-compare-id="{{id}}">-->
+                <!--        <span>{{lang 'products.compare'}}</span>-->
+                <!--    </label>-->
+                <!--{{/if}}-->
+            </div>
+            <div class="card-wrapper">
                 {{#if num_reviews '>' 0}}
                     {{#if show_rating}}
                         <p class="card-rating" data-test-info-type="productRating">
@@ -229,12 +238,6 @@
                         <span class="number-review">(0)</span>
                       </p>
                 {{/if}}
-                <!--{{#if show_compare}}-->
-                <!--    <label class="card-compare" for="compare-cate-{{id}}">-->
-                <!--        <input type="checkbox" name="products[]" value="{{id}}" id="compare-cate-{{id}}" data-compare-id="{{id}}">-->
-                <!--        <span>{{lang 'products.compare'}}</span>-->
-                <!--    </label>-->
-                <!--{{/if}}-->
             </div>
             <div class="card-wrapper" style="height: 14px;">
                 <div class="card-price" data-test-info-type="price">

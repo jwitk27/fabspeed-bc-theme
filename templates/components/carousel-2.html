@@ -1,156 +1,209 @@
-{{#contains customer.customer_group_name "Wholesale"}}
-<section class="wholesale-carousel wait-to-show">
-    <div class="custom-carousel" data-slick='{
-            "dots": true,
-            "arrows": true,
-            "infinite": true,
-            "slidesToShow": 1,
-            "slidesToScroll": 1,
-            "nextArrow": "<svg class=&apos;slick-next slick-arrow&apos; style=&apos;fill: white&apos;><use xlink:href=&apos;#icon-slick-next&apos;></use></svg>", 
-            "prevArrow": "<svg class=&apos;slick-prev slick-arrow&apos; style=&apos;fill: white&apos;><use xlink:href=&apos;#icon-slick-prev&apos;></use></svg>",
-            "autoplay": true,
-            "autoplaySpeed": 7000,
-            "fade": true
-        }'>
-        <div class="carousel-slide">
-            <img src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/image-manager/dealeraccess-banner-3.jpg?t=1740073835"
-                alt="welcome" style="width: 100%; height: auto;">
-        </div>
-        <div class="carousel-slide">
-            <a href="https://www.fabspeed.com/who-we-are/">
-                <img src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/carousel/920/WEB_Banner_WorldsBest_1.jpg?c=2"
-                    alt="best-performance-system" style="width: 100%; height: auto;">
-            </a>
-        </div>
-        <div class="carousel-slide">
-            <a href="https://www.fabspeed.com/pay-over-time/">
-                <img src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/carousel/923/affirm_web_banner_1920x600__51019.jpg?c=2"
-                    alt="affirm" style="width: 100%; height: auto;">
-            </a>
-        </div>
-
-    </div>
-</section>
-{{else}}
-<section class="themevale_heroCarousel wait-to-show">
-    <div class="heroCarousel" data-slick='{
-            "dots": false,
-            "arrows": false,
-            "mobileFirst": true,
-            "slidesToShow": 1,
-            "slidesToScroll": 1,
-            "adaptiveHeight": true,
-            "lazyLoad": "anticipated",
-            "autoplaySpeed": 7000,
-            "autoplay": true,
-            "fade": true,
-            "nextArrow": "<svg class=&apos;slick-next slick-arrow&apos;><use xlink:href=&apos;#icon-slick-next&apos;></use></svg>", 
-            "prevArrow": "<svg class=&apos;slick-prev slick-arrow&apos;><use xlink:href=&apos;#icon-slick-prev&apos;></use></svg>",
-            "responsive": [
-                {
-                    "breakpoint": 1100,
-                    "settings": {
-                        "dots": {{dots}},
-                        "arrows": {{arrows}}
-                    }
-                }
-        ]}'>
-        {{#each carousel.slides}}
-        <div
-            class="heroCarousel-slide {{#if ../theme_settings.homepage_stretch_carousel_images}}stretch{{/if}} {{#if @first}}heroCarousel-slide--first{{/if}}">
-            <div class="heroCarousel-image-wrapper">
-                <a class="link" href="{{url}}"></a>
-                {{#and (if @index '==' 0) ../theme_settings.homepage_images_mobile-0}}
-                <img class="heroCarousel-image-mobile lazyload" src="{{cdn 'img/loading.svg'}}"
-                    data-src="/product_images/uploaded_images/{{../../theme_settings.homepage_images_mobile-0}}" alt="">
-                {{/and}}
-                {{#and (if @index '==' 1) ../theme_settings.homepage_images_mobile-1}}
-                <img class="heroCarousel-image-mobile lazyload" src="{{cdn 'img/loading.svg'}}"
-                    data-src="/product_images/uploaded_images/{{../../theme_settings.homepage_images_mobile-1}}" alt="">
-                {{/and}}
-                {{#and (if @index '==' 2) ../theme_settings.homepage_images_mobile-2}}
-                <img class="heroCarousel-image-mobile lazyload" src="{{cdn 'img/loading.svg'}}"
-                    data-src="/product_images/uploaded_images/{{../../theme_settings.homepage_images_mobile-2}}" alt="">
-                {{/and}}
-                {{#and (if @index '==' 3) ../theme_settings.homepage_images_mobile-3}}
-                <img class="heroCarousel-image-mobile lazyload" src="{{cdn 'img/loading.svg'}}"
-                    data-src="/product_images/uploaded_images/{{../../theme_settings.homepage_images_mobile-3}}" alt="">
-                {{/and}}
-                {{#and (if @index '==' 4) ../theme_settings.homepage_images_mobile-4}}
-                <img class="heroCarousel-image-mobile lazyload" src="{{cdn 'img/loading.svg'}}"
-                    data-src="/product_images/uploaded_images/{{../../theme_settings.homepage_images_mobile-4}}" alt="">
-                {{/and}}
-                <img class="heroCarousel-image lazyload" data-src="{{image}}" alt="{{alt_text}}" title="{{alt_text}}"
-                    {{#if image_width}}width="{{image_width}}" {{/if}} {{#if image_height}}height="{{image_height}}"
-                    {{/if}} />
+<div class="heroCarousel-wrapper">
+    {{#contains customer.customer_group_name "Wholesale"}}
+    <section class="wholesale-carousel wait-to-show">
+        <div class="custom-carousel" data-slick='{
+                "dots": true,
+                "arrows": true,
+                "infinite": true,
+                "slidesToShow": 1,
+                "slidesToScroll": 1,
+                "nextArrow": "<svg class=&apos;slick-next slick-arrow&apos; style=&apos;fill: white&apos;><use xlink:href=&apos;#icon-slick-next&apos;></use></svg>", 
+                "prevArrow": "<svg class=&apos;slick-prev slick-arrow&apos; style=&apos;fill: white&apos;><use xlink:href=&apos;#icon-slick-prev&apos;></use></svg>",
+                "autoplay": true,
+                "autoplaySpeed": 7000,
+                "fade": true
+            }'>
+            <div class="carousel-slide">
+                <img src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/image-manager/dealeraccess-banner-3.jpg?t=1740073835"
+                    alt="welcome" style="width: 100%; height: auto;">
             </div>
-            {{#if heading}}
-            {{> components/carousel-content show_background=true}}
-            {{else}}
-            {{#if text}}
-            {{> components/carousel-content show_background=true}}
-            {{else}}
-            {{#if button_text}}
-            {{> components/carousel-content show_background=false}}
-            {{/if}}
-            {{/if}}
-            {{/if}}
+            <div class="carousel-slide">
+                <a href="https://www.fabspeed.com/who-we-are/">
+                    <img src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/carousel/920/WEB_Banner_WorldsBest_1.jpg?c=2"
+                        alt="best-performance-system" style="width: 100%; height: auto;">
+                </a>
+            </div>
+            <div class="carousel-slide">
+                <a href="https://www.fabspeed.com/pay-over-time/">
+                    <img src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/carousel/923/affirm_web_banner_1920x600__51019.jpg?c=2"
+                        alt="affirm" style="width: 100%; height: auto;">
+                </a>
+            </div>
+    
         </div>
-        {{/each}}
-    </div>
-</section>
+    </section>
 
-<!-- australia carousel -->
-<section class="themevale_heroCarousel aus-content">
-    <div class="heroCarousel" data-slick='{
-            "dots": false,
-            "arrows": false,
-            "mobileFirst": true,
-            "slidesToShow": 1,
-            "slidesToScroll": 1,
-            "adaptiveHeight": true,
-            "lazyLoad": "anticipated",
-            "autoplaySpeed": 7000,
-            "autoplay": true,
-            "fade": true,
-            "nextArrow": "<svg class=&apos;slick-next slick-arrow&apos;><use xlink:href=&apos;#icon-slick-next&apos;></use></svg>", 
-            "prevArrow": "<svg class=&apos;slick-prev slick-arrow&apos;><use xlink:href=&apos;#icon-slick-prev&apos;></use></svg>",
-            "responsive": [
-                {
-                    "breakpoint": 1100,
-                    "settings": {
-                        "dots": {{dots}},
-                        "arrows": {{arrows}}
+    <!-- australia wholesale carousel -->
+    <section class="themevale_heroCarousel aus-content">
+        <div class="heroCarousel" data-slick='{
+                "dots": false,
+                "arrows": false,
+                "mobileFirst": true,
+                "slidesToShow": 1,
+                "slidesToScroll": 1,
+                "adaptiveHeight": true,
+                "lazyLoad": "anticipated",
+                "autoplaySpeed": 7000,
+                "autoplay": true,
+                "fade": true,
+                "nextArrow": "<svg class=&apos;slick-next slick-arrow&apos;><use xlink:href=&apos;#icon-slick-next&apos;></use></svg>", 
+                "prevArrow": "<svg class=&apos;slick-prev slick-arrow&apos;><use xlink:href=&apos;#icon-slick-prev&apos;></use></svg>",
+                "responsive": [
+                    {
+                        "breakpoint": 1100,
+                        "settings": {
+                            "dots": {{dots}},
+                            "arrows": {{arrows}}
+                        }
                     }
-                }
-        ]}'>
-        <div class="carousel-slide australia-slide">
-            <a href="https://www.fabspeed.com/c8-corvette/c8-corvette-zr1/">
-                <img src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/carousel/957/WEB_Banner_ZR1_b.jpg?c=2" alt="best-performance-system"
-                    style="width: 100%; height: auto;">
-            </a>
+            ]}'>
+    
+            <div class="carousel-slide">
+                <img src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/image-manager/dealeraccess-banner-3.jpg?t=1740073835"
+                    alt="welcome" style="width: 100%; height: auto;">
+            </div>
+            <div class="carousel-slide">
+                <a href="https://www.fabspeed.com/who-we-are/">
+                    <img src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/carousel/920/WEB_Banner_WorldsBest_1.jpg?c=2"
+                        alt="best-performance-system" style="width: 100%; height: auto;">
+                </a>
+            </div>
+            <div class="carousel-slide">
+                <a href="https://www.fabspeed.com/pay-over-time/">
+                    <img src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/carousel/923/affirm_web_banner_1920x600__51019.jpg?c=2"
+                        alt="affirm" style="width: 100%; height: auto;">
+                </a>
+            </div>
         </div>
+    </section>
+    {{else}}
+    <section class="themevale_heroCarousel wait-to-show">
+        <div class="heroCarousel" data-slick='{
+                "dots": false,
+                "arrows": false,
+                "mobileFirst": true,
+                "slidesToShow": 1,
+                "slidesToScroll": 1,
+                "adaptiveHeight": true,
+                "lazyLoad": "anticipated",
+                "autoplaySpeed": 7000,
+                "autoplay": true,
+                "fade": true,
+                "nextArrow": "<svg class=&apos;slick-next slick-arrow&apos;><use xlink:href=&apos;#icon-slick-next&apos;></use></svg>", 
+                "prevArrow": "<svg class=&apos;slick-prev slick-arrow&apos;><use xlink:href=&apos;#icon-slick-prev&apos;></use></svg>",
+                "responsive": [
+                    {
+                        "breakpoint": 1100,
+                        "settings": {
+                            "dots": {{dots}},
+                            "arrows": {{arrows}}
+                        }
+                    }
+            ]}'>
+        {{#each carousel.slides}}
+        {{#if button_text}}
+        <div data-hero-slide="{{@index}}">
+        {{else}}
+        <a href="{{url}}" data-hero-slide="{{@index}}" aria-label="{{#if this.alt_text.length '!=' 0}}{{this.alt_text}}{{/if}}">
+        {{/if}}
+            <div class="heroCarousel-slide {{#if ../theme_settings.homepage_stretch_carousel_images}}stretch{{/if}} {{#if @first}}heroCarousel-slide--first{{/if}}">
+                {{#if button_text}}
+                <a href="{{url}}" class="heroCarousel-image-wrapper">
+                {{else}}
+                <div class="heroCarousel-image-wrapper">
+                {{/if}}
+                {{#if @first}}
+                    {{> components/common/responsive-img
+                        image=stencil_image
+                        class="heroCarousel-image"
+                        fallback_size='1280w'
+                        lazyload='disabled'
+                    }}
+                {{else}}
+                    {{> components/common/responsive-img
+                        image=stencil_image
+                        class="heroCarousel-image"
+                        fallback_size='1280w'
+                        lazyload='lazyload'
+                    }}
+                {{/if}}
+                {{#if button_text}}
+                </a>
+                {{else}}
+                </div>
+                {{/if}}
+                {{#or heading text button_text}}
+                    {{> components/carousel-content}}
+                {{/or}}
+            </div>
+        {{#if button_text}}
+        </div>
+        {{else}}
+        </a>
+        {{/if}}
+        {{/each}}
+    </section>
+    
+    <!-- australia retail carousel -->
+    <section class="themevale_heroCarousel aus-content">
+        <div class="heroCarousel" data-slick='{
+                "dots": false,
+                "arrows": false,
+                "mobileFirst": true,
+                "slidesToShow": 1,
+                "slidesToScroll": 1,
+                "adaptiveHeight": true,
+                "lazyLoad": "anticipated",
+                "autoplaySpeed": 7000,
+                "autoplay": true,
+                "fade": true,
+                "nextArrow": "<svg class=&apos;slick-next slick-arrow&apos;><use xlink:href=&apos;#icon-slick-next&apos;></use></svg>", 
+                "prevArrow": "<svg class=&apos;slick-prev slick-arrow&apos;><use xlink:href=&apos;#icon-slick-prev&apos;></use></svg>",
+                "responsive": [
+                    {
+                        "breakpoint": 1100,
+                        "settings": {
+                            "dots": {{dots}},
+                            "arrows": {{arrows}}
+                        }
+                    }
+            ]}'>
+            
+            <div class="carousel-slide australia-slide">
+                <a href="https://www.fabspeed.com/cobb-tuning/">
+                    <img src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/1920w/carousel/976/WEB_Banner_COBB_10OFF_3.jpg?c=2" alt="best-performance-system"
+                        style="width: 100%; height: auto;">
+                </a>
+            </div>
 
-        <div class="carousel-slide australia-slide">
-            <a href="https://www.fabspeed.com/lamborghini/revuelto/">
-                <img src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/carousel/974/revuelto_banner__73220.jpg?c=2" alt="best-performance-system"
-                    style="width: 100%; height: auto;">
-            </a>
+            <div class="carousel-slide australia-slide">
+                <a href="https://www.fabspeed.com/c8-corvette/c8-corvette-zr1/">
+                    <img src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/carousel/957/WEB_Banner_ZR1_b.jpg?c=2" alt="best-performance-system"
+                        style="width: 100%; height: auto;">
+                </a>
+            </div>
+    
+            <div class="carousel-slide australia-slide">
+                <a href="https://www.fabspeed.com/lamborghini/revuelto/">
+                    <img src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/carousel/974/revuelto_banner__73220.jpg?c=2" alt="best-performance-system"
+                        style="width: 100%; height: auto;">
+                </a>
+            </div>
+            
+            <div class="carousel-slide australia-slide">
+                <a href="https://www.fabspeed.com/lamborghini/revuelto/">
+                    <img src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/carousel/955/gt3_airflow_banner_cupstyle__71563.jpg?c=2" alt="best-performance-system"
+                        style="width: 100%; height: auto;">
+                </a>
+            </div>
+    
+            <div class="carousel-slide australia-slide">
+                <a href="https://www.fabspeed.com/lamborghini/revuelto/">
+                    <img src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/carousel/961/web_banner_worldsbest_1__40160.jpg?c=2" alt="best-performance-system"
+                        style="width: 100%; height: auto;">
+                </a>
+            </div>
         </div>
-        
-        <div class="carousel-slide australia-slide">
-            <a href="https://www.fabspeed.com/lamborghini/revuelto/">
-                <img src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/carousel/955/gt3_airflow_banner_cupstyle__71563.jpg?c=2" alt="best-performance-system"
-                    style="width: 100%; height: auto;">
-            </a>
-        </div>
-
-        <div class="carousel-slide australia-slide">
-            <a href="https://www.fabspeed.com/lamborghini/revuelto/">
-                <img src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/carousel/961/web_banner_worldsbest_1__40160.jpg?c=2" alt="best-performance-system"
-                    style="width: 100%; height: auto;">
-            </a>
-        </div>
-    </div>
-</section>
-{{/contains}}
+    </section>
+    {{/contains}}
+</div>

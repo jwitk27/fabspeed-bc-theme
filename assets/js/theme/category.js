@@ -16,6 +16,19 @@ export default class Category extends CatalogPage {
             hooks.on('sortBy-submitted', this.onSortBySubmit);
         }
 
+        let checkInterval;
+
+        $(document).on('click', '.pagination-link', () => {
+            clearInterval(checkInterval);
+
+            checkInterval = setInterval(() => {
+                if ($('.pagination-item--current').next().length === 0) {
+                    $('#button-showmore-category').hide();
+                    clearInterval(checkInterval);
+                }
+            }, 100);
+        });
+            
         this.showmore_product();
         this.showmore_htmltext();
         this.categoryImage_fancybox();
@@ -54,6 +67,8 @@ export default class Category extends CatalogPage {
 
     showmore_product() {
         var check_link = $(".pagination-item--current").next();
+        console.log(check_link)
+        console.log(check_link.length)
         if (check_link.length === 0) {
             $('#button-showmore-category').css('display', 'none');
         } else {

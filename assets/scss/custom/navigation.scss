@@ -40,3 +40,10 @@
 #menuMobile .navPages-item:not(.hasMegamenu) > .navPage-subMenu:not(.navPage-subMegaMenu) .navPage-subMenu-action {
     padding: 0;
 }
+
+#menuMobile .navPages-item:not(.hasMegamenu) > .navPage-subMenu:not(.navPage-subMegaMenu) .navPage-subMenu-action.has-subMenu .navPages-action-moreIcon {
+    visibility: visible;
+    opacity: 1;
+    left: auto;
+    right: 10px;
+}

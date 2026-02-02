@@ -4,6 +4,9 @@ import swal from 'sweetalert2';
 import _ from 'lodash';
 
 export default function(){
+    if (!$('#form-action-addToCart').length) {
+        return;
+    }
     var scroll = $('#form-action-addToCart').offset();
 
     $(window).scroll(function(){
@@ -17,6 +20,7 @@ export default function(){
                     $('.themevale_popup_left').css("bottom", $('.themevale_popup_right').outerHeight() + $('#sticky_addtocart').outerHeight() + 30);
                     $('.themevale_popup_right').css("bottom", $('#sticky_addtocart').outerHeight() + 15 );
                 } else {
+                    console.log('running')
                     $('.themevale_popup_left').css("bottom", $('.themevale_popup_right').outerHeight() + $('#sticky_addtocart').outerHeight());
                     $('.themevale_popup_right').css("bottom", $('#sticky_addtocart').outerHeight());
                 }

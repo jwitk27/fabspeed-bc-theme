@@ -1,27 +1,47 @@
 iframe {
-    max-width: 100%;
+  max-width: 100%;
 }
 
-.wait-to-show{
-  visibility: hidden;   /* keeps layout space */
-}
-.wait-to-show.is-ready{
-  visibility: visible;
+.wait-to-show {
+  display: none;
+  /* keeps layout space */
 }
 
-.themevale_heroCarousel{ position: relative; }
+.wait-to-show.is-ready {
+  display: block;
+}
 
-.aus-content{
+.themevale_heroCarousel {
+  position: relative;
+}
+
+.aus-content {
+  display: none;
+}
+
+.is-au .aus-content {
+  display: block;
+}
+
+.is-au .wait-to-show {
+  display: none;
+}
+
+.heroCarousel-wrapper {
+  aspect-ratio: 1865/582.8;
+}
+
+img[alt="ASV Seal"] {
   position: absolute;
-  inset: 0;
-  opacity: 0;
-  pointer-events: none;
+  bottom: 0;
+  height: 70px;
+  right: 100px;
+  width: auto;
+  bottom: 5px;
 }
 
-.is-au .aus-content{
-  opacity: 1;
-  pointer-events: auto;
-}
-.is-au .wait-to-show{
-  visibility: hidden;
+@media (min-width: 993px) {
+  img[alt="ASV Seal"] {
+    bottom: 10px;
+  }
 }

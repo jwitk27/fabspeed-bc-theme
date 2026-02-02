@@ -1,4 +1,16 @@
-<article data-categories="{{#if category}}{{join category '/'}}{{/if}}" class="card {{#if alternate}}card--alternate{{/if}}" data-product-id="{{id}}" {{#if settings.data_tag_enabled}} data-event-type="{{event}}" data-entity-id="{{id}}" data-position="{{position}}" data-name="{{name}}" data-product-category="{{#each category}}{{#if @last}}{{this}}{{else}}{{this}}, {{/if}}{{/each}}" data-product-brand="{{brand.name}}" data-product-price="{{#if price.with_tax}}{{price.with_tax.value}}{{else}}{{price.without_tax.value}}{{/if}}"  {{/if}}>
+<article
+    data-categories="{{#if category}}{{join category '/'}}{{/if}}" class="card {{#if alternate}}card--alternate{{/if}}"
+    data-product-id="{{id}}"
+    {{#if settings.data_tag_enabled}}
+        data-event-type="{{event}}"
+        data-entity-id="{{id}}"
+        data-position="{{position}}"
+        data-name="{{name}}"
+        data-product-category="{{#each category}}{{#if @last}}{{this}}{{else}}{{this}}, {{/if}}{{/each}}"
+        data-product-brand="{{brand.name}}"
+        data-product-price="{{#if price.with_tax}}{{price.with_tax.value}}{{else}}{{price.without_tax.value}}{{/if}}"
+    {{/if}}
+>
     <figure class="card-figure">
         <div class="themevale_badges">
             {{#or price.non_sale_price_with_tax price.non_sale_price_without_tax}}
@@ -19,20 +31,41 @@
                 </div>
             {{/if}}
         </div>
-        <a href="{{url}}" class="product_img_link" {{#if settings.data_tag_enabled}} data-event-type="product-click" {{/if}}>
+
+        <a href="{{url}}" class="product_img_link"
+            {{#if settings.data_tag_enabled}}
+                data-event-type="product-click"
+            {{/if}}
+        >
             <div class="card-img-container">
-                <img class="card-image lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="{{getImage image 'productgallery_size' (cdn theme_settings.default_image_product)}}" alt="{{image.alt}}" title="{{image.alt}}">
+
+                {{!-- MAIN IMAGE (400w) --}}
+                {{> components/common/responsive-img
+                    image=image
+                    fallback_size="400w"
+                    lazyload="lazyload"
+                    class="card-image"
+                }}
+
+                {{!-- HOVER / SECOND IMAGE (400w) --}}
                 {{#if images.length '>=' 2}}
                     {{#each images}}
                         {{#if @index '==' 1}}
                             <span class="product-additional" data-product-id="">
-                                <img class="replace-2x img-responsive lazyload" src="{{cdn 'img/loading.svg'}}" data-src="{{getImage this 'productgallery_size' (cdn theme_settings.default_image_product)}}" alt="{{image.alt}}" title="{{image.alt}}">
+                                {{> components/common/responsive-img
+                                    image=this
+                                    fallback_size="400w"
+                                    lazyload="lazyload"
+                                    class="replace-2x img-responsive"
+                                }}
                             </span>
                         {{/if}}
                     {{/each}}
                 {{/if}}
+
             </div>
         </a>
+
         <div class="card-figcaption">
             {{#unless hide_product_quick_view}}
                 {{#if theme_settings.show_product_quick_view}}
@@ -47,26 +80,52 @@
             {{/unless}}
         </div>
     </figure>
+
     <div class="card-body">
         <div class="card-detail">
             {{#if brand.name}}
                 <p class="card-brand" data-test-info-type="brandName">{{brand.name}}</p>
             {{/if}}
+
             <h4 class="card-title">
                 <a href="{{url}}" {{#if settings.data_tag_enabled}} data-event-type="product-click" {{/if}}>{{name}}</a>
             </h4>
+
             <div class="card-wrapper" style="height: 24px;">
-                
-                <!-- {{!-- Display FREE SHIPPING if none of the specified fields are present --}} -->
-<!--{{#unless nfs_exists}}-->
-<!--    {{#unless edd_exists}}-->
-<!--        {{#unless edd2_exists}}-->
-<!--            <div class="freeship" id="freeshipy" style="align-items: center; font-size: 12px; color: white; font-weight: bold; background-color: #f00007; border-radius: 10px; justify-content: center; padding: 5px; white-space: nowrap; margin-right: 5px;">-->
-<!--                <span>FREE SHIPPING!</span>-->
-<!--            </div>-->
-<!--        {{/unless}}-->
-<!--    {{/unless}}-->
-<!--{{/unless}}-->
+
+                {{#if show_cart_action}}
+                    {{#if has_options}}
+                        {{#contains (join category ",") "Fabspeed Products"}}
+                        <div class="card-shipping-date" style="display:flex;align-items:center;font-size:12px;color:white;font-weight:bold;background-color:#f00007;border-radius:10px;justify-content:center;padding:5px;">
+                            <span style="white-space:nowrap;">Ships By:</span>
+                            <span style="margin-left:5px;white-space:nowrap;" class="calculated-edd"></span>
+                        </div>
+                        {{/contains}}
+                    {{/if}}
+                    {{#if pre_order}}
+                    {{/if}}
+                    {{#if add_to_cart_url }}
+                        {{#each custom_fields}}
+                            {{#if name '===' 'edd2'}}
+                            <div style="display:none">
+                            {{/if}}
+                        {{/each}}
+                        {{#contains (join category ",") "Fabspeed Products"}}
+                            <div class="card-shipping-date" style="display:flex;align-items:center;font-size:12px;color:white;font-weight:bold;background-color:#f00007;border-radius:10px;justify-content:center;padding:5px;">
+                                <span style="white-space:nowrap;">Ships By:</span>
+                                <span style="margin-left:5px;white-space:nowrap;" class="calculated-edd"></span>
+                            </div>
+                        {{/contains}}
+                        {{#each custom_fields}}
+                            {{#if name '===' 'edd2'}}
+                                </div>
+                            {{/if}}
+                        {{/each}}
+                    {{/if}}
+                    {{#if out_of_stock_message }}
+                    {{/if}}
+                {{else}}
+                {{/if}}
 
                 {{#each custom_fields}}
                     {{#if name '===' 'customlabel'}}
@@ -75,149 +134,88 @@
                     </div>
                     {{/if}}
 
-                    {{#if name '===' 'edd'}}
-                    <div style="display: flex; align-items: center; font-size: 12px; color: white; font-weight: bold; background-color: #f00007; border-radius: 10px; justify-content: center; padding: 5px;">
-                        <span style="white-space: nowrap;">Ships By:</span> 
-                        <span style="margin-left: 5px; white-space: nowrap;" class="calculated-edd">{{{value}}}</span>
-                    </div>
-                    {{/if}}
                     {{#if name '===' 'edd2'}}
-                    <div class="edd2-container" style="display: flex; align-items: center; font-size: 12px; color: white; font-weight: bold; background-color: #00A8E1; border-radius: 10px; justify-content: center; padding: 5px;">
-                        <span style="white-space: nowrap;">Ships in 24 hours!</span>
+                    <div class="card-shipping-date-2" style="display:flex;align-items:center;font-size:12px;color:white;font-weight:bold;background-color:#00A8E1;border-radius:10px;justify-content:center;padding:5px;">
+                        <span style="white-space:nowrap;">Ships By:</span>
+                        <span style="margin-left:5px;white-space:nowrap;" class="calculated-edd2"></span>
                     </div>
                     {{/if}}
-                    
-                    <!--{{#if name '===' 'nfs'}}-->
-                    <!--    <div class="nfs-container" style="display: none;">-->
-                    <!--        <span id="nfs"></span>-->
-                    <!--    </div>-->
-                    <!--{{/if}}-->
-                    
-
                 {{/each}}
+
                 <script>
-                    // Global flag to check if the script has already run
-                    if (!window.hasRunEDDCalculation) {
-                        window.hasRunEDDCalculation = true;
-                
-                        function addBusinessDays(startDate, days, holidays) {
-                            let result = new Date(startDate);
-                            let count = 0;
-                            while (count < days) {
-                                result.setDate(result.getDate() + 1);
-                                // Skip weekends (Saturday and Sunday)
-                                if (result.getDay() !== 0 && result.getDay() !== 6 && !isHoliday(result, holidays)) {
-                                    count++;
-                                }
-                            }
-                            return result;
-                        }
-                
-                        function isHoliday(date, holidays) {
-                            // Check if the date is in the list of holidays
-                            return holidays.some(holiday => {
-                                return date.getFullYear() === holiday.getFullYear() &&
-                                       date.getMonth() === holiday.getMonth() &&
-                                       date.getDate() === holiday.getDate();
-                            });
-                        }
-                
-                        const holidays = [
-                            new Date('2025-01-01'), // New Year's Day
-                            new Date('2024-12-25'), // Christmas Day
-                            // Add other holidays here
-                        ];
-                
-                        function updateEDD() {
-                            const eddElements = document.querySelectorAll('.calculated-edd');
-                            eddElements.forEach(eddElement => {
-                                // Only process if it's a number or not yet updated
-                                if (eddElement.dataset.updated !== 'true') {
-                                    const eddDays = 5; // Set to 5 days
-                                    const today = new Date();
-                                    const estimatedDeliveryDate = addBusinessDays(today, eddDays, holidays);
-                                    const options = { year: 'numeric', month: 'short', day: 'numeric' };
-                                    const formattedDate = estimatedDeliveryDate.toLocaleDateString('en-US', options);
-                                    eddElement.innerText = formattedDate;
-                                    // eddElement.innerText = '';
-                                    eddElement.dataset.updated = 'true';
-                                } 
-                            });
-                            // Hide EDD if EDD2 is present
-                            const edd2Containers = document.querySelectorAll('.edd2-container');
-                            edd2Containers.forEach(edd2Container => {
-                                const parent = edd2Container.parentElement;
-                                const eddContainer = parent.querySelector('.calculated-edd');
-                                if (eddContainer) {
-                                    eddContainer.parentElement.style.display = 'none';
-                                }
-                            });
-                        }
-                
-                        // Run the initial update
-                        document.addEventListener('DOMContentLoaded', function() {
-                            updateEDD();
-                
-                            // Create a MutationObserver to monitor changes in the product grid
-                            const observer = new MutationObserver(function(mutationsList) {
-                                for (let mutation of mutationsList) {
-                                    if (mutation.type === 'childList') {
-                                        updateEDD();
-                                    }
-                                }
-                            });
-                
-                            // Start observing the product grid for changes
-                            const productGrid = document.querySelector('.page-content'); // Adjust this selector to match your product grid container
-                            if (productGrid) {
-                                observer.observe(productGrid, { childList: true, subtree: true });
-                            }
-                
-                            // Add event listener to "Show More" button
-                            const showMoreButton = document.querySelector('#button-showmore-category');
-                            if (showMoreButton) {
-                                showMoreButton.addEventListener('click', function() {
-                                    setTimeout(updateEDD, 1000); // Adjust timeout as needed
-                                });
-                            }
-                
-                            // Add event listeners to pagination links
-                            const paginationLinks = document.querySelectorAll('.pagination-link');
-                            paginationLinks.forEach(link => {
-                                link.addEventListener('click', function() {
-                                    setTimeout(updateEDD, 1000);
-                                });
-                            });
-                            // Select all product cards
-                            // const productCards = document.querySelectorAll('.card-wrapper');
-                            //     productCards.forEach(card => {
-                            //         // Check for the presence of the "FREE SHIPPING!" badge within this product card
-                            //         const freeShippingBadge = card.querySelector('#freeshipy');
+                (function () {
+                    if (window.__eddInitialized) return;
+                    window.__eddInitialized = true;
 
-                            //         // Check for NFS, EDD, or EDD2 within this product card
-                            //         const nfsContainer = card.querySelector('#nfs');
-                            //         const eddContainer = card.querySelector('.calculated-edd');
-                            //         const edd2Container = card.querySelector('.edd2-container');
+                    function addBusinessDays(startDate, days, holidays) {
+                        let result = new Date(startDate);
+                        let count = 0;
 
-                            //         // Hide the "FREE SHIPPING!" badge if any of the specified fields are found in this card
-                            //         if (nfsContainer || eddContainer || edd2Container) {
-                            //             if (freeShippingBadge) {
-                            //                 freeShippingBadge.style.display = 'none';
-                            //             }
-                            //         }
-                            //     });
+                        while (count < days) {
+                            result.setDate(result.getDate() + 1);
+
+                            if (
+                                result.getDay() !== 0 &&
+                                result.getDay() !== 6 &&
+                                !isHoliday(result, holidays)
+                            ) {
+                                count++;
+                            }
+                        }
+                        return result;
+                    }
+
+                    function isHoliday(date, holidays) {
+                        return holidays.some(h =>
+                            date.getFullYear() === h.getFullYear() &&
+                            date.getMonth() === h.getMonth() &&
+                            date.getDate() === h.getDate()
+                        );
+                    }
+
+                    const holidays = [
+                        new Date('2025-01-01'),
+                        new Date('2024-12-25'),
+                    ];
+
+                    function updateEDD() {
+                        const options = { year: 'numeric', month: 'short', day: 'numeric' };
+
+                        document.querySelectorAll('.calculated-edd').forEach(el => {
+                            if (el.dataset.updated === 'true') return;
+                            const d = addBusinessDays(new Date(), 5, holidays);
+                            el.innerText = d.toLocaleDateString('en-US', options);
+                            el.dataset.updated = 'true';
+                        });
+
+                        document.querySelectorAll('.calculated-edd2').forEach(el => {
+                            if (el.dataset.updated === 'true') return;
+                            const d = addBusinessDays(new Date(), 1, holidays);
+                            el.innerText = d.toLocaleDateString('en-US', options);
+                            el.dataset.updated = 'true';
                         });
                     }
+
+                    document.addEventListener('DOMContentLoaded', updateEDD);
+
+                    const grid = document.querySelector('.page-content');
+                    if (grid) {
+                        const observer = new MutationObserver(updateEDD);
+                        observer.observe(grid, { childList: true, subtree: true });
+                    }
+
+                    const showMoreButton = document.querySelector('#button-showmore-category');
+                    if (showMoreButton) {
+                        showMoreButton.addEventListener('click', () => setTimeout(updateEDD, 500));
+                    }
+
+                    document.querySelectorAll('.pagination-link').forEach(link => {
+                        link.addEventListener('click', () => setTimeout(updateEDD, 500));
+                    });
+                })();
                 </script>
-                
-                
-                <!--{{#if show_compare}}-->
-                <!--    <label class="card-compare" for="compare-cate-{{id}}">-->
-                <!--        <input type="checkbox" name="products[]" value="{{id}}" id="compare-cate-{{id}}" data-compare-id="{{id}}">-->
-                <!--        <span>{{lang 'products.compare'}}</span>-->
-                <!--    </label>-->
-                <!--{{/if}}-->
             </div>
+
             <div class="card-wrapper">
                 {{#if num_reviews '>' 0}}
                     {{#if show_rating}}
@@ -230,15 +228,14 @@
                             {{/if}}
                         </p>
                     {{/if}}
-                    {{else}}
+                {{else}}
                     <p class="card-rating" data-test-info-type="productRating" style="visibility: hidden;">
-                        <span class="rating--small">
-                          ★★★★★
-                        </span>
+                        <span class="rating--small">★★★★★</span>
                         <span class="number-review">(0)</span>
-                      </p>
+                    </p>
                 {{/if}}
             </div>
+
             <div class="card-wrapper" style="height: 14px;">
                 <div class="card-price" data-test-info-type="price">
                     {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
@@ -247,6 +244,7 @@
                         {{> components/common/login-for-pricing}}
                     {{/or}}
                 </div>
+
                 {{#if show_wishlist}}
                     <div class="card-wishlist">
                         <a href="/wishlist.php?action=add&product_id={{id}}" class="card-button-wishlist" title="{{lang 'account.wishlists.add_item'}}">
@@ -255,11 +253,13 @@
                     </div>
                 {{/if}}
             </div>
+
             {{#if summary}}
                 <div class="card-desciption">
                     <p>{{{summary}}}</p>
                 </div>
             {{/if}}
+
             <div class="card-figcaption">
                 {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
                     {{#if show_cart_action}}
@@ -281,6 +281,7 @@
                 {{/or}}
             </div>
         </div>
+
         <div class="card-actions">
             <div class="card-figcaption">
                 {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
@@ -300,6 +301,7 @@
                     {{/if}}
                 {{/or}}
             </div>
+
             {{#if show_wishlist}}
                 <div class="card-figcaption form-wishlist" data-wishlist-add>
                     <a href="#" aria-expanded="false" class="button button--dropdown dropdown-menu-button" data-dropdown="wishlist-dropdown_{{id}}">
@@ -307,12 +309,12 @@
                         <svg class="icon icon-down"><use xlink:href="#icon-keyboard-arrow-down"/></svg>
                     </a>
                     <ul aria-hidden="true" class="dropdown-menu" data-dropdown-content id="wishlist-dropdown_{{id}}" tabindex="-1">
-                        {{#if customer.wishlists}} 
+                        {{#if customer.wishlists}}
                             {{#each customer.wishlists}}
                                 <li>
                                     <a data-wishlist href="{{this.add_url}}&product_id={{../id}}">{{this.name}}</a>
                                 </li>
-                            {{/each}} 
+                            {{/each}}
                             <li>
                                 <a data-wishlist href="/wishlist.php?action=addwishlist&product_id={{id}}">{{lang 'account.wishlists.create_new'}}</a>
                             </li>
@@ -327,7 +329,6 @@
                     </ul>
                 </div>
             {{/if}}
-
         </div>
     </div>
 </article>

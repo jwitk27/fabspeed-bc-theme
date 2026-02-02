@@ -30,5 +30,12 @@
                 </li>
             {{/if}}
         {{/each}}
+        {{#if name '==' 'Additional Products'}}
+        <li class="navPage-submenu-item-child navPages-action-end">
+            <a class="navPage-subMenu-action navPages-action" href="{{urls.gift_certificate.purchase}}">
+                <span class="text">{{lang 'common.gift_cert'}}</span>
+            </a>
+        </li>
+        {{/if}}
     </ul>
 </div>

@@ -25,7 +25,7 @@
         document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
     </script>
 
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" defer></script>
 
     {{{stylesheet '/assets/css/theme.css'}}}
     {{{head.scripts}}}
@@ -40,8 +40,7 @@
     {{{snippet 'htmlhead'}}}
 
     <meta name="google-site-verification" content="c9lHKpy1TXycWc2iwuD89uY6zx1vS_OAkq5iljb36Ko" />
-    <link href="https://cdn11.bigcommerce.com/s-fh9wsjv2/product_images/Fabspeed%20Favicon%20%28Whole%20Logo%29.png"
-        rel="shortcut icon">
+    <link href="{{{ head.favicon }}}" rel="shortcut icon">
 </head>
 
 <body class="page-type-{{page_type}}">

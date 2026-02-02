@@ -63,15 +63,7 @@
                     <span class="text"><svg class="icon"><use xlink:href="#icon-telephone"/></svg><span>Contact us: {{settings.phone_number}}</span></span>
                 </a>
             </li>
-            <!--
-            {{#if settings.gift_certificates_enabled}}
-                <li class="navPages-item">
-                    <a class="navPages-action" href="{{urls.gift_certificate.purchase}}">
-                        <span class="text"><svg class="icon"><use xlink:href="#icon-gift"/></svg><span>{{lang 'common.gift_cert'}}</span></span>
-                    </a>
-                </li>
-            {{/if}}
-            -->
+           
             {{#if currency_selector.currencies.length '>' 1}}
                 <li class="navPages-item">
                     <p class="navPages-action has-subMenu">

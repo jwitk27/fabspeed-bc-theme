@@ -8,7 +8,6 @@ export default function () {
 
         const showAU = () => $('body').addClass('is-au');
         const showDefault = () => $('.wait-to-show').addClass('is-ready');
-        
         // If we already know the country
         if (country) {
             country === AU ? showAU() : showDefault();

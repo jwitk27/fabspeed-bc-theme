@@ -1,42 +1,42 @@
-import './global/jquery-migrate';
-import './common/select-option-plugin';
-import PageManager from './page-manager';
-import quickSearch from './global/quick-search';
-import currencySelector from './global/currency-selector';
-import mobileMenuToggle from './global/mobile-menu-toggle';
-import menu from './global/menu';
-import foundation from './global/foundation';
-import quickView from './global/quick-view';
-import cartPreview from './global/cart-preview';
-import privacyCookieNotification from './global/cookieNotification';
-import maintenanceMode from './global/maintenanceMode';
-import carousel from './common/carousel';
-import 'lazysizes';
-import loadingProgressBar from './global/loading-progress-bar';
-import svgInjector from './global/svg-injector';
-import soundButton from './custom/sound-button';
+import "./global/jquery-migrate";
+import "./common/select-option-plugin";
+import PageManager from "./page-manager";
+import quickSearch from "./global/quick-search";
+import currencySelector from "./global/currency-selector";
+import mobileMenuToggle from "./global/mobile-menu-toggle";
+import menu from "./global/menu";
+import foundation from "./global/foundation";
+import quickView from "./global/quick-view";
+import cartPreview from "./global/cart-preview";
+import privacyCookieNotification from "./global/cookieNotification";
+import maintenanceMode from "./global/maintenanceMode";
+import carousel from "./common/carousel";
+import "lazysizes";
+import loadingProgressBar from "./global/loading-progress-bar";
+import svgInjector from "./global/svg-injector";
+import soundButton from "./custom/sound-button";
 
 /*=========================================
 =            www.themevale.com            =
 =========================================*/
-import themevale_Global from './themevale/themevale_Global';
-import themevale_AddToCart from './themevale/themevale_AddToCart';
-import themevale_RecentlyBought from './themevale/themevale_RecentlyBought';
-import themevale_Sticky from './themevale/themevale_StickyNavigation';
+import themevale_Global from "./themevale/themevale_Global";
+import themevale_AddToCart from "./themevale/themevale_AddToCart";
+import themevale_RecentlyBought from "./themevale/themevale_RecentlyBought";
+import themevale_Sticky from "./themevale/themevale_StickyNavigation";
 
-import themevaleMenu from './themevale/themevale_MegaMenu';
+import themevaleMenu from "./themevale/themevale_MegaMenu";
 window.themevaleMenu = themevaleMenu;
 
-import themevaleNewsletterPopup from './themevale/themevale_NewsletterPopup';
+import themevaleNewsletterPopup from "./themevale/themevale_NewsletterPopup";
 window.themevaleNewsletterPopup = themevaleNewsletterPopup;
 
 /*=====  End of www.themevale.com  ======*/
 
-import bulkExportMachine from './custom/bulk-export-machine';
-import equalizeHeights from './custom/equalizeHeights';
-import ausCode from './custom/aus-code';
-import categoryDescriptions from './custom/category-descriptions';
-import clickDescriptionTab from './custom/click-description-tab';
+import bulkExportMachine from "./custom/bulk-export-machine";
+import equalizeHeights from "./custom/equalizeHeights";
+import ausCode from "./custom/aus-code";
+import categoryDescriptions from "./custom/category-descriptions";
+import clickDescriptionTab from "./custom/click-description-tab";
 
 export default class Global extends PageManager {
     onReady() {

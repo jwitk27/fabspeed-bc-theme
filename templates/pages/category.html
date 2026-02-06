@@ -11,7 +11,7 @@ products:
     top_sellers:
          limit: {{theme_settings.homepage_top_products_count}}
 ---
-<span style="display:none">{{category.id}}</span>
+<span id="category-id" data-category-id="{{category.id}}" style="display:none"></span>
 {{inject "categoryProductsPerPage" theme_settings.categorypage_products_per_page}}
 {{#partial "head"}}
     {{#if pagination.category.previous}}

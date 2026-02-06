@@ -111,7 +111,7 @@
         </div>
     </div>
     {{#if product.related_products}}
-    <div class="toggle productRelated" id="product-related" data-product-related>
+    <div class="toggle productRelated" id="product-related" data-product-related data-sf-token="{{settings.storefront_api.token}}">
         <div class="toggle-title">
             <h4 class="page-heading">{{lang 'products.related_products'}}</h4>
         </div>

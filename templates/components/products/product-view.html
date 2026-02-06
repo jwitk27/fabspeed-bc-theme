@@ -209,8 +209,10 @@
                     <dt class="productView-info-name">{{lang 'products.shipping'}}</dt>
                     <dd class="productView-info-value">{{lang 'products.shipping_fixed' amount=product.shipping.price.formatted}}</dd>
                     {{/if}} {{/if}} {{/if}} {{#each product.custom_fields}} {{#and (if name '!=' 'warranty' ) (if name '!=' 'instruction')}} {{#and (if name '!=' 'countdown' ) (if name '!=' 'customlabel')}}
-                    <dt class="productView-info-name {{name}}">{{name}}:</dt>
-                    <dd class="productView-info-value {{name}}">{{{value}}}</dd>
+                    <div class="product-specs">
+                        <dt class="productView-info-name {{name}}">{{name}}:</dt>
+                        <dd class="productView-info-value {{name}}">{{{value}}}</dd>
+                    </div>
                     {{/and}} {{/and}} {{/each}}
                     <div class="productView-info-bulkPricing">
                         {{> components/products/bulk-discount-rates bulk_discount_rates=product.bulk_discount_rates}}
@@ -340,9 +342,20 @@
                     </div>
                     {{/if}}
                 </form>
-                {{#if product.can_purchase}} {{#if settings.show_wishlist}} {{> components/common/wishlist-dropdown}} {{/if}} {{/if}}
+                {{#if product.can_purchase}}
+                    {{#if settings.show_wishlist}}
+                        {{> components/common/wishlist-dropdown}}
+                    {{/if}}
+                {{/if}}
             </div>
-            {{#if product.can_purchase}} {{else}} {{#if settings.show_wishlist}} {{> components/common/wishlist-dropdown}} {{/if}} {{/if}}
+            {{#if product.can_purchase}}
+            
+            {{else}}
+                {{#if settings.show_wishlist}}
+                    {{> components/common/wishlist-dropdown}}
+                    <a href="tel:215-646-4945" class="button card-figcaption-button card-placeholder">Call For More Information!</a>
+                {{/if}}
+            {{/if}}
             {{#if theme_settings.product_viewingProduct}}
             <div class="viewing-product">
                 <svg class="icon"><use xlink:href="#icon-eye"></use></svg>5 customers are viewing this product

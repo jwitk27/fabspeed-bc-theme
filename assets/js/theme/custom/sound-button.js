@@ -12,7 +12,7 @@ export default function () {
         $playClone.find('#playButton').removeAttr('id');
         $playClone.find('span').hide();
         $playClone.css('display', 'block');
-        $playClone.find('button').text('▶ PLAY SOUND');
+        $playClone.find('button').html('<img style="max-width:20px;padding-bottom:2px;margin-right:2px;" src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/image-manager/speaker-white-icon.png"> SOUND PREVIEW');
         $playClone.addClass(`sound-button ${format}`);
         $playClone.find('.playButton').on('click', function () {
             const $audio = $playClone.find('.productAudio').get(0);

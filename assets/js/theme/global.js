@@ -38,6 +38,7 @@ import ausCode from "./custom/aus-code";
 import categoryDescriptions from "./custom/category-descriptions";
 import clickDescriptionTab from "./custom/click-description-tab";
 import relatedProducts from "./custom/related-products";
+import scheduledSlides from "./custom/scheduled-slides";
 
 export default class Global extends PageManager {
     onReady() {
@@ -46,6 +47,7 @@ export default class Global extends PageManager {
         window.lazySizesConfig = window.lazySizesConfig || {};
         window.lazySizesConfig.loadMode = 1;
 
+        scheduledSlides();
         ausCode();
         cartPreview(this.context.secureBaseUrl, this.context.cartId);
         quickSearch();

@@ -1,5 +1,6 @@
 <div class="heroCarousel-wrapper">
     {{#contains customer.customer_group_name "Wholesale"}}
+    <!-- wholesale carousel -->
     <section class="wholesale-carousel wait-to-show">
         <div class="custom-carousel" data-slick='{
                 "dots": true,
@@ -77,6 +78,8 @@
         </div>
     </section>
     {{else}}
+
+    <!-- retail carousel -->
     <section class="themevale_heroCarousel wait-to-show">
         <div class="heroCarousel" data-slick='{
                 "dots": false,
@@ -149,7 +152,7 @@
             {{/if}}
         {{/each}}
     </section>
-    
+
     <!-- australia retail carousel -->
     <section class="themevale_heroCarousel aus-content">
         <div class="heroCarousel" data-slick='{
@@ -175,47 +178,55 @@
                     }
             ]}'>
 
-            <div class="carousel-slide scheduled-slide" data-date-time="02-11-2026">
+            <div class="carousel-slide scheduled-slide" data-start-time="02-11-2026" data-end-time="02-27-2026">
                 <a href="https://www.fabspeed.com/cobb-tuning/">
-                    <img src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/1920w/carousel/976/WEB_Banner_COBB_10OFF_3.jpg?c=2" alt="best-performance-system"
+                    <img src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/image-manager/web-banner-cobb-10off-feb.jpg?t=1770756973" alt="best-performance-system"
                         style="width: 100%; height: auto;">
                 </a>
             </div>
             
-            <div class="carousel-slide australia-slide">
-                <a href="https://www.fabspeed.com/cobb-tuning/">
-                    <img src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/1920w/carousel/976/WEB_Banner_COBB_10OFF_3.jpg?c=2" alt="best-performance-system"
-                        style="width: 100%; height: auto;">
+            {{#each carousel.slides}}
+            {{#if button_text}}
+                <div data-hero-slide="{{@index}}">
+            {{else}}
+                <a href="{{url}}" data-hero-slide="{{@index}}" aria-label="{{#if this.alt_text.length '!=' 0}}{{this.alt_text}}{{/if}}">
+            {{/if}}
+                <div class="heroCarousel-slide {{#if ../theme_settings.homepage_stretch_carousel_images}}stretch{{/if}} {{#if @first}}heroCarousel-slide--first{{/if}}">
+                    {{#if button_text}}
+                    <a href="{{url}}" class="heroCarousel-image-wrapper">
+                    {{else}}
+                    <div class="heroCarousel-image-wrapper">
+                    {{/if}}
+                    {{#if @first}}
+                        {{> components/common/responsive-img
+                            image=stencil_image
+                            class="heroCarousel-image"
+                            fallback_size='1280w'
+                            lazyload='disabled'
+                        }}
+                    {{else}}
+                        {{> components/common/responsive-img
+                            image=stencil_image
+                            class="heroCarousel-image"
+                            fallback_size='1280w'
+                            lazyload='lazyload'
+                        }}
+                    {{/if}}
+                    {{#if button_text}}
+                    </a>
+                    {{else}}
+                    </div>
+                    {{/if}}
+                    {{#or heading text button_text}}
+                        {{> components/carousel-content}}
+                    {{/or}}
+                </div>
+            {{#if button_text}}
+                </div>
+            {{else}}
                 </a>
-            </div>
-
-            <div class="carousel-slide australia-slide">
-                <a href="https://www.fabspeed.com/c8-corvette/c8-corvette-zr1/">
-                    <img src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/carousel/957/WEB_Banner_ZR1_b.jpg?c=2" alt="best-performance-system"
-                        style="width: 100%; height: auto;">
-                </a>
-            </div>
-    
-            <div class="carousel-slide australia-slide">
-                <a href="https://www.fabspeed.com/lamborghini/revuelto/">
-                    <img src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/carousel/974/revuelto_banner__73220.jpg?c=2" alt="best-performance-system"
-                        style="width: 100%; height: auto;">
-                </a>
-            </div>
-            
-            <div class="carousel-slide australia-slide">
-                <a href="https://www.fabspeed.com/lamborghini/revuelto/">
-                    <img src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/carousel/955/gt3_airflow_banner_cupstyle__71563.jpg?c=2" alt="best-performance-system"
-                        style="width: 100%; height: auto;">
-                </a>
-            </div>
-    
-            <div class="carousel-slide australia-slide">
-                <a href="https://www.fabspeed.com/lamborghini/revuelto/">
-                    <img src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/carousel/961/web_banner_worldsbest_1__40160.jpg?c=2" alt="best-performance-system"
-                        style="width: 100%; height: auto;">
-                </a>
-            </div>
+            {{/if}}
+        {{/each}}
         </div>
     </section>
     {{/contains}}

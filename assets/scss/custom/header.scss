@@ -1,0 +1,31 @@
+.aus-logo {
+    display: none;
+}
+
+.is-au .has-gray-bg {
+    .header-logo {
+        display: none;
+    }
+    .header-logo.aus-logo,
+    .aus-logo .header-logo {
+        display: block;
+        max-width: 200px;        
+    }
+    background: #050485!important;
+    .dropdown-menu-item a {
+        color: #333;
+    }
+    a,
+    p {
+        color: #fff;
+    }
+    svg,
+    .st1 {
+        fill: #fff;
+        stroke: #fff;
+    }
+    .themevale_search-custom .form-field {
+        background-color: #fff!important;
+        border: 0;
+    }
+}

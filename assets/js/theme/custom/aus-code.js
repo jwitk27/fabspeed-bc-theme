@@ -1,4 +1,11 @@
 export default function () {
+
+    if ($('#aus-wholesale-tag').length) {
+        if (localStorage.getItem('country') === 'AU') {
+            $('#aus-wholesale-tag').val('AUSTRALIA CUSTOMER');
+        }
+    }
+
     (async function () {
         const AU = 'AU';
         const CURRENCY_ID_AU = 4;

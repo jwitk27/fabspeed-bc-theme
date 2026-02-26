@@ -2,7 +2,7 @@
     display: none;
 }
 
-.is-au .has-gray-bg {
+.is-au .themevale_header-middle {
     .header-logo {
         display: none;
     }
@@ -28,4 +28,22 @@
         background-color: #fff!important;
         border: 0;
     }
+}
+
+.is-au .themevale_header-Mobile {
+    background-color: #050485;
+    .icon {
+        fill: white;
+    }
+}
+
+.is-au .navUser-item2 {
+    background-color: #050485;
+    margin-top: -1px;
+}
+
+.is-au #leadtime2 {
+    background: none;
+    color: #fff;
+    text-shadow: none;
 }

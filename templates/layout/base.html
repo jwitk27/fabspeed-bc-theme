@@ -12,6 +12,15 @@
                     'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
         })(window, document, 'script', 'dataLayer', 'GTM-TT639GF');</script>
     <!-- End Google Tag Manager -->
+
+    <script>
+        (function() {
+            if (localStorage.getItem('country') === 'AU') {
+                document.documentElement.classList.add('is-au');
+            }
+        })();
+    </script>
+
     <title>{{ head.title }}</title>
     {{{ resourceHints }}}
     {{{ head.meta_tags }}}

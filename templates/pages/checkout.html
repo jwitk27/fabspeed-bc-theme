@@ -12,6 +12,63 @@
     li[data-test="cart-item-digital-product"] {
         display: none;
     }
+
+    #terms-modal {
+        position: fixed;
+        display: none;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+    }
+    
+    .terms-modal-content {
+        background-color: #fff;
+        border-radius: 3px;
+        text-align: center;
+        padding: 4rem 1rem 2rem;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        max-width: 450px;
+    }
+
+    .terms-modal-close {
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        font-weight: 800;
+        color: #999;
+        font-size: 19px;
+        cursor: pointer;
+    }
+
+    .terms-modal-agree {
+        margin: 0;
+        cursor: pointer;
+        font-weight: 700;
+        background-color: #d61e2d;
+        border: 0;
+        color: #fff;
+    }
+
+    .terms-modal-agree:hover {
+        background-color: #e22939;
+        color: #fff;
+    }
+
+    .terms-modal-text {
+        font-size: 16px;
+        margin-bottom: 1rem;
+    }
+
+    #checkout-app .checkout-steps .dynamic-form-field--field_60 {
+        display: none;
+    }
 </style>
 
 <script type="text/javascript">
@@ -39,6 +96,58 @@
 </header>
 
 {{{ checkout.checkout_content }}}
+
+<div id="terms-modal">
+    <div class="terms-modal-content">
+        <span class="terms-modal-close">x</span>
+        <p class="terms-modal-text">Have you read the <a href="/terms-and-conditions/">terms and conditions</a>?</p>
+        <span class="terms-modal-agree button">Yes</span>
+    </div>
+</div>
+
+<script>
+    let termsAgreed = false;
+
+    console.log(document.getElementById('field_49Input'));
+
+    document.querySelector('.terms-modal-close').addEventListener('click', () => {
+        termsAgreed = false;
+
+        const termsCheckbox = document.getElementById('terms');
+        if (termsCheckbox) {
+            termsCheckbox.checked = false;
+        }
+
+        document.getElementById('terms-modal').style.display = 'none';
+    });
+
+    document.querySelector('.terms-modal-agree').addEventListener('click', () => {
+        termsAgreed = true;
+        document.getElementById('field_49Input').innerText = document.getElementById('field_49Input').innerText + " / customer agreed to terms and conditions"
+        const termsCheckbox = document.getElementById('terms');
+        if (termsCheckbox) {
+            termsCheckbox.checked = true;
+        }
+
+        document.getElementById('terms-modal').style.display = 'none';
+    });
+
+    const terms = setInterval(() => {
+        const termsCheckbox = document.getElementById('terms');
+
+        if (termsCheckbox) {
+            termsCheckbox.addEventListener('click', (e) => {
+                if (!termsAgreed) {
+                    e.preventDefault();
+                    termsCheckbox.checked = false;
+                    document.getElementById('terms-modal').style.display = 'block';
+                }
+            });
+
+            clearInterval(terms);
+        }
+    }, 1000);
+</script>
 
 {{{ footer.scripts }}}
 

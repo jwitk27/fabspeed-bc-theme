@@ -19,9 +19,13 @@
                     
                     <div class="logo-wrapper">
                         <h1 class="header-logo aus-logo">
-                            <a href="/">
-                            <img class="header-logo" src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/image-manager/dealer-logo-aus.png?t=1771519873" alt="Custom Header Image">
-                            </a>
+                            {{#contains customer.customer_group_name "Wholesale"}}
+                                <a href="/">
+                                    <img class="header-logo" src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/image-manager/dealer-logo-aus.png?t=1771519873" alt="Custom Header Image">
+                                </a>
+                            {{else}}
+                                {{> components/common/store-logo}}
+                            {{/contains}}
                         </h1>
                         {{#if customer.customer_group_id '===' 21}}
                             <h1 class="header-logo">
@@ -147,9 +151,9 @@
     <div class="themevale_header-Mobile">
         {{> components/themevale/header/header-mobile}}
     </div>
-    <li class="navUser-item2">
+    <div class="navUser-item2">
         <a href="https://www.fabspeed.com/lead-time-products/">
         <span class="leadtime22" id="leadtime2">{{theme_settings.themevale_header-top-content}}</span>
         </a>
-    </li>
+    </div>
 </header>

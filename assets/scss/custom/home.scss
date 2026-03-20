@@ -11,3 +11,25 @@
 //     position: relative;
 //     height: 400px!important;
 // }
+
+.brand-title-wrapper,
+.brandsImage-slider {
+    display: none;
+    @media (min-width: 769px) {
+      display: block;
+    }
+}
+
+.brand-title-mobile {
+    margin: 0;
+    color: #fff;
+    @media (min-width: 769px) {
+      display: none;
+    }
+}
+
+.brand-disclaimer {
+    @media (max-width: 768px) {
+        margin: 0;
+    }
+}

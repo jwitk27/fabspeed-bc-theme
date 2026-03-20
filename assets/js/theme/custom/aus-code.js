@@ -1,23 +1,29 @@
 export default function () {
-
     if ($('#aus-wholesale-tag').length) {
         if (localStorage.getItem('country') === 'AU') {
             $('#aus-wholesale-tag').val('AUSTRALIA CUSTOMER');
         }
     }
-
+    
     (async function () {
         const AU = 'AU';
         const CURRENCY_ID_AU = 4;
         const STORAGE_KEY = 'country';
-
+        
         const country = localStorage.getItem(STORAGE_KEY);
-
+        
         const showAU = () => $('body').addClass('is-au');
         const showDefault = () => $('.wait-to-show').addClass('is-ready');
         // If we already know the country
         if (country) {
-            country === AU ? showAU() : showDefault();
+            if (country === AU) {
+                if (window.location.href.indexOf('become-a-dealer') > -1) {
+                    $('.page-heading').text('Become a Rennen Plus Dealer')
+                }
+                showAU();
+            } else {
+                showDefault();
+            }
             return;
         }
 

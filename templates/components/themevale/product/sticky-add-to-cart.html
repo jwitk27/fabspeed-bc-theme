@@ -57,7 +57,7 @@
                     </div>
                     {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
                         <div class="form-action">
-                            <input id="form-action-addToCart-2" data-wait-message="{{lang 'products.adding_to_cart'}}" class="button button--primary" type="submit" value="{{#if product.pre_order}}{{lang 'products.pre_order'}}{{else}}{{lang 'products.add_to_cart'}}{{/if}}">
+                            <input id="form-action-addToCart-2" data-wait-message="{{lang 'products.adding_to_cart'}}" class="button button--primary atc-button" type="submit" value="{{#if product.pre_order}}{{lang 'products.pre_order'}}{{else}}{{lang 'products.add_to_cart'}}{{/if}}">
 
                             {{#if product.options}}
                                 <a href="javascript:void(0)" class="button button--primary choose_options_add">

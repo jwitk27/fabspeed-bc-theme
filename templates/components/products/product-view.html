@@ -99,7 +99,7 @@
                 {{/if}}
                 <h1 class="productView-title" {{#if schema}}itemprop="name" {{/if}}>{{product.title}}</h1>
 
-                <a href="{{product.url}}#product-reviews">
+                <a class="review-link" href="{{product.url}}#product-reviews">
                     Reviews
                 </a>
                 {{> components/products/modals/writeReview}}
@@ -138,7 +138,7 @@
                 {{{region name="product_below_price"}}} {{product.detail_messages}}
                 <dl class="productView-info">
                     <dt class="productView-info-name">{{lang 'products.sku'}}</dt>
-                    <dd class="productView-info-value" data-product-sku>{{product.sku}}</dd>
+                    <dd class="productView-info-value productView-info-sku" data-product-sku>{{product.sku}}</dd>
                     {{#if product.upc}}
                     <dt class="productView-info-name">{{lang 'products.upc'}}</dt>
                     <dd class="productView-info-value" data-product-upc>{{product.upc}}</dd>
@@ -180,7 +180,7 @@
                     {{else}}
                     <dt class="productView-info-name">{{lang 'products.shipping'}}</dt>
                     <dd class="productView-info-value">{{lang 'products.shipping_fixed' amount=product.shipping.price.formatted}}</dd>
-                    {{/if}} {{/if}} {{/if}} {{#each product.custom_fields}} {{#and (if name '!=' 'warranty' ) (if name '!=' 'instruction')}} {{#and (if name '!=' 'countdown' ) (if name '!=' 'customlabel')}}
+                    {{/if}} {{/if}} {{/if}} {{#each product.custom_fields}} {{#and (if name '!=' 'warranty' ) (if name '!=' 'beforeafter' ) (if name '!=' 'instruction')}} {{#and (if name '!=' 'countdown' ) (if name '!=' 'customlabel')}}
                     <div class="product-specs">
                         <dt class="productView-info-name {{name}}">{{name}}:</dt>
                         <dd class="productView-info-value {{name}}">{{{value}}}</dd>
@@ -265,7 +265,7 @@
                     function updatePdpEdd() {
                         const eddEl  = document.getElementById('calculated-edd');   // 5 biz days
                         const edd2El = document.getElementById('calculated-edd2');  // 1 biz day
-                        console.log(eddEl);
+
                         if (eddEl && eddEl.dataset.updated !== 'true') {
                             eddEl.textContent = formatDate(addBusinessDays(new Date(), 5, holidays));
                             eddEl.dataset.updated = 'true';

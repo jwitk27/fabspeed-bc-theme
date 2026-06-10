@@ -108,45 +108,34 @@
 <script>
     let termsAgreed = false;
 
-    console.log(document.getElementById('field_49Input'));
-
-    document.querySelector('.terms-modal-close').addEventListener('click', () => {
+    document.querySelector('.terms-modal-close')?.addEventListener('click', () => {
         termsAgreed = false;
 
         const termsCheckbox = document.getElementById('terms');
-        if (termsCheckbox) {
-            termsCheckbox.checked = false;
-        }
+        if (termsCheckbox) termsCheckbox.checked = false;
 
         document.getElementById('terms-modal').style.display = 'none';
     });
 
-    document.querySelector('.terms-modal-agree').addEventListener('click', () => {
+    document.querySelector('.terms-modal-agree')?.addEventListener('click', () => {
         termsAgreed = true;
-        document.getElementById('field_49Input').innerText = document.getElementById('field_49Input').innerText + " / customer agreed to terms and conditions"
+
         const termsCheckbox = document.getElementById('terms');
-        if (termsCheckbox) {
-            termsCheckbox.checked = true;
-        }
+        if (termsCheckbox) termsCheckbox.checked = false;
 
         document.getElementById('terms-modal').style.display = 'none';
     });
 
-    const terms = setInterval(() => {
-        const termsCheckbox = document.getElementById('terms');
+    document.addEventListener('click', (e) => {
+        const termsCheckbox = e.target.closest('#terms');
+        if (!termsCheckbox) return;
 
-        if (termsCheckbox) {
-            termsCheckbox.addEventListener('click', (e) => {
-                if (!termsAgreed) {
-                    e.preventDefault();
-                    termsCheckbox.checked = false;
-                    document.getElementById('terms-modal').style.display = 'block';
-                }
-            });
-
-            clearInterval(terms);
+        if (!termsAgreed) {
+            e.preventDefault();
+            termsCheckbox.checked = false;
+            document.getElementById('terms-modal').style.display = 'block';
         }
-    }, 1000);
+    }, true);
 </script>
 
 {{{ footer.scripts }}}

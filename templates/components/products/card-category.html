@@ -37,7 +37,7 @@
                 data-event-type="product-click"
             {{/if}}
         >
-            <div class="card-img-container">
+            <div class="card-img-container {{#if images.length '>=' 2}}card-img-hover{{/if}}">
 
                 {{!-- MAIN IMAGE (400w) --}}
                 {{> components/common/responsive-img
@@ -216,27 +216,7 @@
                 </script>
             </div>
 
-            <div class="card-wrapper">
-                {{#if num_reviews '>' 0}}
-                    {{#if show_rating}}
-                        <p class="card-rating" data-test-info-type="productRating">
-                            <span class="rating--small">
-                                {{> components/products/ratings rating=rating}}
-                            </span>
-                            {{#if num_reviews}}
-                                <span class="number-review">({{num_reviews}})</span>
-                            {{/if}}
-                        </p>
-                    {{/if}}
-                {{else}}
-                    <p class="card-rating" data-test-info-type="productRating" style="visibility: hidden;">
-                        <span class="rating--small">★★★★★</span>
-                        <span class="number-review">(0)</span>
-                    </p>
-                {{/if}}
-            </div>
-
-            <div class="card-wrapper" style="height: 14px;">
+            <div class="card-wrapper card-price-wrapper" style="height: 14px;">
                 <div class="card-price" data-test-info-type="price">
                     {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
                         {{> components/products/price price=price}}

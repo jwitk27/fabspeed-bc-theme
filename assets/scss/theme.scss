@@ -87,8 +87,8 @@
 // 1. Stencil design layout files (example: Header or Footer).
 //
 // -----------------------------------------------------------------------------
-@import "custom/globals";
 @import "custom/variables";
+@import "custom/globals";
 @import "layouts/layouts"; // 1
 
 @import "vendor/jstree/style";
@@ -105,3 +105,4 @@
 @import "custom/product";
 @import "custom/category";
 @import "custom/coming-soon";
+@import "custom/dynograph";

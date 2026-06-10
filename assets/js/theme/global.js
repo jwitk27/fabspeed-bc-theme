@@ -41,6 +41,11 @@ import relatedProducts from "./custom/related-products";
 import scheduledSlides from "./custom/scheduled-slides";
 import backorder from "./custom/backorder";
 import stickyAddToCart from "./custom/stickyAddToCart";
+import customProductLogic from "./custom/custom-product-logic";
+import tabAlert from "./custom/tab-alert";
+import dynograph from "./custom/dynograph";
+import priceSlashing from "./custom/price-slashing";
+import analytics from "./custom/analytics";
 
 export default class Global extends PageManager {
     onReady() {
@@ -77,5 +82,10 @@ export default class Global extends PageManager {
         // relatedProducts();
         backorder();
         stickyAddToCart();
+        customProductLogic();
+        tabAlert();
+        dynograph();
+        priceSlashing();
+        analytics();
     }
 }

@@ -2,6 +2,7 @@
     <div class="toggle-title">
         <h4 class="page-heading">{{lang 'products.reviews.title'}}</h4>
         {{#if product.num_reviews '>' 0}}<span class="number-review">{{lang 'products.reviews.header' total=reviews.total}}</span>{{/if}}
+        <br class="line-break-mobile">
         <a class="write-review" href="#"
            {{#unless is_ajax }}data-reveal-id="modal-review-form"{{/unless}}>
            {{lang 'products.reviews.write_a_review'}}
@@ -17,7 +18,7 @@
         </a>
 
         {{#if product.num_reviews '<=' 0}}
-        <p style="margin-top: 5px;">
+        <p style="margin-top: 15px;">
             We're currently working to get more reviews for this product. In the meantime, please take a look at our reviews from other platforms.
         </p>
         {{/if}}

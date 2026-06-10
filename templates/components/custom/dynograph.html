@@ -1,0 +1,29 @@
+<script src="https://store-fh9wsjv2.mybigcommerce.com/content/dynograph/dynoTool.js"></script>
+
+<div class="dynograph-wrapper">
+    <p class="dyno-disclaimer">Note: Power and torque figures shown are from a specific vehicle at ambient conditions. Resulting figures will vary based on the vehicle and conditions.</p>
+    <div id="dynoGraph"
+    class="dynograph"
+    style="min-height: 670px; aspect-ratio: 4/3; position: relative;">
+            <canvas id="dynoCanvas" height="100%" width="100%" style="position: absolute;"></canvas>
+            <canvas id="dynoMouseCanvas" onmouseover="drawMouseInteraction()" height="100%" width="100%"
+                style="position: absolute"></canvas>
+        </div>
+</div>
+
+<!-- Dropdowns for the future -->
+
+<!-- <select onchange="dynoDataDropdown()" name="Car" id="dynoDropdown">
+    <optgroup label="C8 Corvette">
+        <option value="C8Intake">Air Intake</option>
+    </optgroup>
+    <optgroup label="G90 M5">
+        <option value="G90Tune">Tune</option>
+    </optgroup>
+    <optgroup label="McLaren 720S">
+        <option value="McLaren720SCats">Sport Cats</option>
+    </optgroup>
+    <optgroup label="Mercedes G63">
+        <option value="G63FullPerformance">Performance Package and Tune</option>
+    </optgroup>
+</select> -->

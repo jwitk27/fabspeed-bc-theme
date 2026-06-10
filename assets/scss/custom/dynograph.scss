@@ -1,0 +1,31 @@
+.themevale_productDescription .productView-description .tab-content.tab-dynograph-content,
+.tabs .tab-dynograph-content {
+    display: none;
+}
+
+.themevale_productDescription .productView-description .tab-content.tab-dynograph-content.show {
+    display: block;
+}
+
+.dynograph-wrapper,
+.tabs .tab-dynograph {
+    display: none;
+}
+
+.tabs .tab-dynograph.show {
+    display: inline-block;
+}
+
+.dynograph-wrapper.show {
+    display: block;
+}
+
+#dynoGraph {
+    margin-bottom: 3rem;
+}
+
+#tabDynograph-content {
+    @media (max-width: 1024px) {
+        overflow: scroll;
+    }
+}

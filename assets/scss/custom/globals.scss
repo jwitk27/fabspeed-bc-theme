@@ -1,5 +1,5 @@
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 iframe {
@@ -48,4 +48,14 @@ img[alt="ASV Seal"] {
   img[alt="ASV Seal"] {
     bottom: 5px;
   }
+}
+
+.line-break-mobile {
+  @media (min-width: 551px) {
+    display: none;
+  }
+}
+
+.fabspeed-red {
+  color: $fabspeed-red;
 }

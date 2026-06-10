@@ -116,10 +116,10 @@ export default class Category extends CatalogPage {
 
                                 // Inject Affirm markup
                                 const affirmMarkup = `
-                                    <p class="affirm-as-low-as" data-page-type="category" data-amount="${amount}"></p>
+                                    <div class="affirm-banner"><p class="affirm-as-low-as" data-page-type="category" data-amount="${amount}"></p></div>
                                 `;
 
-                                $prod.find('.card-actions').after(affirmMarkup);
+                                $prod.find('.card-price-wrapper').after(affirmMarkup);
                             });
 
                             if (window.affirm && affirm.ui && typeof affirm.ui.refresh === 'function') {

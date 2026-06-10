@@ -253,7 +253,7 @@ export default function () {
       const $carousel = $mount.find('.productCarousel');
       initSlickIfNeeded($carousel);
     } catch (e) {
-      // console.log(e);
+      console.log(e);
     }
   })();
 }

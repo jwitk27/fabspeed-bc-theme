@@ -1,8 +1,9 @@
 {{#partial "page"}}
 <div class="bulk-export-machine">
   <h1>Bulk Export Machine</h1>
-
-  <input type="file" id="bulk-export-machine-file" accept=".csv" />
+  <input type="file" id="bem-file" accept=".csv" />
+  <a class="button bem-download" id="download-price-list" style="display: none;">Download Price List</a>
+  <a class="button bem-download" id="download-bulk-export" style="display: none;">Download Bulk Export</a>
 </div>
 {{/partial}}
 {{> layout/base}}

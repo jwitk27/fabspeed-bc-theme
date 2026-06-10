@@ -47,3 +47,16 @@
     color: #fff;
     text-shadow: none;
 }
+
+#menu .navPages-item:not(.hasMegamenu) > .navPage-subMenu:not(.navPage-subMegaMenu) .navPage-subMenu-item-child:last-child .navPage-subMenu-action.red {
+    background-color: $fabspeed-red;
+    color: #fff;
+    border-radius: 0;
+    &:hover {
+        color: #fff;
+        background-color: $fabspeed-red-hover;
+        .text {
+            color: #fff;
+        }
+    }
+}

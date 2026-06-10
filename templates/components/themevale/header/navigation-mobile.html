@@ -53,7 +53,11 @@
                             <a class="navPage-subMenu-action navPages-action" href="/authorized-dealers-installers/"><span class="text">Find a Dealer</span></a>
                         </li>
                         <li class="navPage-subMenu-item-child navPages-action-end">
-                            <a class="navPage-subMenu-action navPages-action" href="/become-a-dealer/"><span class="text">Dealer Application</span></a>
+                            {{#contains customer.customer_group_name "Wholesale"}}
+                                <a class="navPage-subMenu-action navPages-action red" href="/wholesale-price-guide/"><span class="text">Wholesale Price Guide</span></a>
+                            {{else}}
+                                <a class="navPage-subMenu-action navPages-action" href="/become-a-dealer/"><span class="text">Dealer Application</span></a>
+                            {{/contains}}
                         </li>
                     </ul>
                 </div>

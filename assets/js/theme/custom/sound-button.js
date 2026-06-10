@@ -1,7 +1,7 @@
 export default function () {
     if ($('#playButton').length) {
         $('.productView-options').before(getPlayButtonClone('desktop'));
-        $('.productView-brand').before(getPlayButtonClone('mobile'));
+        $('.productView-product').before(getPlayButtonClone('mobile'));
     }
 
     function getPlayButtonClone(format) {

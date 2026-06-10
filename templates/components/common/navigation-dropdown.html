@@ -14,6 +14,11 @@
         </li>
         {{/if}}
         {{#each children}}
+            {{#if name '==' 'GiroDisc Brake Rotors & Pads'}}
+                <li class="navPage-subMenu-item-child navPages-action-end">
+                    <a class="navPage-subMenu-action navPages-action" href="/giftcertificates.php"><span class="text">{{lang 'common.gift_cert'}}</span></a>
+                </li>
+            {{/if}}
             {{#if children}}
                 <li class="navPage-subMenu-item-child">
                     <p class="navPage-subMenu-action navPages-action navPages-action-depth-max has-subMenu">
@@ -29,13 +34,11 @@
                     <a class="navPage-subMenu-action navPages-action" href="{{url}}"><span class="text">{{name}}</span></a>
                 </li>
             {{/if}}
+            {{#if name '==' 'FAQs'}}
+                <li class="navPage-subMenu-item-child navPages-action-end">
+                    <a class="navPage-subMenu-action navPages-action" href="/helical-valves/"><span class="text">Helical Valves</span></a>
+                </li>
+            {{/if}}
         {{/each}}
-        {{#if name '==' 'Additional Products'}}
-        <li class="navPage-submenu-item-child navPages-action-end">
-            <a class="navPage-subMenu-action navPages-action" href="{{urls.gift_certificate.purchase}}">
-                <span class="text">{{lang 'common.gift_cert'}}</span>
-            </a>
-        </li>
-        {{/if}}
     </ul>
 </div>

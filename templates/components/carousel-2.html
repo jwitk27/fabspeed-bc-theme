@@ -1,7 +1,7 @@
 <div class="heroCarousel-wrapper">
     {{#contains customer.customer_group_name "Wholesale"}}
     <!-- wholesale carousel -->
-    <section class="wholesale-carousel wait-to-show">
+    <section class="wholesale-carousel">
         <div class="custom-carousel" data-slick='{
                 "dots": true,
                 "arrows": true,
@@ -26,48 +26,10 @@
             </div>    
         </div>
     </section>
-
-    <!-- australia wholesale carousel -->
-    <section class="themevale_heroCarousel aus-content">
-        <div class="heroCarousel" data-slick='{
-                "dots": false,
-                "arrows": false,
-                "mobileFirst": true,
-                "slidesToShow": 1,
-                "slidesToScroll": 1,
-                "adaptiveHeight": true,
-                "lazyLoad": "anticipated",
-                "autoplaySpeed": 7000,
-                "autoplay": true,
-                "fade": true,
-                "nextArrow": "<svg class=&apos;slick-next slick-arrow&apos;><use xlink:href=&apos;#icon-slick-next&apos;></use></svg>", 
-                "prevArrow": "<svg class=&apos;slick-prev slick-arrow&apos;><use xlink:href=&apos;#icon-slick-prev&apos;></use></svg>",
-                "responsive": [
-                    {
-                        "breakpoint": 1100,
-                        "settings": {
-                            "dots": {{dots}},
-                            "arrows": {{arrows}}
-                        }
-                    }
-            ]}'>
-    
-            <div class="carousel-slide">
-                <img src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/image-manager/dealeraccess-banner-3.jpg?t=1740073835"
-                    alt="welcome" style="width: 100%; height: auto;">
-            </div>
-            <div class="carousel-slide">
-                <a href="https://www.fabspeed.com/who-we-are/">
-                    <img src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/carousel/920/WEB_Banner_WorldsBest_1.jpg?c=2"
-                        alt="best-performance-system" style="width: 100%; height: auto;">
-                </a>
-            </div>
-        </div>
-    </section>
     {{else}}
 
     <!-- retail carousel -->
-    <section class="themevale_heroCarousel wait-to-show">
+    <section class="themevale_heroCarousel">
         <div class="heroCarousel" data-slick='{
                 "dots": false,
                 "arrows": false,
@@ -90,133 +52,60 @@
                         }
                     }
             ]}'>
-
-            <!-- Scheduled Slide -->
-            <!-- <div class="carousel-slide scheduled-slide" data-start-time="02-11-2026" data-end-time="02-27-2026">
-                <a href="https://www.fabspeed.com/cobb-tuning/">
-                    <img src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/image-manager/web-banner-cobb-10off-feb.jpg?t=1770756973" alt="best-performance-system"
-                        style="width: 100%; height: auto;">
-                </a>
-            </div> -->
-        {{#each carousel.slides}}
-            {{#if button_text}}
-                <div data-hero-slide="{{@index}}">
-            {{else}}
-                <a href="{{url}}" data-hero-slide="{{@index}}" aria-label="{{#if this.alt_text.length '!=' 0}}{{this.alt_text}}{{/if}}">
-            {{/if}}
-                <div class="heroCarousel-slide {{#if ../theme_settings.homepage_stretch_carousel_images}}stretch{{/if}} {{#if @first}}heroCarousel-slide--first{{/if}}">
-                    {{#if button_text}}
-                    <a href="{{url}}" class="heroCarousel-image-wrapper">
-                    {{else}}
-                    <div class="heroCarousel-image-wrapper">
-                    {{/if}}
-                    {{#if @first}}
-                        {{> components/common/responsive-img
-                            image=stencil_image
-                            class="heroCarousel-image"
-                            fallback_size='1280w'
-                            lazyload='disabled'
-                        }}
-                    {{else}}
-                        {{> components/common/responsive-img
-                            image=stencil_image
-                            class="heroCarousel-image"
-                            fallback_size='1280w'
-                            lazyload='lazyload'
-                        }}
-                    {{/if}}
-                    {{#if button_text}}
-                    </a>
-                    {{else}}
-                    </div>
-                    {{/if}}
-                    {{#or heading text button_text}}
-                        {{> components/carousel-content}}
-                    {{/or}}
-                </div>
-            {{#if button_text}}
-                </div>
-            {{else}}
-                </a>
-            {{/if}}
-        {{/each}}
-    </section>
-
-    <!-- australia retail carousel -->
-    <section class="themevale_heroCarousel aus-content">
-        <div class="heroCarousel" data-slick='{
-                "dots": false,
-                "arrows": false,
-                "mobileFirst": true,
-                "slidesToShow": 1,
-                "slidesToScroll": 1,
-                "adaptiveHeight": true,
-                "lazyLoad": "anticipated",
-                "autoplaySpeed": 7000,
-                "autoplay": true,
-                "fade": true,
-                "nextArrow": "<svg class=&apos;slick-next slick-arrow&apos;><use xlink:href=&apos;#icon-slick-next&apos;></use></svg>", 
-                "prevArrow": "<svg class=&apos;slick-prev slick-arrow&apos;><use xlink:href=&apos;#icon-slick-prev&apos;></use></svg>",
-                "responsive": [
-                    {
-                        "breakpoint": 1100,
-                        "settings": {
-                            "dots": {{dots}},
-                            "arrows": {{arrows}}
-                        }
-                    }
-            ]}'>
-
-            <!-- Scheduled Slide -->
-            <!-- <div class="carousel-slide scheduled-slide" data-start-time="02-11-2026" data-end-time="02-27-2026">
-                <a href="https://www.fabspeed.com/cobb-tuning/">
-                    <img src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/image-manager/web-banner-cobb-10off-feb.jpg?t=1770756973" alt="best-performance-system"
-                        style="width: 100%; height: auto;">
-                </a>
-            </div> -->
             
-            {{#each carousel.slides}}
-            {{#if button_text}}
-                <div data-hero-slide="{{@index}}">
-            {{else}}
-                <a href="{{url}}" data-hero-slide="{{@index}}" aria-label="{{#if this.alt_text.length '!=' 0}}{{this.alt_text}}{{/if}}">
-            {{/if}}
-                <div class="heroCarousel-slide {{#if ../theme_settings.homepage_stretch_carousel_images}}stretch{{/if}} {{#if @first}}heroCarousel-slide--first{{/if}}">
-                    {{#if button_text}}
-                    <a href="{{url}}" class="heroCarousel-image-wrapper">
-                    {{else}}
-                    <div class="heroCarousel-image-wrapper">
-                    {{/if}}
-                    {{#if @first}}
-                        {{> components/common/responsive-img
-                            image=stencil_image
-                            class="heroCarousel-image"
-                            fallback_size='1280w'
-                            lazyload='disabled'
-                        }}
-                    {{else}}
-                        {{> components/common/responsive-img
-                            image=stencil_image
-                            class="heroCarousel-image"
-                            fallback_size='1280w'
-                            lazyload='lazyload'
-                        }}
-                    {{/if}}
-                    {{#if button_text}}
+            <!-- Scheduled slide -->
+            {{#if (moment format="YYYY-MM-DD") '<' (moment "May 27, 2026" format="YYYY-MM-DD")}}
+                <div class="heroCarousel-slide {{#if ../theme_settings.homepage_stretch_carousel_images}}stretch{{/if}}">
+                    <a href="https://www.fabspeed.com/additional-products/eventuri-intakes/" class="heroCarousel-image-wrapper">
+                        <div class="heroCarousel-image-wrapper">
+                            <img src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/1920w/carousel/979/WEB_Banner_EVENTURI_5_OFF.jpg?c=2" style="width: 100%; height: auto;">
+                        </div>
                     </a>
-                    {{else}}
-                    </div>
-                    {{/if}}
-                    {{#or heading text button_text}}
-                        {{> components/carousel-content}}
-                    {{/or}}
                 </div>
-            {{#if button_text}}
-                </div>
-            {{else}}
-                </a>
             {{/if}}
-        {{/each}}
+
+            {{#each carousel.slides}}
+                {{#if button_text}}
+                    <div data-hero-slide="{{@index}}">
+                {{else}}
+                    <a href="{{url}}" data-hero-slide="{{@index}}" aria-label="{{#if this.alt_text.length '!=' 0}}{{this.alt_text}}{{/if}}">
+                {{/if}}
+                    <div class="heroCarousel-slide {{#if ../theme_settings.homepage_stretch_carousel_images}}stretch{{/if}} {{#if @first}}heroCarousel-slide--first{{/if}}">
+                        {{#if button_text}}
+                        <a href="{{url}}" class="heroCarousel-image-wrapper">
+                        {{else}}
+                        <div class="heroCarousel-image-wrapper">
+                        {{/if}}
+                        {{#if @first}}
+                            {{> components/common/responsive-img
+                                image=stencil_image
+                                class="heroCarousel-image"
+                                fallback_size='1280w'
+                                lazyload='disabled'
+                            }}
+                        {{else}}
+                            {{> components/common/responsive-img
+                                image=stencil_image
+                                class="heroCarousel-image"
+                                fallback_size='1280w'
+                                lazyload='lazyload'
+                            }}
+                        {{/if}}
+                        {{#if button_text}}
+                        </a>
+                        {{else}}
+                        </div>
+                        {{/if}}
+                        {{#or heading text button_text}}
+                            {{> components/carousel-content}}
+                        {{/or}}
+                    </div>
+                {{#if button_text}}
+                    </div>
+                {{else}}
+                    </a>
+                {{/if}}
+            {{/each}}
         </div>
     </section>
     {{/contains}}

@@ -33,3 +33,9 @@
         margin: 0;
     }
 }
+
+#reset {
+    @media (max-width: 768px) {
+      display: none;
+    }
+}

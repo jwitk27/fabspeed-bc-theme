@@ -4,7 +4,10 @@
     "category": {},
     "page": {
       "bulk-export-machine.html": "/bulk-export-machine/",
-      "bfcm-supersale.html": "/bfcm-supersale/"
+      "bfcm-supersale.html": "/bfcm-supersale/",
+      "wholesale-price-guide.html": "/wholesale-price-guide/",
+      "customer-service-review.html": "/customer-service-review/",
+      "dealer-resources.html": "/dealer-resources/"
     },
     "product": {}
   },

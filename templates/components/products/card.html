@@ -97,20 +97,6 @@
         </h4>
 
         <div class="card-wrapper">
-            {{#if num_reviews '>' 0}}
-                {{#if show_rating}}
-                    <p class="card-rating" data-test-info-type="productRating">
-                        <span class="rating--small">
-                            {{> components/products/ratings rating=rating}}
-                        </span>
-                        {{#if num_reviews}}
-                            <span class="number-review">({{num_reviews}})</span>
-                        {{/if}}
-                    </p>
-                {{/if}}
-            {{else}}
-                <div style="display:block; width: 20px; background-color: rgb(224, 224, 224); height: 1px;"></div>
-            {{/if}}
 
             {{#if show_compare}}
                 <label class="card-compare" for="compare-{{id}}">

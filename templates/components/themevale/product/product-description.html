@@ -1,12 +1,16 @@
 <div class="themevale_productDescription">
     <div class="productView-description"{{#if schema}} itemprop="description"{{/if}}>
         <ul class="tabs tabs-custom-2" data-tab>
-            <li class="tab">
+            <li class="tab tab-description">
                 <a class="tab-title description-tab-title" href="#tab-description">{{lang 'products.description'}}</a>
             </li>
             
-            <li class="tab">
+            <li class="tab tab-shipping">
                 <a href="#tab-shipping" class="tab-title">{{theme_settings.products_tab-title-1}}</a>
+            </li>
+
+            <li class="tab tab-dynograph">
+                <a style="color:#b20000" href="#tab-dynograph" class="tab-title dynograph-init">DynoGraph</a>
             </li>
             
             {{#if product.warranty}}
@@ -60,6 +64,17 @@
                 </div>
             </div>
             {{/if}}
+            <div class="tab-content tab-dynograph-content" id="tab-dynograph">
+                <div class="toggle-title">
+                    <a class="toggleLink dynograph-init" data-collapsible href="#tabDynograph-content">
+                        <span style="color:#b20000" class="page-heading">DynoGraph</span>
+                        <svg class="icon"><use xlink:href="#icon-slick-next"/></svg>
+                    </a>
+                </div>
+                <div class="toggle-content" id="tabDynograph-content" aria-hidden="true">
+                    {{> components/custom/dynograph}}
+                </div>
+            </div>
             <div class="tab-content" id="tab-shipping">
                 <div class="toggle-title">
                     <a class="toggleLink" data-collapsible href="#tabShipping-content">
@@ -70,7 +85,7 @@
                 <div class="toggle-content" id="tabShipping-content" aria-hidden="false">
                     <h2>Returns Policy</h2>
 
-<p>To RETURN any system, product or merchandise you must contact us first for a Return Authorization (RA) Number. Special order and custom made systems, apparel, Carbon Fiber Wall Art, and other certain merchandise are NOT returnable. ALL SALES ARE FINAL. To return a Fabspeed Motorsport product an RA number must be requested and if granted the item(S) must be in original Fabspeed Motorsport sealed packaging. A copy of the original invoice and a brief explanation must accompany all returned items. You must follow our instructions for returning items carefully, or Fabspeed Motorsport reserves the right to charge a 25% restocking fee on any OPENED box or repackaged products. Customers are responsible for return shipping charges. If an order was shipped with a promotional “Free Shipping”, and the order is returned, we exclusively reserve the right to charge the customer or distributor for the cost of that original shipping and handling. If a Fabspeed Motorsport Performance package is ordered, and an individual component of that package is returned, Fabspeed Motorsport reserves the right to charge back the performance package discount along with any additionally offered discounts. Return shipped items DAMAGED in transit will RESULT in additional charges up to and including rejection of the competent. It is the customer’s responsibility to ship safely and properly. No returns accepted after 30 days from the invoice date. No credits will be given after 30 days from the invoice date.</p>
+<p>To RETURN any system, product or merchandise you must contact us first for a Return Authorization (RA) Number. Special order and custom made systems, apparel, Carbon Fiber Wall Art, and other certain merchandise are NOT returnable. ALL SALES ARE FINAL. To return a Fabspeed Motorsport product an RA number must be requested and if granted the item(S) must be in original Fabspeed Motorsport sealed packaging. A copy of the original invoice and a brief explanation must accompany all returned items. You must follow our instructions for returning items carefully, or Fabspeed Motorsport reserves the right to charge a 25% restocking fee on any box or repackaged products. Customers are responsible for return shipping charges. If an order was shipped with a promotional “Free Shipping”, and the order is returned, we exclusively reserve the right to charge the customer or distributor for the cost of that original shipping and handling. If a Fabspeed Motorsport Performance package is ordered, and an individual component of that package is returned, Fabspeed Motorsport reserves the right to charge back the performance package discount along with any additionally offered discounts. Return shipped items DAMAGED in transit will RESULT in additional charges up to and including rejection of the competent. It is the customer’s responsibility to ship safely and properly. No returns accepted after 30 days from the invoice date. No credits will be given after 30 days from the invoice date.</p>
 
 <p>To qualify for return, the product must be unused and remain in the original packaging, as well as match the current design and packaging for the product at the time of return. Sounds is subjective and therefore does not qualify for a return of a used product. See Sound Solution Guarantee to see if your product is covered.</p>
 
@@ -110,6 +125,10 @@
             </div>-->
         </div>
     </div>
+</div>
+
+{{> components/custom/before-after-image-slider}}
+
     {{#if product.related_products}}
     <div class="toggle productRelated" id="product-related" data-product-related data-sf-token="{{settings.storefront_api.token}}">
         <div class="toggle-title">
@@ -120,7 +139,6 @@
         </div>
     </div>
     {{/if}}
-</div>
 {{#all settings.show_product_reviews}}
     {{> components/products/reviews reviews=product.reviews product=product urls=urls}}
 {{/all}}

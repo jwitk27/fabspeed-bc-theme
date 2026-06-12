@@ -1,9 +1,31 @@
 {{#partial "page"}}
 <div class="bulk-export-machine">
   <h1>Bulk Export Machine</h1>
-  <input type="file" id="bem-file" accept=".csv" />
-  <a class="button bem-download" id="download-price-list" style="display: none;">Download Price List</a>
-  <a class="button bem-download" id="download-bulk-export" style="display: none;">Download Bulk Export</a>
+  <div class="bem-section">
+    <label class="bem-section-label" for="upload-price-list"><span style="color: #333;">Template:</span> Price List</label><br>
+    <p>This will take the Price List template export from bigcommerce and do the following</p>
+    <ul>
+      <li>Remove Item Type: Rule from product export - only need "products" and "skus"</li>
+      <li>Remove products + child skus where product visible value is 0</li>
+      <li>If exported skus are left blank, make them the same price as parent product (this is how it works in BigCommerce if a sku price is left blank)</li>
+      <li>Remove blank skus</li>
+      <li>Add a special note to the price list only</li>
+    </ul>
+    <input class="bem-section-input" type="file" id="upload-price-list" accept=".csv" />
+    <a class="button button--primary bem-download" id="download-price-list" style="display: none;">Download File</a>
+  </div>
+  <hr>
+  <div class="bem-section">
+    <label class="bem-section-label" for="upload-bulk-export"><span style="color: #333;">Template:</span> Bulk Edit - Wholesale Export</label><br>
+    <ul>
+      <li>Remove Item Type: Rule from product export - only need "products" and "skus"</li>
+      <li>Remove products + child skus where product visible value is 0</li>
+      <li>If exported skus are left blank, make them the same price as parent product (this is how it works in BigCommerce if a sku price is left blank)</li>
+      <li>Remove blank skus</li>
+    </ul>
+    <input class="bem-section-input" type="file" id="upload-bulk-export" accept=".csv" />
+    <a class="button button--primary bem-download" id="download-bulk-export" style="display: none;">Download File</a>
+  </div>
 </div>
 {{/partial}}
 {{> layout/base}}

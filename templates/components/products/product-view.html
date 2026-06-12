@@ -89,6 +89,18 @@
 
     <div class="themevale_productView-right">
         <div class="productView-details">
+            {{#each product.custom_fields}}
+                {{#if (toLowerCase name) '==' 'sound'}}
+                    <audio id="productAudio" src="https://store-fh9wsjv2.mybigcommerce.com/content/Sound/{{value}}.mp3"></audio>
+                {{/if}}
+            {{/each}}
+            {{#each product.custom_fields}}
+                {{#if (toLowerCase name) '==' 'sound'}}
+                    <button class="playButton mobile">
+                        <img style="max-width:20px;padding-bottom:2px;margin-right:2px;" src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/image-manager/speaker-white-icon.png"> SOUND PREVIEW
+                    </button>
+                {{/if}}
+            {{/each}}
             <div class="productView-product">
                 {{#if product.brand}}
                 <h2 class="productView-brand" {{#if schema}} itemprop="brand" itemscope itemtype="http://schema.org/Brand" {{/if}}>
@@ -180,7 +192,7 @@
                     {{else}}
                     <dt class="productView-info-name">{{lang 'products.shipping'}}</dt>
                     <dd class="productView-info-value">{{lang 'products.shipping_fixed' amount=product.shipping.price.formatted}}</dd>
-                    {{/if}} {{/if}} {{/if}} {{#each product.custom_fields}} {{#and (if name '!=' 'warranty' ) (if name '!=' 'beforeafter' ) (if name '!=' 'instruction')}} {{#and (if name '!=' 'countdown' ) (if name '!=' 'customlabel')}}
+                    {{/if}} {{/if}} {{/if}} {{#each product.custom_fields}} {{#and (if name '!=' 'warranty' ) (if name '!=' 'beforeafter' ) (if name '!=' 'instruction')}} {{#and (if name '!=' 'sound' ) (if name '!=' 'countdown' ) (if name '!=' 'customlabel')}}
                     <div class="product-specs">
                         <dt class="productView-info-name {{name}}">{{name}}:</dt>
                         <dd class="productView-info-value {{name}}">{{{value}}}</dd>
@@ -286,6 +298,13 @@
                 </script>
             </div>
 
+            {{#each product.custom_fields}}
+                {{#if (toLowerCase name) '==' 'sound'}}
+                    <button class="playButton desktop">
+                        <img style="max-width:20px;padding-bottom:2px;margin-right:2px;" src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/image-manager/speaker-white-icon.png"> SOUND PREVIEW
+                    </button>
+                {{/if}}
+            {{/each}}
             <div class="productView-options">
                 {{#if product.release_date }}
                 <p style="font-size: 1.5em; color: darkred;">{{product.release_date}}</p>

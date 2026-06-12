@@ -28,6 +28,19 @@
     }
 }
 
+.playButton.mobile {
+  @media (min-width: 801px) {
+    display: none;
+  }
+}
+
+.playButton.desktop {
+  display: none;
+  @media (min-width: 801px) {
+    display: block;
+  }
+}
+
 .productView-details .productView-info .productView-info-name.HP,
 .productView-details .productView-info .productView-info-name.TQ,
 .productView-details .productView-info .productView-info-name.WT,

@@ -41,7 +41,20 @@
                         <span class="text">{{lang 'products.click_zoom'}}</span>
                     </div>
                 </figure>
-                <ul class="productView-thumbnails">
+                <ul class="productView-thumbnails"{{#gt product.images.length 5}} data-slick='{
+                    "infinite": false,
+                    "mobileFirst": true,
+                    "dots": false,
+                    "accessibility": false,
+                    "slidesToShow": 5,
+                    "slidesToScroll": 5,
+                    "responsive": [
+                        {
+                        "breakpoint": 1024,
+                        "settings": "unslick"
+                        }
+                    ]
+                }'{{/gt}}>
                     {{#each product.images}}
                     <li class="productView-thumbnail">
                         <a class="productView-thumbnail-link" href="{{getImage this 'product_size' (cdn ../theme_settings.default_image_product)}}" data-reveal-id="video-gallery-pc-popup" data-image-gallery-item data-image-gallery-new-image-url="{{getImage this 'product_size' (cdn ../theme_settings.default_image_product)}}"
@@ -49,17 +62,18 @@
                             <img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="{{getImage this 'productview_thumb_size' (cdn ../theme_settings.default_image_product)}}" alt="{{this.alt}}" title="{{this.alt}}">
                         </a>
                     </li>
-                    {{/each}} {{#if product.videos}}
-                    <li class="productView-thumbnail-custom">
-                        <a class="video-link" href="javascript:void(0)" data-reveal-id="video-gallery-pc-popup" data-video-icon>
-                            <span class="icon"><img src="/product_images/uploaded_images/{{theme_settings.product_video-image}}" alt=""></span>
-                            <span class="text">{{theme_settings.product_video-text}}</span>
+                    {{/each}}
+                    {{#if product.videos.list.length}}
+                    <li class="productView-thumbnail productView-thumbnail-custom">
+                        <a class="productView-thumbnail-link" href="javascript:void(0);" data-reveal-id="video-gallery-popup">
+                            <img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.product_video-image}}" alt="">
                         </a>
+                        {{> components/themevale/product/video-gallery product.videos}}
                     </li>
-                    {{/if}} {{> components/themevale/product/customfields-instruction-warranty}}
+                    {{/if}}
                 </ul>
             </div>
-            <div class="themevale_productViewImage themevale_productViewImage-mobile" data-image-gallery-mobile>
+            <!-- <div class="themevale_productViewImage themevale_productViewImage-mobile" data-image-gallery-mobile>
                 <div class="productView-image-mobile">
                     {{#each product.images}}
                     <figure class="productView-image" data-image-gallery-main data-fancybox="images" href="{{getImage this 'zoom_size' (cdn ../theme_settings.default_image_product)}}" data-zoom-image="{{getImage this 'zoom_size' (cdn theme_settings.default_image_product)}}">
@@ -83,7 +97,7 @@
                     </li>
                     {{/if}} {{> components/themevale/product/customfields-instruction-warranty}}
                 </ul>
-            </div>
+            </div> -->
         </div>
     </div>
 

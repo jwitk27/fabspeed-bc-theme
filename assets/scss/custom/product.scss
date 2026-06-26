@@ -1,31 +1,31 @@
 .productView-info {
-    margin-bottom: 12px;
+  margin-bottom: 12px;
 }
 
 #afffirm-promo-box {
-    max-height: 30px;
+  max-height: 30px;
 }
 
 .productView-details .productView-product {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .playButton {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-    font-family: "Rajdhani", Arial, Helvetica, sans-serif;
-    margin-bottom: 1rem;
-    width: 100%;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: "Rajdhani", Arial, Helvetica, sans-serif;
+  margin-bottom: 1rem;
+  width: 100%;
 
-    @media (min-width: 551px) {
-        width: 285px;
-    }
+  @media (min-width: 551px) {
+    width: 285px;
+  }
 }
 
 .playButton.mobile {
@@ -36,6 +36,7 @@
 
 .playButton.desktop {
   display: none;
+
   @media (min-width: 801px) {
     display: block;
   }
@@ -47,77 +48,82 @@
 .productView-details .productView-info .productView-info-value.HP,
 .productView-details .productView-info .productView-info-value.TQ,
 .productView-details .productView-info .productView-info-value.WT {
-    @media (max-width: 552px) {
-        width: 50%;
-    }
+  @media (max-width: 552px) {
+    width: 50%;
+  }
 }
 
 .product-specs {
-    @media (max-width: 552px) {
-        width: 70%;
-        margin: 0 auto;
-    }
+  @media (max-width: 552px) {
+    width: 70%;
+    margin: 0 auto;
+  }
 }
 
 .productView-details .edd2,
 .productView-details .card-shipping-date {
-    width: 70%;
-    margin: 0 auto;
-    @media (min-width: 551px) {
-      width: 285px;
-      margin: 0;
-    }
+  width: 70%;
+  margin: 0 auto;
+
+  @media (min-width: 551px) {
+    width: 285px;
+    margin: 0;
+  }
 }
 
 .productView-description {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .sound-button.desktop {
-    display: none !important;
-    @media (min-width: 801px) {
-        display: block !important;
-    }
+  display: none !important;
+
+  @media (min-width: 801px) {
+    display: block !important;
+  }
 }
 
 .sound-button.mobile {
-    @media (min-width: 801px) {
-        display: none !important;
-    }
+  @media (min-width: 801px) {
+    display: none !important;
+  }
 }
 
 #form-action-addToCart {
-    transition: 0s width;
+  transition: 0s width;
 }
 
 #form-action-addToCart.sticky {
-    @media (max-width: 767px) {
-        width: 50%;
-        position: fixed;
-        bottom: 17px;
-        z-index: 999;
-        box-shadow: 1px 1px 5px 1px #333;
-    }
-    @media (max-width: 551px) {
-        width: 70%;
-    }
+  @media (max-width: 767px) {
+    width: 50%;
+    position: fixed;
+    bottom: 17px;
+    z-index: 999;
+    box-shadow: 1px 1px 5px 1px #333;
+  }
+
+  @media (max-width: 551px) {
+    width: 70%;
+  }
 }
 
 .review-link {
-    padding: 3px 5px;
-    border-radius: 1px;
-    background-color: $fabspeed-red;
+  padding: 3px 5px;
+  border-radius: 1px;
+  background-color: $fabspeed-red;
+  color: #fff;
+
+  &:hover {
     color: #fff;
-    &:hover {
-        color: #fff;
-    }
+  }
 }
 
 .productReviews .write-review {
-    margin: 0;
-    @media (min-width: 551px) {
-      margin: 1rem;
-    }
+  margin: 0;
+
+  @media (min-width: 551px) {
+    margin: 1rem;
+  }
 }
 
 // Image Comparison Slider
@@ -164,7 +170,7 @@ body {
 
 .image-comparison__range {
   @media (hover) {
-    &:hover ~ .image-comparison__slider .image-comparison__thumb {
+    &:hover~.image-comparison__slider .image-comparison__thumb {
       transform: scale(1.2);
     }
   }
@@ -174,7 +180,7 @@ body {
 .image-comparison .image-comparison__slider-wrapper .image-comparison__range:active,
 .image-comparison .image-comparison__slider-wrapper .image-comparison__range:focus,
 .image-comparison .image-comparison__slider-wrapper .image-comparison__range--active {
-  ~ .image-comparison__slider .image-comparison__thumb {
+  ~.image-comparison__slider .image-comparison__thumb {
     transform: scale(0.8);
     background-color: rgba(#fff, 0.5);
   }
@@ -191,7 +197,7 @@ body {
 
 .image-comparison__figure {
   margin: 0;
-  
+
   &::before {
     content: '';
     position: absolute;
@@ -233,7 +239,7 @@ body {
   color: $base-light;
   font-weight: bold;
   text-transform: uppercase;
-  
+
   @media screen and (max-width: 40.063em) {
     font-size: 12px;
   }
@@ -336,6 +342,7 @@ body {
 
 .productReviews .page-heading {
   margin-right: 5px;
+
   @media (max-width: 550px) {
     margin-top: 15px;
     margin-bottom: 5px;
@@ -362,4 +369,8 @@ body.noscroll {
 
 .customer-service-review-submit {
   display: block;
+}
+
+.slick-arrow.slick-disabled {
+  display: none;
 }

@@ -405,7 +405,6 @@
 
 .themevale_productViewImage {
     font-size: 0;
-    display: none;
     .productView-thumbnails {
         margin: 0;
         display: block;
@@ -441,9 +440,6 @@
                 }
             }
         }
-    }
-    >.productView-image {
-        display: none;
     }
     @media (min-width: 1025px) {
         display: flex;

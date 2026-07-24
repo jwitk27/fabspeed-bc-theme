@@ -43,3 +43,61 @@
 .heroCarousel {
     aspect-ratio: 16/5;
 }
+
+.heroCarousel-desktop-image {
+    display: none;
+    @media (min-width: 551px) {
+      display: block;
+    }
+}
+
+.heroCarousel-mobile-image {
+    @media (min-width: 551px) {
+      display: none;
+    }
+}
+
+.lead-time-link {
+    position: relative;
+    flex-grow: 1;
+    height: 15px;
+    display: none;
+}
+
+.lead-time-link.mobile {
+    display: block;
+}
+
+.lead-time-text {
+    opacity: 0;
+    transition: .75s all ease;
+    transform: translate(-50%, 15px);
+    position: absolute;
+    top: 2px;
+    left: 50%;
+    font-weight: 600;
+}
+
+.lead-time-link.mobile .lead-time-text {
+    top: -7px;
+}
+
+.lead-time-text.show {
+    opacity: 1;
+    transform: translate(-50%, 0);
+    position: absolute;
+}
+
+.lead-time-text.exit {
+    transform: translate(-50%, -15px);
+}
+
+@media (min-width: 1025px) {
+  .lead-time-link {
+    display: block;
+  }
+
+  .lead-time-link.mobile {
+    display: none;
+  }
+}

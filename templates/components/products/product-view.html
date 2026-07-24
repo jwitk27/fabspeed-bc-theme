@@ -23,7 +23,7 @@
                 {{/if}}
             </div>
             <div class="themevale_productViewImage zoom-image" data-image-gallery>
-                <figure class="productView-image" data-image-gallery-main {{#if product.main_image}}data-zoom-image="{{getImage product.main_image 'zoom_size' (cdn theme_settings.default_image_product)}}" {{/if}}>
+                <figure class="productView-image productView-image-desktop" data-image-gallery-main {{#if product.main_image}}data-zoom-image="{{getImage product.main_image 'zoom_size' (cdn theme_settings.default_image_product)}}" {{/if}}>
                     <div class="productView-img-container">
                         {{#if product.main_image}}
                         <a href="{{getImage product.main_image 'zoom_size' (cdn theme_settings.default_image_product)}}" data-reveal-id="video-gallery-pc-popup">
@@ -41,20 +41,7 @@
                         <span class="text">{{lang 'products.click_zoom'}}</span>
                     </div>
                 </figure>
-                <ul class="productView-thumbnails"{{#gt product.images.length 5}} data-slick='{
-                    "infinite": false,
-                    "mobileFirst": true,
-                    "dots": false,
-                    "accessibility": false,
-                    "slidesToShow": 5,
-                    "slidesToScroll": 5,
-                    "responsive": [
-                        {
-                        "breakpoint": 1024,
-                        "settings": "unslick"
-                        }
-                    ]
-                }'{{/gt}}>
+                <ul class="productView-thumbnails productView-image-desktop">
                     {{#each product.images}}
                     <li class="productView-thumbnail">
                         <a class="productView-thumbnail-link" href="{{getImage this 'product_size' (cdn ../theme_settings.default_image_product)}}" data-reveal-id="video-gallery-pc-popup" data-image-gallery-item data-image-gallery-new-image-url="{{getImage this 'product_size' (cdn ../theme_settings.default_image_product)}}"
@@ -62,16 +49,40 @@
                             <img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="{{getImage this 'productview_thumb_size' (cdn ../theme_settings.default_image_product)}}" alt="{{this.alt}}" title="{{this.alt}}">
                         </a>
                     </li>
-                    {{/each}}
-                    {{#if product.videos.list.length}}
-                    <li class="productView-thumbnail productView-thumbnail-custom">
-                        <a class="productView-thumbnail-link" href="javascript:void(0);" data-reveal-id="video-gallery-popup">
-                            <img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.product_video-image}}" alt="">
+                    {{/each}} {{#if product.videos}}
+                    <li class="productView-thumbnail-custom">
+                        <a class="video-link" href="javascript:void(0)" data-reveal-id="video-gallery-pc-popup" data-video-icon>
+                            <span class="icon"><img src="/product_images/uploaded_images/{{theme_settings.product_video-image}}" alt=""></span>
+                            <span class="text">{{theme_settings.product_video-text}}</span>
                         </a>
-                        {{> components/themevale/product/video-gallery product.videos}}
                     </li>
-                    {{/if}}
+                    {{/if}} {{> components/themevale/product/customfields-instruction-warranty}}
                 </ul>
+                <div class="themevale_productViewImage themevale_productViewImage-mobile" data-image-gallery-mobile>
+                    <div class="productView-image-mobile">
+                        {{#each product.images}}
+                        <figure class="productView-image" data-image-gallery-main data-fancybox="images" href="{{getImage this 'zoom_size' (cdn ../theme_settings.default_image_product)}}" data-zoom-image="{{getImage this 'zoom_size' (cdn theme_settings.default_image_product)}}">
+                            <div class="productView-img-container">
+                                <a href="{{getImage this 'zoom_size' (cdn theme_settings.default_image_product)}}">
+                                    <img class="productView-image--default lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="{{getImage this 'product_size' (cdn theme_settings.default_image_product)}}" alt="{{product.main_image.alt}}" title="{{product.main_image.alt}}"
+                                        data-main-image>
+                                </a>
+                            </div>
+                        </figure>
+                        {{/each}}
+                    </div>
+                    <ul class="productView-thumbnails-mobile">
+                        {{#if product.videos.list.length}}
+                        <li class="productView-thumbnail-custom">
+                            <a class="video-link" href="javascript:void(0);" data-reveal-id="video-gallery-popup">
+                                <span class="icon"><img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.product_video-image}}" alt=""></span>
+                                <span class="text">{{theme_settings.product_video-text}}</span>
+                            </a>
+                            {{> components/themevale/product/video-gallery product.videos}}
+                        </li>
+                        {{/if}} {{> components/themevale/product/customfields-instruction-warranty}}
+                    </ul>
+                </div>
             </div>
             <!-- <div class="themevale_productViewImage themevale_productViewImage-mobile" data-image-gallery-mobile>
                 <div class="productView-image-mobile">
@@ -105,14 +116,28 @@
         <div class="productView-details">
             {{#each product.custom_fields}}
                 {{#if (toLowerCase name) '==' 'sound'}}
-                    <audio id="productAudio" src="https://store-fh9wsjv2.mybigcommerce.com/content/Sound/{{value}}.mp3"></audio>
-                {{/if}}
-            {{/each}}
-            {{#each product.custom_fields}}
-                {{#if (toLowerCase name) '==' 'sound'}}
+                    <audio class="productAudio" src="https://store-fh9wsjv2.mybigcommerce.com/content/Sound/{{value}}.mp3"></audio>
                     <button class="playButton mobile">
                         <img style="max-width:20px;padding-bottom:2px;margin-right:2px;" src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/image-manager/speaker-white-icon.png"> SOUND PREVIEW
                     </button>
+                {{/if}}
+            {{/each}}
+            {{#each product.custom_fields}}
+                {{#if (toLowerCase name) '==' 'sound-stock'}}
+                <div class="compare-sound">
+                    <audio class="productAudio" src="https://store-fh9wsjv2.mybigcommerce.com/content/Sound/{{value}}.mp3"></audio>
+                    <button class="playButton mobile stock">
+                        <img style="max-width:20px;padding-bottom:2px;margin-right:2px;" src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/image-manager/speaker-white-icon.png"> STOCK
+                    </button>
+                {{/if}}
+            {{/each}}
+            {{#each product.custom_fields}}
+                {{#if (toLowerCase name) '==' 'sound-modded'}}
+                    <audio class="productAudio" src="https://store-fh9wsjv2.mybigcommerce.com/content/Sound/{{value}}.mp3"></audio>
+                    <button class="playButton mobile modded">
+                        <img style="max-width:20px;padding-bottom:2px;margin-right:2px;" src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/image-manager/speaker-white-icon.png"> FABSPEED
+                    </button>
+                </div>
                 {{/if}}
             {{/each}}
             <div class="productView-product">
@@ -206,12 +231,31 @@
                     {{else}}
                     <dt class="productView-info-name">{{lang 'products.shipping'}}</dt>
                     <dd class="productView-info-value">{{lang 'products.shipping_fixed' amount=product.shipping.price.formatted}}</dd>
-                    {{/if}} {{/if}} {{/if}} {{#each product.custom_fields}} {{#and (if name '!=' 'warranty' ) (if name '!=' 'beforeafter' ) (if name '!=' 'instruction')}} {{#and (if name '!=' 'sound' ) (if name '!=' 'countdown' ) (if name '!=' 'customlabel')}}
+                    {{/if}} {{/if}} {{/if}}
+                    {{#each product.custom_fields}}
+                    {{#if name '==' 'HP'}}
                     <div class="product-specs">
-                        <dt class="productView-info-name {{name}}">{{name}}:</dt>
+                        <dt class="productView-info-name {{name}}">HP:</dt>
                         <dd class="productView-info-value {{name}}">{{{value}}}</dd>
                     </div>
-                    {{/and}} {{/and}} {{/each}}
+                    {{/if}}
+                    {{#if name '==' 'TQ'}}
+                    <div class="product-specs">
+                        <dt class="productView-info-name {{name}}">TQ:</dt>
+                        <dd class="productView-info-value {{name}}">{{{value}}}</dd>
+                    </div>
+                    {{/if}}
+                    {{#if name '==' 'WT'}}
+                    <div class="product-specs">
+                        <dt class="productView-info-name {{name}}">WT:</dt>
+                        <dd class="productView-info-value {{name}}">{{{value}}}</dd>
+                    </div>
+                    {{/if}}
+                    {{#if name '==' 'fbt-product'}}
+                    <dt class="productView-info-name {{name}}">{{name}}:</dt>
+                    <dd class="productView-info-value {{name}}">{{{value}}}</dd>
+                    {{/if}}
+                    {{/each}}
                     <div class="productView-info-bulkPricing">
                         {{> components/products/bulk-discount-rates bulk_discount_rates=product.bulk_discount_rates}}
                     </div>
@@ -314,9 +358,24 @@
 
             {{#each product.custom_fields}}
                 {{#if (toLowerCase name) '==' 'sound'}}
+                    <audio class="productAudio" src="https://store-fh9wsjv2.mybigcommerce.com/content/Sound/{{value}}.mp3"></audio>
                     <button class="playButton desktop">
                         <img style="max-width:20px;padding-bottom:2px;margin-right:2px;" src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/image-manager/speaker-white-icon.png"> SOUND PREVIEW
                     </button>
+                {{/if}}
+                {{#if (toLowerCase name) '==' 'sound-stock'}}
+                <div class="compare-sound">
+                    <audio class="productAudio" src="https://store-fh9wsjv2.mybigcommerce.com/content/Sound/{{value}}.mp3"></audio>
+                    <button class="playButton desktop stock">
+                        <img style="max-width:20px;padding-bottom:2px;margin-right:2px;" src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/image-manager/speaker-white-icon.png"> STOCK
+                    </button>
+                {{/if}}
+                {{#if (toLowerCase name) '==' 'sound-modded'}}
+                    <audio class="productAudio" src="https://store-fh9wsjv2.mybigcommerce.com/content/Sound/{{value}}.mp3"></audio>
+                    <button class="playButton desktop modded">
+                        <img style="max-width:20px;padding-bottom:2px;margin-right:2px;" src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/image-manager/speaker-white-icon.png"> FABSPEED
+                    </button>
+                </div>
                 {{/if}}
             {{/each}}
             <div class="productView-options">

@@ -1,10 +1,5 @@
 {{#each product.custom_fields}}
 {{#if name '===' 'beforeafter'}}
-{{#or (if ../id '==' '51542') (if ../id '==' '51347')}}
-<h2>A Peak Behind the Curtains</h2>
-{{else}}
-<h2>Compare OEM vs <span class="fabspeed-red">Fabspeed</span></h2>
-{{/or}}
 <section class="image-comparison" data-component="image-comparison-slider">
     <div class="image-comparison__slider-wrapper">
         <label for="image-comparison-range" class="image-comparison__label">Move image comparison slider</label>
@@ -18,13 +13,6 @@
                     <img src="https://store-fh9wsjv2.mybigcommerce.com/content/images/before-after-slider-images/{{value}}-OEM.jpg"
                         alt="oem part" class="image-comparison__image">
                 </picture>
-
-                <figcaption class="image-comparison__caption image-comparison__caption--before">
-                    {{#or (if ../id '==' '51542') (if ../id '==' '51347')}}
-                    {{else}}
-                    <span class="image-comparison__caption-body">OEM</span>
-                    {{/or}}
-                </figcaption>
             </figure>
         </div>
 
@@ -47,13 +35,6 @@
                     <img src="https://store-fh9wsjv2.mybigcommerce.com/content/images/before-after-slider-images/{{value}}-FAB.jpg"
                         alt="fabspeed part" class="image-comparison__image">
                 </picture>
-
-                <figcaption class="image-comparison__caption image-comparison__caption--after">
-                    {{#or (if ../id '==' '51542') (if ../id '==' '51347')}}
-                    {{else}}
-                    <span class="image-comparison__caption-body">FABSPEED</span>
-                    {{/or}}
-                </figcaption>
             </figure>
         </div>
     </div>

@@ -1,0 +1,96 @@
+<li class="product">
+    <article
+    data-categories="{{#if category}}{{join category '/'}}{{/if}}" class="card {{#if alternate}}card--alternate{{/if}}"
+    data-product-id="{{id}}"
+    {{#if settings.data_tag_enabled}}
+        data-event-type="{{event}}"
+        data-entity-id="{{id}}"
+        data-position="{{position}}"
+        data-name="{{name}}"
+        data-product-category="{{#each category}}{{#if @last}}{{this}}{{else}}{{this}}, {{/if}}{{/each}}"
+        data-product-brand="{{brand.name}}"
+        data-product-price="{{#if price.with_tax}}{{price.with_tax.value}}{{else}}{{price.without_tax.value}}{{/if}}"
+    {{/if}}
+>
+    <figure class="card-figure">
+
+        <a href="{{product.url}}" class="product_img_link"
+            {{#if settings.data_tag_enabled}}
+                data-event-type="product-click"
+            {{/if}}
+        >
+            <div class="card-img-container {{#if product.images.length '>=' 2}}card-img-hover{{/if}}">
+
+                {{!-- MAIN IMAGE (400w) --}}
+                {{> components/common/responsive-img
+                    image=product.main_image
+                    fallback_size="400w"
+                    lazyload="lazyload"
+                    class="card-image"
+                }}
+
+                {{!-- HOVER / SECOND IMAGE (400w) --}}
+                {{#if product.images.length '>=' 2}}
+                    {{#each product.images}}
+                        {{#if @index '==' 1}}
+                            <span class="product-additional" data-product-id="">
+                                {{> components/common/responsive-img
+                                    image=this
+                                    fallback_size="400w"
+                                    lazyload="lazyload"
+                                    class="replace-2x img-responsive"
+                                }}
+                            </span>
+                        {{/if}}
+                    {{/each}}
+                {{/if}}
+
+            </div>
+        </a>
+
+        <div class="card-figcaption">
+            {{#unless product.hide_product_quick_view}}
+                {{#if product.theme_settings.show_product_quick_view}}
+                    {{#unless product.demo}}
+                        {{#if settings.data_tag_enabled}}
+                            <a class="card-button-quickview quickview" data-event-type="product-click" data-product-id="{{id}}">{{lang 'products.quick_view'}}</a>
+                        {{else}}
+                            <a class="card-button-quickview quickview" data-product-id="{{id}}">{{lang 'products.quick_view'}}</a>
+                        {{/if}}
+                    {{/unless}}
+                {{/if}}
+            {{/unless}}
+        </div>
+    </figure>
+    <div class="card-body">
+        <div class="card-detail">
+
+            <h4 class="card-title">
+                <a href="{{url}}" {{#if settings.data_tag_enabled}} data-event-type="product-click" {{/if}}>{{product.title}}</a>
+            </h4>
+
+            <div class="card-wrapper card-price-wrapper" style="height: 14px;">
+                <div class="card-price" data-test-info-type="price">
+                    {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+                        {{> components/products/price price=product.price}}
+                    {{else}}
+                        {{> components/common/login-for-pricing}}
+                    {{/or}}
+                </div>
+
+                {{#if product.show_wishlist}}
+                    <div class="card-wishlist">
+                        <a href="/wishlist.php?action=add&product_id={{id}}" class="card-button-wishlist" title="{{lang 'account.wishlists.add_item'}}">
+                            <svg class="icon"><use xlink:href="#icon-heart"/></svg>
+                        </a>
+                    </div>
+                {{/if}}
+            </div>
+        </div>
+
+        <div style="margin-top: 10px; color: #0070ff; font-size: 17px;" class="shipping-eligibility">
+
+        </div>
+    </div>
+    </article>
+</li>

@@ -1,7 +1,10 @@
 export default function () {
     $('.playButton').each((i, el) => {
         $(el).on('click', () => {
-            $('#productAudio')[0].play();
+            $('.productAudio').each((i, el) => {
+                $(el)[0].pause();
+            });
+            $(el).prev()[0].play();
         });
     });
 }

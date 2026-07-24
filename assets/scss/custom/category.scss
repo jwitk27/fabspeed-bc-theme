@@ -44,3 +44,19 @@
 .card-actions {
     display: none;
 }
+
+.card-title {
+    margin-bottom: 10px;
+}
+
+.affirm-banner {
+    margin-top: 10px;
+}
+
+.card-body .card-wrapper + .card-wrapper {
+    margin-top: 10px;
+}
+
+.productGrid .card-title {
+    min-height: 0;
+}

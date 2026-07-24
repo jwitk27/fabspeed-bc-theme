@@ -374,3 +374,36 @@ body.noscroll {
 .slick-arrow.slick-disabled {
   display: none;
 }
+
+.compare-sound {
+  display: flex;
+  margin-bottom: 1rem;
+  width: 100%;
+  .playButton {
+    width: 140px;
+    width: 50%;
+  }
+}
+
+.playButton.stock {
+  background-color: #898989;
+}
+
+.playButton.modded {
+  background-color: #0ae70a;
+  margin-left: 5px;
+}
+
+.productView-images .productView-image-desktop {
+  display: none;
+  @media (min-width: 1025px) {
+    display: block;
+  }
+}
+
+.themevale_productViewImage-mobile {
+  display: block;
+  @media (min-width: 1025px) {
+    display: none;
+  }
+}

@@ -37,7 +37,6 @@ import equalizeHeights from "./custom/equalizeHeights";
 import ausCode from "./custom/aus-code";
 import categoryDescriptions from "./custom/category-descriptions";
 import clickDescriptionTab from "./custom/click-description-tab";
-import relatedProducts from "./custom/related-products";
 import scheduledSlides from "./custom/scheduled-slides";
 import backorder from "./custom/backorder";
 import stickyAddToCart from "./custom/stickyAddToCart";
@@ -46,6 +45,8 @@ import tabAlert from "./custom/tab-alert";
 import dynograph from "./custom/dynograph";
 import priceSlashing from "./custom/price-slashing";
 import analytics from "./custom/analytics";
+import promoProductListing from "./custom/promo-product-listing";
+import leadTimeText from "./custom/lead-time-text";
 
 export default class Global extends PageManager {
     onReady() {
@@ -75,11 +76,10 @@ export default class Global extends PageManager {
         themevale_RecentlyBought(this.context);
 
         categoryDescriptions();
-        equalizeHeights([]);
+        equalizeHeights(['.card-title', '.card-wrapper']);
         clickDescriptionTab();
         soundButton();
         bulkExportMachine();
-        // relatedProducts();
         backorder();
         stickyAddToCart();
         customProductLogic();
@@ -87,5 +87,7 @@ export default class Global extends PageManager {
         dynograph();
         priceSlashing();
         analytics();
+        promoProductListing();
+        leadTimeText();
     }
 }

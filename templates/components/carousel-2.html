@@ -1,3 +1,5 @@
+<div style="display: none;">{{moment "now New York" "X"}}</div>
+<div style="display: none;">{{moment "July 14, 2026 10:00PM" "X"}}</div>
 <div class="heroCarousel-wrapper">
     {{#contains customer.customer_group_name "Wholesale"}}
     <!-- wholesale carousel -->
@@ -53,12 +55,12 @@
                     }
             ]}'>
             
-            <!-- Scheduled slide -->
-            {{#if (moment format="YYYY-MM-DD") '<' (moment "May 27, 2026" format="YYYY-MM-DD")}}
+            <!-- Scheduled slides -->
+            {{#if (moment "now" "X") '<=' (moment "July 14, 2026 10:00PM" "X")}}
                 <div class="heroCarousel-slide {{#if ../theme_settings.homepage_stretch_carousel_images}}stretch{{/if}}">
-                    <a href="https://www.fabspeed.com/additional-products/eventuri-intakes/" class="heroCarousel-image-wrapper">
+                    <a href="https://www.fabspeed.com/4th-of-july-sale/" class="heroCarousel-image-wrapper">
                         <div class="heroCarousel-image-wrapper">
-                            <img src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/1920w/carousel/979/WEB_Banner_EVENTURI_5_OFF.jpg?c=2" style="width: 100%; height: auto;">
+                            <img src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/image-manager/2026-july4th-carousel-banner.jpg?t=1783098969" style="width: 100%; height: auto;">
                         </div>
                     </a>
                 </div>
@@ -77,12 +79,22 @@
                         <div class="heroCarousel-image-wrapper">
                         {{/if}}
                         {{#if @first}}
-                            {{> components/common/responsive-img
-                                image=stencil_image
-                                class="heroCarousel-image"
-                                fallback_size='1280w'
-                                lazyload='disabled'
-                            }}
+                            <div class="heroCarousel-desktop-image">
+                                {{> components/common/responsive-img
+                                    image=stencil_image
+                                    class="heroCarousel-image"
+                                    fallback_size='1280w'
+                                    lazyload='disabled'
+                                }}
+                            </div>
+                            <div class="heroCarousel-mobile-image">
+                                {{> components/common/responsive-img
+                                    image="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/image-manager/992.2-turbo-mobile-banner.jpg?t=1782503457"
+                                    class="heroCarousel-image"
+                                    fallback_size='1280w'
+                                    lazyload='lazyload'
+                                }}
+                            </div>
                         {{else}}
                             {{> components/common/responsive-img
                                 image=stencil_image
@@ -100,6 +112,21 @@
                             {{> components/carousel-content}}
                         {{/or}}
                     </div>
+
+                    <!-- Another scheduled slide -->
+                    {{#if @first}}
+                        {{#if (moment "now" "X") '<=' (moment "July 9, 2026" "X")}}
+                        <div class="heroCarousel-slide {{#if ../theme_settings.homepage_stretch_carousel_images}}stretch{{/if}}">
+                            <a href="https://www.fabspeed.com/additional-products/eventuri-intakes/" class="heroCarousel-image-wrapper">
+                                <div class="heroCarousel-image-wrapper">
+                                    <img src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/image-manager/eventuri-july4th-banner-final.jpg?t=1782997711" style="width: 100%; height: auto;">
+                                </div>
+                            </a>
+                        </div>
+                        {{/if}}
+                    {{/if}}
+                    <!-- End another scheduled slide -->
+                     
                 {{#if button_text}}
                     </div>
                 {{else}}

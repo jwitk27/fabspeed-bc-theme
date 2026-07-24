@@ -3,13 +3,31 @@ export default function equalizeHeights(selectors = []) {
         const $els = $(selector);
         if (!$els.length) return;
 
-        let max = 0;
         $els.css('height', 'auto');
 
+        const rows = {};
+
         $els.each((_, el) => {
-            max = Math.max(max, $(el).outerHeight());
+            const $el = $(el);
+            const top = Math.round($el.offset().top);
+
+            if (!rows[top]) {
+                rows[top] = [];
+            }
+
+            rows[top].push($el);
         });
 
-        $els.height(max);
+        Object.values(rows).forEach(row => {
+            let maxHeight = 0;
+
+            row.forEach($el => {
+                maxHeight = Math.max(maxHeight, $el.outerHeight());
+            });
+
+            row.forEach($el => {
+                $el.height(maxHeight);
+            });
+        });
     });
 }

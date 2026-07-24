@@ -97,16 +97,6 @@
         </h4>
 
         <div class="card-wrapper">
-
-            {{#if show_compare}}
-                <label class="card-compare" for="compare-{{id}}">
-                    <input type="checkbox" name="products[]" value="{{id}}" id="compare-{{id}}" data-compare-id="{{id}}">
-                    <span>{{lang 'products.compare'}}</span>
-                </label>
-            {{/if}}
-        </div>
-
-        <div class="card-wrapper">
             <div class="card-price" data-test-info-type="price">
                 {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
                     {{> components/products/price price=price}}

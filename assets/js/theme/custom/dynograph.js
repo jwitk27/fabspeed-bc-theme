@@ -13,7 +13,6 @@ export default function () {
             $('.dynograph-init').each((i, el) => {
                 $(el).on('click', () => {
                     $('.dynograph-wrapper').addClass('show');
-                    console.log('clicked, re-rendered 1');
                     resizeDynoGraph();
                 });
             });
@@ -28,7 +27,6 @@ export default function () {
 
             $('.tab-dynograph').on('click', () => {
                 $('.tab-dynograph-content').addClass('show');
-                console.log('clicked, re-rendered 3');
                 resizeDynoGraph();
             });
 

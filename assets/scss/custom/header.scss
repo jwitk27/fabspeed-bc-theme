@@ -6,32 +6,39 @@
     .header-logo {
         display: none;
     }
+
     .header-logo.aus-logo,
     .aus-logo .header-logo {
         display: block;
-        max-width: 200px;        
+        max-width: 200px;
     }
-    background: #050485!important;
+
+    background: #050485 !important;
+
     .dropdown-menu-item a {
         color: #333;
     }
+
     a,
     p {
         color: #fff;
     }
+
     svg,
     .st1 {
         fill: #fff;
         stroke: #fff;
     }
+
     .themevale_search-custom .form-field {
-        background-color: #fff!important;
+        background-color: #fff !important;
         border: 0;
     }
 }
 
 .is-au .themevale_header-Mobile {
     background-color: #050485;
+
     .icon {
         fill: white;
     }
@@ -48,15 +55,521 @@
     text-shadow: none;
 }
 
-#menu .navPages-item:not(.hasMegamenu) > .navPage-subMenu:not(.navPage-subMegaMenu) .navPage-subMenu-item-child:last-child .navPage-subMenu-action.red {
+#menu .navPages-item:not(.hasMegamenu)>.navPage-subMenu:not(.navPage-subMegaMenu) .navPage-subMenu-item-child:last-child .navPage-subMenu-action.red {
     background-color: $fabspeed-red;
     color: #fff;
     border-radius: 0;
+
     &:hover {
         color: #fff;
         background-color: $fabspeed-red-hover;
+
         .text {
             color: #fff;
         }
     }
+}
+
+.themevale_header-bottom {
+    background: #16181c;
+}
+
+.navPages .navPages-action .text {
+    color: #e5e5e5;
+}
+
+.navPages .navPages-item:hover>.navPages-action .text:before {
+    content: none;
+}
+
+.navPages .navPages-action svg {
+    width: 8px;
+    height: 8px;
+    fill: #a3a3a3;
+    stroke: #a3a3a3;
+    margin: 0 0 2px 2px;
+    transition: .25s all ease;
+}
+
+.navPages .navPages-item:hover>.navPages-action svg {
+    fill: #a3a3a3;
+    stroke: #a3a3a3;
+    transform: scaleY(-1);
+}
+
+.navPage-subMenu .navPage-subMenu-action .text {
+    color: #16181c;
+}
+
+.navPage-subMenu .navPage-subMenu-action:hover .text {
+    color: $fabspeed-red;
+}
+
+.navPage-subMenu .navPage-subMenu-action:hover svg {
+    fill: $fabspeed-red;
+    stroke: $fabspeed-red;
+    margin: 0 0 0 8px;
+}
+
+.themevale_header-middle .item-cart .icon {
+    stroke-width: 0;
+    height: 25px;
+    width: 25px;
+    margin-bottom: 2px;
+}
+
+.navPages {
+    @media (min-width: 801px) {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.navPages .navPages-list {
+    display: inline-block;
+    width: 100%;
+
+    @media (min-width: 1025px) {
+        width: auto;
+    }
+}
+
+.navPages .navPages-action .icon-phone {
+    width: 15px;
+    height: 15px;
+    fill: $fabspeed-red;
+    stroke: $fabspeed-red;
+}
+
+.navPages .navPages-item:hover>.navPages-action .icon-phone {
+    transform: none;
+    fill: $fabspeed-red;
+    stroke: $fabspeed-red;
+}
+
+.themevale_header-middle .container .item:last-child:before {
+    content: none;
+}
+
+.header .container {
+    max-width: 1400px;
+    padding: 0 2rem;
+
+    @media (min-width: 1440px) {
+        padding: 0 1rem;
+    }
+}
+
+.header .navPages-container {
+    max-width: 1400px;
+    padding: 0 1rem;
+}
+
+.themevale_search-custom {
+    max-width: 400px;
+}
+
+.themevale_header-middle .container .item:last-child {
+    padding-left: 10px;
+}
+
+.item--account .icon-person {
+    height: 20px;
+    width: 20px;
+    stroke-width: 0;
+    margin-bottom: 2px;
+}
+
+.item--account .icon {
+    height: 10px;
+    width: 10px;
+    margin-bottom: 2px;
+}
+
+.navUser-action--account strong {
+    font-size: 14px;
+}
+
+.themevale_header-middle .navUser-action .icon-map-marker,
+.header-Mobile-item .icon-map-marker {
+    height: 20px;
+    width: 20px;
+    stroke-width: .25;
+    margin-bottom: 2px;
+}
+
+.icon-truck {
+    height: 16px;
+    width: 16px;
+    stroke-width: .25;
+    fill: $fabspeed-red;
+    stroke: $fabspeed-red;
+    margin: 0 6px 4px 0;
+}
+
+.item--lead-time-text {
+    font-family: "Rajdhani", Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.themevale_header-middle {
+    padding: 16px 0;
+}
+
+.btn-search svg {
+    stroke-width: 0;
+}
+
+.themevale_search-custom .btn-search {
+    border-radius: 0 2px 2px 0;
+}
+
+
+.themevale_search-custom {
+    max-width: none;
+
+    @media (min-width: 1025px) {
+        width: 250px;
+    }
+
+    @media (min-width: 1201px) {
+        width: 400px;
+    }
+}
+
+.header .navPages .navPages-item {
+    margin-right: 10px;
+
+    @media (min-width: 1250px) {
+        margin-right: 20px;
+    }
+
+    &:last-child {
+        margin-right: 0;
+    }
+}
+
+.navPages {
+    display: block;
+
+    @media (min-width: 1025px) {
+        display: flex;
+    }
+}
+
+.navPages-list {
+    width: 100%;
+}
+
+.themevale_searchSticky button[type=submit] {
+    background: #d80000;
+}
+
+.themevale_search-custom .form-field {
+    border: 1px solid #aaa;
+}
+
+.themevale_searchSticky {
+    background: white;
+    position: fixed;
+    padding: 1rem;
+    display: none;
+    align-items: center;
+    top: 85px;
+    max-width: none;
+    z-index: 100;
+}
+
+.themevale_search-custom .form-field {
+    margin-top: 0;
+}
+
+.lead-time-text-mobile {
+    background: #f1f1f1;
+    text-align: center;
+    padding: 5px 0 3px;
+    border-bottom: 1px solid #e5e5e5;
+
+    .item--lead-time-text {
+        font-size: 12px;
+        font-weight: 600;
+    }
+
+    .icon-truck {
+        margin: 0 2px 2px 0;
+        stroke-width: 0;
+        height: 14px;
+        weight: 14px;
+    }
+
+    @media (min-width: 1025px) {
+        display: none;
+    }
+}
+
+.themevale_header-Mobile .header-Mobile-item {
+    min-width: auto;
+}
+
+.themevale_header-Mobile .header-Mobile-item .header-logo-image {
+    max-width: none;
+    max-height: none;
+    height: auto;
+}
+
+.header-logo-image {
+    height: auto;
+    max-height: none;
+    width: 180px;
+    max-width: none;
+
+    @media (min-width: 601px) {
+        width: 240px;
+    }
+
+    @media (min-width: 1025px) {
+        width: 300px;
+    }
+}
+
+.header-Mobile-item.text-left {
+    margin-right: 3rem;
+}
+
+.header-Mobile-item.text-right {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    margin-left: auto;
+}
+
+.themevale_header-Mobile .header-Mobile-item .items+.items.item--cart {
+    margin-left: 0;
+}
+
+.themevale_header-Mobile {
+    padding: 30px 2rem;
+    justify-content: left;
+}
+
+.themevale_header-Mobile .item--search {
+    margin-right: 15px;
+}
+
+.themevale_header-Mobile .icon-search {
+    height: 20px;
+    width: 20px;
+}
+
+.header-sticky {
+    position: fixed;
+    z-index: 100;
+
+    @media (min-width: 1025px) {
+        position: absolute;
+    }
+}
+
+.body {
+    padding-top: 85px;
+
+    @media (min-width: 1025px) {
+        padding-top: 116px;
+    }
+
+    @media (min-width: 1175px) {
+        padding-top: 119px;
+    }
+}
+
+.mobile-navPages-buttons .button {
+    width: 100%;
+    margin-bottom: .5rem;
+}
+
+.mobile-navPages-buttons .button--mobile-call {
+    background-color: #222;
+    border: 0;
+}
+
+#menuMobile .navPages-list+.navPages-list {
+    margin-top: 20px;
+}
+
+.themevale_header-layout-1.sticky {
+    position: fixed;
+
+    .themevale_header-middle {
+        display: none;
+    }
+}
+
+.brandsImage-slider {
+    @media (min-width: 1025px) {
+        display: none;
+    }
+}
+
+.mobileMenu-toggle .mobileMenu-toggleIcon,
+.mobileMenu-toggle .mobileMenu-toggleIcon::before,
+.mobileMenu-toggle .mobileMenu-toggleIcon::after {
+    background-color: #222;
+}
+
+.header .themevale_search-custom input::placeholder {
+    color: #bbb;
+}
+
+.header .themevale_search-custom .form-field {
+    border-color: #bbb;
+}
+
+.themevale_search-custom .btn-search .icon {
+    height: 20px;
+    width: 20px;
+}
+
+.themevale_header-PC .themevale_header-middle .headerMiddle-item .desktop-header-icons {
+    padding: 7px;
+    margin-left: 14px;
+    &:hover {
+        background-color: #f0f0f0;
+        border-radius: 5px;
+    }
+}
+
+.themevale_header-PC .themevale_header-middle .headerMiddle-item .item--locator {
+    margin-left: 24px;
+}
+
+.themevale_header-middle .navUser-action:hover {
+    fill: #383e47;
+    stroke: #383e47;
+}
+
+.themevale_header-middle .navUser-action:hover svg {
+    fill: #383e47;
+    stroke: #383e47;
+}
+
+.themevale_header-middle .navUser-action:hover {
+    color: #383e47;
+}
+
+.header .navPages .navPages-action.red {
+    background-color: $fabspeed-red;
+    &:hover {
+        .text {
+            color: $fabspeed-red
+        }
+    }
+}
+
+.header .navPages .navPages-action.red .text {
+    color: #fff;
+}
+
+.mobileMenu-toggle {
+    height: 27px;
+    width: 27px;
+}
+
+.mobileMenu-toggle .mobileMenu-toggleIcon {
+    height: 3px;
+    border-radius: 2px;
+}
+
+.mobileMenu-toggle .mobileMenu-toggleIcon::before {
+    top: -9px;
+    border-radius: 2px;
+    height: 3px;
+}
+
+.mobileMenu-toggle .mobileMenu-toggleIcon::after {
+    bottom: -9px;
+    border-radius: 2px;
+    height: 3px;
+}
+
+.is-au .lead-time-text {
+    color: #fff;
+    @media (min-width: 1025px) {
+      color: #222;
+    }
+}
+
+.themevale_Mobile .themevale_close {
+    position: static;
+    background-color: transparent;
+    color: #222;
+    height: auto;
+    width: auto;
+}
+
+.themevale_Mobile .themevale_close .close {
+    color: #222;
+}
+
+.header-mobile-top {
+    display: flex;
+    padding: 12px 20px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-mobile-top .header-logo-image {
+    max-width: 150px;
+}
+
+.themevale_MobileMenu {
+    max-width: 350px;
+}
+
+.navPage-subMenu.about-nav-submenu {
+    transition: none;
+}
+
+.about-nav-link:hover .navPage-subMenu.about-nav-submenu {
+    margin-right: calc(100% + 0px);
+    right: 0;
+    left: auto;
+    transition: none;
+}
+
+.themevale_Mobile > .navPages-container {
+    height: calc(100% - 171px);
+}
+
+.has-activeNavPages .themevale_MobileMenu {
+    overflow: scroll;
+}
+
+.mobile-login-buttons {
+    position: absolute;
+    bottom: 0;
+}
+
+.mobile-navPages-buttons .button {
+    border: 0;
+}
+
+.mobile-navPages-buttons .button:hover {
+    border: 0;
+}
+
+.hidden-search-input {
+    position: absolute;
+    left: -4px;
+    top: -4px;
+    height: 30px;
+    width: 30px;
+    z-index: 1;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+}
+
+.header-Mobile-item .item--search {
+    position: relative;
 }

@@ -172,7 +172,7 @@
         "login2": "Login",
         "logout": "Sign out",
         "account": "Account",
-        "myaccount": "My Account",
+        "myaccount": "Account",
         "cart": "Cart",
         "search": "Search",
         "need_help": "Need Help?",
@@ -294,7 +294,7 @@
             "fact4": "Track new orders",
             "fact5": "Save items to your Wish List",
             "create_account": "Create Account",
-            "myaccount": "My account"
+            "myaccount": "Account"
         }
     },
     "reset_password": {
@@ -855,7 +855,7 @@
         "quick_search": {
             "input_label": "Search",
             "input_placeholder": "Search the store",
-            "input_quickSearch": "Search for a product"
+            "input_quickSearch": "Search by part, model or year — e.g. 992 GT3 exhaust"
         },
         "results": {
             "form_label": "Search Keyword:",

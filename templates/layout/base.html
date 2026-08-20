@@ -52,7 +52,7 @@
     <link href="{{{ head.favicon }}}" rel="shortcut icon">
 </head>
 
-<body class="page-type-{{page_type}}">
+<body class="page-type-{{page_type}} page-title-{{strReplace settings.request.absolute_path '/' '' 2}}">
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TT639GF" height="0" width="0"
             style="display:none;visibility:hidden"></iframe></noscript>
@@ -63,12 +63,31 @@
     <!-- menu mobile  -->
     {{#if theme_settings.themevale_header-layout-1}}
     <div class="themevale_Mobile themevale_MobileMenu" id="menu-mobile">
-        <div class="themevale_close">
-            <a href="javascript:void(0)" class="close">×</a>
+        <div class="header-mobile-top">
+            <a href="/">
+                <img class="header-logo-image" src="{{getImage settings.store_logo.image 'logo_size'}}" alt="{{settings.store_logo.title}}" title="{{settings.store_logo.title}}">
+            </a>
+            <div class="themevale_close">
+                <a href="javascript:void(0)" class="close">×</a>
+            </div>
         </div>
         <div class="navPages-container" id="menuMobile" data-menu>
+        
             {{> components/themevale/header/navigation-mobile}}
         </div>
+        
+    <div class="container mobile-login-buttons">
+        <div class="mobile-navPages-buttons">
+            {{#if customer}}
+            <a class="button button--primary {{#if page_type '!==' 'login'}}accountMobile{{/if}}" href="javascript:void(0)">My Account</a>
+            {{else}}
+            <a class="button button--primary {{#if page_type '!==' 'login'}}accountMobile{{/if}}" href="javascript:void(0)">Sign in / Create an account</a>
+            {{/if}}
+            <a class="button button--primary button--mobile-call" href="tel:215-646-4945"><svg class="icon">
+                <use xlink:href="#icon-phone"></use>
+            </svg> 215-646-4945 - Mon-Fri</a>
+        </div>
+    </div>
     </div>
     {{else}}
     <div class="themevale_Mobile themevale_MobileMenu" id="menu-mobile">

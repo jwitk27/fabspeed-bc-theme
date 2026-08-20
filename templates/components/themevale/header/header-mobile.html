@@ -1,39 +1,30 @@
 <div class="header-Mobile-item text-left">
-    <div class="items item--hamburger">
-    </div>
-    <div class="items item--searchMobile">
-        <a class="navUser-action" href="#" data-search="quickSearch" aria-controls="quickSearch" aria-expanded="false">
-            <div class="navUser-icon">
-                <svg class="icon"><use xlink:href="#icon-search2"></use></svg>
-                <svg class="icon icon-close"><use xlink:href="#times"></use></svg>
-            </div>
-        </a>
-    </div>
+    <div class="items item--hamburger"></div>
 </div>
 <div class="header-Mobile-item text-center">
     <div class="items">
         <div class="logo-wrapper">
             {{#if customer.customer_group_id '===' 21}}
                 <h1 class="header-logo">
-                    <a href="https://www.fabspeed.com">
+                    <a href="/">
                     <img class="header-logo" src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/image-manager/dealer-logo-test-5.png?t=1737401960" alt="Custom Header Image">
                     </a>
                 </h1>
             {{else if customer.customer_group_id '===' 22}}
                 <h1 class="header-logo">
-                    <a href="https://www.fabspeed.com">
+                    <a href="/">
                     <img class="header-logo" src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/image-manager/dealer-logo-test-5.png?t=1737401960" alt="Custom Header Image">
                     </a>
                 </h1>
             {{else if customer.customer_group_id '===' 23}}
                 <h1 class="header-logo">
-                    <a href="https://www.fabspeed.com">
+                    <a href="/">
                     <img class="header-logo" src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/image-manager/dealer-logo-test-5.png?t=1737401960" alt="Custom Header Image">
                     </a>
                 </h1>
             {{else if customer.customer_group_id '===' 24}}
                 <h1 class="header-logo">
-                    <a href="https://www.fabspeed.com">
+                    <a href="/">
                     <img class="header-logo" src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/image-manager/dealer-logo-test-5.png?t=1737401960" alt="Custom Header Image">
                     </a>
                 </h1>
@@ -52,12 +43,9 @@
     </div>
 </div>
 <div class="header-Mobile-item text-right">
-    <div class="items item--account">
-        <a class="navUser-action {{#if page_type '!==' 'login'}}accountMobile{{/if}}" href="javascript:void(0)">
-            <div class="navUser-icon">
-                <svg class="icon"><use xlink:href="#icon-user"/></svg>
-            </div>
-        </a>
+    <div class="item item--search">
+        <input class="hidden-search-input" type="submit" name="search_query" id="search_query" value="">
+        <a class="navUser-action search-icon-action" href="##"><svg class="icon-search"><use xlink:href="#icon-search"></use></svg></a>
     </div>
     <div class="items item--cart themevale_cart">
         <a class="navUser-action cartMobile"

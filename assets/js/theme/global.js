@@ -47,6 +47,8 @@ import priceSlashing from "./custom/price-slashing";
 import analytics from "./custom/analytics";
 import promoProductListing from "./custom/promo-product-listing";
 import leadTimeText from "./custom/lead-time-text";
+import searchToggle from "./custom/search-toggle";
+import stickyHeader from "./custom/sticky-header";
 
 export default class Global extends PageManager {
     onReady() {
@@ -89,5 +91,7 @@ export default class Global extends PageManager {
         analytics();
         promoProductListing();
         leadTimeText();
+        searchToggle();
+        stickyHeader();
     }
 }

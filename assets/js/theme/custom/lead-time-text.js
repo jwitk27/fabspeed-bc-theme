@@ -7,6 +7,6 @@ export default function() {
             shown.addClass('exit');
             shown.index() === texts.length - 1 ? $(el).find('.lead-time-text').eq(0).addClass('show') : shown.next().addClass('show');
             shown.index() === 0 ? $(el).find('.lead-time-text').eq(texts.length - 1).removeClass('exit') : shown.prev().removeClass('exit');
-        }, 3000);
+        }, 4000);
     });
 }

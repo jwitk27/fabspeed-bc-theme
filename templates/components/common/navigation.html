@@ -7,11 +7,6 @@
             </li>
         {{/if}}
     </ul>
-    <a href="https://www.fabspeed.com/lead-time-products/" class="lead-time-link">
-        <span class="lead-time-text show">1 Week Shipping</span>
-        <span class="lead-time-text">Precision Engineered in the USA</span>
-        <span class="lead-time-text">Made to Order</span>
-    </a>
     <ul class="navUser-right navUser-section">
         <li class="navUser-item">
             <a class="navUser-action" href="/track-order/">Track Your Order</a>
@@ -25,16 +20,12 @@
             <a class="navUser-action" href="/installation-guides/">Install Guides</a>
         </li>
         <li class="navUser-item navUser-item--account">
-            <i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-user" /></svg></i>
             {{#if customer}}
-                <a class="navUser-action" href="{{urls.account.index}}"><strong>{{customer.name}}.</strong></a>
+                <a href="{{urls.account.details}}"><i style="cursor: pointer;" class="icon" aria-hidden="true"><svg><use xlink:href="#icon-user" /></svg></i></a>
                 <a class="navUser-action" href="{{urls.auth.logout}}">{{lang 'common.logout'}}</a>
             {{else}}
+                <i style="cursor: pointer;" data-login-form class="icon" aria-hidden="true"><svg><use xlink:href="#icon-user" /></svg></i>
                 <a class="navUser-action" href="javascript:void(0)" style="color: red; font-weight: bold;" data-login-form>{{lang 'common.login'}}</a>
-                {{#if settings.account_creation_enabled}}
-                <span class="navUser-or">{{lang 'common.or'}}</span>
-                <a class="navUser-action" href="{{urls.auth.create_account}}">{{lang 'common.create_account'}}</a>
-                {{/if}}
                 {{#if page_type '!==' 'login'}}
                     {{> components/themevale/header/login-form}}
                 {{/if}}

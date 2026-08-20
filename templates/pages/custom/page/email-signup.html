@@ -1,0 +1,26 @@
+{{#partial "page"}}
+<h1>Email Signup</h1>
+<div style="margin-bottom: 2rem;">
+    <img class="email-signup-img-mobile" src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/image-manager/dealer-resource-banner-mobile.jpg" />
+    <img class="email-signup-img-desktop" src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/image-manager/dealer-resource-banner-desktop.jpg" />
+</div>
+<form class="form" action="/subscribe.php" method="post">
+    <fieldset class="form-fieldset"
+        style="max-width: 500px; margin: 0 auto; padding: 20px; box-shadow: 1px 1px 4px 1px #555;">
+        <h2 style="margin-top: 0; text-align: center;">Subscribe to our newsletter</h2>
+        <p style="text-align: center;">Get the latest updates on new products and upcoming sales</p>
+        <div class="form-field"><label class="form-label is-srOnly" for="nl_first_name">Name</label>
+            <div class="form-prefixPostfix wrap"><input class="form-input" name="nl_first_name" id="nl_first_name"
+                    value="" type="text" placeholder="Your Name" /></div>
+        </div>
+        <div class="form-field"><label class="form-label is-srOnly" for="nl_email">Email Address</label>
+            <div class="form-prefixPostfix wrap"><input class="form-input" id="nl_email" name="nl_email" type="email"
+                    value="" placeholder="Your email address" /></div>
+        </div>
+        <input type="hidden" name="action" value="subscribe" /> <input type="hidden" name="check" value="1" /> <input
+            style="width: 100%; margin: 0;" class="button button--primary form-prefixPostfix-button--postfix"
+            type="submit" value="Subscribe" />
+    </fieldset>
+</form>
+{{/partial}}
+{{> layout/base}}

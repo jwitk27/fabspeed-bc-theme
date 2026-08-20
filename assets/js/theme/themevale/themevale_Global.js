@@ -365,7 +365,7 @@ export default function(context) {
     toggleSidebar_mobile();
 
     function searchForm_mobile() {
-        if ($(window).width() <= 1024) {
+        if ($(window).outerWidth() <= 1024) {
             if ($('.item--quickSearch .themevale_search-custom').length) {
                 $('.item--quickSearch .themevale_search-custom').appendTo('.themevale_searchSticky');
             }

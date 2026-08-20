@@ -1,0 +1,20 @@
+.email-signup-img-desktop {
+    display: none;
+    @media (min-width: 801px) {
+      display: block;
+    }
+}
+
+.email-signup-img-mobile {
+    @media (min-width: 801px) {
+      display: none;
+    }
+}
+
+.page-title-email-signup  .newsletter-signup-form {
+    display: none;
+}
+
+.thanks-for-signing-up-text {
+    font-size: 14px;
+}

@@ -3,17 +3,18 @@
 <section class="page">
     <div class="page-content subscribed_heading">
         <h1 class="page-heading no-border">
-            {{#if subscription.error}}
-                {{lang 'newsletter.subscribed_heading_error'}}
-            {{else}}
-                {{lang 'newsletter.subscribed_heading'}}
-            {{/if}}
+            Success! Welcome to the Fabspeed Family.
         </h1>
-        {{#if subscription.error}}
-            {{> components/common/alert-error subscription.error}}
-        {{else}}
-            {{> components/common/alert-success (lang 'newsletter.subscribed_message')}}
-        {{/if}}
+        <p>
+            <img src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/image-manager/dsc0vweaf0625.jpg?t=1787079600" alt="">
+        </p>
+        <p class="thanks-for-signing-up-text">
+            Every email is packed with product launches, performance testing, installation videos, engineering stories,
+            and exclusive offers.
+            In the meantime, explore our latest products and experience the difference precision engineering makes.
+        </p>
+
+        <a href="/" class="button button--primary">Explore More</a>
     </div>
 </section>
 

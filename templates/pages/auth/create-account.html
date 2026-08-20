@@ -11,11 +11,6 @@
                 {{> components/common/alert-error forms.create_account.error}}
             {{/if}}
             {{#if settings.account_creation_enabled}}
-            <style>
-                .form-field:not([data-type]){
-                    display: none;
-                }
-            </style>
                 <form action="{{urls.auth.save_new_account}}" data-create-account-form method="post" class="form">
                     <div class="form-row form-row--half">
                         {{#each forms.create_account.account_fields }}

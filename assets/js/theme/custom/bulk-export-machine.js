@@ -58,8 +58,9 @@ export default function bulkExportMachine() {
         const pricePopulated = populateMissingPrice(visibleOnly);
         // Remove blank skus
         const blankSkusRemoved = removeBlankSkus(pricePopulated);
+        const brandNamesFilled = fillBrandNames(blankSkusRemoved);
 
-        const bulkExportFinalProducts = blankSkusRemoved;
+        const bulkExportFinalProducts = brandNamesFilled;
 
         const bulkExportCsv = Papa.unparse(bulkExportFinalProducts);
         const bulkExportCsvData = new Blob([bulkExportCsv], { type: 'text/csv;charset=utf-8;' });
@@ -132,6 +133,22 @@ export default function bulkExportMachine() {
     } else {
       return rows.filter(row => row['Product SKU'].trim() !== '');
     }
+  }
+
+  function fillBrandNames(rows) {
+    rows.forEach((row, i) => {
+      if (row['Item Type'].trim() === 'Product' && row['Brand Name'].trim() === '') return;
+      if (row['Brand Name'].trim() === '') {
+        while (true) {
+          i--;
+          if (rows[i]['Item Type'].trim() === 'Product') {
+            row['Brand Name'] = rows[i]['Brand Name'];
+            return;
+          }
+        }
+      }
+    });
+    return rows;
   }
 
   function addNote(rows) {

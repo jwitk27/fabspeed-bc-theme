@@ -30,9 +30,15 @@
                     {{> components/common/navigation-dropdown}}
                 </li>
             {{else}}
+                {{#contains (toLowerCase name) 'genius'}}
+                    <li class="navPage-subMenu-item-child navPages-action-end">
+                        <a class="navPage-subMenu-action navPages-action" href="/my-genius-client-download/"><span class="text">{{name}}</span></a>
+                    </li>
+                {{else}}
                 <li class="navPage-subMenu-item-child navPages-action-end">
                     <a class="navPage-subMenu-action navPages-action" href="{{url}}"><span class="text">{{name}}</span></a>
                 </li>
+                {{/contains}}
             {{/if}}
             {{#if name '==' 'FAQs'}}
                 <li class="navPage-subMenu-item-child navPages-action-end">

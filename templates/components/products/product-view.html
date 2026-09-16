@@ -142,13 +142,13 @@
             {{/each}}
             <div class="productView-product">
                 {{#if product.brand}}
-                <h2 class="productView-brand" {{#if schema}} itemprop="brand" itemscope itemtype="http://schema.org/Brand" {{/if}}>
-                    <a href="{{product.brand.url}}" {{#if schema}} itemprop="url" {{/if}}>
-                        <span{{#if schema}} itemprop="name" {{/if}}>{{product.brand.name}}</span>
+                <h2 class="productView-brand">
+                    <a href="{{product.brand.url}}">
+                        <span>{{product.brand.name}}</span>
                     </a>
                 </h2>
                 {{/if}}
-                <h1 class="productView-title" {{#if schema}}itemprop="name" {{/if}}>{{product.title}}</h1>
+                <h1 class="productView-title">{{product.title}}</h1>
 
                 <a class="review-link" href="{{product.url}}#product-reviews">
                     Reviews
@@ -439,3 +439,23 @@
     <div class="modal-content"></div>
     <div class="loadingOverlay"></div>
 </div>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "@id": "{{product.url}}#product",
+  "name": "{{product.title}}",
+  "image": ["{{product.main_image.data}}"],
+  "description": "{{product.meta_description}}",
+  "sku": "{{product.sku}}",
+  "brand": {"@type": "Brand", "name": "{{product.brand.name}}"},
+  "offers": {
+    "@type": "Offer",
+    "url": "{{product.url}}",
+    "priceCurrency": "{{product.price.without_tax.currency}}",
+    "price": "{{product.price.without_tax.value}}",
+    "availability": "https://schema.org/{{product.availability}}",
+    "itemCondition": "https://schema.org/NewCondition"
+  }
+}
+</script>

@@ -21,3 +21,12 @@ blog:
 {{#if theme_settings.themevale_homepage_layout '===' 'homepage layout 3'}}
     {{> components/themevale/homepage/homepage-3}}
 {{/if}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {"@type": "Organization", "@id": "https://www.fabspeed.com/#organization", "name": "Fabspeed Motorsport", "url": "https://www.fabspeed.com/", "logo": {"@type": "ImageObject", "url": "{{settings.store_logo.image.data}}"}, "sameAs": [{{verified_social_profile_urls}}]},
+    {"@type": "WebSite", "@id": "https://www.fabspeed.com/#website", "url": "https://www.fabspeed.com/", "name": "Fabspeed Motorsport", "publisher": {"@id": "https://www.fabspeed.com/#organization"}}
+  ]
+}
+</script>

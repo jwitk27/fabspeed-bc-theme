@@ -1,17 +1,45 @@
-.aus-logo {
+.header .themevale_header-bottom .header-phone-link-aus {
     display: none;
 }
 
-.is-au .themevale_header-middle {
-    .header-logo {
-        display: none;
-    }
+.is-au .header .header-phone-link {
+    display: none;
+}
 
-    .header-logo.aus-logo,
-    .aus-logo .header-logo {
-        display: block;
-        max-width: 200px;
-    }
+.is-au .header .header-phone-link-aus {
+    display: inline-block;
+}
+
+.mobile-login-buttons .header-mobile-phone-aus {
+    display: none;
+}
+
+.is-au .header-mobile-phone-aus {
+    display: block;
+}
+
+.is-au .header-mobile-phone {
+    display: none;
+}
+
+.is-au .mobileMenu-toggle .mobileMenu-toggleIcon,
+.is-au .mobileMenu-toggle .mobileMenu-toggleIcon::before,
+.is-au .mobileMenu-toggle .mobileMenu-toggleIcon::after {
+    background-color: #fff;
+}
+
+.is-au .themevale_header-Mobile .icon-search {
+    stroke: #fff;
+    fill: #fff;
+    stroke-width: 0;
+}
+
+.is-au .lead-time-text-mobile {
+    background-color: #222;
+    border: 0;
+}
+
+.is-au .themevale_header-middle {
 
     background: #050485 !important;
 
@@ -213,6 +241,10 @@
     font-size: 14px;
 }
 
+.is-au .item--lead-time-text {
+    color: #fff;
+}
+
 .themevale_header-middle {
     padding: 16px 0;
 }
@@ -391,6 +423,7 @@
 .mobile-navPages-buttons .button--mobile-call {
     background-color: #222;
     border: 0;
+    margin-left: 0;
 }
 
 #menuMobile .navPages-list+.navPages-list {

@@ -17,7 +17,7 @@ product:
 <div class="themevale_breadcrumb">
         <h1 style="text-align:center; font-size:4rem;" class="productView-title" {{#if schema}}itemprop="name"{{/if}}><u style="text-decoration-color:#d80000;">{{product.title}}</u></h1>
     </div>
-    <div itemscope itemtype="http://schema.org/Product">
+    <div>
         <div data-categories="{{join product.category '/'}}" class="productView themevale_productView" {{#if settings.data_tag_enabled}} data-event-type="product" data-entity-id="{{product.id}}" data-name="{{product.title}}" data-product-category="{{#each product.category}}{{#if @last}}{{this}}{{else}}{{this}}, {{/if}}{{/each}}" data-product-brand="{{product.brand.name}}" data-product-price="{{#if product.price.with_tax}}{{product.price.with_tax.value}}{{else}}{{product.price.without_tax.value}}{{/if}}" data-product-variant="single-product-option"{{/if}}>
     {{#each product.reviews.messages}}
         {{#if error}}

@@ -34,3 +34,17 @@
         {{/if}}
     </div>
 </article>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "@id": "{{canonical_url}}#article",
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "{{canonical_url}}"},
+  "headline": "{{post.title}}",
+  "image": ["{{post.thumbnail.data}}"],
+  "datePublished": "{{post.date_published}}",
+  "dateModified": "{{date_modified_iso}}",
+  "author": {"@type": "Person", "name": "{{post.author}}", "url": "{{post.url}}"},
+  "publisher": {"@type": "Organization", "name": "Fabspeed Motorsport", "logo": {"@type": "ImageObject", "url": "{{logo_url}}"}}
+}
+</script>

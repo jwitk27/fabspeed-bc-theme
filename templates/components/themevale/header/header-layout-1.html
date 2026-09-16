@@ -15,50 +15,47 @@
                     </div>
                     
                     <div class="logo-wrapper">
-                        <h1 class="header-logo aus-logo">
-                            {{#contains customer.customer_group_name "Wholesale"}}
-                                <a href="/">
-                                    <img class="header-logo" src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/image-manager/dealer-logo-aus.png?t=1771519873" alt="Custom Header Image">
-                                </a>
-                            {{else}}
-                                {{> components/common/store-logo}}
-                            {{/contains}}
-                        </h1>
-                        {{#if customer.customer_group_id '===' 21}}
-                            <h1 class="header-logo">
-                                <a href="/">
-                                <img class="header-logo" src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/image-manager/dealer-logo-test-5.png?t=1737401960" alt="Custom Header Image">
-                                </a>
-                            </h1>
-                        {{else if customer.customer_group_id '===' 22}}
-                            <h1 class="header-logo">
-                                <a href="/">
-                                <img class="header-logo" src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/image-manager/dealer-logo-test-5.png?t=1737401960" alt="Custom Header Image">
-                                </a>
-                            </h1>
-                        {{else if customer.customer_group_id '===' 23}}
-                            <h1 class="header-logo">
-                                <a href="/">
-                                <img class="header-logo" src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/image-manager/dealer-logo-test-5.png?t=1737401960" alt="Custom Header Image">
-                                </a>
-                            </h1>
-                        {{else if customer.customer_group_id '===' 24}}
-                            <h1 class="header-logo">
-                                <a href="/">
-                                <img class="header-logo" src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/image-manager/dealer-logo-test-5.png?t=1737401960" alt="Custom Header Image">
-                                </a>
-                            </h1>
-                        {{else}}
-                            {{#if page_type '===' 'default'}}
+                        {{#contains customer.customer_group_name "Wholesale"}}
+                            {{#if settings.request.absolute_path '==' '/'}}
                                 <h1 class="header-logo">
-                                    {{> components/common/store-logo}}
-                                </h1>
                             {{else}}
                                 <div class="header-logo">
-                                    {{> components/common/store-logo}}
+                            {{/if}}
+                                    <a href="/">
+                                        <img class="header-logo" src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/image-manager/dealer-logo-test-5.png?t=1737401960" alt="Custom Header Image">
+                                    </a>
+                            {{#if settings.request.absolute_path '==' '/'}}
+                                </h1>
+                            {{else}}
                                 </div>
                             {{/if}}
-                        {{/if}}
+                        {{else}}
+                            {{#if page_type '===' 'default'}}
+                                {{#if settings.request.absolute_path '==' '/'}}
+                                    <h1 class="header-logo">
+                                {{else}}
+                                    <div class="header-logo">
+                                {{/if}}
+                                    {{> components/common/store-logo}}
+                                {{#if settings.request.absolute_path '==' '/'}}
+                                    </h1>
+                                {{else}}
+                                    </div>
+                                {{/if}}
+                            {{else}}
+                                {{#if settings.request.absolute_path '==' '/'}}
+                                    <h1 class="header-logo">
+                                {{else}}
+                                    <div class="header-logo">
+                                {{/if}}
+                                    {{> components/common/store-logo}}
+                                {{#if settings.request.absolute_path '==' '/'}}
+                                    </h1>
+                                {{else}}
+                                    </div>
+                                {{/if}}
+                            {{/if}}
+                        {{/contains}}
                     </div>
                     <div class="item item--quickSearch">
                         <div class="themevale_search-custom" id="quickSearch2" aria-hidden="true" tabindex="-1" data-prevent-quick-search-close>
@@ -74,7 +71,7 @@
                         </span>
                     </div>
                     <div class="item item--locator desktop-header-icons">
-                        <a class="navUser-action" href="https://www.fabspeed.com/authorized-dealers-installers/"><svg class="icon-map-marker"><use xlink:href="#icon-map-marker"></use></svg></a>
+                        <a class="navUser-action" href="/authorized-dealers/"><svg class="icon-map-marker"><use xlink:href="#icon-map-marker"></use></svg></a>
                     </div>
 
                     <div class="item item--account desktop-header-icons">

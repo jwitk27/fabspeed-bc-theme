@@ -16,7 +16,7 @@ product:
 {{#partial "page"}}
     {{#if product.brand.name '===' 'COBB'}}
         <div class="section" style="left: 0%; top: auto; right: 0%; bottom: auto; background-color: #d80000;">
-            <p class="paragraph" style="margin-top: 3px; margin-bottom: 3px; color: #fff; text-align:center;"><strong>This product is not available for any California residents. <a href="https://www.fabspeed.com/contact-us/">Click here for any questions.</a></strong></p>
+            <p class="paragraph" style="margin-top: 3px; margin-bottom: 3px; color: #fff; text-align:center;"><strong>This product is not available for any California residents. <a href="/contactus/">Click here for any questions.</a></strong></p>
         </div>
     {{/if}}
     <div class="themevale_breadcrumb">
@@ -25,7 +25,7 @@ product:
     {{#each product.shipping_messages}}
         {{> components/common/alert-info message}}
     {{/each}}
-    <div itemscope itemtype="http://schema.org/Product">
+    <div>
         {{> components/products/product-view schema=true }}
 
         {{{region name="product_below_content"}}}

@@ -47,6 +47,9 @@
     {{inject 'cartId' cart_id}}
     {{inject 'template' template}}
     {{{snippet 'htmlhead'}}}
+    {{#contains settings.request.absolute_path "/tag/"}}
+    <meta name="robots" content="noindex">
+    {{/contains}}
 
     <meta name="google-site-verification" content="c9lHKpy1TXycWc2iwuD89uY6zx1vS_OAkq5iljb36Ko" />
     <link href="{{{ head.favicon }}}" rel="shortcut icon">
@@ -83,9 +86,12 @@
             {{else}}
             <a class="button button--primary {{#if page_type '!==' 'login'}}accountMobile{{/if}}" href="javascript:void(0)">Sign in / Create an account</a>
             {{/if}}
-            <a class="button button--primary button--mobile-call" href="tel:215-646-4945"><svg class="icon">
+            <a class="button button--primary button--mobile-call header-mobile-phone" href="tel:215-646-4945"><svg class="icon">
                 <use xlink:href="#icon-phone"></use>
             </svg> 215-646-4945 - Mon-Fri</a>
+            <a class="button button--primary button--mobile-call header-mobile-phone-aus" href="tel:0422 731 725"><svg class="icon">
+                <use xlink:href="#icon-phone"></use>
+            </svg> 0422 731 725</a>
         </div>
     </div>
     </div>

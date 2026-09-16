@@ -1,0 +1,319 @@
+/* =========================================================
+   HERO CAROUSEL
+========================================================= */
+
+.fs-hero-carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.fs-hero-slider {
+    width: 100%;
+}
+
+.fs-hero-slide {
+    position: relative;
+    width: 100%;
+    min-height: 560px;
+    overflow: hidden;
+}
+
+.fs-hero-image {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+/* Simple black 50% overlay */
+.fs-hero-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+}
+
+.fs-hero-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.fs-hero-image--mobile {
+    display: none;
+}
+
+
+/* =========================================================
+   HERO CONTENT
+========================================================= */
+
+.fs-hero-content {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    width: calc(100% - 80px);
+    max-width: 1100px;
+    transform: translate(-50%, -50%);
+    color: #fff;
+}
+
+.fs-hero-heading {
+    max-width: 650px;
+    margin: 0 0 20px;
+    color: #fff;
+    font-size: clamp(32px, 3.5vw, 56px);
+    font-weight: 800;
+    line-height: 1.05;
+    text-transform: uppercase;
+}
+
+.fs-hero-description {
+    max-width: 500px;
+    margin-bottom: 28px;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   VEHICLE SELECTOR
+========================================================= */
+
+.fs-vehicle-selector {
+    position: relative;
+    width: 100%;
+    max-width: 760px;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+}
+
+.fs-vehicle-fields {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+    gap: 0;
+}
+
+.fs-vehicle-field {
+    position: relative;
+    display: flex;
+    flex: 1 1 0;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-width: 0;
+    height: 70px;
+    background: rgba(8, 8, 8, 0.88);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-right: 0;
+}
+
+/* Labels sit lower and closer to the select value */
+.fs-vehicle-field label {
+    display: block;
+    margin: 14px 14px 0;
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.fs-vehicle-field select {
+    display: block;
+    width: 100%;
+    height: 34px;
+    margin: 0;
+    padding: 0 32px 0 14px;
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: transparent;
+    background-image:
+        linear-gradient(45deg, transparent 50%, #888 50%),
+        linear-gradient(135deg, #888 50%, transparent 50%);
+    background-position:
+        calc(100% - 15px) 14px,
+        calc(100% - 11px) 14px;
+    background-repeat: no-repeat;
+    background-size: 4px 4px, 4px 4px;
+    border: 0;
+    border-radius: 0;
+    outline: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+}
+
+.fs-vehicle-field select:disabled {
+    color: rgba(255, 255, 255, 0.25);
+    cursor: not-allowed;
+}
+
+.fs-vehicle-field select option {
+    background: #111;
+    color: #fff;
+}
+
+.fs-vehicle-field select:focus {
+    outline: none;
+}
+
+
+/* =========================================================
+   SELECT VEHICLE BUTTON
+========================================================= */
+
+.fs-vehicle-button {
+    display: flex;
+    flex: 0 0 175px;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    margin: 0;
+    padding: 0 20px;
+    background: #ed1c2e;
+    border: 1px solid #ed1c2e;
+    border-radius: 0;
+    color: #fff;
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: 800;
+    line-height: 1;
+    text-transform: uppercase;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.fs-vehicle-button:hover {
+    background: #c91425;
+    border-color: #c91425;
+}
+
+.fs-vehicle-button-arrow {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1;
+}
+
+.fs-vehicle-warning {
+    display: none;
+    margin-top: 10px;
+    color: #ff6b6b;
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   DESKTOP
+========================================================= */
+
+@media (min-width: 1100px) {
+    .fs-hero-slide {
+        min-height: 600px;
+    }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1099px) {
+    .fs-hero-slide {
+        min-height: 520px;
+    }
+
+    .fs-hero-content {
+        width: calc(100% - 60px);
+    }
+
+    .fs-vehicle-selector {
+        max-width: 700px;
+    }
+
+    .fs-vehicle-button {
+        flex-basis: 160px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 767px) {
+    .fs-hero-slide {
+        min-height: 680px;
+    }
+
+    .fs-hero-image--desktop {
+        display: none;
+    }
+
+    .fs-hero-image--mobile {
+        display: block;
+    }
+
+    .fs-hero-content {
+        top: 40px;
+        left: 0;
+        width: 100%;
+        padding: 0 20px;
+        transform: none;
+    }
+
+    .fs-hero-heading {
+        max-width: 100%;
+        margin-bottom: 16px;
+        font-size: 34px;
+        line-height: 1.05;
+    }
+
+    .fs-hero-description {
+        max-width: 100%;
+        margin-bottom: 24px;
+        font-size: 13px;
+    }
+
+    .fs-vehicle-selector {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .fs-vehicle-fields {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .fs-vehicle-field {
+        width: 100%;
+        height: 70px;
+        border-right: 1px solid rgba(255, 255, 255, 0.2);
+        border-bottom: 0;
+    }
+
+    .fs-vehicle-field:last-of-type {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .fs-vehicle-button {
+        flex: 0 0 auto;
+        width: 100%;
+        height: 60px;
+        justify-content: center;
+        gap: 20px;
+    }
+}

@@ -1,173 +1,459 @@
-<div style="display: none;">{{moment "now New York" "X"}}</div>
-<div style="display: none;">{{moment "July 14, 2026 10:00PM" "X"}}</div>
-<div class="heroCarousel-wrapper">
-    {{#contains customer.customer_group_name "Wholesale"}}
-    <!-- wholesale carousel -->
-    <section class="wholesale-carousel">
-        <div class="custom-carousel" data-slick='{
-                "dots": true,
-                "arrows": true,
-                "infinite": true,
-                "slidesToShow": 1,
-                "slidesToScroll": 1,
-                "nextArrow": "<svg class=&apos;slick-next slick-arrow&apos; style=&apos;fill: white&apos;><use xlink:href=&apos;#icon-slick-next&apos;></use></svg>", 
-                "prevArrow": "<svg class=&apos;slick-prev slick-arrow&apos; style=&apos;fill: white&apos;><use xlink:href=&apos;#icon-slick-prev&apos;></use></svg>",
-                "autoplay": true,
-                "autoplaySpeed": 7000,
-                "fade": true
-            }'>
-            <div class="carousel-slide">
-                <img src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/image-manager/dealeraccess-banner-3.jpg?t=1740073835"
-                    alt="welcome" style="width: 100%; height: auto;">
-            </div>
-            <div class="carousel-slide">
-                <a href="/who-we-are/">
-                    <img src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/carousel/920/WEB_Banner_WorldsBest_1.jpg?c=2"
-                        alt="best-performance-system" style="width: 100%; height: auto;">
-                </a>
-            </div>    
-        </div>
-    </section>
-    {{else}}
+<div class="fabspeed-homepage">
 
-    <!-- retail carousel -->
-    <section class="themevale_heroCarousel">
-        <div class="heroCarousel" data-slick='{
-                "dots": false,
-                "arrows": false,
-                "mobileFirst": true,
-                "slidesToShow": 1,
-                "slidesToScroll": 1,
-                "adaptiveHeight": true,
-                "lazyLoad": "anticipated",
-                "autoplaySpeed": 7000,
-                "autoplay": true,
-                "fade": true,
-                "nextArrow": "<svg class=&apos;slick-next slick-arrow&apos;><use xlink:href=&apos;#icon-slick-next&apos;></use></svg>", 
-                "prevArrow": "<svg class=&apos;slick-prev slick-arrow&apos;><use xlink:href=&apos;#icon-slick-prev&apos;></use></svg>",
-                "responsive": [
-                    {
-                        "breakpoint": 1100,
-                        "settings": {
-                            "dots": {{dots}},
-                            "arrows": {{arrows}}
-                        }
+    <!-- HERO CAROUSEL -->
+    <section class="fs-hero-carousel">
+        <div class="fs-hero-slider" data-slick='{
+            "dots": false,
+            "arrows": false,
+            "mobileFirst": true,
+            "slidesToShow": 1,
+            "slidesToScroll": 1,
+            "adaptiveHeight": true,
+            "lazyLoad": "anticipated",
+            "autoplaySpeed": 7000,
+            "autoplay": true,
+            "fade": true,
+            "responsive": [
+                {
+                    "breakpoint": 1100,
+                    "settings": {
+                        "dots": {{dots}},
+                        "arrows": {{arrows}}
                     }
-            ]}'>
-            
-            <!-- Scheduled slides -->
-            {{#if (moment "now" "X") '<=' (moment "July 14, 2026 10:00PM" "X")}}
-                <div class="heroCarousel-slide {{#if ../theme_settings.homepage_stretch_carousel_images}}stretch{{/if}}">
-                    <a href="/4th-of-july-sale/" class="heroCarousel-image-wrapper">
-                        <div class="heroCarousel-image-wrapper">
-                            <img src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/image-manager/2026-july4th-carousel-banner.jpg?t=1783098969" style="width: 100%; height: auto;">
-                        </div>
-                    </a>
-                </div>
-            {{/if}}
+                }
+            ]
+        }'>
 
             {{#each carousel.slides}}
-                {{#if button_text}}
-                    <div data-hero-slide="{{@index}}">
-                {{else}}
-                    <a href="{{url}}" data-hero-slide="{{@index}}" aria-label="{{#if this.alt_text.length '!=' 0}}{{this.alt_text}}{{/if}}">
-                {{/if}}
-                    <div class="heroCarousel-slide {{#if ../theme_settings.homepage_stretch_carousel_images}}stretch{{/if}} {{#if @first}}heroCarousel-slide--first{{/if}}">
-                        {{#if button_text}}
-                        <a href="{{url}}" class="heroCarousel-image-wrapper">
-                        {{else}}
-                        <div class="heroCarousel-image-wrapper">
-                        {{/if}}
-                        {{#if @first}}
-                            <div class="heroCarousel-desktop-image">
-                                {{> components/common/responsive-img
-                                    image=stencil_image
-                                    class="heroCarousel-image"
-                                    fallback_size='1280w'
-                                    lazyload='disabled'
-                                }}
-                            </div>
-                            <div class="heroCarousel-mobile-image">
-                                {{> components/common/responsive-img
-                                    image="https://store-fh9wsjv2.mybigcommerce.com/content/carousel-images/carousel-image-1-mobile.jpg"
-                                    class="heroCarousel-image"
-                                    fallback_size='1280w'
-                                    lazyload='lazyload'
-                                }}
-                            </div>
+
+                <div class="fs-hero-slide">
+
+                    <!-- Desktop image -->
+                    <div class="fs-hero-image fs-hero-image--desktop">
+                        {{> components/common/responsive-img
+                            image=stencil_image
+                            class="fs-hero-img"
+                            fallback_size='1920w'
+                            lazyload='disabled'
+                        }}
+                    </div>
+
+                    <!-- Mobile image -->
+                    <div class="fs-hero-image fs-hero-image--mobile">
+
+                        {{#if @index '==' '0'}}
+
+                            <img
+                                src="https://store-fh9wsjv2.mybigcommerce.com/content/carousel-images/carousel-image-1-mobile.jpg"
+                                class="fs-hero-img"
+                                alt="{{alt_text}}"
+                            >
+
                         {{else if @index '==' '1'}}
-                            <div class="heroCarousel-desktop-image">
-                                {{> components/common/responsive-img
-                                    image=stencil_image
-                                    class="heroCarousel-image"
-                                    fallback_size='1280w'
-                                    lazyload='disabled'
-                                }}
-                            </div>
-                            <div class="heroCarousel-mobile-image">
-                                {{> components/common/responsive-img
-                                    image="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/image-manager/992.2-turbo-mobile-banner1.jpg?t=1788965358"
-                                    class="heroCarousel-image"
-                                    fallback_size='1280w'
-                                    lazyload='lazyload'
-                                }}
-                            </div>
+
+                            <img
+                                src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/image-manager/992.2-turbo-mobile-banner1.jpg?t=1788965358"
+                                class="fs-hero-img"
+                                alt="{{alt_text}}"
+                            >
+
                         {{else if @index '==' '2'}}
-                            <div class="heroCarousel-desktop-image">
-                                {{> components/common/responsive-img
-                                    image=stencil_image
-                                    class="heroCarousel-image"
-                                    fallback_size='1280w'
-                                    lazyload='disabled'
-                                }}
-                            </div>
-                            <div class="heroCarousel-mobile-image">
-                                {{> components/common/responsive-img
-                                    image="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/image-manager/corvette-zr1-mobile-banner.jpg?t=1788966549"
-                                    class="heroCarousel-image"
-                                    fallback_size='1280w'
-                                    lazyload='lazyload'
-                                }}
-                            </div>
+
+                            <img
+                                src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/image-manager/corvette-zr1-mobile-banner.jpg?t=1788966549"
+                                class="fs-hero-img"
+                                alt="{{alt_text}}"
+                            >
+
                         {{else}}
+
                             {{> components/common/responsive-img
                                 image=stencil_image
-                                class="heroCarousel-image"
+                                class="fs-hero-img"
                                 fallback_size='1280w'
                                 lazyload='lazyload'
                             }}
+
                         {{/if}}
-                        {{#if button_text}}
-                        </a>
-                        {{else}}
-                        </div>
-                        {{/if}}
-                        {{#or heading text button_text}}
-                            {{> components/carousel-content}}
-                        {{/or}}
+
                     </div>
 
-                    <!-- Another scheduled slide -->
-                    {{#if @first}}
-                        {{#if (moment "now" "X") '<=' (moment "July 9, 2026" "X")}}
-                        <div class="heroCarousel-slide {{#if ../theme_settings.homepage_stretch_carousel_images}}stretch{{/if}}">
-                            <a href="/additional-products/eventuri-intakes/" class="heroCarousel-image-wrapper">
-                                <div class="heroCarousel-image-wrapper">
-                                    <img src="https://cdn11.bigcommerce.com/s-fh9wsjv2/images/stencil/original/image-manager/eventuri-july4th-banner-final.jpg?t=1782997711" style="width: 100%; height: auto;">
+
+                    <!-- HERO CONTENT -->
+                    {{#if heading}}
+                        <div class="fs-hero-content">
+
+                            <h1 class="fs-hero-heading">{{heading}}</h1>
+
+                            {{#if text}}
+                                <div class="fs-hero-description">
+                                    {{{text}}}
                                 </div>
-                            </a>
+                            {{/if}}
+
+
+                            <!-- VEHICLE SELECTOR -->
+                            <div class="fs-vehicle-selector">
+
+                                <div class="fs-vehicle-fields">
+
+                                    <!-- MAKE -->
+                                    <div class="fs-vehicle-field">
+                                        <label for="make">01 / MAKE</label>
+
+                                        <select id="make">
+                                            <option value="">SELECT MAKE</option>
+                                            <option value="porsche">Porsche</option>
+                                            <option value="ferrari">Ferrari</option>
+                                            <option value="lamborghini">Lamborghini</option>
+                                            <option value="mclaren">McLaren</option>
+                                            <option value="c8-corvette">C8 Corvette</option>
+                                            <option value="bmw">BMW</option>
+                                            <option value="audi">Audi</option>
+                                            <option value="aston-martin">Aston Martin</option>
+                                            <option value="bentley">Bentley</option>
+                                            <option value="mercedes-benz">Mercedes-Benz</option>
+                                            <option value="maserati">Maserati</option>
+                                        </select>
+                                    </div>
+
+
+                                    <!-- MODEL -->
+                                    <div class="fs-vehicle-field">
+                                        <label for="model">02 / MODEL</label>
+
+                                        <select id="model">
+                                            <option value="">SELECT MODEL</option>
+
+                                            <!-- Porsche -->
+                                            <option value="911-carrera">911 Carrera</option>
+                                            <option value="gt3-gt3rs">GT3 / GT3RS</option>
+                                            <option value="911-turbo">911 Turbo</option>
+                                            <option value="gt2-gt2rs">GT2 / GT2RS</option>
+                                            <option value="911-gt3-cup">911 GT3 Cup</option>
+                                            <option value="boxster-cayman">Boxster / Cayman</option>
+                                            <option value="macan">Macan</option>
+                                            <option value="cayenne">Cayenne</option>
+                                            <option value="panamera">Panamera</option>
+                                            <option value="carrera-gt">Carrera GT</option>
+                                            <option value="speedster">Speedster</option>
+                                            <option value="944-turbo">944 Turbo</option>
+                                            <option value="mid-engine">Mid-Engine</option>
+                                            <option value="front-engine">Front-Engine</option>
+
+                                            <!-- Lamborghini -->
+                                            <option value="aventador">Aventador</option>
+                                            <option value="huracan">Huracan</option>
+                                            <option value="murcielago">Murcielago</option>
+                                            <option value="revuelto">Revuelto</option>
+                                            <option value="gallardo">Gallardo</option>
+                                            <option value="urus">Urus</option>
+                                            <option value="diablo">Diablo</option>
+                                            <option value="lp550-2-lp560-lp570">LP550-2 / LP560 / LP570</option>
+
+                                            <!-- McLaren -->
+                                            <option value="750s">750S</option>
+                                            <option value="artura">Artura</option>
+                                            <option value="gt-gts">GT / GTS</option>
+                                            <option value="765lt">765 LT</option>
+                                            <option value="720s">720 S</option>
+                                            <option value="675lt">675 LT</option>
+                                            <option value="650s">650 S</option>
+                                            <option value="600lt">600 LT</option>
+                                            <option value="570s-570gt-540c">570S / 570GT / 540C</option>
+                                            <option value="mp4-12c">MP4-12C</option>
+                                            <option value="senna">Senna</option>
+                                            <option value="p1">P1</option>
+
+                                            <!-- Corvette -->
+                                            <option value="c8-corvette-2020">Stingray</option>
+                                            <option value="c8-corvette-z06">Z06</option>
+                                            <option value="c8-corvette-zr1">ZR1</option>
+                                            <option value="e-ray">E Ray</option>
+
+                                            <!-- BMW -->
+                                            <option value="alpina">Alpina</option>
+                                            <option value="2-series">2 Series</option>
+                                            <option value="3-series">3 / 4 Series</option>
+                                            <option value="5-series">5 Series</option>
+                                            <option value="7-series">7 Series</option>
+                                            <option value="m2">M2</option>
+                                            <option value="m3">M3 / M4</option>
+                                            <option value="m5">M5</option>
+                                            <option value="m6-f12-f13">M6 (F12/F13)</option>
+                                            <option value="m8">M8 / M840i</option>
+                                            <option value="x5m">X5M</option>
+                                            <option value="x5">X5</option>
+                                            <option value="x6">X6</option>
+                                            <option value="x6m-e71">X6M</option>
+                                            <option value="x7">X7</option>
+                                            <option value="z4">Z4</option>
+
+                                            <!-- Audi -->
+                                            <option value="r8">R8 (2006+)</option>
+                                            <option value="tt-rs">TT-RS</option>
+                                            <option value="rs67">RS6/RS7 (C8) (2019+)</option>
+                                            <option value="rsq8">RSQ8 (2020+)</option>
+                                            <option value="sq5">SQ5 (2018+)</option>
+                                            <option value="sq7">SQ7 (2020+)</option>
+                                            <option value="sq8">SQ8</option>
+                                            <option value="rs3">RS3</option>
+                                            <option value="rs4">RS4</option>
+                                            <option value="rs5">RS5</option>
+                                            <option value="rs6">RS6</option>
+                                            <option value="rs7">RS7</option>
+                                            <option value="s1">S1</option>
+                                            <option value="s3">S3</option>
+                                            <option value="s8v10">S8 V10</option>
+
+                                            <!-- Aston Martin -->
+                                            <option value="rapide">Rapide</option>
+                                            <option value="vanquish">Vanquish</option>
+                                            <option value="virage">Virage</option>
+                                            <option value="zagato">Zagato</option>
+                                            <option value="v12-vantage">V12 Vantage</option>
+                                            <option value="v8-vantage">V8 Vantage</option>
+                                            <option value="dbs">DBS</option>
+                                            <option value="db9">DB9</option>
+                                            <option value="db11">DB11</option>
+
+                                            <!-- Bentley -->
+                                            <option value="continental-gt-gtc-speed">Continental GT/GTC</option>
+                                            <option value="bentayga">Bentayga</option>
+
+                                            <!-- Mercedes-Benz -->
+                                            <option value="amg">AMG GT</option>
+                                            <option value="gwag2025">G-Class (G-Wagon) 2025+</option>
+                                            <option value="gwag2019">G-Class (G-Wagon) 2019+</option>
+                                            <option value="gwag2015">G-Class (G-Wagon) 2015-2018</option>
+                                            <option value="c">C-Class</option>
+                                            <option value="cla">CLA-Class</option>
+                                            <option value="cls">CLS-Class</option>
+                                            <option value="e">E-Class</option>
+                                            <option value="s">S-Class</option>
+                                            <option value="sl">SL-Class</option>
+                                            <option value="slc">SLC-Class</option>
+                                            <option value="gla">GLA-Class</option>
+                                            <option value="glc">GLC-Class</option>
+                                            <option value="gle">GLE-Class</option>
+                                            <option value="gls">GLS-Class</option>
+
+                                            <!-- Maserati -->
+                                            <option value="ghibli">Ghibli</option>
+                                            <option value="levante">Levante</option>
+                                            <option value="granturismo">GranTurismo</option>
+                                            <option value="quattroporte">Quattroporte</option>
+                                            <option value="gt-coupe-spyder">GT Coupe / Spyder</option>
+
+                                            <!-- Ferrari -->
+                                            <option value="296-gts-gtb">296 GTS/GTB</option>
+                                            <option value="sf90">SF90</option>
+                                            <option value="f8-tributo">F8 Tributo</option>
+                                            <option value="488-pista">488 Pista</option>
+                                            <option value="488-spider-gtb">488 Spider/GTB</option>
+                                            <option value="458">458</option>
+                                            <option value="f430">F430</option>
+                                            <option value="360">360</option>
+                                            <option value="355">355</option>
+                                            <option value="348">348</option>
+                                            <option value="f40">F40</option>
+                                            <option value="328">328</option>
+                                            <option value="testarossa">Testarossa</option>
+                                            <option value="308-gtb">308 GTB</option>
+                                            <option value="roma">Roma</option>
+                                            <option value="812">812</option>
+                                            <option value="portofino">Portofino</option>
+                                            <option value="california">California</option>
+                                            <option value="california-t">California T</option>
+                                            <option value="f12">F12</option>
+                                            <option value="599-gtb-gto">599 GTB/GTO</option>
+                                            <option value="550">550</option>
+                                            <option value="456">456</option>
+
+                                        </select>
+                                    </div>
+
+
+                                    <!-- SUBMODEL / GENERATION -->
+                                    <div class="fs-vehicle-field">
+                                        <label for="submodel">03 / GENERATION &amp; TRIM</label>
+
+                                        <select id="submodel" disabled>
+                                            <option value="">SELECT GENERATION</option>
+
+                                            <!-- Porsche 911 Carrera -->
+                                            <option value="992.2 (2025+)">992.2 (2025+)</option>
+                                            <option value="992 (2019+)">992 (2019+)</option>
+                                            <option value="991.2 (2017-2019)">991.2 (2017-2019)</option>
+                                            <option value="991 (2012-2016)">991 (2012-2016)</option>
+                                            <option value="997.2 (2009-2011)">997.2 (2009-2011)</option>
+                                            <option value="997 (2005-2008)">997 (2005-2008)</option>
+                                            <option value="996 (1999-2004)">996 (1999-2004)</option>
+                                            <option value="993 (1994-1998)">993 (1994-1998)</option>
+                                            <option value="964 (1989-1994)">964 (1989-1994)</option>
+                                            <option value="911 3.0/3.2 (1976-1989)">911 3.0/3.2 (1976-1989)</option>
+
+                                            <!-- Porsche GT3 / GT3RS -->
+                                            <option value="992.2 GT3/RS (2025+)">992.2 GT3/RS (2025+)</option>
+                                            <option value="992 GT3/RS (2022+)">992 GT3/RS (2022+)</option>
+                                            <option value="991.2 GT3/RS (2017-2019)">991.2 GT3/RS (2017-2019)</option>
+                                            <option value="991 GT3/RS (2014-2016)">991 GT3/RS (2014-2016)</option>
+                                            <option value="997.2 GT3/RS (2010-2011)">997.2 GT3/RS (2010-2011)</option>
+                                            <option value="997 GT3/RS (2006-2009)">997 GT3/RS (2006-2009)</option>
+                                            <option value="996 GT3 (1999-2005)">996 GT3 (1999-2005)</option>
+
+                                            <!-- Porsche Turbo -->
+                                            <option value="992.2 Turbo/S (2025+)">992.2 Turbo/S (2025+)</option>
+                                            <option value="992 Turbo/S (2021+)">992 Turbo/S (2021+)</option>
+                                            <option value="991.2 Turbo/S (2017-2020)">991.2 Turbo/S (2017-2020)</option>
+                                            <option value="991 Turbo/S (2013-2016)">991 Turbo/S (2013-2016)</option>
+                                            <option value="997.2 Turbo/S (2010-2012)">997.2 Turbo/S (2010-2012)</option>
+                                            <option value="997 Turbo/S (2006-2009)">997 Turbo/S (2006-2009)</option>
+                                            <option value="996 Turbo/S (2000-2005)">996 Turbo/S (2000-2005)</option>
+                                            <option value="993 Turbo/S (1995-1998)">993 Turbo/S (1995-1998)</option>
+                                            <option value="964 Turbo/C2/965 (1990-1994)">964 Turbo/C2/965 (1990-1994)</option>
+                                            <option value="911 Turbo/930 (1976-1989)">911 Turbo/930 (1976-1989)</option>
+
+                                            <!-- Porsche GT2 -->
+                                            <option value="991.2 (2018+)">991.2 (2018+)</option>
+                                            <option value="997.2 (2011)">997.2 (2011)</option>
+                                            <option value="997 (2008-2009)">997 (2008-2009)</option>
+                                            <option value="996 (2001-2005)">996 (2001-2005)</option>
+
+                                            <!-- Boxster / Cayman -->
+                                            <option value="718 GT4RS/Spyder RS (2023+)">718 GT4RS/Spyder RS (2023+)</option>
+                                            <option value="718 GT4/GTS/Spyder (2020+)">718 GT4/GTS/Spyder (2020+)</option>
+                                            <option value="718 (2017+)">718 (2017+)</option>
+                                            <option value="981 GT4/Spyder (2015-2016)">981 GT4/Spyder (2015-2016)</option>
+                                            <option value="981 (2013-2016)">981 (2013-2016)</option>
+                                            <option value="987.2 (2009-2012)">987.2 (2009-2012)</option>
+                                            <option value="987 (2005-2008)">987 (2005-2008)</option>
+                                            <option value="986 (1997-2004)">986 (1997-2004)</option>
+
+                                            <!-- Macan -->
+                                            <option value="Macan 2.0L">Macan 2.0L</option>
+                                            <option value="Macan S/GTS 3.0L">Macan S/GTS 3.0L</option>
+                                            <option value="Macan Turbo 3.6L">Macan Turbo 3.6L</option>
+                                            <option value="Macan S 3.0L">Macan S 3.0L</option>
+                                            <option value="Macan Turbo 2.9L">Macan Turbo 2.9L</option>
+                                            <option value="Macan GTS 2.9L">Macan GTS 2.9L</option>
+                                            <option value="Macan S/GTS 2.9L">Macan S/GTS 2.9L</option>
+
+                                            <!-- Cayenne -->
+                                            <option value="E3 Cayenne Base">E3 Cayenne Base</option>
+                                            <option value="E3 Cayenne S">E3 Cayenne S</option>
+                                            <option value="E3 Cayenne GTS/Turbo">E3 Cayenne GTS/Turbo</option>
+                                            <option value="958.2 Turbo">958.2 Turbo</option>
+                                            <option value="958.2 S/GTS">958.2 S/GTS</option>
+                                            <option value="958.2 V6">958.2 V6</option>
+                                            <option value="958.2 Hybrid">958.2 Hybrid</option>
+                                            <option value="958 Turbo/S">958 Turbo/S</option>
+                                            <option value="958 S/GTS">958 S/GTS</option>
+                                            <option value="958 V6">958 V6</option>
+                                            <option value="957 Turbo/S">957 Turbo/S</option>
+                                            <option value="957 S/GTS">957 S/GTS</option>
+                                            <option value="957 V6">957 V6</option>
+                                            <option value="955 Turbo/S">955 Turbo/S</option>
+                                            <option value="955 S">955 S</option>
+                                            <option value="955 V6">955 V6</option>
+
+                                            <!-- Panamera -->
+                                            <option value="971 GTS">971 GTS</option>
+                                            <option value="971 S">971 S</option>
+                                            <option value="971 Turbo/S">971 Turbo/S</option>
+                                            <option value="971 V6">971 V6</option>
+                                            <option value="970 GTS">970 GTS</option>
+                                            <option value="970 S">970 S</option>
+                                            <option value="970 Turbo/S">970 Turbo/S</option>
+                                            <option value="970 V6">970 V6</option>
+
+                                            <!-- Ferrari -->
+                                            <option value="296 GTS/GTB">296 GTS/GTB</option>
+                                            <option value="SF90">SF90</option>
+                                            <option value="F8 Tributo">F8 Tributo</option>
+                                            <option value="488 Pista">488 Pista</option>
+                                            <option value="488 Spider/GTB">488 Spider/GTB</option>
+                                            <option value="458">458</option>
+                                            <option value="F430">F430</option>
+                                            <option value="360">360</option>
+                                            <option value="355">355</option>
+                                            <option value="348">348</option>
+                                            <option value="F40">F40</option>
+                                            <option value="328">328</option>
+                                            <option value="Testarossa">Testarossa</option>
+                                            <option value="308 GTB">308 GTB</option>
+                                            <option value="Roma">Roma</option>
+                                            <option value="812">812</option>
+                                            <option value="Portofino">Portofino</option>
+                                            <option value="California">California</option>
+                                            <option value="California T">California T</option>
+                                            <option value="F12">F12</option>
+                                            <option value="599 GTB/GTO">599 GTB/GTO</option>
+                                            <option value="550">550</option>
+                                            <option value="456">456</option>
+
+                                            <!-- Lamborghini -->
+                                            <option value="Aventador LP700-4">Aventador LP700-4</option>
+                                            <option value="Aventador S LP-740-4">Aventador S LP-740-4</option>
+                                            <option value="Aventador SVJ LP770-4">Aventador SVJ LP770-4</option>
+                                            <option value="Huracan">Huracan</option>
+                                            <option value="Huracan Performante">Huracan Performante</option>
+                                            <option value="Huracan EVO / STO">Huracan EVO / STO</option>
+
+                                            <!-- BMW -->
+                                            <option value="M235i (F22)">M235i (F22)</option>
+                                            <option value="M240i (F22)">M240i (F22)</option>
+                                            <option value="335i &amp; 135i (E90/E87)">335i &amp; 135i (E90/E87)</option>
+                                            <option value="340i &amp; 440i (F30/F32)">340i &amp; 440i (F30/F32)</option>
+                                            <option value="335i &amp; 435i (F30/F32)">335i &amp; 435i (F30/F32)</option>
+                                            <option value="M340i / M440i (G20)">M340i / M440i (G20)</option>
+                                            <option value="M2 (F87) (2016-2021)">M2 (F87) (2016-2021)</option>
+                                            <option value="M2 Competition (F87) (2016-2021)">M2 Competition (F87) (2016-2021)</option>
+                                            <option value="M2 (G87) (2023+)">M2 (G87) (2023+)</option>
+                                            <option value="M3/M4 (G80/G82) (2021+)">M3/M4 (G80/G82) (2021+)</option>
+                                            <option value="M3/M4 (F80/F82/F83) (2014-2018)">M3/M4 (F80/F82/F83) (2014-2018)</option>
+                                            <option value="M3 (E90/E92/E93) (2007-2013)">M3 (E90/E92/E93) (2007-2013)</option>
+                                            <option value="M3 (E46) (2000-2006)">M3 (E46) (2000-2006)</option>
+                                            <option value="M5 (F10)">M5 (F10)</option>
+                                            <option value="M5 (F90)">M5 (F90)</option>
+                                            <option value="M5 (G90)">M5 (G90)</option>
+                                            <option value="X5M (E70)">X5M (E70)</option>
+                                            <option value="X5M (F85)">X5M (F85)</option>
+                                            <option value="X5M (F95)">X5M (F95)</option>
+
+                                        </select>
+                                    </div>
+
+
+                                    <!-- SELECT VEHICLE -->
+                                    <button
+                                        type="button"
+                                        id="search"
+                                        class="fs-vehicle-button"
+                                    >
+                                        <span>SELECT VEHICLE</span>
+                                        <span class="fs-vehicle-button-arrow">→</span>
+                                    </button>
+
+                                </div>
+
+                                <div
+                                    id="submodel-warning"
+                                    class="fs-vehicle-warning"
+                                >
+                                    Please select a submodel to continue
+                                </div>
+
+                            </div>
+
                         </div>
-                        {{/if}}
                     {{/if}}
-                    <!-- End another scheduled slide -->
-                     
-                {{#if button_text}}
-                    </div>
-                {{else}}
-                    </a>
-                {{/if}}
+
+                </div>
+
             {{/each}}
+
         </div>
     </section>
-    {{/contains}}
+
 </div>

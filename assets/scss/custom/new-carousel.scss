@@ -86,7 +86,10 @@
 ========================================================= */
 
 .fs-vehicle-selector {
-    position: relative;
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
     width: 100%;
     max-width: 760px;
     margin: 0;
@@ -165,6 +168,9 @@
 .fs-vehicle-field select option {
     background: #111;
     color: #fff;
+    &.hidden {
+        display: none;
+    }
 }
 
 .fs-vehicle-field select:focus {
@@ -199,6 +205,7 @@
 .fs-vehicle-button:hover {
     background: #c91425;
     border-color: #c91425;
+    color: #fff;
 }
 
 .fs-vehicle-button-arrow {
@@ -212,6 +219,12 @@
     margin-top: 10px;
     color: #ff6b6b;
     font-size: 12px;
+}
+
+.fs-vehicle-button.disabled {
+    pointer-events: none;
+    background-color: #888;
+    border: 1px solid #888;
 }
 
 

@@ -49,6 +49,7 @@ import promoProductListing from "./custom/promo-product-listing";
 import leadTimeText from "./custom/lead-time-text";
 import searchToggle from "./custom/search-toggle";
 import stickyHeader from "./custom/sticky-header";
+import vehicleSelector from "./custom/vehicle-selector";
 
 export default class Global extends PageManager {
     onReady() {
@@ -79,6 +80,7 @@ export default class Global extends PageManager {
 
         categoryDescriptions();
         equalizeHeights(['.card-title', '.card-wrapper']);
+        vehicleSelector();
         clickDescriptionTab();
         soundButton();
         bulkExportMachine();

@@ -1,0 +1,53 @@
+<div class="fs-vehicle-selector">
+    <div class="fs-vehicle-fields">
+        <div class="fs-vehicle-field">
+            <label for="make">01 / MAKE</label>
+            <select id="make">
+                <option value="">SELECT MAKE</option>
+                {{#each categories}}
+                    {{#if (toLowerCase name) '!==' 'more products'}}
+                        <option value="{{name}}">{{name}}</option>
+                    {{/if}}
+                {{/each}}
+            </select>
+        </div>
+        <div class="fs-vehicle-field">
+            <label for="model">02 / MODEL</label>
+            <select id="model" disabled>
+                <option value="">SELECT MODEL</option>
+                {{#each categories}}
+                    {{#if (toLowerCase name) '!==' 'more products'}}
+                        {{#each children}}
+                            {{#if children}}
+                                <option data-url="" class="hidden" value="{{name}}" data-make="{{../../name}}">{{name}}</option>
+                            {{else}}
+                                <option data-url="{{url}}" class="hidden" value="" data-make="{{../../name}}">{{name}}</option>
+                            {{/if}}
+                        {{/each}}
+                    {{/if}}
+                {{/each}}
+            </select>
+        </div>
+        <div class="fs-vehicle-field">
+            <label for="submodel">03 / GENERATION & TRIM</label>
+            <select id="submodel" disabled>
+                <option value="">SELECT SUBMODEL</option>
+                {{#each categories}}
+                    {{#if (toLowerCase name) '!==' 'more products'}}
+                        {{#each children}}
+                            {{#if children}}
+                                {{#each children}}
+                                    <option data-url="{{url}}" class="hidden" value="{{name}}" data-model="{{../name}}">{{name}}</option>
+                                {{/each}}
+                            {{/if}}
+                        {{/each}}
+                    {{/if}}
+                {{/each}}
+            </select>
+        </div>
+        <a type="button" id="search" class="fs-vehicle-button disabled" href="javascript:void(0);">
+            <span>SELECT VEHICLE</span>
+            <span class="fs-vehicle-button-arrow">→</span>
+        </a>
+    </div>
+</div>

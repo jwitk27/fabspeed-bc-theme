@@ -9,7 +9,6 @@ export default function() {
     const vehicleButton = $('.fs-vehicle-button');
 
     makeSelector.on('change', e => {
-        console.log('changing');
         disableButton();
         const make = $(e.currentTarget).val().trim();
         modelSelector.find('option:eq(0)').prop('selected', true);
@@ -27,7 +26,6 @@ export default function() {
     });
 
     modelSelector.on('change', e => {
-        console.log('changing');
         trimSelector.find('option:eq(0)').prop('selected', true);
         const model = $(e.currentTarget).val().trim();
         const modelUrl = $(e.currentTarget).find('option:selected').data('url').trim();
@@ -43,7 +41,6 @@ export default function() {
     });
 
     trimSelector.on('change', e => {
-        console.log('changing');
         const trimUrl = $(e.currentTarget).find('option:selected').data('url').trim();
         setUrl(trimUrl);
     });

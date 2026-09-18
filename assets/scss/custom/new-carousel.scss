@@ -87,11 +87,11 @@
 
 .fs-vehicle-selector {
     position: absolute;
-    bottom: 50px;
+    bottom: 126px;
     left: 50%;
     transform: translateX(-50%);
-    width: 100%;
-    max-width: 760px;
+    width: calc(100% - 80px);
+    max-width: 1100px;
     margin: 0;
     padding: 0;
     background: transparent;
@@ -103,6 +103,7 @@
     display: flex;
     align-items: stretch;
     width: 100%;
+    max-width: 775px;
     gap: 0;
 }
 
@@ -248,12 +249,9 @@
         min-height: 520px;
     }
 
-    .fs-hero-content {
-        width: calc(100% - 60px);
-    }
-
+    .fs-hero-content,
     .fs-vehicle-selector {
-        max-width: 700px;
+        width: calc(100% - 60px);
     }
 
     .fs-vehicle-button {
@@ -298,11 +296,6 @@
         max-width: 100%;
         margin-bottom: 24px;
         font-size: 13px;
-    }
-
-    .fs-vehicle-selector {
-        width: 100%;
-        max-width: 100%;
     }
 
     .fs-vehicle-fields {

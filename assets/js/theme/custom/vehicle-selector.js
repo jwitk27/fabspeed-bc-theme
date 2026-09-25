@@ -9,19 +9,20 @@ export default function() {
     const vehicleButton = $('.fs-vehicle-button');
 
     makeSelector.on('change', e => {
-        disableButton();
         const make = $(e.currentTarget).val().trim();
+        const makeUrl = $(e.currentTarget).find('option:selected').data('url').trim();
         modelSelector.find('option:eq(0)').prop('selected', true);
         trimSelector.find('option:eq(0)').prop('selected', true);
+        setUrl(makeUrl);
         if (make !== '') {
             modelSelector.find('option').each((i, el) => {
                 displayOptions(el, 'make', make);
             });
-            modelSelector.removeAttr('disabled');
-            trimSelector.attr('disabled', 'true');
+            modelSelector.removeAttr('disabled')
         } else {
-            modelSelector.attr('disabled', 'true');
-            trimSelector.attr('disabled', 'true');
+            vehicleButton.attr('href', 'javascript:void(0)');
+            modelSelector.attr('disabled', true);
+            trimSelector.attr('disabled', true);
         }
     });
 
@@ -30,13 +31,13 @@ export default function() {
         const model = $(e.currentTarget).val().trim();
         const modelUrl = $(e.currentTarget).find('option:selected').data('url').trim();
         setUrl(modelUrl);
-        if (model !== '') {
+        if ($(e.currentTarget).find('option:selected').data('has-children')) {
             trimSelector.find('option').each((i, el) => {
                 displayOptions(el, 'model', model);
             });
             trimSelector.removeAttr('disabled');
         } else {
-            trimSelector.attr('disabled', 'true');
+            trimSelector.attr('disabled', true);
         }
     });
 
@@ -45,22 +46,8 @@ export default function() {
         setUrl(trimUrl);
     });
 
-    function enableButton(url) {
-        vehicleButton.attr('href', url);
-        vehicleButton.removeClass('disabled');
-    }
-
-    function disableButton() {
-        vehicleButton.attr('href', 'javascript:void(0);');
-        vehicleButton.addClass('disabled');
-    }
-
     function setUrl(url) {
-        if (url !== '') {
-            enableButton(url);
-        } else {
-            disableButton();
-        }
+        vehicleButton.attr('href', url);
     }
 
     function displayOptions(el, scope, value) {
@@ -70,4 +57,9 @@ export default function() {
             $(el).addClass('hidden');
         }
     }
+
+    makeSelector.find('option:eq(1)').prop('selected', true);
+    modelSelector.find('option').each((i, el) => {
+        displayOptions(el, 'make', 'Porsche');
+    });
 }

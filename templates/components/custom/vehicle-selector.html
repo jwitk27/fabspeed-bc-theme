@@ -3,25 +3,25 @@
         <div class="fs-vehicle-field">
             <label for="make">01 / MAKE</label>
             <select id="make">
-                <option value="">SELECT MAKE</option>
+                <option data-url="" value="">SELECT MAKE</option>
                 {{#each categories}}
                     {{#if (toLowerCase name) '!==' 'more products'}}
-                        <option value="{{name}}">{{name}}</option>
+                        <option data-url="{{url}}" value="{{name}}">{{name}}</option>
                     {{/if}}
                 {{/each}}
             </select>
         </div>
         <div class="fs-vehicle-field">
             <label for="model">02 / MODEL</label>
-            <select id="model" disabled>
+            <select id="model">
                 <option value="">SELECT MODEL</option>
                 {{#each categories}}
                     {{#if (toLowerCase name) '!==' 'more products'}}
                         {{#each children}}
                             {{#if children}}
-                                <option data-url="" class="hidden" value="{{name}}" data-make="{{../../name}}">{{name}}</option>
+                                <option data-url="{{url}}" class="hidden" value="{{name}}" data-make="{{../../name}}" data-has-children="true">{{name}}</option>
                             {{else}}
-                                <option data-url="{{url}}" class="hidden" value="" data-make="{{../../name}}">{{name}}</option>
+                                <option data-url="{{url}}" class="hidden" value="{{name}}" data-make="{{../../name}}" data-has-children="false">{{name}}</option>
                             {{/if}}
                         {{/each}}
                     {{/if}}
@@ -45,7 +45,7 @@
                 {{/each}}
             </select>
         </div>
-        <a type="button" id="search" class="fs-vehicle-button disabled" href="javascript:void(0);">
+        <a type="button" id="search" class="fs-vehicle-button" href="/porsche">
             <span>SELECT VEHICLE</span>
             <span class="fs-vehicle-button-arrow">→</span>
         </a>

@@ -23,7 +23,6 @@
                     <option value="bentley">Bentley</option>
                     <option value="mercedes-benz">Mercedes-Benz</option>
                     <option value="maserati">Maserati</option>
-                    
                 </select>
             </div>
             <div class="selector">
@@ -47,6 +46,7 @@
                     <option value="huracan">Huracan</option>
                     <option value="murcielago">Murcielago</option>
                     <option value="revuelto">Revuelto</option>
+                    <option value="temerario">Temerario</option>
                     <option value="gallardo">Gallardo</option>
                     <option value="urus">Urus</option>
                     <option value="diablo">Diablo</option>
@@ -63,10 +63,14 @@
                     <option value="mp4-12c">MP4-12C</option>
                     <option value="senna">Senna</option>
                     <option value="p1">P1</option>
-                    <option value="c8-corvette-2020">Stingray</option>
-                    <option value="c8-corvette-z06">Z06</option>
+                    <option value="c8-corvette-zr1x">ZR1X</option>
                     <option value="c8-corvette-zr1">ZR1</option>
+                    <option value="c8-corvette-z06">Z06</option>
+                    <option value="grand-sport-x">Grand Sport X</option>
+                    <option value="grand-sport">Grand Sport</option>
                     <option value="e-ray">E Ray</option>
+                    <option value="c8-corvette-2020">Stingray</option>
+                    <option value="row">row</option>
                     <option value="alpina">Alpina</option>
                     <option value="2-series">2 Series</option>
                     <option value="3-series">3 / 4 Series</option>
@@ -230,6 +234,7 @@
                     <option value="599 GTB/GTO"></option>
                     <option value="550"></option>
                     <option value="456"></option>
+                    <option value="Purosangue"></option>
                     <option value="Aventador LP700-4"></option>
                     <option value="Aventador S LP-740-4"></option>
                     <option value="Aventador SVJ LP770-4"></option>
@@ -276,7 +281,7 @@
             const modelsByMake = {
                 porsche: ["911-carrera", "gt3-gt3rs", "911-turbo", "gt2-gt2rs", "911-gt3-cup", "boxster-cayman", "macan", "cayenne", "panamera", "carrera-gt", "speedster", "944-turbo"],
                 ferrari: ["mid-engine", "front-engine"],
-                lamborghini: ["aventador", "huracan", "murcielago", "revuelto", "gallardo", "urus", "diablo", "lp550-2-lp560-lp570"],
+                lamborghini: ["aventador", "huracan", "murcielago", "revuelto", "temerario", "gallardo", "urus", "diablo", "lp550-2-lp560-lp570"],
                 mclaren: ["750s", "artura", "gt-gts", "765lt", "720s", "675lt", "650s", "600lt", "570s-570gt-540c", "mp4-12c", "senna", "p1"],
                 bmw: ["alpina", "2-series", "3-series", "5-series", "7-series", "m2", "m3", "m5", "x5m", "m6-f12-f13", "m8", "x5", "x6", "x6m-e71", "x7", "z4"],
                 audi: ["r8", "tt-rs", "rs67", "rsq8", "sq7", "sq5", "rs3", "rs4", "rs5", "rs6", "rs7", "s1", "s3", "sq8", "s8v10"],
@@ -284,7 +289,7 @@
                 maserati: ["ghibli", "levante", "quattroporte", "gt-coupe-spyder", "granturismo"],
                 'mercedes-benz': ["amg", "gwag2025", "gwag2019", "gwag2015", "c", "cla", "cls", "e", "s", "sl", "slc", "gla", "glc", "gle", "gls"],
                 'aston-martin': ["rapide", "vanquish", "virage", "zagato", "v12-vantage", "v8-vantage", "dbs", "db9", "db11"],
-                'c8-corvette': ["c8-corvette-2020", "c8-corvette-z06", "e-ray", "c8-corvette-zr1"]
+                'c8-corvette': ["c8-corvette-2020", "c8-corvette-z06", "e-ray", "c8-corvette-zr1", "c8-corvette-zr1x", "grand-sport-x", "grand-sport", "row"]
 
 
             };
@@ -322,7 +327,7 @@
                 "cayenne": ["E3 Cayenne Base", "E3 Cayenne S", "E3 Cayenne GTS/Turbo", "958.2 Turbo", "958.2 S/GTS", "958.2 V6", "958.2 Hybrid", "958 Turbo/S", "958 S/GTS", "958 V6", "957 Turbo/S", "957 S/GTS", "957 V6", "955 Turbo/S", "955 S", "955 V6"],
                 "panamera": ["971 GTS", "971 S", "971 Turbo/S", "971 V6", "970 GTS", "970 S", "970 Turbo/S", "970 V6"],
                 "mid-engine": ["296 GTS/GTB", "SF90", "F8 Tributo", "488 Pista", "488 Spider/GTB", "458", "F430", "360", "355", "348", "F40", "328", "Testarossa", "308 GTB"],
-                "front-engine": ["Roma", "812", "Portofino", "California", "California T", "F12", "599 GTB/GTO", "550", "456"],
+                "front-engine": ["Roma", "812", "Portofino", "California", "California T", "Purosangue", "F12", "599 GTB/GTO", "550", "456"],
                 "aventador": ["Aventador LP700-4", "Aventador S LP-740-4", "Aventador SVJ LP770-4"],
                 "huracan": ["Huracan", "Huracan Performante", "Huracan EVO / STO"],
                 "2-series": ["M235i (F22)", "M240i (F22)"],
@@ -424,7 +429,8 @@
                 "812": "ferrari/812/", 
                 "Portofino": "ferrari/portofino/", 
                 "California": "ferrari/california", 
-                "California T": "ferrari/california-t", 
+                "California T": "ferrari/california-t",
+                "Purosangue": "ferrari/purosangue",
                 "F12": "ferrari/f12", 
                 "599 GTB/GTO": "ferrari/599", 
                 "550": "ferrari/550", 

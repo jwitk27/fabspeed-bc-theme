@@ -49,6 +49,7 @@ import promoProductListing from "./custom/promo-product-listing";
 import leadTimeText from "./custom/lead-time-text";
 import searchToggle from "./custom/search-toggle";
 import stickyHeader from "./custom/sticky-header";
+import lazyloadScripts from "./custom/lazyload-scripts";
 
 export default class Global extends PageManager {
     onReady() {
@@ -93,5 +94,6 @@ export default class Global extends PageManager {
         leadTimeText();
         searchToggle();
         stickyHeader();
+        lazyloadScripts();
     }
 }

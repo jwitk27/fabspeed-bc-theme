@@ -44,10 +44,8 @@ import customProductLogic from "./custom/custom-product-logic";
 import tabAlert from "./custom/tab-alert";
 import dynograph from "./custom/dynograph";
 import priceSlashing from "./custom/price-slashing";
-import analytics from "./custom/analytics";
 import promoProductListing from "./custom/promo-product-listing";
 import leadTimeText from "./custom/lead-time-text";
-import searchToggle from "./custom/search-toggle";
 import stickyHeader from "./custom/sticky-header";
 import lazyloadScripts from "./custom/lazyload-scripts";
 
@@ -89,10 +87,8 @@ export default class Global extends PageManager {
         tabAlert();
         dynograph();
         priceSlashing();
-        analytics();
         promoProductListing();
         leadTimeText();
-        searchToggle();
         stickyHeader();
         lazyloadScripts();
     }

@@ -41,7 +41,7 @@
                 "adaptiveHeight": true,
                 "lazyLoad": "anticipated",
                 "autoplaySpeed": 7000,
-                "autoplay": true,
+                "autoplay": false,
                 "fade": true,
                 "nextArrow": "<svg class=&apos;slick-next slick-arrow&apos;><use xlink:href=&apos;#icon-slick-next&apos;></use></svg>", 
                 "prevArrow": "<svg class=&apos;slick-prev slick-arrow&apos;><use xlink:href=&apos;#icon-slick-prev&apos;></use></svg>",
@@ -92,7 +92,8 @@
                                     image="https://store-fh9wsjv2.mybigcommerce.com/content/carousel-images/carousel-image-1-mobile.jpg"
                                     class="heroCarousel-image"
                                     fallback_size='1280w'
-                                    lazyload='lazyload'
+                                    lazyload='disabled'
+                                    fetchpriority='high'
                                 }}
                             </div>
                         {{else if @index '==' '1'}}
@@ -101,7 +102,7 @@
                                     image=stencil_image
                                     class="heroCarousel-image"
                                     fallback_size='1280w'
-                                    lazyload='disabled'
+                                    lazyload='lazyload'
                                 }}
                             </div>
                             <div class="heroCarousel-mobile-image">
@@ -118,7 +119,7 @@
                                     image=stencil_image
                                     class="heroCarousel-image"
                                     fallback_size='1280w'
-                                    lazyload='disabled'
+                                    lazyload='lazyload'
                                 }}
                             </div>
                             <div class="heroCarousel-mobile-image">

@@ -1,4 +1,6 @@
 export default function () {
+    if (!$('.page-type-product').length) return;
+    
     const dynoMap = fetch('https://store-fh9wsjv2.mybigcommerce.com/content/dynograph/dynograph-map.json').then(res => res.json()).then(res => {
         const productId = $('.productView').data('product-id');
         const map = res[productId];

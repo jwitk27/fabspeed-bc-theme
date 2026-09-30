@@ -21,7 +21,9 @@ export default class Home extends PageManager {
         this.initAjaxProductsByCategoryGrid();
         this.initAjaxProductsByCategoryIdTabs();
         this.initAjaxProductsByCategorySortingTabs();
-        this.initPopupVideo();
+        $(window).on('scroll', () => {
+            this.initPopupVideo();
+        });
     }
 
     // ========================================================================

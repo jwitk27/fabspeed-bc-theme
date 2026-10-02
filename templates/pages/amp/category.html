@@ -7,7 +7,7 @@ category:
 {{inject "categoryProductsPerPage" theme_settings.categorypage_products_per_page}}
 {{#partial "head"}}
     {{#if pagination.category.previous}}
-        <link rel="prev" href="{{pagination.category.previous}}">
+        <link rel="prev" href="{{strReplace pagination.category.previous '?page=1' ''}}">
     {{/if}}
     {{#if pagination.category.next}}
         <link rel="next" href="{{pagination.category.next}}">

@@ -13,7 +13,7 @@ products:
 {{inject 'searchProductsPerPage' theme_settings.searchpage_products_per_page}}
 {{#partial "head"}}
     {{#if pagination.product_results.previous}}
-        <link rel="prev" href="{{pagination.product_results.previous}}">
+        <link rel="prev" href="{{strReplace pagination.product_results.previous '?page=1' ''}}">
     {{/if}}
     {{#if pagination.product_results.next}}
         <link rel="next" href="{{pagination.product_results.next}}">

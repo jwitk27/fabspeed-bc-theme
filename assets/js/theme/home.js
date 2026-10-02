@@ -21,7 +21,7 @@ export default class Home extends PageManager {
         this.initAjaxProductsByCategoryGrid();
         this.initAjaxProductsByCategoryIdTabs();
         this.initAjaxProductsByCategorySortingTabs();
-        $(window).on('scroll', () => {
+        $('.themevale_video_carousel').on('click', () => {
             this.initPopupVideo();
         });
     }

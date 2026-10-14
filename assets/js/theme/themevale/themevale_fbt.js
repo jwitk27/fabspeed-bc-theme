@@ -213,13 +213,13 @@ export default function (context) {
         } else {
             $('.themvale-fbt-product-list').slick({
                 dots: true,
-                arrows: false,
+                arrows: true,
                 slidesToShow: 2,
                 slidesToScroll: 2,
                 mobileFirst: true,
                 infinite: false,
-                nextArrow: "<svg class='slick-next slick-arrow'><use xlink:href='#icon-slick-next'></use></svg>",
-                prevArrow: "<svg class='slick-prev slick-arrow'><use xlink:href='#icon-slick-prev'></use></svg>",
+                nextArrow: "<svg class='slick-next slick-arrow' style='background-color:white;border-radius:50%;font-size:20px;border: 1px solid #e5e5e5'><use xlink:href='#icon-slick-next'></use></svg>",
+                prevArrow: "<svg class='slick-prev slick-arrow' style='background-color:white;border-radius:50%;font-size:20px;border: 1px solid #e5e5e5'><use xlink:href='#icon-slick-prev'></use></svg>",
                 responsive: [
                     {
                         breakpoint: 1025,

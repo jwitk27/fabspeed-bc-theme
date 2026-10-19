@@ -149,11 +149,23 @@
                 </h2>
                 {{/if}}
                 <h1 class="productView-title">{{product.title}}</h1>
-
-                <a class="review-link" href="{{product.url}}#product-reviews">
-                    Reviews
-                </a>
-                {{> components/products/modals/writeReview}}
+                <div class="ruk_rating_snippet" data-sku="{{product.sku}}"></div>
+                <script src="https://widget.reviews.io/rating-snippet/dist.js"></script>
+                <link rel="stylesheet" href="https://widget.reviews.io/rating-snippet/dist.css"/>
+                <script>
+                    ratingSnippet("ruk_rating_snippet", {
+                    store: "fabspeed.com",
+                    mode: "default",
+                    color: "#0E1311",
+                    linebreak: false,
+                    text: "Reviews",
+                    singularText: "Review",
+                    lang: "en",
+                    usePolaris: true,
+                    showEmptyStars: false,
+                    showNumericalAverageRating: false,
+                    });
+                </script>
 
                 {{> components/themevale/product/countdown}} {{#if product.call_for_price}}
                 <p class="productView-price">

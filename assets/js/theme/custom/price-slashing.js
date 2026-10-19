@@ -73,6 +73,6 @@ export default function priceSlashing() {
     initSalePrices('7/9/2026', .05, 'eventuri');
 
     // examples below on how to have multiple sale price slashing, need to think about wholesale pricing though
-    // initSalePrices('5/27/2026', .10, 'cobb');
+    initSalePrices('10/31/2026', .10, 'cobb');
     // initSalePrices('5/27/2026', .20, 'fabspeed');
 }
